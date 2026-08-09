@@ -1,195 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Common Ailments Presentation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Ailments Presentation</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #333;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #333;
+        }
 
-/* Slide Container */
-.slide {
-    display: none;
-    height: 100vh;
-    padding: 60px;
-    box-sizing: border-box;
-    animation: fade 1s ease;
-}
+        /* Slide Container */
+        .slide {
+            display: none;
+            height: 100vh;
+            padding: 60px;
+            box-sizing: border-box;
+            animation: fade 0.5s ease;
+        }
 
-.active {
-    display: block;
-}
+        .active {
+            display: block;
+        }
 
-/* Header */
-.header {
-    background: #0066cc;
-    color: white;
-    padding: 15px 20px;
-    font-size: 22px;
-    font-weight: bold;
-    border-radius: 8px;
-}
+        /* Header */
+        .header {
+            background: #0066cc;
+            color: white;
+            padding: 15px 20px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 8px;
+        }
 
-/* Content */
-.content {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-}
+        /* Content */
+        .content {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
 
-/* Text */
-.text {
-    width: 55%;
-}
+        /* Text */
+        .text {
+            width: 55%;
+        }
 
-.text ul {
-    font-size: 20px;
-    line-height: 1.6;
-}
+        .text ul {
+            font-size: 20px;
+            line-height: 1.6;
+        }
 
-/* Image */
-.image {
-    width: 40%;
-}
+        /* Image */
+        .image {
+            width: 40%;
+        }
 
-.image img {
-    width: 100%;
-    border-radius: 10px;
-}
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-/* Buttons */
-.nav {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
+        /* Controls & Navigation */
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background: #0066cc;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        #slide-indicator {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            margin-right: 5px;
+        }
 
-button:hover {
-    background: #004c99;
-}
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #0066cc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
-/* Animation */
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-</style>
+        button:hover {
+            background: #004c99;
+        }
+
+        /* Animation */
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- Slide 1 -->
-<div class="slide active">
-    <div class="header">Common Ailments</div>
-    <div class="content">
-        <div class="text">
-            <h2>Introduction</h2>
-            <p>This presentation discusses common ailments and how to prevent them.</p>
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <div class="header">Common Ailments</div>
+        <div class="content">
+            <div class="text">
+                <h2>Introduction</h2>
+                <p>This presentation discusses common ailments, their key characteristics, and practical methods to prevent or address them.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Appendicitis -->
-<div class="slide">
-    <div class="header">Appendicitis</div>
-    <div class="content">
-        <div class="text">
-            <ul>
-                <li>Inflammation of the appendix</li>
-                <li>Pain in lower right abdomen</li>
-                <li>Causes: infection, blockage</li>
-                <li>Prevention: water, fiber, hygiene</li>
-            </ul>
-        </div>
-        <div class="image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Blausen_0058_Appendicitis.png">
-        </div>
-    </div>
-</div>
-
-<!-- Food Poisoning -->
-<div class="slide">
-    <div class="header">Food Poisoning</div>
-    <div class="content">
-        <div class="text">
-            <ul>
-                <li>Digestive infection</li>
-                <li>Caused by contaminated food</li>
-                <li>Symptoms: diarrhea, stomach pain</li>
-                <li>Prevention: clean food, cook properly</li>
-            </ul>
-        </div>
-        <div class="image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/SalmonellaNIAID.jpg">
+    <!-- Appendicitis -->
+    <div class="slide">
+        <div class="header">Appendicitis</div>
+        <div class="content">
+            <div class="text">
+                <ul>
+                    <li>Inflammation of the appendix</li>
+                    <li>Pain in lower right abdomen</li>
+                    <li>Causes: infection, blockage</li>
+                    <li>Prevention: water, fiber, hygiene</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Blausen_0058_Appendicitis.png" alt="Appendicitis diagram showing inflamed appendix">
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Anorexia -->
-<div class="slide">
-    <div class="header">Anorexia</div>
-    <div class="content">
-        <div class="text">
-            <ul>
-                <li>Eating disorder</li>
-                <li>Fear of gaining weight</li>
-                <li>Symptoms: weight loss, body image issues</li>
-                <li>Treatment: therapy, medical help</li>
-            </ul>
-        </div>
-        <div class="image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Anorexia_nervosa.jpg">
+    <!-- Food Poisoning -->
+    <div class="slide">
+        <div class="header">Food Poisoning</div>
+        <div class="content">
+            <div class="text">
+                <ul>
+                    <li>Digestive infection</li>
+                    <li>Caused by contaminated food</li>
+                    <li>Symptoms: diarrhea, stomach pain</li>
+                    <li>Prevention: clean food, cook properly</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/SalmonellaNIAID.jpg" alt="Microscopic view of Salmonella bacteria causing food poisoning">
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Navigation -->
-<div class="nav">
-    <button onclick="prevSlide()">Prev</button>
-    <button onclick="nextSlide()">Next</button>
-</div>
+    <!-- Anorexia -->
+    <div class="slide">
+        <div class="header">Anorexia</div>
+        <div class="content">
+            <div class="text">
+                <ul>
+                    <li>Eating disorder</li>
+                    <li>Fear of gaining weight</li>
+                    <li>Symptoms: weight loss, body image issues</li>
+                    <li>Treatment: therapy, medical help</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Anorexia_nervosa.jpg" alt="Medical illustration related to Anorexia Nervosa">
+            </div>
+        </div>
+    </div>
 
-<script>
-let current = 0;
-const slides = document.querySelectorAll('.slide');
+    <!-- Navigation -->
+    <div class="nav">
+        <span id="slide-indicator">Slide 1 of 4</span>
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
 
-function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-}
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicator = document.getElementById('slide-indicator');
 
-function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-}
+        function updateIndicator() {
+            indicator.textContent = `Slide ${current + 1} of ${slides.length}`;
+        }
 
-function prevSlide() {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-}
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            updateIndicator();
+        }
 
-// Keyboard control
-document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowRight") nextSlide();
-    if (e.key === "ArrowLeft") prevSlide();
-});
-</script>
+        function nextSlide() {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        }
+
+        function prevSlide() {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        }
+
+        // Prevent button focus interference with arrow navigation
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() { 
+                this.blur(); 
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "ArrowRight") nextSlide();
+            if (e.key === "ArrowLeft") prevSlide();
+        });
+
+        // Initialize indicator
+        updateIndicator();
+    </script>
 
 </body>
 </html>
+
