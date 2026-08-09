@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Common Ailments Presentation</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+}
+
+/* Slide Container */
+.slide {
+    display: none;
+    height: 100vh;
+    padding: 60px;
+    box-sizing: border-box;
+    animation: fade 1s ease;
+}
+
+.active {
+    display: block;
+}
+
+/* Header */
+.header {
+    background: #0066cc;
+    color: white;
+    padding: 15px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Content */
+.content {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Text */
+.text {
+    width: 55%;
+}
+
+.text ul {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Image */
+.image {
+    width: 40%;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Buttons */
+.nav {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background: #0066cc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #004c99;
+}
+
+/* Animation */
+@keyframes fade {
+    from {opacity: 0;}
+   
