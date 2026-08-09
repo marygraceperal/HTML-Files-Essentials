@@ -87,4 +87,109 @@ button:hover {
 /* Animation */
 @keyframes fade {
     from {opacity: 0;}
-   
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+    <div class="header">Common Ailments</div>
+    <div class="content">
+        <div class="text">
+            <h2>Introduction</h2>
+            <p>This presentation discusses common ailments and how to prevent them.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Appendicitis -->
+<div class="slide">
+    <div class="header">Appendicitis</div>
+    <div class="content">
+        <div class="text">
+            <ul>
+                <li>Inflammation of the appendix</li>
+                <li>Pain in lower right abdomen</li>
+                <li>Causes: infection, blockage</li>
+                <li>Prevention: water, fiber, hygiene</li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Blausen_0058_Appendicitis.png">
+        </div>
+    </div>
+</div>
+
+<!-- Food Poisoning -->
+<div class="slide">
+    <div class="header">Food Poisoning</div>
+    <div class="content">
+        <div class="text">
+            <ul>
+                <li>Digestive infection</li>
+                <li>Caused by contaminated food</li>
+                <li>Symptoms: diarrhea, stomach pain</li>
+                <li>Prevention: clean food, cook properly</li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/SalmonellaNIAID.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- Anorexia -->
+<div class="slide">
+    <div class="header">Anorexia</div>
+    <div class="content">
+        <div class="text">
+            <ul>
+                <li>Eating disorder</li>
+                <li>Fear of gaining weight</li>
+                <li>Symptoms: weight loss, body image issues</li>
+                <li>Treatment: therapy, medical help</li>
+            </ul>
+        </div>
+        <div class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Anorexia_nervosa.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+
+// Keyboard control
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+});
+</script>
+
+</body>
+</html>
