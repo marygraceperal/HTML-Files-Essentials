@@ -126,6 +126,9 @@
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .showcase-card h4 {
@@ -141,6 +144,18 @@
             height: 450px;
             border: 1px solid var(--border);
             border-radius: 6px;
+        }
+
+        .fallback-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .fallback-link a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
         }
 
         /* Form Container */
@@ -199,13 +214,23 @@
 
     <div class="showcase-grid">
         <div class="showcase-card">
-            <h4>General Mathematics SHS Repository</h4>
-            <iframe class="embed-frame" src="https://marygraceperal.github.io/GeneralMathematicsSHS/" title="General Mathematics SHS Repository"></iframe>
+            <div>
+                <h4>General Mathematics SHS Repository</h4>
+                <iframe class="embed-frame" src="https://marygraceperal.github.io/GeneralMathematicsSHS/" title="General Mathematics SHS Repository"></iframe>
+            </div>
+            <div class="fallback-link">
+                <a href="https://marygraceperal.github.io/GeneralMathematicsSHS/" target="_blank">Open site in new tab ↗</a>
+            </div>
         </div>
 
         <div class="showcase-card">
-            <h4>Pareja IS ARAL Math Repository</h4>
-            <iframe class="embed-frame" src="https://marygraceperal.github.io/ParejaIS-ARALMath/" title="Pareja IS ARAL Math Repository"></iframe>
+            <div>
+                <h4>Pareja IS ARAL Math Repository</h4>
+                <iframe class="embed-frame" src="https://marygraceperal.github.io/ParejaIS-ARALMath/" title="Pareja IS ARAL Math Repository"></iframe>
+            </div>
+            <div class="fallback-link">
+                <a href="https://marygraceperal.github.io/ParejaIS-ARALMath/" target="_blank">Open site in new tab ↗</a>
+            </div>
         </div>
     </div>
 
@@ -237,4 +262,3 @@
 
 </body>
 </html>
-
