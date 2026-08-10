@@ -3,58 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Learning Activity</title>
+    <title>LAC Session: Web Repositories for Interactive Instruction</title>
     <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0d9488;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-            background-color: #f4f6f9;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
+            padding: 20px;
+            line-height: 1.6;
         }
-        .card {
-            max-width: 750px;
+
+        .container {
+            max-width: 850px;
             margin: 0 auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
         }
-        h2 {
-            color: #1e3a8a;
+
+        header {
             text-align: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
             margin-bottom: 5px;
+            font-size: 24px;
         }
-        p.subtitle {
-            text-align: center;
+
+        .subtitle {
             color: #64748b;
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .section-header {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 10px 15px;
+            border-left: 5px solid var(--primary);
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Fact Sheet Layout */
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
             margin-bottom: 20px;
         }
+
+        .fact-card {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .fact-card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+
+        /* Interactive Accordion Step-by-Step */
+        details {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .step-content {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #334155;
+        }
+
+        /* Download Box */
+        .download-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #16a34a;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: #15803d;
+        }
+
+        /* Form Container */
         .form-container {
             width: 100%;
             display: flex;
             justify-content: center;
+            margin-top: 15px;
         }
+
         iframe {
             width: 100%;
-            height: 800px;
             border: none;
             border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #94a3b8;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h2>Subject Activity Worksheet</h2>
-        <p class="subtitle">Complete the form below. Responses will be automatically recorded in the teacher's database.</p>
-        
-        <div class="form-container">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZ4dViY6dWAXia7JY9/viewform?embedded=true">
-                Loading activity form…
-            </iframe>
+<div class="container">
+    <header>
+        <h1>LAC SESSION FACT SHEET & WORKSHEET</h1>
+        <p class="subtitle">Empowering Multi-Disciplinary Teaching via Web-Based Repositories</p>
+    </header>
+
+    <!-- PART 1: FACT SHEET -->
+    <div class="section-header">Part I: Quick Fact Sheet</div>
+    
+    <div class="fact-grid">
+        <div class="fact-card">
+            <h3>🌐 GitHub Pages</h3>
+            <p>A free web-hosting service by GitHub that converts code files (like <code>index.html</code>) directly into live, interactive websites accessible via URL or QR code.</p>
+        </div>
+
+        <div class="fact-card">
+            <h3>💡 Why Web Repositories?</h3>
+            <ul>
+                <li><strong>Centralized:</strong> Access all resources in one place.</li>
+                <li><strong>Open Source:</strong> Easy to adapt and customize.</li>
+                <li><strong>Cross-Device:</strong> Runs on phones, tablets, or PCs.</li>
+            </ul>
         </div>
     </div>
+
+    <!-- PART 2: STEP-BY-STEP GUIDE & DOWNLOAD -->
+    <div class="section-header">Part II: Step-by-Step Hands-On Guide</div>
+    <p>Click each step below to expand instructions during the hands-on session:</p>
+
+    <details>
+        <summary>Step 1: Get the Starter Code File</summary>
+        <div class="step-content">
+            <p>Click the green download button below to save the starter HTML code template to your device:</p>
+            <div class="download-box">
+                <p style="margin-top:0; font-weight:600;">Download Starter Template File</p>
+                <button id="downloadBtn" class="btn-download">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download index.html Starter File
+                </button>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>Step 2: Create a Free GitHub Account</summary>
+        <div class="step-content">
+            <ol>
+                <li>Open <a href="https://github.com" target="_blank">github.com</a> in a new tab.</li>
+                <li>Click <strong>Sign up</strong> in the top-right corner.</li>
+                <li>Enter your email address and set up your account credentials.</li>
+            </ol>
+        </div>
+    </details>
+
+    <details>
+        <summary>Step 3: Create Repository & Upload File</summary>
+        <div class="step-content">
+            <ol>
+                <li>On GitHub, click the <strong>+</strong> icon at top-right &rarr; Select <strong>New repository</strong>.</li>
+                <li>Name your repository (e.g., <code>my-subject-activity</code>).</li>
+                <li>Set visibility to <strong>Public</strong>. Click <strong>Create repository</strong>.</li>
+                <li>Click <strong>uploading an existing file</strong>, drag and drop your downloaded <code>index.html</code>, and click <strong>Commit changes</strong>.</li>
+            </ol>
+        </div>
+    </details>
+
+    <details>
+        <summary>Step 4: Publish via GitHub Pages & Share</summary>
+        <div class="step-content">
+            <ol>
+                <li>Inside your repository, go to <strong>Settings</strong> &rarr; Click <strong>Pages</strong> on the left menu.</li>
+                <li>Under <strong>Branch</strong>, select <code>main</code> (or <code>master</code>) and click <strong>Save</strong>.</li>
+                <li>Wait 1–2 minutes, refresh, and copy your live URL: <br><code>https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/</code></li>
+            </ol>
+        </div>
+    </details>
+
+    <!-- PART 3: EMBEDDED GOOGLE FORM WORKSHEET -->
+    <div class="section-header">Part III: Participant Activity Form</div>
+    <p>Complete the form below to submit your session response:</p>
+
+    <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfkyQh6-EH4OlbM8AMDG3YJeNOODoUg1ZbD7z4lmBOLFe8w-g/viewform?embedded=true" width="640" height="1376" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <footer>
+        <p>Pareja Integrated School • Learning Action Cell (LAC) Session</p>
+    </footer>
+</div>
+
+<script>
+    // Download Starter HTML Code Template
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        const starterCode = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Learning Activity</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f6f9; margin: 0; }
+        .card { max-width: 700px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { color: #1e3a8a; text-align: center; }
+        iframe { width: 100%; border: none; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Subject Worksheet Activity</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfkyQh6-EH4OlbM8AMDG3YJeNOODoUg1ZbD7z4lmBOLFe8w-g/viewform?embedded=true" width="640" height="1376" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+</body>
+</html>`;
+
+        const blob = new Blob([starterCode], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'index.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+</script>
 
 </body>
 </html>
