@@ -3,255 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 12 Math: Measurement & Conversions</title>
-    <!-- Tailwind CSS for a modern, responsive design on any device -->
+    <title>Grade 11 General Mathematics - Measurement Deck</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .slide-card {
-            transition: all 0.3s ease-in-out;
-        }
+        body { font-family: 'Poppins', sans-serif; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 sm:p-6">
 
-    <!-- Header & Day Selector -->
+    <!-- Header & Slide Indicator -->
     <header class="w-full max-w-4xl mx-auto">
-        <div class="text-center mb-4">
-            <span class="bg-amber-400 text-slate-950 text-xs sm:text-sm font-ext500 px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Grade 12 Mathematics</span>
-            <h1 class="text-2xl sm:text-4xl font-bold mt-2 text-white tracking-tight">Measurement & Conversions Master Deck</h1>
+        <div class="text-center mb-3">
+            <span class="bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Grade 11 General Mathematics</span>
+            <h1 class="text-xl sm:text-3xl font-bold mt-2 text-white tracking-tight">Measurement & Conversions Framework</h1>
         </div>
 
-        <!-- Interactive Day Jumper Pills -->
-        <div class="flex justify-center gap-1 sm:gap-2 overflow-x-auto py-2">
-            <button onclick="goToSlide(0)" id="tab-0" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-blue-600 text-white">Mon</button>
-            <button onclick="goToSlide(1)" id="tab-1" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Tue</button>
-            <button onclick="goToSlide(2)" id="tab-2" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Wed</button>
-            <button onclick="goToSlide(3)" id="tab-3" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Thu</button>
-            <button onclick="goToSlide(4)" id="tab-4" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Fri</button>
+        <div class="flex justify-center items-center gap-2 mb-2">
+            <span id="slide-progress-badge" class="bg-blue-600/30 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-lg text-xs font-semibold">Slide 1 of 13</span>
         </div>
     </header>
 
-    <!-- Main Slide Display Area -->
-    <main class="w-full max-w-4xl mx-auto my-4 flex-grow flex items-center justify-center">
+    <!-- Main Deck Container -->
+    <main class="w-full max-w-4xl mx-auto my-2 flex-grow flex items-center justify-center">
         
-        <!-- SLIDE 1: MONDAY -->
-        <div id="slide-0" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl">
-            <div class="flex items-center justify-between mb-4">
-                <span class="bg-blue-500/20 text-blue-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-blue-500/30">🗓️ Monday Launch</span>
-                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 1 of 5</span>
-            </div>
-            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">The "Spot the Mess" Scavenger Hunt</h2>
-            
-            <div class="bg-blue-950/50 border-l-4 border-blue-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
-                <strong>Task:</strong> Review the NASA $125 million disaster story, then analyze real-world statements containing completely wrong units.
-            </div>
-
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
-                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
-                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
-                    <li class="font-medium">1. Why is agreeing on the right measurement unit so critical in real life?</li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        2. The weight of a newborn baby is 3,000 <strong>liters</strong>.
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change "liters" to <strong>Grams</strong> or <strong>Kilograms</strong>!</div>
-                        </div>
-                    </li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        3. The height of a classroom door is 2.5 <strong>grams</strong>.
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change "grams" to <strong>Meters</strong>!</div>
-                        </div>
-                    </li>
-                </ul>
+        <!-- SLIDE 1: MONDAY OBJECTIVE -->
+        <div id="slide-0" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-lg border border-blue-500/35">🗓️ Monday • Objective</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Daily Learning Objective</h2>
+            <div class="bg-blue-950/60 border-l-4 border-blue-500 p-4 rounded-r-xl text-slate-200 text-base sm:text-lg">
+                <p><strong>Cognitive:</strong> Identify real-world units and explain why strict precision in measurement systems is critical.</p>
+                <p class="mt-2"><strong>Affective:</strong> Value the importance of clear communication in mathematical computations.</p>
+                <p class="mt-2"><strong>Psychomotor:</strong> Correct mismatched measurement units in contextual statements.</p>
             </div>
         </div>
 
-        <!-- SLIDE 2: TUESDAY -->
-        <div id="slide-1" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
-            <div class="flex items-center justify-between mb-4">
-                <span class="bg-purple-500/20 text-purple-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-purple-500/30">🗓️ Tuesday Session 1</span>
-                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 2 of 5</span>
-            </div>
-            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Real-Object Sorting & Absurdity Check</h2>
-            
-            <div class="bg-purple-950/50 border-l-4 border-purple-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
-                <strong>Task:</strong> Sort physical objects by scale (Ant=Milli, Finger=Centi, Rice=Kilo) and detect unit absurdities.
-            </div>
-
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
-                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
-                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
-                    <li class="font-medium">1. What would happen if we measured our classroom length in millimeters?</li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        2. My friend drank 500 <strong>kilograms</strong> of water.
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change to <strong>Milliliters</strong> or <strong>Liters</strong>!</div>
-                        </div>
-                    </li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        3. The width of a notebook paper is 21 <strong>kilometers</strong>.
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change to <strong>Centimeters</strong>!</div>
-                        </div>
-                    </li>
-                </ul>
+        <!-- SLIDE 2: MONDAY DISASTER STORY -->
+        <div id="slide-1" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-lg border border-blue-500/35">🗓️ Monday • Reading Activity</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">The $125 Million NASA Climate Orbiter Disaster</h2>
+            <div class="bg-slate-950/70 border border-slate-800 p-4 rounded-2xl text-slate-300 text-sm sm:text-base space-y-3 leading-relaxed">
+                <p><strong>The Story:</strong> In 1999, NASA lost the $125 million Mars Climate Orbiter because two different teams used mismatched measurement units.</p>
+                <p>Lockheed Martin calculated thruster performance using <em>Imperial units</em> (pound-seconds), while the NASA team back in mission control processed the data assuming <em>Metric units</em> (Newton-seconds).</p>
+                <p>Because nobody caught the unit discrepancy, the spacecraft dipped too close to the Martian atmosphere and disintegrated!</p>
             </div>
         </div>
 
-        <!-- SLIDE 3: WEDNESDAY -->
-        <div id="slide-2" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
-            <div class="flex items-center justify-between mb-4">
-                <span class="bg-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-emerald-500/30">🗓️ Wednesday Session 2</span>
-                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 3 of 5</span>
-            </div>
-            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">"Find the Glitch" & Staircase Climb</h2>
-            
-            <div class="bg-emerald-950/50 border-l-4 border-emerald-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
-                <strong>Task:</strong> Analyze a conversion error, then practice same-system conversions using the staircase rule.
-            </div>
-
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
-                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
-                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
-                    <li class="font-medium">1. When changing from a big unit to a small unit, does the number get bigger or smaller? Why?</li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        2. <strong>Practice:</strong> Convert 3,500 grams to kilograms (g → kg).
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>3.5 kg</strong> (Going up 3 steps = divide by 1,000).</div>
-                        </div>
-                    </li>
+        <!-- SLIDE 3: MONDAY EXPECTATIONS & QUESTIONS -->
+        <div id="slide-2" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-lg border border-blue-500/35">🗓️ Monday • Expectations & Discussion</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Expectations & Analysis</h2>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl space-y-3 text-sm sm:text-base">
+                <p class="font-semibold text-amber-300">📌 Set of Expectations for this Week:</p>
+                <ul class="list-disc list-inside text-slate-200 space-y-1">
+                    <li>Actively participate in unit detection and correction tasks.</li>
+                    <li>Master standard scale transitions without calculation errors.</li>
+                    <li>Collaborate effectively during daily team task-force challenges.</li>
                 </ul>
+                <hr class="border-amber-500/20 my-2">
+                <p class="font-semibold text-amber-300">❓ Discussion Questions:</p>
+                <p class="text-slate-200">1. How could a simple unit mismatch cause a multi-million-dollar project to fail?</p>
+                <p class="text-slate-200">2. Why is agreeing on standard measurement frameworks vital in global trade and engineering?</p>
             </div>
         </div>
 
-        <!-- SLIDE 4: THURSDAY -->
-        <div id="slide-3" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
-            <div class="flex items-center justify-between mb-4">
-                <span class="bg-rose-500/20 text-rose-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-rose-500/30">🗓️ Thursday Session 3</span>
-                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 4 of 5</span>
-            </div>
-            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Cross-System "Train Track" Practice</h2>
-            
-            <div class="bg-rose-950/50 border-l-4 border-rose-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
-                <strong>Task:</strong> Use the train-track method and bridge formulas to cross between measurement systems safely.
-            </div>
-
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
-                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
-                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
-                    <li class="font-medium">1. Why can't we use the staircase when converting inches to centimeters?</li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        2. <strong>Practice:</strong> Convert 50 pounds to kilograms (1 lb ≈ 0.45 kg).
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>22.5 kg</strong> (50 × 0.45).</div>
-                        </div>
-                    </li>
-                </ul>
+        <!-- SLIDE 4: TUESDAY OBJECTIVE -->
+        <div id="slide-3" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-purple-500/20 text-purple-400 text-xs font-bold px-3 py-1 rounded-lg border border-purple-500/35">🗓️ Tuesday • Objective</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Daily Learning Objective</h2>
+            <div class="bg-purple-950/60 border-l-4 border-purple-500 p-4 rounded-r-xl text-slate-200 text-base sm:text-lg">
+                <p><strong>Cognitive:</strong> Relate everyday physical dimensions to appropriate metric prefixes using visual scale charts.</p>
+                <p class="mt-2"><strong>Affective:</strong> Appreciate the visual hierarchy of metric scales.</p>
+                <p class="mt-2"><strong>Psychomotor:</strong> Sort picture cards accurately according to relative magnitude.</p>
             </div>
         </div>
 
-        <!-- SLIDE 5: FRIDAY -->
-        <div id="slide-4" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
-            <div class="flex items-center justify-between mb-4">
-                <span class="bg-cyan-500/20 text-cyan-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-cyan-500/30">🗓️ Friday Session 4</span>
-                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 5 of 5</span>
+        <!-- SLIDE 5: TUESDAY VISUAL SCALE CHART -->
+        <div id="slide-4" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-purple-500/20 text-purple-400 text-xs font-bold px-3 py-1 rounded-lg border border-purple-500/35">🗓️ Tuesday • Visual Chart</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Metric Scale Anchor Chart</h2>
+            <div class="grid grid-cols-3 gap-3 text-center text-xs sm:text-sm">
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-purple-400 font-bold block text-base">Milli- ($10^{-3}$)</span>
+                    <p class="text-slate-300 mt-1">Anchor: Ant width / Tiny details</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-purple-400 font-bold block text-base">Centi- ($10^{-2}$)</span>
+                    <p class="text-slate-300 mt-1">Anchor: Finger width / Notebook scale</p>
+                </div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <span class="text-purple-400 font-bold block text-base">Kilo- ($10^{3}$)</span>
+                    <p class="text-slate-300 mt-1">Anchor: Heavy bag of rice / Distance</p>
+                </div>
             </div>
-            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Real-World Task Force Scenarios</h2>
-            
-            <div class="bg-cyan-950/50 border-l-4 border-cyan-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
-                <strong>Task:</strong> Use the 4-step checklist in teams to solve practical everyday conversion problems.
+            <div class="mt-3 bg-slate-950/50 p-3 rounded-xl text-center text-xs text-slate-400 border border-slate-800">
+                🖼️ Note: Picture cards will be utilized for matching objects to these visual tiers during group rotations.
             </div>
+        </div>
 
-            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
-                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
-                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
-                    <li class="font-medium">1. What are the 4 steps of our word problem checklist?</li>
-                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                        2. <strong>Task:</strong> Recipe needs 1,500g of flour; scale reads kg. How many kg?
-                        <div class="mt-2">
-                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
-                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>1.5 kg</strong> (1,500 ÷ 1,000).</div>
-                        </div>
-                    </li>
-                </ul>
+        <!-- SLIDE 6: TUESDAY QUESTIONS -->
+        <div id="slide-5" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-purple-500/20 text-purple-400 text-xs font-bold px-3 py-1 rounded-lg border border-purple-500/35">🗓️ Tuesday • Activity & Questions</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Picture Card Sorting & Absurdity Check</h2>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl space-y-2 text-sm sm:text-base">
+                <p class="font-semibold text-amber-300">Task Instructions:</p>
+                <p class="text-slate-200">Using the picture cards provided, categorize objects by scale tiers and spot mismatched unit descriptions.</p>
+                <hr class="border-amber-500/20 my-2">
+                <p class="font-semibold text-amber-300">❓ Discussion Questions:</p>
+                <p class="text-slate-200">1. Why would measuring classroom length in millimeters cause practical issues?</p>
+                <p class="text-slate-200">2. Why is drinking 500 <strong>kilograms</strong> of water physically impossible?</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: WEDNESDAY OBJECTIVE -->
+        <div id="slide-6" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-lg border border-emerald-500/35">🗓️ Wednesday • Objective</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Daily Learning Objective</h2>
+            <div class="bg-emerald-950/60 border-l-4 border-emerald-500 p-4 rounded-r-xl text-slate-200 text-base sm:text-lg">
+                <p><strong>Cognitive:</strong> Compute same-system metric conversions using the staircase multiplier method.</p>
+                <p class="mt-2"><strong>Affective:</strong> Build confidence in tracking decimal shifts systematically.</p>
+                <p class="mt-2"><strong>Psychomotor:</strong> Execute sequential staircase steps accurately for mass and length.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: WEDNESDAY ACTIVITY & QUESTIONS -->
+        <div id="slide-7" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-lg border border-emerald-500/35">🗓️ Wednesday • Activity & Practice</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">"Find the Glitch" & Staircase Climb</h2>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl space-y-3 text-sm sm:text-base">
+                <p class="font-semibold text-amber-300">Task Instructions:</p>
+                <p class="text-slate-200">Examine a sample peer conversion error, then solve metric shifts up and down the staircase.</p>
+                <hr class="border-amber-500/20 my-1">
+                <p class="font-semibold text-amber-300">❓ Practice Problem:</p>
+                <p class="text-slate-200">Convert 3,500 grams to kilograms ($g \rightarrow kg$).</p>
+                <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">Show Solution</button>
+                <div class="hidden-answer text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/50 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>3.5 kg</strong> (Moving up 3 steps divides by 1,000).</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: THURSDAY OBJECTIVE -->
+        <div id="slide-8" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-rose-500/20 text-rose-400 text-xs font-bold px-3 py-1 rounded-lg border border-rose-500/35">🗓️ Thursday • Objective</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Daily Learning Objective</h2>
+            <div class="bg-rose-950/60 border-l-4 border-rose-500 p-4 rounded-r-xl text-slate-200 text-base sm:text-lg">
+                <p><strong>Cognitive:</strong> Apply dimensional analysis ("train tracks") using cross-system bridge formulas.</p>
+                <p class="mt-2"><strong>Affective:</strong> Appreciate the precision required when bridging Imperial and Metric systems.</p>
+                <p class="mt-2"><strong>Psychomotor:</strong> Set up proportional conversion fractions cleanly on paper.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: THURSDAY ACTIVITY & QUESTIONS -->
+        <div id="slide-9" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-rose-500/20 text-rose-400 text-xs font-bold px-3 py-1 rounded-lg border border-rose-500/35">🗓️ Thursday • Activity & Practice</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Cross-System "Train Track" Practice</h2>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl space-y-3 text-sm sm:text-base">
+                <p class="font-semibold text-amber-300">Task Instructions:</p>
+                <p class="text-slate-200">Use bridge formulas ($1 \text{ lb} \approx 0.45 \text{ kg}$) to convert imported product units.</p>
+                <hr class="border-amber-500/20 my-1">
+                <p class="font-semibold text-amber-300">❓ Practice Problem:</p>
+                <p class="text-slate-200">Convert 50 pounds to kilograms.</p>
+                <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">Show Solution</button>
+                <div class="hidden-answer text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/50 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>22.5 kg</strong> ($50 \times 0.45$).</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: FRIDAY OBJECTIVE -->
+        <div id="slide-10" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-3 py-1 rounded-lg border border-cyan-500/35">🗓️ Friday • Objective</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Daily Learning Objective</h2>
+            <div class="bg-cyan-950/60 border-l-4 border-cyan-500 p-4 rounded-r-xl text-slate-200 text-base sm:text-lg">
+                <p><strong>Cognitive:</strong> Synthesize conversion strategies to resolve multi-step operational task forces.</p>
+                <p class="mt-2"><strong>Affective:</strong> Value collaborative problem solving in practical scenarios.</p>
+                <p class="mt-2"><strong>Psychomotor:</strong> Execute a 4-step checklist to resolve everyday measurement problems.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: FRIDAY ACTIVITY & QUESTIONS -->
+        <div id="slide-11" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-3 py-1 rounded-lg border border-cyan-500/35">🗓️ Friday • Task Force Scenarios</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">Real-World Application Scenarios</h2>
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl space-y-3 text-sm sm:text-base">
+                <p class="font-semibold text-amber-300">Task Instructions:</p>
+                <p class="text-slate-200">Work in teams following the 4-step problem-solving checklist for everyday conversions.</p>
+                <hr class="border-amber-500/20 my-1">
+                <p class="font-semibold text-amber-300">❓ Task Force Problem:</p>
+                <p class="text-slate-200">A recipe calls for 1,500g of flour, but your scale only measures in kilograms. How many kg do you need?</p>
+                <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">Show Solution</button>
+                <div class="hidden-answer text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/50 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>1.5 kg</strong> ($1500 \div 1000$).</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: WEEK SUMMARY -->
+        <div id="slide-12" class="slide-pane w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl hidden">
+            <span class="bg-indigo-500/20 text-indigo-400 text-xs font-bold px-3 py-1 rounded-lg border border-indigo-500/35">🏁 Summary & Review</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-3">Weekly Framework Recap</h2>
+            <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-2xl text-slate-300 text-sm space-y-2">
+                <p>✅ <strong>Monday:</strong> Unit precision & disaster case study analysis.</p>
+                <p>✅ <strong>Tuesday:</strong> Scale charts and visual card sorting.</p>
+                <p>✅ <strong>Wednesday:</strong> Same-system staircase metric conversions.</p>
+                <p>✅ <strong>Thursday:</strong> Cross-system dimensional analysis (train tracks).</p>
+                <p>✅ <strong>Friday:</strong> Collaborative task-force real-world applications.</p>
             </div>
         </div>
 
     </main>
 
-    <!-- Navigation Footer Controls -->
-    <footer class="w-full max-w-4xl mx-auto mt-4 flex items-center justify-between gap-4">
-        <button onclick="changeSlide(-1)" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg border border-slate-700 flex items-center justify-center gap-2 text-sm sm:text-base">
+    <!-- Navigation Footer -->
+    <footer class="w-full max-w-4xl mx-auto mt-3 flex items-center justify-between gap-4">
+        <button onclick="changeSlide(-1)" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-lg border border-slate-700 text-sm">
             ⬅️ Previous
         </button>
-        <span id="footer-counter" class="text-slate-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">Mon</span>
-        <button onclick="changeSlide(1)" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base">
+        <span id="footer-indicator" class="text-slate-400 text-xs font-semibold tracking-wider uppercase">Mon: Objective</span>
+        <button onclick="changeSlide(1)" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-lg text-sm">
             Next ➡️
         </button>
     </footer>
 
-    <!-- Interactive Logic Script -->
+    <!-- Script Controls -->
     <script>
         let currentSlide = 0;
-        const totalSlides = 5;
-        const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+        const totalSlides = 13;
+        const slideTitles = [
+            "Mon: Objective", "Mon: Disaster Story", "Mon: Expectations",
+            "Tue: Objective", "Tue: Scale Chart", "Tue: Activity",
+            "Wed: Objective", "Wed: Activity",
+            "Thu: Objective", "Thu: Activity",
+            "Fri: Objective", "Fri: Activity", "Summary"
+        ];
 
-        function updateSlideDisplay() {
-            // Hide all slides, show active slide
+        function updateDisplay() {
             for (let i = 0; i < totalSlides; i++) {
-                const slide = document.getElementById(`slide-${i}`);
-                const tab = document.getElementById(`tab-${i}`);
-                
+                const pane = document.getElementById(`slide-${i}`);
                 if (i === currentSlide) {
-                    slide.classList.remove('hidden');
-                    tab.className = "day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-blue-600 text-white scale-105";
+                    pane.classList.remove('hidden');
                 } else {
-                    slide.classList.add('hidden');
-                    tab.className = "day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700";
+                    pane.classList.add('hidden');
                 }
             }
-            document.getElementById('footer-counter').innerText = dayNames[currentSlide];
+            document.getElementById('slide-progress-badge').innerText = `Slide ${currentSlide + 1} of ${totalSlides}`;
+            document.getElementById('footer-indicator').innerText = slideTitles[currentSlide];
         }
 
-        function changeSlide(direction) {
-            currentSlide += direction;
+        function changeSlide(dir) {
+            currentSlide += dir;
             if (currentSlide < 0) currentSlide = 0;
             if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
-            updateSlideDisplay();
+            updateDisplay();
         }
 
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlideDisplay();
-        }
-
-        function toggleReveal(button) {
-            const answerDiv = button.nextElementSibling;
-            if (answerDiv.classList.contains('hidden')) {
-                answerDiv.classList.remove('hidden');
-                button.innerText = "Hide Answer";
-                button.classList.replace('bg-amber-500', 'bg-slate-700');
-                button.classList.replace('text-slate-950', 'text-white');
+        function toggleReveal(btn) {
+            const ans = btn.nextElementSibling;
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                btn.innerText = "Hide Solution";
             } else {
-                answerDiv.classList.add('hidden');
-                button.innerText = "Show Solution";
-                button.classList.replace('bg-slate-700', 'bg-amber-500');
-                button.classList.replace('text-white', 'text-slate-950');
+                ans.classList.add('hidden');
+                btn.innerText = "Show Solution";
             }
         }
 
-        // Initialize display
-        updateSlideDisplay();
+        updateDisplay();
     </script>
 </body>
 </html>
