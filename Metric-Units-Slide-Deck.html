@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement & Conversions - 5-Day Activity Deck</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --secondary: #1e3a8a;
+            --bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --accent: #f59e0b;
+            --green: #047857;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .slide-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .slide {
+            display: none;
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 1100px;
+            height: 100%;
+            max-height: 680px;
+            padding: 35px 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide h2 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .activity-tag {
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .instruction-box {
+            background-color: #f8fafc;
+            border-left: 6px solid var(--primary);
+            padding: 12px 18px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.15rem;
+        }
+
+        .questions-box {
+            background-color: #fef3c7;
+            border: 2px dashed var(--accent);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1.15rem;
+        }
+
+        .questions-box h4 {
+            margin-top: 0;
+            color: #b45309;
+            font-size: 1.2rem;
+        }
+
+        .reveal-btn {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .reveal-btn:hover {
+            background-color: #d97706;
+        }
+
+        .hidden-answer {
+            display: none;
+            margin-top: 8px;
+            color: var(--green);
+            font-weight: bold;
+            background: #ecfdf5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 4px solid var(--green);
+        }
+
+        footer {
+            background-color: #e2e8f0;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-btns button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .nav-btns button:hover {
+            background-color: var(--secondary);
+        }
+
+        .slide-counter {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Grade 12 Mathematics - Daily Measurement Activities</h1>
+        <span id="day-badge" style="background: var(--accent); padding: 5px 12px; border-radius: 20px; font-weight: bold;">Monday Activity</span>
+    </header>
+
+    <div class="slide-container">
+
+        <!-- SLIDE 1: MONDAY ACTIVITY -->
+        <div class="slide active" data-day="Monday: Launch Activity">
+            <span class="activity-tag">🗓️ Monday Preparation & Launch</span>
+            <h2>Activity: The "Spot the Mess" Scavenger Hunt</h2>
+            
+            <div class="instruction-box">
+                <strong>Task:</strong> As a class, review the NASA $125 million disaster story, then analyze the following real-world statements that contain completely wrong measurement units.
+            </div>
+
+            <div class="questions-box">
+                <h4>❓ Important Discussion Questions & Practice:</h4>
+                <ol>
+                    <li>Why is agreeing on the right measurement unit so critical in real life?</li>
+                    <li>The weight of a newborn baby is 3,000 <strong>liters</strong>. <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
+                        <div class="hidden-answer">👉 Correction: Change "liters" to <strong>Grams</strong> or <strong>Kilograms</strong>!</div>
+                    </li>
+                    <li style="margin-top: 10px;">The height of a classroom door is 2.5 <strong>grams</strong>. <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
+                        <div class="hidden-answer">👉 Correction: Change "grams" to <strong>Meters</strong>!</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: TUESDAY ACTIVITY -->
+        <div class="slide" data-day="Tuesday Activity">
+            <span class="activity-tag">🗓️ Tuesday Session 1</span>
+            <h2>Activity: Real-Object Sorting & Absurdity Check</h2>
+            
+            <div class="instruction-box">
+                <strong>Task:</strong> Sort physical objects/pictures by scale (Tiny, Medium, Huge), then detect the absurdity in mismatched units using your visual anchors (Ant = Milli, Finger = Centi, Rice bag = Kilo).
+            </div>
+
+            <div class="questions-box">
+                <h4>❓ Important Discussion Questions & Practice:</h4>
+                <ol>
+                    <li>What would happen if we tried to measure the length of our classroom using millimeters instead of meters?</li>
+                    <li>My friend drank 500 <strong>kilograms</strong> of water after basketball. <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
+                        <div class="hidden-answer">👉 Correction: Change to <strong>Milliliters</strong> or <strong>Liters</strong>!</div>
+                    </li>
+                    <li style="margin-top: 10px;">The width of a notebook paper is 21 <strong>kilometers</strong>. <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
+                        <div class="hidden-answer">👉 Correction: Change to <strong>Centimeters</strong>!</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: WEDNESDAY ACTIVITY -->
+        <div class="slide" data-day="Wednesday Activity">
+            <span class="activity-tag">🗓️ Wednesday Session 2</span>
+            <h2>Activity: "Find the Glitch" & Staircase Climb</h2>
+            
+            <div class="instruction-box">
+                <strong>Task:</strong> Analyze a simulated classmate's conversion error, then practice same-system conversions using the King Henry staircase rule.
+            </div>
+
+            <div class="questions-box">
+                <h4>❓ Important Discussion Questions & Practice:</h4>
+                <ol>
+                    <li>When changing from a big unit to a small unit (e.g., meters to centimeters), does the number get bigger or smaller? Why?</li>
+                    <li><strong>Practice Problem:</strong> Convert 3,500 grams to kilograms ($g \rightarrow kg$). <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
+                        <div class="hidden-answer">👉 Answer: <strong>3.5 kg</strong> (Going up 3 steps on the staircase = divide by 1,000).</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: THURSDAY ACTIVITY -->
+        <div class="slide" data-day="Thursday Activity">
+            <span class="activity-tag">🗓️ Thursday Session 3</span>
+            <h2>Activity: Cross-System "Train Track" Practice</h2>
+            
+            <div class="instruction-box">
+                <strong>Task:</strong> Examine imported product tags and use the "train-track" (dimensional analysis) method with bridge formulas to cross systems safely.
+            </div>
+
+            <div class="questions-box">
+                <h4>❓ Important Discussion Questions & Practice:</h4>
+                <ol>
+                    <li>Why can't we use the 'King Henry' staircase when converting inches to centimeters? What do we need instead?</li>
+                    <li><strong>Practice Problem:</strong> Convert 50 pounds to kilograms using the bridge $1 \text{ lb} \approx 0.45 \text{ kg}$. <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
+                        <div class="hidden-answer">👉 Answer: <strong>22.5 kg</strong> Setup: (50 / 1) × (0.45 / 1).</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: FRIDAY ACTIVITY -->
+        <div class="slide" data-day="Friday Activity">
+            <span class="activity-tag">🗓️ Friday Session 4</span>
+            <h2>Activity: Real-World Task Force Scenarios</h2>
+            
+            <div class="instruction-box">
+                <strong>Task:</strong> Work in small teams using the 4-step checklist to solve practical everyday conversion problems (cooking recipes, travel distances, shipping weights).
+            </div>
+
+            <div class="questions-box">
+                <h4>❓ Important Discussion Questions & Practice:</h4>
+                <ol>
+                    <li>What are the 4 steps of our word problem checklist before calculating anything?</li>
+                    <li><strong>Task Force Problem:</strong> A recipe calls for 1,500 grams of flour, but your scale only measures in kilograms. How many kilograms do you need? <br>
+                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
+                        <div class="hidden-answer">👉 Answer: <strong>1.5 kg</strong> (Convert 1,500g to kg by moving decimal 3 places left).</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <span class="slide-counter" id="counter">Slide 1 of 5</span>
+        <div class="nav-btns">
+            <button onclick="changeSlide(-1)">⬅️ Previous</button>
+            <button onclick="changeSlide(1)">Next ➡️</button>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('counter');
+        const dayBadge = document.getElementById('day-badge');
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            counter.innerText = `Slide ${currentSlide + 1} of ${slides.length}`;
+            dayBadge.innerText = slides[currentSlide].getAttribute('data-day');
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+            updateSlide();
+        }
+
+        function toggleReveal(button) {
+            const hiddenDiv = button.nextElementSibling;
+            if (hiddenDiv.style.display === "block") {
+                hiddenDiv.style.display = "none";
+                button.innerText = button.innerText.replace("Hide", "Show");
+            } else {
+                hiddenDiv.style.display = "block";
+                button.innerText = "Hide Answer/Correction";
+            }
+        }
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
