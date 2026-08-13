@@ -3,360 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement & Conversions - Mobile Deck</title>
+    <title>Grade 12 Math: Measurement & Conversions</title>
+    <!-- Tailwind CSS for a modern, responsive design on any device -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary: #1d4ed8;
-            --secondary: #1e3a8a;
-            --bg: #f1f5f9;
-            --card-bg: #ffffff;
-            --text: #0f172a;
-            --accent: #f59e0b;
-            --green: #047857;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-
-        /* Quick day jumper tabs */
-        .day-tabs {
-            display: flex;
-            gap: 5px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            margin-bottom: 10px;
-        }
-
-        .day-tab {
-            background: #e2e8f0;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            cursor: pointer;
-            white-space: nowrap;
-            color: #475569;
-        }
-
-        .day-tab.active-tab {
-            background: var(--accent);
-            color: white;
-        }
-
-        .slide-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .slide {
-            display: none;
-            background: var(--card-bg);
-            width: 100%;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            box-sizing: border-box;
-            margin-bottom: 15px;
-        }
-
-        .slide.active {
-            display: block;
-        }
-
-        .slide h2 {
-            color: var(--secondary);
-            font-size: 1.3rem;
-            margin-top: 5px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 6px;
-        }
-
-        .activity-tag {
-            background-color: #dbeafe;
-            color: #1e40af;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .instruction-box {
-            background-color: #f8fafc;
-            border-left: 4px solid var(--primary);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.95rem;
-        }
-
-        .questions-box {
-            background-color: #fef3c7;
-            border: 1px dashed var(--accent);
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-
-        .questions-box h4 {
-            margin-top: 0;
-            color: #b45309;
-            font-size: 1rem;
-        }
-
-        .reveal-btn {
-            background-color: var(--accent);
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            font-size: 0.85rem;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 6px;
-            font-weight: bold;
-        }
-
-        .hidden-answer {
-            display: none;
-            margin-top: 6px;
-            color: var(--green);
-            font-weight: bold;
-            background: #ecfdf5;
-            padding: 8px;
-            border-radius: 6px;
-            border-left: 3px solid var(--green);
-            font-size: 0.9rem;
-        }
-
-        /* Fixed bottom navigation for easy tapping on mobile */
-        .mobile-nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: auto;
-            padding-top: 5px;
-        }
-
-        .mobile-nav button {
-            flex: 1;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 8px;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .slide-counter {
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #64748b;
-            margin-bottom: 5px;
+        .slide-card {
+            transition: all 0.3s ease-in-out;
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-950 text-slate-100 min-h-screen flex flex-col justify-between p-4 sm:p-6">
 
-    <header>
-        <h1>Grade 12 Math: Measurement Activities</h1>
+    <!-- Header & Day Selector -->
+    <header class="w-full max-w-4xl mx-auto">
+        <div class="text-center mb-4">
+            <span class="bg-amber-400 text-slate-950 text-xs sm:text-sm font-ext500 px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Grade 12 Mathematics</span>
+            <h1 class="text-2xl sm:text-4xl font-bold mt-2 text-white tracking-tight">Measurement & Conversions Master Deck</h1>
+        </div>
+
+        <!-- Interactive Day Jumper Pills -->
+        <div class="flex justify-center gap-1 sm:gap-2 overflow-x-auto py-2">
+            <button onclick="goToSlide(0)" id="tab-0" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-blue-600 text-white">Mon</button>
+            <button onclick="goToSlide(1)" id="tab-1" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Tue</button>
+            <button onclick="goToSlide(2)" id="tab-2" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Wed</button>
+            <button onclick="goToSlide(3)" id="tab-3" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Thu</button>
+            <button onclick="goToSlide(4)" id="tab-4" class="day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700">Fri</button>
+        </div>
     </header>
 
-    <!-- Quick Jumper Tabs -->
-    <div class="day-tabs">
-        <button class="day-tab active-tab" onclick="goToSlide(0)">Mon</button>
-        <button class="day-tab" onclick="goToSlide(1)">Tue</button>
-        <button class="day-tab" onclick="goToSlide(2)">Wed</button>
-        <button class="day-tab" onclick="goToSlide(3)">Thu</button>
-        <button class="day-tab" onclick="goToSlide(4)">Fri</button>
-    </div>
-
-    <div class="slide-container">
-
+    <!-- Main Slide Display Area -->
+    <main class="w-full max-w-4xl mx-auto my-4 flex-grow flex items-center justify-center">
+        
         <!-- SLIDE 1: MONDAY -->
-        <div class="slide active" id="slide-0">
-            <span class="activity-tag">🗓️ Monday Launch</span>
-            <h2>Activity: "Spot the Mess" Hunt</h2>
-            <div class="instruction-box">
-                <strong>Task:</strong> Review the NASA disaster story and analyze real-world statements with wrong units.
+        <div id="slide-0" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-blue-500/20 text-blue-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-blue-500/30">🗓️ Monday Launch</span>
+                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 1 of 5</span>
             </div>
-            <div class="questions-box">
-                <h4>❓ Discussion & Practice:</h4>
-                <ol>
-                    <li>Why is agreeing on units critical in real life?</li>
-                    <li>Baby's weight is 3,000 <strong>liters</strong>. <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
-                        <div class="hidden-answer">👉 Correction: Change to <strong>Grams</strong> or <strong>Kilograms</strong>!</div>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">The "Spot the Mess" Scavenger Hunt</h2>
+            
+            <div class="bg-blue-950/50 border-l-4 border-blue-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
+                <strong>Task:</strong> Review the NASA $125 million disaster story, then analyze real-world statements containing completely wrong units.
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
+                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
+                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                    <li class="font-medium">1. Why is agreeing on the right measurement unit so critical in real life?</li>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        2. The weight of a newborn baby is 3,000 <strong>liters</strong>.
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change "liters" to <strong>Grams</strong> or <strong>Kilograms</strong>!</div>
+                        </div>
                     </li>
-                    <li style="margin-top: 8px;">Door height is 2.5 <strong>grams</strong>. <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
-                        <div class="hidden-answer">👉 Correction: Change to <strong>Meters</strong>!</div>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        3. The height of a classroom door is 2.5 <strong>grams</strong>.
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change "grams" to <strong>Meters</strong>!</div>
+                        </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
 
         <!-- SLIDE 2: TUESDAY -->
-        <div class="slide" id="slide-1">
-            <span class="activity-tag">🗓️ Tuesday Session 1</span>
-            <h2>Activity: Sorting & Absurdity Check</h2>
-            <div class="instruction-box">
-                <strong>Task:</strong> Sort objects by scale (Ant=Milli, Finger=Centi, Rice=Kilo) and catch mismatched units.
+        <div id="slide-1" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-purple-500/20 text-purple-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-purple-500/30">🗓️ Tuesday Session 1</span>
+                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 2 of 5</span>
             </div>
-            <div class="questions-box">
-                <h4>❓ Discussion & Practice:</h4>
-                <ol>
-                    <li>Why not measure our classroom length in millimeters?</li>
-                    <li>Drank 500 <strong>kilograms</strong> of water. <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
-                        <div class="hidden-answer">👉 Correction: Change to <strong>Milliliters</strong>!</div>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Real-Object Sorting & Absurdity Check</h2>
+            
+            <div class="bg-purple-950/50 border-l-4 border-purple-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
+                <strong>Task:</strong> Sort physical objects by scale (Ant=Milli, Finger=Centi, Rice=Kilo) and detect unit absurdities.
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
+                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
+                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                    <li class="font-medium">1. What would happen if we measured our classroom length in millimeters?</li>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        2. My friend drank 500 <strong>kilograms</strong> of water.
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change to <strong>Milliliters</strong> or <strong>Liters</strong>!</div>
+                        </div>
                     </li>
-                    <li style="margin-top: 8px;">Notebook width is 21 <strong>kilometers</strong>. <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Correction</button>
-                        <div class="hidden-answer">👉 Correction: Change to <strong>Centimeters</strong>!</div>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        3. The width of a notebook paper is 21 <strong>kilometers</strong>.
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Correction</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Correction: Change to <strong>Centimeters</strong>!</div>
+                        </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
 
         <!-- SLIDE 3: WEDNESDAY -->
-        <div class="slide" id="slide-2">
-            <span class="activity-tag">🗓️ Session 2</span>
-            <h2>Activity: Staircase Climb</h2>
-            <div class="instruction-box">
-                <strong>Task:</strong> Find the glitch in a classmate's conversion, then practice same-system steps.
+        <div id="slide-2" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-emerald-500/30">🗓️ Wednesday Session 2</span>
+                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 3 of 5</span>
             </div>
-            <div class="questions-box">
-                <h4>❓ Discussion & Practice:</h4>
-                <ol>
-                    <li>Big unit to small unit: does the number get bigger or smaller? Why?</li>
-                    <li><strong>Practice:</strong> Convert 3,500g to kg. <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
-                        <div class="hidden-answer">👉 Answer: <strong>3.5 kg</strong> (Up 3 steps = divide by 1,000).</div>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">"Find the Glitch" & Staircase Climb</h2>
+            
+            <div class="bg-emerald-950/50 border-l-4 border-emerald-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
+                <strong>Task:</strong> Analyze a conversion error, then practice same-system conversions using the staircase rule.
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
+                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
+                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                    <li class="font-medium">1. When changing from a big unit to a small unit, does the number get bigger or smaller? Why?</li>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        2. <strong>Practice:</strong> Convert 3,500 grams to kilograms (g → kg).
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>3.5 kg</strong> (Going up 3 steps = divide by 1,000).</div>
+                        </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
 
         <!-- SLIDE 4: THURSDAY -->
-        <div class="slide" id="slide-3">
-            <span class="activity-tag">🗓️ Session 3</span>
-            <h2>Activity: Train Tracks</h2>
-            <div class="instruction-box">
-                <strong>Task:</strong> Use bridge formulas and train tracks to cross between different measurement systems.
+        <div id="slide-3" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-rose-500/20 text-rose-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-rose-500/30">🗓️ Thursday Session 3</span>
+                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 4 of 5</span>
             </div>
-            <div class="questions-box">
-                <h4>❓ Discussion & Practice:</h4>
-                <ol>
-                    <li>Why can't we use the staircase for inches to centimeters?</li>
-                    <li><strong>Practice:</strong> Convert 50 lbs to kg ($1 \text{ lb} \approx 0.45 \text{ kg}$). <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
-                        <div class="hidden-answer">👉 Answer: <strong>22.5 kg</strong> ($50 \times 0.45$).</div>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Cross-System "Train Track" Practice</h2>
+            
+            <div class="bg-rose-950/50 border-l-4 border-rose-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
+                <strong>Task:</strong> Use the train-track method and bridge formulas to cross between measurement systems safely.
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
+                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
+                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                    <li class="font-medium">1. Why can't we use the staircase when converting inches to centimeters?</li>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        2. <strong>Practice:</strong> Convert 50 pounds to kilograms (1 lb ≈ 0.45 kg).
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>22.5 kg</strong> (50 × 0.45).</div>
+                        </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
 
         <!-- SLIDE 5: FRIDAY -->
-        <div class="slide" id="slide-4">
-            <span class="activity-tag">🗓️ Session 4</span>
-            <h2>Activity: Task Force Scenarios</h2>
-            <div class="instruction-box">
-                <strong>Task:</strong> Use the 4-step checklist in teams to solve practical everyday problems.
+        <div id="slide-4" class="slide-content w-full bg-slate-900/90 border border-slate-700/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl hidden">
+            <div class="flex items-center justify-between mb-4">
+                <span class="bg-cyan-500/20 text-cyan-400 text-xs sm:text-sm font-bold px-3 py-1 rounded-lg border border-cyan-500/30">🗓️ Friday Session 4</span>
+                <span class="text-slate-400 text-xs sm:text-sm font-medium">Slide 5 of 5</span>
             </div>
-            <div class="questions-box">
-                <h4>❓ Discussion & Practice:</h4>
-                <ol>
-                    <li>What are the 4 steps of our word problem checklist?</li>
-                    <li><strong>Task:</strong> Recipe needs 1,500g of flour; scale reads kg. How many kg? <br>
-                        <button class="reveal-btn" onclick="toggleReveal(this)">Show Solution</button>
-                        <div class="hidden-answer">👉 Answer: <strong>1.5 kg</strong> ($1,500 \div 1,000$).</div>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mb-3">Real-World Task Force Scenarios</h2>
+            
+            <div class="bg-cyan-950/50 border-l-4 border-cyan-500 p-4 rounded-r-xl mb-6 text-sm sm:text-base text-slate-200">
+                <strong>Task:</strong> Use the 4-step checklist in teams to solve practical everyday conversion problems.
+            </div>
+
+            <div class="bg-amber-500/10 border border-amber-500/30 p-4 sm:p-6 rounded-2xl mb-4">
+                <h3 class="text-amber-400 font-bold text-base sm:text-lg mb-3 flex items-center gap-2">❓ Important Discussion Questions & Practice:</h3>
+                <ul class="space-y-3 text-slate-200 text-sm sm:text-base">
+                    <li class="font-medium">1. What are the 4 steps of our word problem checklist?</li>
+                    <li class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        2. <strong>Task:</strong> Recipe needs 1,500g of flour; scale reads kg. How many kg?
+                        <div class="mt-2">
+                            <button onclick="toggleReveal(this)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg transition-colors shadow">Show Solution</button>
+                            <div class="hidden-answer mt-2 text-emerald-400 font-semibold text-xs sm:text-sm hidden bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/30">👉 Answer: <strong>1.5 kg</strong> (1,500 ÷ 1,000).</div>
+                        </div>
                     </li>
-                </ol>
+                </ul>
             </div>
         </div>
 
-    </div>
+    </main>
 
-    <div class="slide-counter" id="counter">Slide 1 of 5 (Monday)</div>
+    <!-- Navigation Footer Controls -->
+    <footer class="w-full max-w-4xl mx-auto mt-4 flex items-center justify-between gap-4">
+        <button onclick="changeSlide(-1)" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg border border-slate-700 flex items-center justify-center gap-2 text-sm sm:text-base">
+            ⬅️ Previous
+        </button>
+        <span id="footer-counter" class="text-slate-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">Mon</span>
+        <button onclick="changeSlide(1)" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base">
+            Next ➡️
+        </button>
+    </footer>
 
-    <div class="mobile-nav">
-        <button onclick="changeSlide(-1)">⬅️ Prev</button>
-        <button onclick="changeSlide(1)">Next ➡️</button>
-    </div>
-
+    <!-- Interactive Logic Script -->
     <script>
         let currentSlide = 0;
         const totalSlides = 5;
+        const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
-        function updateSlide() {
+        function updateSlideDisplay() {
+            // Hide all slides, show active slide
             for (let i = 0; i < totalSlides; i++) {
-                document.getElementById(`slide-${i}`).classList.toggle('active', i === currentSlide);
+                const slide = document.getElementById(`slide-${i}`);
+                const tab = document.getElementById(`tab-${i}`);
+                
+                if (i === currentSlide) {
+                    slide.classList.remove('hidden');
+                    tab.className = "day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-blue-600 text-white scale-105";
+                } else {
+                    slide.classList.add('hidden');
+                    tab.className = "day-tab px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-md bg-slate-800 text-slate-300 hover:bg-slate-700";
+                }
             }
-            
-            // Update tabs
-            const tabs = document.querySelectorAll('.day-tab');
-            tabs.forEach((tab, index) => {
-                tab.classList.toggle('active-tab', index === currentSlide);
-            });
-
-            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-            document.getElementById('counter').innerText = `Slide ${currentSlide + 1} of 5 (${days[currentSlide]})`;
+            document.getElementById('footer-counter').innerText = dayNames[currentSlide];
         }
 
         function changeSlide(direction) {
             currentSlide += direction;
             if (currentSlide < 0) currentSlide = 0;
             if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
-            updateSlide();
+            updateSlideDisplay();
         }
 
         function goToSlide(index) {
             currentSlide = index;
-            updateSlide();
+            updateSlideDisplay();
         }
 
         function toggleReveal(button) {
-            const hiddenDiv = button.nextElementSibling;
-            if (hiddenDiv.style.display === "block") {
-                hiddenDiv.style.display = "none";
-                button.innerText = button.innerText.replace("Hide", "Show");
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.classList.contains('hidden')) {
+                answerDiv.classList.remove('hidden');
+                button.innerText = "Hide Answer";
+                button.classList.replace('bg-amber-500', 'bg-slate-700');
+                button.classList.replace('text-slate-950', 'text-white');
             } else {
-                hiddenDiv.style.display = "block";
-                button.innerText = "Hide Correction/Solution";
+                answerDiv.classList.add('hidden');
+                button.innerText = "Show Solution";
+                button.classList.replace('bg-slate-700', 'bg-amber-500');
+                button.classList.replace('text-white', 'text-slate-950');
             }
         }
+
+        // Initialize display
+        updateSlideDisplay();
     </script>
 </body>
 </html>
