@@ -178,9 +178,9 @@
 
         <div class="slide">
             <span class="task-badge">Task 1: Generating HTML File</span>
-            <h2 class="slide-title">Step 2: Download Resources & Select Language</h2>
+            <h2 class="slide-title">Step 2: Select Language & Access Prompts</h2>
             <div class="slide-content">
-                Open the provided link, click <strong>DOWNLOAD LEARNING MATERIALS</strong>, open the <em>Prompt Folder</em>, and select the appropriate language for your subject.
+                Open the provided link, access the <em>Prompt Folder</em>, and select the appropriate language for your subject.
             </div>
         </div>
 
