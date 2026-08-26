@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Guide: Generating and Hosting HTML Learning Materials</title>
+    <style>
+        :root {
+            --primary: #5b21b6;
+            --secondary: #7c3aed;
+            --accent: #ddd6fe;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --border-muted: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-muted);
+            border-top: 8px solid var(--primary);
+            border-radius: 8px;
+            padding: 48px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-section {
+            border-bottom: 2px solid var(--border-muted);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-title h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .header-title p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .print-btn {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .print-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.35rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 48px;
+            margin-bottom: 20px;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background-color: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .step-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            color: #475569;
+            font-size: 0.98rem;
+        }
+
+        code {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .note-box {
+            margin-top: 8px;
+            padding: 12px 16px;
+            background-color: #faf5ff;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            color: #4c1d95;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-muted);
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-section">
+            <div class="header-title">
+                <h1>Guide: HTML Learning Materials</h1>
+                <p>Standard Operating Procedure for Generation, Verification, and GitHub Hosting</p>
+            </div>
+            <button class="print-btn" onclick="window.print()">Print Document</button>
+        </header>
+
+        <!-- SECTION 1 -->
+        <div class="section">
+            <h2 class="section-title">Task 1: Generating the HTML File</h2>
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-title">Curriculum Guide Preparation</div>
+                    <div class="step-desc">Prepare the official Curriculum Guide (CG) corresponding to your assigned learning area.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Download Resources & Select Language</div>
+                    <div class="step-desc">Access the provided link, click <strong>DOWNLOAD LEARNING MATERIALS</strong>, navigate to the <em>Prompt Folder</em>, and open the file matching your handled subject's medium of instruction.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Customize Teacher Inputs</div>
+                    <div class="step-desc">
+                        Modify the designated <em>Teacher Inputs</em> enclosed within brackets (e.g., <code>[...]</code>) using the details from your Curriculum Guide.
+                        <div class="note-box">
+                            <strong>Note:</strong> Do not alter any other master prompt instructions to maintain structural integrity and layout styling.
+                        </div>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Generate HTML via AI</div>
+                    <div class="step-desc">Open your preferred Large Language Model platform (Gemini, ChatGPT, Claude, etc.), paste the finalized prompt, and initiate generation.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Transfer Code to Notepad</div>
+                    <div class="step-desc">Copy the complete generated raw HTML code block and paste it directly into <strong>Notepad</strong> (or a preferred text editor).</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Save Document File</div>
+                    <div class="step-desc">In Notepad, navigate to <strong>File > Save As</strong>, select your local <em>codes</em> directory, and name the file using the <code>.html</code> extension (e.g., <code>topic.html</code>).</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Inspect and Refine</div>
+                    <div class="step-desc">Double-click the saved <code>.html</code> file to open it in a browser. If structural or content adjustments are needed, instruct the AI to revise the code and repeat steps 5 through 7.</div>
+                </li>
+            </ol>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section">
+            <h2 class="section-title">Task 2: Pre-Upload Quality Verification</h2>
+            <ol class="step-list" style="counter-reset: step-counter 7;">
+                <li class="step-item">
+                    <div class="step-title">Document Title Check</div>
+                    <div class="step-desc">Verify that the <code>&lt;title&gt;</code> tag reflects the correct lesson topic, as it displays on the web browser tab.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Tab Navigation & Responsiveness</div>
+                    <div class="step-desc">Click through all 6 navigation tabs to verify script functionality and resize the browser window to confirm layout adaptability across different screen sizes.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Print Layout Audit</div>
+                    <div class="step-desc">Execute a print preview (<code>Ctrl + P</code>) to confirm that print stylesheets correctly hide interactive elements like buttons and tab navigation bars.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Content Completeness Audit</div>
+                    <div class="step-desc">Perform a final textual review to confirm no unpopulated bracketed fields, syntax codes, or truncated sentences remain in the document.</div>
+                </li>
+            </ol>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="section">
+            <h2 class="section-title">Task 3: Hosting via GitHub Pages</h2>
+            <ol class="step-list" style="counter-reset: step-counter 11;">
+                <li class="step-item">
+                    <div class="step-title">Account Registration</div>
+                    <div class="step-desc">
+                        Register for an account at <a href="https://github.com" target="_blank" style="color: var(--secondary);">GitHub.com</a>.
+                        <div class="note-box">
+                            <strong>Note:</strong> Select an appropriate username, as it will form part of your permanent public URL structure.
+                        </div>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Repository Creation</div>
+                    <div class="step-desc">From your dashboard, click <strong>New</strong> or the <strong>+</strong> icon to initiate a new repository.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Repository Configuration</div>
+                    <div class="step-desc">Assign a repository name (e.g., <code>learning-materials</code>), set visibility to <strong>Public</strong>, and click <strong>Create repository</strong>.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Upload File</div>
+                    <div class="step-desc">Click <strong>uploading an existing file</strong>, drag and drop your audited <code>.html</code> file into the browser, and click <strong>Commit changes</strong>.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">GitHub Pages Activation</div>
+                    <div class="step-desc">Navigate to repository <strong>Settings > Pages</strong> (left menu). Under <em>Build and deployment</em>, set the branch to <strong>main</strong> and click <strong>Save</strong>.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Live Link Deployment</div>
+                    <div class="step-desc">
+                        Wait 1–2 minutes and refresh the page to obtain your published web link formatted as:
+                        <br><br>
+                        <code>https://[username].github.io/[repository-name]/[topic].html</code>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <footer>
+            Teacher Instructional Resource • Generated for Standardized Module Development
+        </footer>
+    </div>
+
+</body>
+</html>
