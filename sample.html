@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>LAC Session: Web Repositories for Interactive Instruction</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0d9488;
+            --accent: #4f46e5;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 12px;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        /* Top Resource Banner - Adaptive Grid */
+        .download-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #ffffff;
+            padding: 14px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            min-height: 48px; /* Tappable Target Height */
+        }
+
+        .btn-download {
+            background-color: var(--secondary);
+        }
+
+        .btn-download:hover, .btn-download:active {
+            background-color: #0f766e;
+        }
+
+        .btn-presentation {
+            background-color: var(--primary);
+        }
+
+        .btn-presentation:hover, .btn-presentation:active {
+            background-color: #1e1b4b;
+        }
+
+        .btn-guide {
+            background-color: var(--accent);
+        }
+
+        .btn-guide:hover, .btn-guide:active {
+            background-color: #4338ca;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 20px;
+            word-wrap: break-word;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section-header {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 10px 12px;
+            border-left: 5px solid var(--primary);
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Fact Sheet Grid */
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .fact-card {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .fact-card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 15px;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 5px 0;
+        }
+
+        /* Activity Tracker Card */
+        .activity-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .activity-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 12px;
+            padding: 12px 14px;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+            width: 100%; /* Touch friendly on mobile */
+            text-align: center;
+            min-height: 44px;
+        }
+
+        .link-btn:hover, .link-btn:active {
+            background-color: #1e1b4b;
+        }
+
+        .activity-frame {
+            width: 100%;
+            height: 400px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: #ffffff;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Interactive Accordion Step-by-Step */
+        details {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 12px;
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 14px;
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .step-content {
+            margin-top: 10px;
+            font-size: 13.5px;
+            color: #334155;
+            overflow-x: auto;
+        }
+
+        .step-content ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .step-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .showcase-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .showcase-card h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .embed-frame {
+            width: 100%;
+            height: 380px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .fallback-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .fallback-link a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+            padding: 8px;
+            display: inline-block;
+        }
+
+        /* Form Container */
+        .form-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .feedback-frame {
+            width: 100%;
+            height: 1200px;
+            border: none;
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 35px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 15px;
+            }
+            .section-header {
+                font-size: 18px;
+                padding: 10px 15px;
+            }
+            .link-btn {
+                width: auto;
+            }
+            .activity-frame {
+                height: 450px;
+            }
+            .embed-frame {
+                height: 450px;
+            }
+            .feedback-frame {
+                height: 1376px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Action Buttons Header -->
+    <div class="download-banner">
+        <a href="https://drive.google.com/drive/folders/1Z72hTG-dQMuvWedlMTxrsBoAfvSLbi5D?usp=sharing" target="_blank" class="action-btn btn-download">
+            <i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD MATERIALS
+        </a>
+        <a href="https://marygraceperal.github.io/HTML-Files-Essentials/Presentation" target="_blank" class="action-btn btn-presentation">
+            <i class="fa-solid fa-file-powerpoint"></i> PRESENTATION
+        </a>
+        <a href="https://marygraceperal.github.io/HTML-Files-Essentials/Step-by-Step-Guide" target="_blank" class="action-btn btn-guide">
+            <i class="fa-solid fa-list-check"></i> STEP-BY-STEP GUIDE
+        </a>
+    </div>
+
+    <header>
+        <h1>LAC SESSION FACT SHEET & WORKSHEET</h1>
+        <p class="subtitle">Empowering Multi-Disciplinary Teaching via Web-Based Repositories</p>
+    </header>
+
+    <!-- PART 1: FACT SHEET -->
+    <div class="section-header">Part I: Quick Fact Sheet</div>
+
+    <div class="fact-grid">
+        <div class="fact-card">
+            <h3>🌐 GitHub Pages</h3>
+            <p>A free web-hosting service by GitHub that converts code files (like <code>index.html</code>) directly into live, interactive websites accessible via URL or QR code.</p>
+        </div>
+
+        <div class="fact-card">
+            <h3>💡 Why Web Repositories?</h3>
+            <ul>
+                <li><strong>Centralized:</strong> Access all resources in one place.</li>
+                <li><strong>Open Source:</strong> Easy to adapt and customize.</li>
+                <li><strong>Cross-Device:</strong> Runs on phones, tablets, or PCs.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ACTIVITY TRACKER CARD WITH DROPDOWNS -->
+    <div class="activity-card">
+        <h3><i class="fa-solid fa-tasks"></i> Activity Submissions & Logs</h3>
+        
+        <details>
+            <summary><i class="fa-solid fa-paper-plane"></i> Activity Submission Link</summary>
+            <div class="step-content">
+                <a href="https://forms.gle/Vhp5vs4bPxD3CsxUA" target="_blank" class="link-btn">
+                    Open Submission Form in New Tab <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <iframe class="activity-frame" src="https://forms.gle/Vhp5vs4bPxD3CsxUA">Loading form…</iframe>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fa-solid fa-table-list"></i> Submitted Activity Log</summary>
+            <div class="step-content">
+                <a href="https://docs.google.com/spreadsheets/d/1_gZf5MOlxXm54suzHnbb2jfXSk1fVppAb3loCjdn9Eg/edit?usp=sharing" target="_blank" class="link-btn">
+                    Open Spreadsheet in New Tab <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <iframe class="activity-frame" src="https://docs.google.com/spreadsheets/d/1_gZf5MOlxXm54suzHnbb2jfXSk1fVppAb3loCjdn9Eg/preview">Loading log…</iframe>
+            </div>
+        </details>
+    </div>
+
+    <!-- PART 2: SHOWCASE & EXPLORATION -->
+    <div class="section-header">Part II: Showcase & Exploration Activity</div>
+    <p>Explore the two existing GitHub repositories below to see how interactive materials and subject frameworks can be hosted and shared with teachers and students:</p>
+
+    <div class="showcase-grid">
+        <div class="showcase-card">
+            <div>
+                <h4>General Mathematics SHS Repository</h4>
+                <iframe class="embed-frame" src="https://marygraceperal.github.io/GeneralMathematicsSHS/" title="General Mathematics SHS Repository"></iframe>
+            </div>
+            <div class="fallback-link">
+                <a href="https://marygraceperal.github.io/GeneralMathematicsSHS/" target="_blank">Open site in new tab ↗</a>
+            </div>
+        </div>
+
+        <div class="showcase-card">
+            <div>
+                <h4>Pareja IS ARAL Math Repository</h4>
+                <iframe class="embed-frame" src="https://marygraceperal.github.io/ParejaIS_ARAL_Math/" title="Pareja IS ARAL Math Repository"></iframe>
+            </div>
+            <div class="fallback-link">
+                <a href="https://marygraceperal.github.io/ParejaIS_ARAL_Math/" target="_blank">Open site in new tab ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <details>
+        <summary>Step-by-Step Guide: How to Create Your Own GitHub Repository</summary>
+        <div class="step-content">
+            <ol>
+                <li>Open <a href="https://github.com" target="_blank">github.com</a> and sign up for a free account.</li>
+                <li>Click the <strong>+</strong> icon at top-right &rarr; Select <strong>New repository</strong>.</li>
+                <li>Name your repository, set visibility to <strong>Public</strong>, and click <strong>Create repository</strong>.</li>
+                <li>Click <strong>uploading an existing file</strong>, drag and drop your <code>index.html</code> worksheet file, and click <strong>Commit changes</strong>.</li>
+                <li>Go to <strong>Settings</strong> &rarr; <strong>Pages</strong>, select the <code>main</code> branch, and click <strong>Save</strong> to get your live URL.</li>
+            </ol>
+        </div>
+    </details>
+
+    <!-- PART 3: EMBEDDED GOOGLE FORM FEEDBACK FORM -->
+    <div class="section-header">Part III: Google Form Feedback Form</div>
+    <p>Please accomplish the embedded feedback form below to complete the session requirements:</p>
+
+    <div class="form-container">
+        <iframe class="feedback-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSfkyQh6-EH4OlbM8AMDG3YJeNOODoUg1ZbD7z4lmBOLFe8w-g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+    <footer>
+        <p>Pareja Integrated School • Learning Action Cell (LAC) Session</p>
+    </footer>
+</div>
+
+</body>
+</html>
