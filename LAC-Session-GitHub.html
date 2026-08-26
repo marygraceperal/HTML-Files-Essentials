@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAC Session: Web Repositories for Interactive Instruction</title>
-    <!-- Added Font Awesome for Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1e3a8a;
             --secondary: #0d9488;
+            --accent: #4f46e5;
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --text: #1e293b;
@@ -35,30 +36,54 @@
             border: 1px solid var(--border);
         }
 
-        /* Top Download Section */
+        /* Top Resource Banner - Grid Layout for Action Buttons */
         .download-banner {
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
             margin-bottom: 25px;
         }
 
-        .download-btn {
+        .action-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background-color: var(--secondary);
             color: #ffffff;
-            padding: 12px 24px;
-            font-size: 16px;
+            padding: 12px 18px;
+            font-size: 14px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px;
             transition: background-color 0.2s ease, transform 0.1s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
-        .download-btn:hover {
+        .btn-download {
+            background-color: var(--secondary);
+        }
+
+        .btn-download:hover {
             background-color: #0f766e;
+            transform: translateY(-1px);
+        }
+
+        .btn-presentation {
+            background-color: var(--primary);
+        }
+
+        .btn-presentation:hover {
+            background-color: #1e1b4b;
+            transform: translateY(-1px);
+        }
+
+        .btn-guide {
+            background-color: var(--accent);
+        }
+
+        .btn-guide:hover {
+            background-color: #4338ca;
             transform: translateY(-1px);
         }
 
@@ -117,6 +142,51 @@
         ul {
             padding-left: 20px;
             margin: 5px 0;
+        }
+
+        /* Activity Tracker Card */
+        .activity-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .activity-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 8px 14px;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .link-btn:hover {
+            background-color: #1e1b4b;
+        }
+
+        .activity-frame {
+            width: 100%;
+            height: 450px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: #ffffff;
         }
 
         /* Interactive Accordion Step-by-Step */
@@ -213,10 +283,16 @@
 <body>
 
 <div class="container">
-    <!-- Top Download Button -->
+    <!-- Action Buttons Header -->
     <div class="download-banner">
-        <a href="https://drive.google.com/drive/folders/1Z72hTG-dQMuvWedlMTxrsBoAfvSLbi5D?usp=sharing" target="_blank" class="download-btn">
-            <i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD LEARNING MATERIALS
+        <a href="https://drive.google.com/drive/folders/1Z72hTG-dQMuvWedlMTxrsBoAfvSLbi5D?usp=sharing" target="_blank" class="action-btn btn-download">
+            <i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD MATERIALS
+        </a>
+        <a href="https://marygraceperal.github.io/HTML-Files-Essentials/Presentation" target="_blank" class="action-btn btn-presentation">
+            <i class="fa-solid fa-file-powerpoint"></i> PRESENTATION
+        </a>
+        <a href="https://marygraceperal.github.io/HTML-Files-Essentials/Step-by-Step-Guide" target="_blank" class="action-btn btn-guide">
+            <i class="fa-solid fa-list-check"></i> STEP-BY-STEP GUIDE
         </a>
     </div>
 
@@ -227,7 +303,7 @@
 
     <!-- PART 1: FACT SHEET -->
     <div class="section-header">Part I: Quick Fact Sheet</div>
-    
+
     <div class="fact-grid">
         <div class="fact-card">
             <h3>🌐 GitHub Pages</h3>
@@ -242,6 +318,31 @@
                 <li><strong>Cross-Device:</strong> Runs on phones, tablets, or PCs.</li>
             </ul>
         </div>
+    </div>
+
+    <!-- NEW ACTIVITY TRACKER CARD WITH DROPDOWNS -->
+    <div class="activity-card">
+        <h3><i class="fa-solid fa-tasks"></i> Activity Submissions & Logs</h3>
+        
+        <details>
+            <summary><i class="fa-solid fa-paper-plane"></i> Activity Submission Link</summary>
+            <div class="step-content">
+                <a href="https://forms.gle/Vhp5vs4bPxD3CsxUA" target="_blank" class="link-btn">
+                    Open Submission Form in New Tab <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <iframe class="activity-frame" src="https://forms.gle/Vhp5vs4bPxD3CsxUA">Loading form…</iframe>
+            </div>
+        </details>
+
+        <details>
+            <summary><i class="fa-solid fa-table-list"></i> Submitted Activity Log</summary>
+            <div class="step-content">
+                <a href="https://docs.google.com/spreadsheets/d/1_gZf5MOlxXm54suzHnbb2jfXSk1fVppAb3loCjdn9Eg/edit?usp=sharing" target="_blank" class="link-btn">
+                    Open Spreadsheet in New Tab <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <iframe class="activity-frame" src="https://docs.google.com/spreadsheets/d/1_gZf5MOlxXm54suzHnbb2jfXSk1fVppAb3loCjdn9Eg/preview">Loading log…</iframe>
+            </div>
+        </details>
     </div>
 
     <!-- PART 2: SHOWCASE & EXPLORATION -->
