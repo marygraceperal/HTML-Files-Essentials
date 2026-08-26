@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAC Session: Web Repositories for Interactive Instruction</title>
+    <!-- Added Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1e3a8a;
@@ -31,6 +33,33 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border);
+        }
+
+        /* Top Download Section */
+        .download-banner {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--secondary);
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .download-btn:hover {
+            background-color: #0f766e;
+            transform: translateY(-1px);
         }
 
         header {
@@ -184,6 +213,13 @@
 <body>
 
 <div class="container">
+    <!-- Top Download Button -->
+    <div class="download-banner">
+        <a href="https://drive.google.com/drive/folders/1Z72hTG-dQMuvWedlMTxrsBoAfvSLbi5D?usp=sharing" target="_blank" class="download-btn">
+            <i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD LEARNING MATERIALS
+        </a>
+    </div>
+
     <header>
         <h1>LAC SESSION FACT SHEET & WORKSHEET</h1>
         <p class="subtitle">Empowering Multi-Disciplinary Teaching via Web-Based Repositories</p>
