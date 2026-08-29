@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson Plan: Surface Area of Right Rectangular Prisms & Cubes</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background-color: #f7fafc;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #1a202c;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 12px;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: #2b6cb0;
+      margin-top: 28px;
+      border-bottom: 1px solid #edf2f7;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      color: #2d3748;
+      margin-top: 20px;
+    }
+    .meta-info {
+      background-color: #ebf8ff;
+      border-left: 4px solid #3182ce;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      border-radius: 0 4px 4px 0;
+    }
+    .meta-info p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+    ul, ol {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    pre.net-diagram {
+      background-color: #edf2f7;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      padding: 16px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      line-height: 1.2;
+    }
+    .math-block {
+      background-color: #f7fafc;
+      border-left: 3px solid #cbd5e0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-family: "Georgia", serif;
+      font-style: italic;
+    }
+    .evidence-focus {
+      font-size: 0.9rem;
+      color: #4a5568;
+      background-color: #f7fafc;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px dashed #cbd5e0;
+      margin-top: 8px;
+    }
+    .step-badge {
+      display: inline-block;
+      background-color: #3182ce;
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Lesson Plan: Surface Area of Right Rectangular Prisms &amp; Cubes</h1>
+
+  <div class="meta-info">
+    <p><strong>Grade Level / Subject:</strong> Grade 11 / Mathematics</p>
+    <p><strong>Curriculum Framework:</strong> K-12 Curriculum</p>
+    <p><strong>Duration:</strong> 60 Minutes</p>
+    <p><strong>Teaching Approach:</strong> Evidence-Informed 4As Framework (Explicit Instruction &amp; Cognitive Load Theory)</p>
+  </div>
+
+  <section>
+    <h2>I. Objectives</h2>
+    <p>At the end of the lesson, the students are expected to:</p>
+    <ul>
+      <li><strong>Cognitive:</strong> Calculate the total surface area of rectangular prisms and cubes using their respective mathematical formulas (<em>SA = 2lw + 2lh + 2wh</em> and <em>SA = 6s²</em>).</li>
+      <li><strong>Affective:</strong> Demonstrate perseverance and accuracy when identifying distinct 2D faces of a 3D object during collaborative guided practice.</li>
+      <li><strong>Psychomotor:</strong> Construct a 2D net of a rectangular prism to represent and physically verify its total surface area.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>II. Subject Matter</h2>
+    <ul>
+      <li><strong>Topic:</strong> Surface Area of Rectangular Prisms and Cubes</li>
+      <li><strong>Prerequisite Skills:</strong> Area of rectangles and squares, identifying 3D shape faces</li>
+      <li><strong>Materials:</strong> Cardstock/grid paper, scissors, rulers, mini-whiteboards, side-by-side worked example handouts</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>III. Instructional Procedures</h2>
+
+    <h3>A. Activity (Schema Activation &amp; Prerequisite Retrieval) <span class="step-badge">7 Minutes</span></h3>
+    <p>Students complete a 3-question mini-quiz on mini-whiteboards to activate prior long-term memory schemas:</p>
+    <ol>
+      <li>Calculate the area of a rectangle with length = 8 cm and width = 5 cm.</li>
+      <li>Calculate the area of a square with side length = 4 cm.</li>
+      <li>How many total faces does a standard 6-sided die have?</li>
+    </ol>
+    <div class="evidence-focus">
+      <strong>Evidence-Informed Focus:</strong> Low-stakes retrieval verifies foundational skills without overloading working memory.
+    </div>
+
+    <h3>B. Analysis (Guided Notice-and-Wonder with Worked Examples) <span class="step-badge">10 Minutes</span></h3>
+    <p>Present a pre-unfolded 3D box (a net) alongside a fully solved worked example on the board:</p>
+    
+<pre class="net-diagram">
+       +-----------+
+       |   Top     |
+ +-----+-----------+-----+-----+
+ | Left|  Front    |Right| Back|
+ +-----+-----------+-----+-----+
+       |  Bottom   |
+       +-----------+
+</pre>
+
+    <p><strong>Targeted Prompts (Self-Explanation):</strong></p>
+    <ul>
+      <li><em>"Notice how opposite faces (Top/Bottom, Front/Back, Left/Right) are identical in area. Why do we multiply each pair by 2 in the formula SA = 2(lw + lh + wh)?"</em></li>
+      <li><em>"If all 6 faces of a cube are identical squares of side length s, why does the formula simplify to 6s²?"</em></li>
+    </ul>
+    <div class="evidence-focus">
+      <strong>Evidence-Informed Focus:</strong> Eliminates guess-and-check cognitive load by directing attention to structural patterns.
+    </div>
+
+    <h3>C. Abstraction (Explicit Modeling &amp; Dual Coding) <span class="step-badge">15 Minutes</span></h3>
+    <p><strong>I Do (Direct Instruction):</strong></p>
+    <ul>
+      <li>Explicitly define <strong>Surface Area</strong> as the total sum of the areas of all 2D outer faces covering a 3D object.</li>
+      <li>Model solving a problem step-by-step: A rectangular prism with length = 6 cm, width = 4 cm, and height = 3 cm.</li>
+      <li>Write the visual formula decomposition on the board while explaining verbally:</li>
+    </ul>
+    
+    <div class="math-block">
+      Front/Back = 2(6 × 3) = 36 cm²<br>
+      Top/Bottom = 2(6 × 4) = 48 cm²<br>
+      Left/Right = 2(4 × 3) = 24 cm²<br>
+      <strong>Total SA = 36 + 48 + 24 = 108 cm²</strong>
+    </div>
+
+    <p><strong>We Do (Guided Practice):</strong></p>
+    <ul>
+      <li>Present a parallel problem on the board. Students work in pairs to construct a simple cardstock net, unfold it, and calculate the combined surface area on their mini-whiteboards.</li>
+    </ul>
+    <div class="evidence-focus">
+      <strong>Evidence-Informed Focus:</strong> Combines visual nets with step-by-step mathematical procedures (dual coding) to prevent working memory overload.
+    </div>
+
+    <h3>D. Application (Faded Scaffolding &amp; Independent Practice) <span class="step-badge">18 Minutes</span></h3>
+    <p>Students work independently on a scaffolded problem set featuring faded worked examples:</p>
+    <ul>
+      <li><strong>Level 1 (Faded Example):</strong> Complete missing steps in a half-solved surface area problem.</li>
+      <li><strong>Level 2 (Independent Problem):</strong> Calculate the total surface area of a cube with side length <em>s</em> = 7.5 cm.</li>
+      <li><strong>Level 3 (Contextual Word Problem):</strong> Calculate the total square meters of cardboard needed to construct a box measuring 0.5 m × 0.3 m × 0.2 m.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>IV. Evaluation <span class="step-badge">10 Minutes</span></h2>
+    <p>Students complete an exit slip with two problems:</p>
+    <ol>
+      <li>Find the surface area of a rectangular prism with length = 10 cm, width = 4 cm, and height = 5 cm.</li>
+      <li>A cubic storage box has a side length of 9 cm. Calculate its total surface area.</li>
+    </ol>
+  </section>
+</div>
+
+</body>
+</html>
+
