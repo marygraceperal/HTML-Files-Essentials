@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic-Life Harmony Presentation</title>
+    <style>
+        :root {
+            --primary-mint: #4ECDC4;
+            --primary-coral: #FF6B6B;
+            --primary-yellow: #FFE66D;
+            --primary-purple: #A55EEA;
+            --primary-blue: #4D96FF;
+            --bg-light: #F7F9FC;
+            --text-dark: #2D3436;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Presentation Container */
+        .presentation-container {
+            width: 90%;
+            max-width: 960px;
+            height: 580px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        /* Slide Styles */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateX(30px);
+            text-align: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Headers & Badges */
+        .badge {
+            background-color: var(--primary-mint);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #636E72;
+            margin-bottom: 25px;
+        }
+
+        /* Card Layouts */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 6px solid var(--primary-mint);
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .card.coral { border-color: var(--primary-coral); }
+        .card.yellow { border-color: var(--primary-yellow); }
+        .card.purple { border-color: var(--primary-purple); }
+        .card.blue { border-color: var(--primary-blue); }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--primary-mint);
+        }
+
+        /* Animated Detail Items */
+        .anim-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .anim-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Interactive Note Block */
+        .interactive-box {
+            background: #FFF9D6;
+            border: 2px dashed #F1C40F;
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #7F8C8D;
+        }
+
+        /* Navigation Controls */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 10;
+        }
+
+        .btn {
+            background-color: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-mint);
+        }
+
+        .slide-counter {
+            font-weight: bold;
+            color: #B2BEC3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container" id="presentationContainer">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <span class="badge" style="background-color: var(--primary-mint);">Welcome Students!</span>
+            <h1>🎯 ACADEMIC-LIFE HARMONY</h1>
+            <p class="subtitle">Study Smart. Rest Well. Thrive Every Day!</p>
+            <div class="card-grid">
+                <div class="card yellow anim-item" style="text-align: center;">
+                    <h3>📚 Pace Your Study</h3>
+                </div>
+                <div class="card coral anim-item" style="text-align: center;">
+                    <h3>🚧 Set Boundaries</h3>
+                </div>
+                <div class="card blue anim-item" style="text-align: center;">
+                    <h3>🔌 Unplug & Recharge</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Reality Check -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-coral);">Quick Check-In</span>
+            <h2>Which One Are You Today? 🤔</h2>
+            <div class="card-grid">
+                <div class="card coral anim-item">
+                    <h3>🔴 Late Night Crammer</h3>
+                    <p>Stayed up past 1:00 AM finishing an assignment due today?</p>
+                </div>
+                <div class="card yellow anim-item">
+                    <h3>🟡 Multi-Tasker</h3>
+                    <p>Studied while group project messages buzzed endlessly?</p>
+                </div>
+                <div class="card blue anim-item">
+                    <h3>🟢 Overwhelmed</h3>
+                    <p>Stared at your homework feeling so stressed you just froze?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Concept -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-purple);">The Big Idea</span>
+            <h2>Harmony > Perfection 🌈</h2>
+            <div class="card-grid">
+                <div class="card coral anim-item">
+                    <h3>❌ What It Is NOT</h3>
+                    <ul>
+                        <li class="anim-item">A perfect 50/50 split every day</li>
+                        <li class="anim-item">Giving up or doing less work</li>
+                        <li class="anim-item">Feeling guilty for taking a rest</li>
+                    </ul>
+                </div>
+                <div class="card yellow anim-item">
+                    <h3>✅ What IT IS</h3>
+                    <ul>
+                        <li class="anim-item">Studying smarter in school</li>
+                        <li class="anim-item">Protecting sleep and health</li>
+                        <li class="anim-item">Making room for what you love</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Habit 1 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-yellow); color: #333;">Habit #1</span>
+            <h2>Pace Your Pace! ⏳</h2>
+            <p class="subtitle">Time Management & Consistency</p>
+            <div class="card yellow" style="width: 100%;">
+                <ul>
+                    <li class="anim-item"><strong>Slice Big Tasks:</strong> Break multi-week projects into daily bite-sized steps.</li>
+                    <li class="anim-item"><strong>The 20-Minute Rule:</strong> 20 minutes of daily review beats 4 hours of late-night cramming.</li>
+                    <li class="anim-item"><strong>Track Deadlines:</strong> Use a planner or checklist so nothing surprises you.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 5: Habit 2 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-coral);">Habit #2</span>
+            <h2>Set Friendly Boundaries 🚧</h2>
+            <p class="subtitle">Respecting Your Workload Capacity</p>
+            <div class="card coral" style="width: 100%;">
+                <ul>
+                    <li class="anim-item"><strong>Know Your Limits:</strong> It's okay to say <em>"I can help tomorrow, but tonight I'm resting."</em></li>
+                    <li class="anim-item"><strong>Night-Time Cutoffs:</strong> Turn off group project chats after 8:00 PM.</li>
+                    <li class="anim-item"><strong>Do Your Fair Share:</strong> Focus on your assigned role without taking over others' tasks.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: Habit 3 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-blue);">Habit #3</span>
+            <h2>Unplug & Recharge 🔌</h2>
+            <p class="subtitle">Intentional Mental Rest</p>
+            <div class="card-grid">
+                <div class="card coral anim-item">
+                    <h3>❌ Screen Scrolling</h3>
+                    <p>Keeps your brain overstimulated and causes eye strain during breaks.</p>
+                </div>
+                <div class="card blue anim-item">
+                    <h3>✅ True Recharge</h3>
+                    <p>Stretching, taking deep breaths, drinking water, and stepping away from screens.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Habit 4 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-purple);">Habit #4</span>
+            <h2>Speak Up Early 🙋</h2>
+            <p class="subtitle">Proactive Stress Management</p>
+            <div class="card purple" style="width: 100%;">
+                <ul>
+                    <li class="anim-item"><strong>Ask Immediately:</strong> Don't wait until exam night to ask for help when stuck.</li>
+                    <li class="anim-item"><strong>Mistakes = Learning:</strong> Errors are just data showing you where to practice next.</li>
+                    <li class="anim-item"><strong>Take One Step:</strong> When feeling overwhelmed, pause and do just the very first step.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 8: Habit 5 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-mint);">Habit #5</span>
+            <h2>Fuel Your Brain 🔋</h2>
+            <p class="subtitle">Energy & Self-Care</p>
+            <div class="card-grid">
+                <div class="card yellow anim-item">
+                    <h3>😴 Sleep (7-8 hrs)</h3>
+                    <p>A rested brain retains 2x more information than a tired one!</p>
+                </div>
+                <div class="card coral anim-item">
+                    <h3>🥗 Meals & Water</h3>
+                    <p>Don't skip lunch—your brain consumes 20% of your body's energy.</p>
+                </div>
+                <div class="card blue anim-item">
+                    <h3>🎨 Hobbies & Fun</h3>
+                    <p>Keep time for creative activities, sports, family, and play.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Action Step -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-coral);">Weekly Challenge</span>
+            <h2>Choose Your Habit Today! 🎯</h2>
+            <p class="subtitle">Pick 1 habit to practice this week.</p>
+            <div class="interactive-box anim-item">
+                📝 <strong>My Commitment:</strong><br><br>
+                "This week, I will practice <strong>Habit # ____</strong> by ___________________________________________."
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusion -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-mint);">Remember</span>
+            <h1>🌟 SCHOOL IS A MARATHON, NOT A SPRINT!</h1>
+            <p class="subtitle anim-item">Work hard in class so you can rest completely OUT of class!</p>
+            <p class="anim-item" style="font-size: 1.2rem; color: var(--primary-purple); font-weight: bold; margin-top: 20px;">Any questions or thoughts to share? 💬</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="controls">
+            <button class="btn" id="prevBtn" onclick="event.stopPropagation(); handlePrev();">Previous</button>
+            <span class="slide-counter" id="slideCounter">1 / 10</span>
+            <button class="btn" id="nextBtn" onclick="event.stopPropagation(); handleNext();">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        const presentationContainer = document.getElementById('presentationContainer');
+
+        function updateSlideDisplay() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                    // Reset hidden anim-items when leaving slide
+                    const items = slide.querySelectorAll('.anim-item');
+                    items.forEach(item => item.classList.remove('visible'));
+                }
+            });
+            slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function handleNext() {
+            const activeSlide = slides[currentSlide];
+            const nextHiddenItem = activeSlide.querySelector('.anim-item:not(.visible)');
+
+            // Reveal next element on click, or move to next slide if all are visible
+            if (nextHiddenItem) {
+                nextHiddenItem.classList.add('visible');
+            } else if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlideDisplay();
+            }
+        }
+
+        function handlePrev() {
+            const activeSlide = slides[currentSlide];
+            const visibleItems = activeSlide.querySelectorAll('.anim-item.visible');
+
+            // Hide last revealed element, or move to previous slide if none are visible
+            if (visibleItems.length > 0) {
+                visibleItems[visibleItems.length - 1].classList.remove('visible');
+            } else if (currentSlide > 0) {
+                currentSlide--;
+                updateSlideDisplay();
+                // Make all items visible on previous slide when backing up
+                const prevSlideItems = slides[currentSlide].querySelectorAll('.anim-item');
+                prevSlideItems.forEach(item => item.classList.add('visible'));
+            }
+        }
+
+        // Click anywhere on presentation container to advance
+        presentationContainer.addEventListener('click', handleNext);
+
+        // Keyboard Arrow Key Support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                handleNext();
+            } else if (e.key === 'ArrowLeft') {
+                handlePrev();
+            }
+        });
+
+        // Initialize slide display
+        updateSlideDisplay();
+    </script>
+</body>
+</html>

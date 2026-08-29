@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson Plan: Wage & Overtime Calculations</title>
+  
+  <!-- MathJax for rendering math formulas beautifully -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* Global Styles & Background */
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #0284c7;
+      --teacher-bg: #f0fdf4;
+      --teacher-border: #16a34a;
+      --student-bg: #f8fafc;
+      --student-border: #0284c7;
+      --text-dark: #1e293b;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      color: var(--text-dark);
+      /* Elegant gradient background */
+      background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #fce7f3 100%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 35px;
+      font-size: 1.1rem;
+    }
+
+    /* Column Headers */
+    .table-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-box {
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+
+    .header-teacher {
+      background-color: var(--teacher-border);
+    }
+
+    .header-student {
+      background-color: var(--secondary-color);
+    }
+
+    /* Row Layout */
+    .topic-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: stretch;
+    }
+
+    /* Card Styling */
+    .card {
+      padding: 22px;
+      border-radius: 12px;
+      border-left: 6px solid;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      background-color: #ffffff;
+    }
+
+    .card-teacher {
+      border-color: var(--teacher-border);
+      background-color: var(--teacher-bg);
+    }
+
+    .card-student {
+      border-color: var(--student-border);
+      background-color: var(--student-bg);
+    }
+
+    .topic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 15px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+
+    .card-teacher .topic-title {
+      color: #14532d;
+    }
+
+    .card-student .topic-title {
+      color: #0c4a6e;
+    }
+
+    .script-text {
+      font-style: italic;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .formula-box {
+      background-color: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      margin: 12px 0;
+      text-align: center;
+    }
+
+    code {
+      background-color: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Consolas', monospace;
+      color: #0f172a;
+    }
+
+    /* Responsive Design for Small Screens */
+    @media (max-width: 768px) {
+      .table-header {
+        display: none;
+      }
+      .topic-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Calculation of Wages, Overtime Pay & Allowances</h1>
+    <p class="subtitle">Instructional Guide: Teacher Scripts vs. Student Study Notes</p>
+
+    <!-- Header Column Titles -->
+    <div class="table-header">
+      <div class="header-box header-teacher">📢 Teacher's Explanation Script (Left)</div>
+      <div class="header-box header-student">📝 Student's Study Notes (Right)</div>
+    </div>
+
+    <!-- Sub-Topic 1 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">1. Wages vs. Salaries</div>
+        <p class="script-text">
+          "Good morning/afternoon, class! Before we dive into the math, let's make a clear distinction between how people get paid[cite: 12]. Imagine two different workers: a service crew member at a fast-food chain and a school principal[cite: 12]. The service crew member earns an <strong>hourly wage</strong>[cite: 12]. If they work 5 hours, they get paid for 5 hours[cite: 12]. If they work 8 hours, they get paid for 8[cite: 12]. Every single minute counts! On the other hand, a salaried worker receives a fixed <strong>annual salary</strong>[cite: 12]. Whether their workweek is slightly lighter or heavier, their base paycheck stays steady[cite: 12]. Today, our focus is on wage earners because tracking their exact time is critical to computing their fair pay[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">1. Wages vs. Salaries</div>
+        <ul>
+          <li><strong>Hourly Wage:</strong> Payment calculated based directly on the actual number of hours worked[cite: 12].
+            <ul>
+              <li><em>Common Jobs:</em> Construction workers, service crew, freelancers, factory staff[cite: 12].</li>
+              <li><em>Key Requirement:</em> Accurate tracking of work hours is essential for precise compensation[cite: 12].</li>
+            </ul>
+          </li>
+          <li><strong>Annual Salary:</strong> A fixed total compensation paid over the course of a year, regardless of the specific number of hours worked[cite: 12].</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 2 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">2. Regular Pay Foundations & The Labor Code</div>
+        <p class="script-text">
+          "Now, let's look at the baseline established by the Philippine Labor Code[cite: 12]. The law sets standard full-time work at 8 hours per day, which typically totals 40 hours across a 5-day workweek[cite: 12]. Calculating basic regular pay is straightforward: simply multiply the worker's hourly rate by their regular hours worked[cite: 12]. For instance, if a worker earns ₱70 per hour and completes a standard 8-hour shift, they earn ₱560 for that day[cite: 12]. Over 5 days, that accumulates to ₱2,800[cite: 12]. This standard 8-hour rate forms the base layer of our gross income calculation[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">2. Regular Pay Foundations & The Labor Code</div>
+        <p>Under the <strong>Labor Code of the Philippines</strong>, standard work duration is <strong>8 hours a day</strong> or <strong>40 hours a week</strong>[cite: 12].</p>
+        <div class="formula-box">
+          $$\text{Regular Pay} = \text{Hourly Rate} \times \text{Regular Hours}$$[cite: 12]
+        </div>
+        <strong>Example:</strong>
+        <ul>
+          <li>Hourly Rate: ₱70.00/hr[cite: 12]</li>
+          <li>Standard Daily Work: 8 hours[cite: 12]</li>
+          <li>$\text{Daily Regular Pay} = \text{₱70.00} \times 8 = \text{₱560.00}$[cite: 12]</li>
+          <li>$\text{Weekly Regular Pay (5 Days)} = \text{₱560.00} \times 5 = \text{₱2,800.00}$[cite: 12]</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 3 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">3. Overtime (OT) Pay Principles</div>
+        <p class="script-text">
+          "What happens when an employee stays past their standard 8 hours? That’s where <strong>Overtime (OT) Pay</strong> comes in[cite: 12]. Because extra hours place additional physical and mental demand on a worker, the law mandates a premium rate to ensure fair compensation[cite: 12]. In the Philippines, standard overtime adds a 25% premium, meaning the worker earns <strong>125% (or 1.25 times)</strong> their base hourly rate for those extra hours[cite: 12]. Look at our visual breakdown: if an employee earning ₱80/hr works 10 hours, we don't just multiply 10 by ₱80[cite: 12]. We split it! The first 8 hours are regular pay (₱640), and the remaining 2 hours are multiplied by ₱80 and 1.25 (₱200)[cite: 12]. Combining both gives us a total daily wage of ₱840[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">3. Overtime (OT) Pay Principles</div>
+        <ul>
+          <li><strong>Definition:</strong> Additional compensation for work performed beyond the standard 8-hour workday[cite: 12].</li>
+          <li><strong>The 125% Rule:</strong> Regular overtime work is compensated at <strong>1.25 times (125%)</strong> the regular hourly rate[cite: 12].</li>
+          <li><strong>Purpose:</strong> Fairly compensates workers for physical and mental strain[cite: 12].</li>
+        </ul>
+        <div class="formula-box">
+          $$\text{OT Pay} = \text{Hourly Rate} \times 1.25 \times \text{OT Hours}$$[cite: 12]
+        </div>
+        <strong>10-Hour Workday Breakdown (₱80.00/hr):</strong>
+        <ul>
+          <li>Regular (8 hrs @ ₱80): $8 \times \text{₱80} = \text{₱640.00}$[cite: 12]</li>
+          <li>OT (2 hrs @ 1.25): $2 \times \text{₱80} \times 1.25 = \text{₱200.00}$[cite: 12]</li>
+          <li><strong>Total Daily Wage:</strong> $\mathbf{\text{₱840.00}}$[cite: 12]</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 4 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">4. Understanding Allowances</div>
+        <p class="script-text">
+          "In addition to basic wages and overtime, employers often provide <strong>allowances</strong>—such as rice subsidies, meal stipends, or transportation assistance[cite: 12]. Here is a crucial rule to remember for your financial calculations: <strong>allowances are non-wage benefits</strong>[cite: 12]. That means you do NOT include allowance amounts when calculating the hourly overtime rate[cite: 12]. You compute regular pay first, add overtime pay second, and then add allowances as a flat addition at the very end[cite: 12]. Keep them separate in your calculation pipeline to avoid errors!"
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">4. Understanding Allowances</div>
+        <ul>
+          <li><strong>Definition:</strong> Additional monetary amounts that do <strong>not</strong> form part of the basic hourly rate[cite: 12].</li>
+          <li><strong>Examples:</strong> Meal, transportation, laundry allowances, or rice subsidies[cite: 12].</li>
+          <li><strong>Key Calculation Rule:</strong> Allowances are added to the gross pay <strong>after</strong> regular wages and overtime pay are computed[cite: 12]. They are excluded when computing the 1.25x overtime rate base[cite: 12].</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 5 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">5. Comprehensive Gross Wage Calculation</div>
+        <p class="script-text">
+          "Now let's synthesize everything into one master formula[cite: 12]! To calculate an employee's total gross wage, we follow a 3-step sequence: <strong>Step 1:</strong> Calculate Regular Pay ($40 \text{ hrs} \times \text{Rate}$)[cite: 12]. <strong>Step 2:</strong> Calculate Overtime Pay ($\text{OT hrs} \times \text{Rate} \times 1.25$)[cite: 12]. <strong>Step 3:</strong> Add any non-taxable allowances[cite: 12]. Let me walk you through the sample problem: with 40 regular hours at ₱100/hr, we get ₱4,000[cite: 12]. For 4 hours of overtime at ₱100/hr, $4 \times 100 \times 1.25$ equals ₱500[cite: 12]. Adding the ₱200 laundry allowance gives a gross total of ₱4,700[cite: 12]. Always break your solution into these clear steps so you never miss a component."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">5. Comprehensive Gross Wage Calculation</div>
+        <div class="formula-box">
+          $$\text{Gross Wage} = (\text{Reg. Hours} \times \text{Rate}) + (\text{OT Hours} \times \text{Rate} \times 1.25) + \text{Allowances}$$[cite: 12]
+        </div>
+        <strong>Step-by-Step Example:</strong>
+        <ul>
+          <li>Workweek: 40 Regular Hrs + 4 OT Hrs[cite: 12]</li>
+          <li>Hourly Rate: ₱100.00/hr[cite: 12]</li>
+          <li>Allowance: ₱200.00 laundry allowance[cite: 12]</li>
+        </ul>
+        <ol>
+          <li>Regular Pay: $40 \times \text{₱100.00} = \text{₱4,000.00}$[cite: 12]</li>
+          <li>OT Pay: $4 \times \text{₱100.00} \times 1.25 = \text{₱500.00}$[cite: 12]</li>
+          <li>Allowance: $\text{₱200.00}$[cite: 12]</li>
+          <li><strong>Gross Pay:</strong> $\text{₱4,000} + \text{₱500} + \text{₱200} = \mathbf{\text{₱4,700.00}}$[cite: 12]</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 6 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">6. Social Studies & Financial Literacy Context</div>
+        <p class="script-text">
+          "Mathematics isn't just about solving numbers on paper; it applies directly to daily living and economics[cite: 12]. The Labor Code protects workers by ensuring their time and labor are valued fairly[cite: 12]. From a personal finance perspective, pay can be divided into <strong>fixed income</strong> and <strong>variable income</strong>[cite: 12]. Your basic wage is fixed and guaranteed as long as you work your standard hours[cite: 12]. You should use this fixed pay to budget for essential needs like food, utility bills, and rent[cite: 12]. Overtime pay, however, is variable—it fluctuates depending on company demand[cite: 12]. A smart financial rule is to treat overtime pay as extra savings, debt payoff, or emergency reserves rather than relying on it for daily expenses[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">6. Social Studies & Financial Literacy Context</div>
+        <strong>Philippine Labor Context:</strong>
+        <ul>
+          <li><strong>Legal Framework:</strong> Labor laws ensure social protection and fair compensation[cite: 12].</li>
+          <li><strong>Economic Impact:</strong> Proper wages enhance worker spending power and influence enterprise operations[cite: 12].</li>
+        </ul>
+        <br>
+        <strong>Income Structuring:</strong>
+        <ul>
+          <li><strong>BASIC WAGE (Fixed):</strong> Covers essential living expenses (Food, Rent)[cite: 12].</li>
+          <li><strong>OVERTIME PAY (Variable):</strong> Directed to Savings, Debt Payoff, or Emergency Funds[cite: 12].</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 7 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">7. Technology in Payroll Automation</div>
+        <p class="script-text">
+          "In real-world business settings, HR managers don't calculate hundreds of employee paychecks manually with a handheld calculator[cite: 12]. They use spreadsheet technology like Google Sheets or Microsoft Excel to automate the process[cite: 12]. By inputting the hourly rate in column A, regular hours in column B, and overtime hours in column C, we can write a single formula: <code>=(A2*B2) + (A2*1.25*C2) + Allowance</code>[cite: 12]. This eliminates human error, speeds up payroll processing, and demonstrates how mathematical logic powers modern administrative tools[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">7. Technology in Payroll Automation</div>
+        <p>Spreadsheets (Excel/Google Sheets) automate payroll processing and reduce errors[cite: 12].</p>
+        <strong>Cell Mapping:</strong>
+        <ul>
+          <li><code>A2</code> = Hourly Rate[cite: 12]</li>
+          <li><code>B2</code> = Regular Hours worked[cite: 12]</li>
+          <li><code>C2</code> = Overtime Hours worked[cite: 12]</li>
+        </ul>
+        <br>
+        <strong>Spreadsheet Formula:</strong><br>
+        <code>=(A2 * B2) + (A2 * 1.25 * C2) + Allowances</code>[cite: 12]
+      </div>
+    </div>
+
+    <!-- Sub-Topic 8 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">8. Quiz Solutions Reference</div>
+        <p class="script-text">
+          "Let's review our pop quiz items together[cite: 12]. Notice how Question 1 quickly tests basic multiplication of the 8-hour daily baseline[cite: 12]. In Question 2, remember to multiply by $1.25$ first to find the higher overtime rate (₱150/hr) before multiplying by 3 hours to get ₱450[cite: 12]. Finally, in Question 3, we combine all three components: regular pay (₱4,400), overtime pay (₱825), and our non-wage allowance (₱300) to arrive at a total weekly gross pay of ₱5,525[cite: 12]. Excellent work following these multi-step computations!"
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">8. Quiz Solutions Reference</div>
+        <strong>1. Daily Regular Pay (8 hrs):</strong>[cite: 12]
+        <ul>
+          <li>₱50/hr $\rightarrow 50 \times 8 = \mathbf{\text{₱400.00}}$[cite: 12]</li>
+          <li>₱75/hr $\rightarrow 75 \times 8 = \mathbf{\text{₱600.00}}$[cite: 12]</li>
+          <li>₱100/hr $\rightarrow 100 \times 8 = \mathbf{\text{₱800.00}}$[cite: 12]</li>
+          <li>₱120/hr $\rightarrow 120 \times 8 = \mathbf{\text{₱960.00}}$[cite: 12]</li>
+          <li>₱150/hr $\rightarrow 150 \times 8 = \mathbf{\text{₱1,200.00}}$[cite: 12]</li>
+        </ul>
+        <br>
+        <strong>2. Overtime Pay (₱120/hr; 3 hrs OT):</strong>[cite: 12]
+        <p>$\text{OT Pay} = 120 \times 1.25 \times 3 = \mathbf{\text{₱450.00}}$[cite: 12]</p>
+        <strong>3. Weekly Gross Pay (40 hrs @ ₱110, 6 OT hrs, ₱300 allowance):</strong>[cite: 12]
+        <ul>
+          <li>Regular Pay: $40 \times \text{₱110} = \text{₱4,400.00}$[cite: 12]</li>
+          <li>OT Pay: $6 \times \text{₱110} \times 1.25 = \text{₱825.00}$[cite: 12]</li>
+          <li>Allowance: $\text{₱300.00}$[cite: 12]</li>
+          <li><strong>Total Gross Pay:</strong> $\mathbf{\text{₱5,525.00}}$[cite: 12]</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sub-Topic 9 -->
+    <div class="topic-row">
+      <div class="card card-teacher">
+        <div class="topic-title">9. Assignment Prompts</div>
+        <p class="script-text">
+          "For your assignment due next meeting, you will extend these payroll principles to night shift conditions[cite: 12]. You will research 'Night Shift Differential'—which applies to hours worked between 10:00 PM and 6:00 AM—and determine its mandated percentage premium[cite: 12]. Additionally, you'll create a fictional employee profile, apply overtime and allowances, and present your step-by-step solution to the class[cite: 12]."
+        </p>
+      </div>
+      <div class="card card-student">
+        <div class="topic-title">9. Assignment Prompts</div>
+        <ol>
+          <li><strong>Research:</strong> Define <em>Night Shift Differential</em> under the Philippine Labor Code[cite: 12].</li>
+          <li><strong>Calculate:</strong> Identify the legal percentage premium for work between 10:00 PM and 6:00 AM[cite: 12].</li>
+          <li><strong>Case Study Task:</strong> Create a worker profile with an hourly rate, 5 OT hours, a meal allowance, and a rice subsidy, then calculate total gross weekly pay[cite: 12].</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

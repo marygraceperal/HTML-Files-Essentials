@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Observation & Growth Plan</title>
+    <style>
+        :root {
+            --primary-mint: #4ECDC4;
+            --primary-coral: #FF6B6B;
+            --primary-yellow: #FFE66D;
+            --primary-purple: #A55EEA;
+            --primary-blue: #4D96FF;
+            --bg-light: #F7F9FC;
+            --text-dark: #2D3436;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Presentation Container */
+        .presentation-container {
+            width: 90%;
+            max-width: 960px;
+            height: 580px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        /* Slide Styles */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateX(30px);
+            text-align: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* Headers & Badges */
+        .badge {
+            background-color: var(--primary-mint);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #636E72;
+            margin-bottom: 25px;
+        }
+
+        /* Card Layouts */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 6px solid var(--primary-mint);
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .card.coral { border-color: var(--primary-coral); }
+        .card.yellow { border-color: var(--primary-yellow); }
+        .card.purple { border-color: var(--primary-purple); }
+        .card.blue { border-color: var(--primary-blue); }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--primary-mint);
+        }
+
+        /* Animated Detail Items */
+        .anim-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .anim-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation Controls */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 10;
+        }
+
+        .btn {
+            background-color: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-mint);
+        }
+
+        .slide-counter {
+            font-weight: bold;
+            color: #B2BEC3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container" id="presentationContainer">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <span class="badge" style="background-color: var(--primary-mint);">Standard Operating Procedure</span>
+            <h1>📋 Student Self-Management & Observation Plan</h1>
+            <p class="subtitle">A Monthly Rotation Framework for 30 Students</p>
+            <div class="card-grid">
+                <div class="card yellow anim-item" style="text-align: center;">
+                    <h3>🎯 Target-Driven</h3>
+                </div>
+                <div class="card coral anim-item" style="text-align: center;">
+                    <h3>👀 Unannounced Observations</h3>
+                </div>
+                <div class="card blue anim-item" style="text-align: center;">
+                    <h3>🌱 Monthly Growth Cycles</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Overview -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-purple);">Core Strategy</span>
+            <h2>How The Rotation Plan Works 🔄</h2>
+            <div class="card-grid">
+                <div class="card purple anim-item">
+                    <h3>1 Target Behavior / Month</h3>
+                    <p>Each student selects 1 specific indicator to work on independently for 30 days.</p>
+                </div>
+                <div class="card yellow anim-item">
+                    <h3>10 Students / Week</h3>
+                    <p>The teacher observes 10 students weekly without announcing who is being evaluated.</p>
+                </div>
+                <div class="card blue anim-item">
+                    <h3>Week 3 Feedback</h3>
+                    <p>Checklists are returned for reflection, self-assessment, and strategy planning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Phase 1 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-yellow); color: #333;">Phase 1</span>
+            <h2>Monthly Goal Setting (Week 0) 🎯</h2>
+            <p class="subtitle">Empowering Student Choice & Autonomy</p>
+            <div class="card yellow" style="width: 100%;">
+                <ul>
+                    <li class="anim-item"><strong>Student Choice:</strong> All 30 students select 1 target habit from the Academic-Life Harmony checklist.</li>
+                    <li class="anim-item"><strong>Master Logging:</strong> Teacher records each student's focus indicator in the master tracking ledger.</li>
+                    <li class="anim-item"><strong>Personal Goal:</strong> Students commit to practicing their target behavior during daily routines.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Phase 2 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-coral);">Phase 2</span>
+            <h2>Observation Rotation (Weeks 1–3) 🕵️‍♂️</h2>
+            <p class="subtitle">Gathering Authentic Classroom Evidence</p>
+            <div class="card-grid">
+                <div class="card coral anim-item">
+                    <h3>📅 Cohort Schedule</h3>
+                    <ul>
+                        <li><strong>Week 1:</strong> Observe Cohort A (Students 1–10)</li>
+                        <li><strong>Week 2:</strong> Observe Cohort B (Students 11–20)</li>
+                        <li><strong>Week 3:</strong> Observe Cohort C (Students 21–30)</li>
+                    </ul>
+                </div>
+                <div class="card blue anim-item">
+                    <h3>📝 Observation Rules</h3>
+                    <ul>
+                        <li><strong>Blinded Rating:</strong> Observations are unannounced to prevent anxiety.</li>
+                        <li><strong>Concrete Evidence:</strong> Teacher writes specific behavioral notes per student.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Phase 3 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-blue);">Phase 3</span>
+            <h2>Feedback & Reflection (End of Week 3) 💬</h2>
+            <p class="subtitle">Turning Ratings into Actionable Growth</p>
+            <div class="card blue" style="width: 100%;">
+                <ul>
+                    <li class="anim-item"><strong>Form Distribution:</strong> Observation sheets are returned to all 30 students at the end of Week 3.</li>
+                    <li class="anim-item"><strong>Self-Reflection:</strong> Students compare teacher ratings with their internal perception of their progress.</li>
+                    <li class="anim-item"><strong>Support Consultations:</strong> Quick 1-on-1 check-ins for students needing strategy adjustments.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: Phase 4 -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-mint);">Phase 4</span>
+            <h2>Progression & Next Cycle 🚀</h2>
+            <p class="subtitle">Mastering Habits Step-by-Step</p>
+            <div class="card-grid">
+                <div class="card yellow anim-item">
+                    <h3>Rating of 3 (Consistently Observed)</h3>
+                    <p>The student completes the behavior and selects a <strong>NEW behavior</strong> for the following month.</p>
+                </div>
+                <div class="card coral anim-item">
+                    <h3>Rating of 1 or 2 (In Progress)</h3>
+                    <p>The student continues with the <strong>SAME behavior</strong> for one more cycle to achieve mastery.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Conclusion -->
+        <div class="slide">
+            <span class="badge" style="background-color: var(--primary-purple);">Summary</span>
+            <h1>🌟 Building Sustainable Classroom Habits!</h1>
+            <p class="subtitle anim-item">Consistency over intensity yields long-term success.</p>
+            <p class="anim-item" style="font-size: 1.2rem; color: var(--primary-purple); font-weight: bold; margin-top: 20px;">Ready to start Cycle 1? 🚀</p>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="controls">
+            <button class="btn" id="prevBtn" onclick="event.stopPropagation(); handlePrev();">Previous</button>
+            <span class="slide-counter" id="slideCounter">1 / 7</span>
+            <button class="btn" id="nextBtn" onclick="event.stopPropagation(); handleNext();">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCounter = document.getElementById('slideCounter');
+        const presentationContainer = document.getElementById('presentationContainer');
+
+        function updateSlideDisplay() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                    const items = slide.querySelectorAll('.anim-item');
+                    items.forEach(item => item.classList.remove('visible'));
+                }
+            });
+            slideCounter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function handleNext() {
+            const activeSlide = slides[currentSlide];
+            const nextHiddenItem = activeSlide.querySelector('.anim-item:not(.visible)');
+
+            if (nextHiddenItem) {
+                nextHiddenItem.classList.add('visible');
+            } else if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlideDisplay();
+            }
+        }
+
+        function handlePrev() {
+            const activeSlide = slides[currentSlide];
+            const visibleItems = activeSlide.querySelectorAll('.anim-item.visible');
+
+            if (visibleItems.length > 0) {
+                visibleItems[visibleItems.length - 1].classList.remove('visible');
+            } else if (currentSlide > 0) {
+                currentSlide--;
+                updateSlideDisplay();
+                const prevSlideItems = slides[currentSlide].querySelectorAll('.anim-item');
+                prevSlideItems.forEach(item => item.classList.add('visible'));
+            }
+        }
+
+        presentationContainer.addEventListener('click', handleNext);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                handleNext();
+            } else if (e.key === 'ArrowLeft') {
+                handlePrev();
+            }
+        });
+
+        updateSlideDisplay();
+    </script>
+</body>
+</html>
