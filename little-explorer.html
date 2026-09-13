@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Little Explorer 🧸</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  background:#f7f8ff;
+  color:#28344d;
+}
+
+button{
+  font-family:inherit;
+  border:none;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.app{
+  max-width:900px;
+  margin:auto;
+  padding:14px;
+}
+
+/* HEADER */
+
+.header{
+  background:linear-gradient(135deg,#6c63ff,#8b7cff,#55a8ff);
+  color:white;
+  border-radius:30px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(40,52,77,.15);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.mascot{
+  width:68px;
+  height:68px;
+  background:white;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+}
+
+.header h1{
+  margin:0;
+  font-size:clamp(28px,8vw,45px);
+}
+
+.header p{
+  margin:4px 0 0;
+  font-size:14px;
+}
+
+/* PROGRESS */
+
+.progress-box{
+  margin-top:18px;
+}
+
+.progress-track{
+  height:14px;
+  background:rgba(255,255,255,.35);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:#ffd95a;
+  transition:.4s;
+}
+
+.progress-text{
+  margin-top:7px;
+  font-size:14px;
+}
+
+/* NAVIGATION */
+
+.nav{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:12px 2px;
+  position:sticky;
+  top:0;
+  background:#f7f8ff;
+  z-index:10;
+}
+
+.nav button{
+  flex-shrink:0;
+  background:white;
+  color:#28344d;
+  padding:10px 14px;
+  border-radius:17px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(40,52,77,.08);
+}
+
+.nav button.active{
+  background:#6c63ff;
+  color:white;
+}
+
+/* PAGES */
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HOME */
+
+.welcome{
+  margin:10px 0 18px;
+}
+
+.welcome h2{
+  margin:0;
+  font-size:27px;
+}
+
+.topic-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.topic-card{
+  padding:18px;
+  border-radius:24px;
+  min-height:150px;
+  box-shadow:0 8px 25px rgba(40,52,77,.09);
+}
+
+.topic-icon{
+  font-size:42px;
+}
+
+.topic-card h3{
+  margin:8px 0 4px;
+}
+
+.topic-card p{
+  margin:0;
+  font-size:13px;
+  color:#667085;
+}
+
+.topic-card button{
+  margin-top:12px;
+  background:#6c63ff;
+  color:white;
+  padding:9px 13px;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+/* LESSON */
+
+.lesson{
+  background:white;
+  border-radius:28px;
+  padding:22px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(40,52,77,.10);
+}
+
+.lesson-icon{
+  font-size:80px;
+  margin:10px 0;
+}
+
+.lesson-title{
+  font-size:26px;
+  font-weight:bold;
+}
+
+.question{
+  font-size:23px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.answers{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:650px;
+  margin:auto;
+}
+
+.answer{
+  min-height:75px;
+  padding:15px;
+  border-radius:20px;
+  background:#eef0ff;
+  font-size:23px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.answer:active{
+  transform:scale(.94);
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  margin:18px auto;
+  padding:18px;
+  border-radius:24px;
+  animation:pop .3s ease;
+}
+
+.result.show{
+  display:block;
+}
+
+.result.correct{
+  background:#e5f9ec;
+  border:3px solid #67c587;
+}
+
+.result.try{
+  background:#fff0e7;
+  border:3px solid #ffad78;
+}
+
+.result-emoji{
+  font-size:55px;
+}
+
+.result-title{
+  font-size:29px;
+  font-weight:900;
+}
+
+.result-message{
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.answer.correct{
+  background:#dff7e8 !important;
+  border:3px solid #67c587;
+}
+
+.answer.wrong{
+  background:#ffe9df !important;
+  border:3px solid #ff9a62;
+}
+
+.answer.reveal{
+  background:#e5f9ec !important;
+  border:3px dashed #67c587;
+}
+
+.answer.disabled{
+  pointer-events:none;
+}
+
+/* BUTTONS */
+
+.next{
+  margin-top:12px;
+  background:#28b8a6;
+  color:white;
+  padding:12px 20px;
+  border-radius:17px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.tools{
+  margin-top:15px;
+}
+
+.tools button{
+  background:#eef0ff;
+  padding:10px 14px;
+  border-radius:14px;
+  margin:4px;
+  font-weight:bold;
+}
+
+/* PARENT */
+
+.parent{
+  background:white;
+  padding:22px;
+  border-radius:28px;
+  box-shadow:0 10px 30px rgba(40,52,77,.10);
+}
+
+.parent h2{
+  margin-top:0;
+}
+
+/* ANIMATION */
+
+@keyframes pop{
+  from{
+    opacity:0;
+    transform:scale(.8);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .topic-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .topic-card{
+    min-height:140px;
+    padding:15px;
+  }
+
+  .answers{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .answer{
+    font-size:20px;
+    min-height:70px;
+  }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="brand">
+
+    <div class="mascot">
+      🧸
+    </div>
+
+    <div>
+      <h1>Little Explorer</h1>
+
+      <p>
+        My First Learning World
+      </p>
+
+      <p>
+        🌈 Play • Discover • Learn • Grow
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="progress-box">
+
+    <div class="progress-track">
+
+      <div
+        id="progressFill"
+        class="progress-fill">
+      </div>
+
+    </div>
+
+    <div class="progress-text">
+
+      ⭐ Stars:
+      <span id="stars">0</span>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav class="nav">
+
+  <button onclick="showHome()">
+    🏠 Home
+  </button>
+
+  <button onclick="startTopic('letters')">
+    🔤 ABC
+  </button>
+
+  <button onclick="startTopic('numbers')">
+    🔢 Numbers
+  </button>
+
+  <button onclick="startTopic('colors')">
+    🎨 Colors
+  </button>
+
+  <button onclick="startTopic('shapes')">
+    🔺 Shapes
+  </button>
+
+  <button onclick="startTopic('animals')">
+    🐶 Animals
+  </button>
+
+  <button onclick="showParent()">
+    👨‍👩‍👦 Grown-up
+  </button>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section
+  id="home"
+  class="page active">
+
+  <div class="welcome">
+
+    <h2>
+      🌈 Hello, Little Explorer!
+    </h2>
+
+    <p>
+      Choose something fun to learn today.
+    </p>
+
+  </div>
+
+
+  <div
+    id="topicGrid"
+    class="topic-grid">
+  </div>
+
+</section>
+
+
+<!-- LESSON -->
+
+<section
+  id="lesson"
+  class="page">
+
+  <div class="lesson">
+
+    <div
+      id="lessonIcon"
+      class="lesson-icon">
+      🌟
+    </div>
+
+    <div
+      id="lessonTitle"
+      class="lesson-title">
+      Let's Learn!
+    </div>
+
+    <div
+      id="question"
+      class="question">
+    </div>
+
+
+    <div
+      id="answers"
+      class="answers">
+    </div>
+
+
+    <!-- BIG RESULT -->
+
+    <div
+      id="result"
+      class="result">
+
+      <div
+        id="resultEmoji"
+        class="result-emoji">
+        🎉
+      </div>
+
+      <div
+        id="resultTitle"
+        class="result-title">
+        GREAT JOB!
+      </div>
+
+      <div
+        id="resultMessage"
+        class="result-message">
+      </div>
+
+    </div>
+
+
+    <button
+      class="next"
+      onclick="nextQuestion()">
+
+      Next ⭐
+
+    </button>
+
+
+    <div class="tools">
+
+      <button onclick="hearQuestion()">
+        🔊 Hear it
+      </button>
+
+      <button onclick="showHome()">
+        🏠 Home
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PARENT -->
+
+<section
+  id="parent"
+  class="page">
+
+  <div class="parent">
+
+    <h2>
+      👨‍👩‍👦 Grown-up Corner
+    </h2>
+
+    <p>
+      This module is designed for short,
+      playful learning sessions.
+    </p>
+
+    <h3>
+      ⏰ Keep it short
+    </h3>
+
+    <p>
+      Around 5–10 minutes is plenty for
+      one activity.
+    </p>
+
+    <h3>
+      💬 Talk together
+    </h3>
+
+    <p>
+      Ask your child to name objects,
+      colors, animals, or numbers around
+      the house.
+    </p>
+
+    <h3>
+      🌱 Learn beyond the screen
+    </h3>
+
+    <p>
+      If your child learns about colors,
+      find colorful objects together.
+      If your child learns counting,
+      count toys, spoons, or blocks.
+    </p>
+
+  </div>
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/* ============================
+   TOPICS
+============================ */
+
+const topics = {
+
+  letters:{
+
+    name:"ABC & Words",
+    icon:"🔤",
+
+    questions:[
+
+      {
+        icon:"🔤",
+        question:"Which letter is A?",
+        answers:["A","B","C","D"],
+        correct:"A"
+      },
+
+      {
+        icon:"🔤",
+        question:"Which letter is B?",
+        answers:["A","B","D","M"],
+        correct:"B"
+      },
+
+      {
+        icon:"🐱",
+        question:"Which word starts with C?",
+        answers:["Cat","Sun","Ball","Fish"],
+        correct:"Cat"
+      },
+
+      {
+        icon:"🐶",
+        question:"Which word starts with D?",
+        answers:["Dog","Apple","Moon","Fish"],
+        correct:"Dog"
+      }
+
+    ]
+
+  },
+
+
+  numbers:{
+
+    name:"Numbers",
+    icon:"🔢",
+
+    questions:[
+
+      {
+        icon:"🍎🍎🍎",
+        question:"How many apples?",
+        answers:["2","3","4","5"],
+        correct:"3"
+      },
+
+      {
+        icon:"⭐⭐⭐⭐",
+        question:"How many stars?",
+        answers:["3","4","5","2"],
+        correct:"4"
+      },
+
+      {
+        icon:"🔢",
+        question:"What comes after 2?",
+        answers:["1","2","3","4"],
+        correct:"3"
+      }
+
+    ]
+
+  },
+
+
+  colors:{
+
+    name:"Colors",
+    icon:"🎨",
+
+    questions:[
+
+      {
+        icon:"☀️",
+        question:"What color is the sun?",
+        answers:["Yellow","Blue","Green","Purple"],
+        correct:"Yellow"
+      },
+
+      {
+        icon:"🌱",
+        question:"What color is grass?",
+        answers:["Red","Green","Pink","Blue"],
+        correct:"Green"
+      },
+
+      {
+        icon:"🌈",
+        question:"What color is the sky?",
+        answers:["Blue","Orange","Black","Pink"],
+        correct:"Blue"
+      }
+
+    ]
+
+  },
+
+
+  shapes:{
+
+    name:"Shapes",
+    icon:"🔺",
+
+    questions:[
+
+      {
+        icon:"⭕",
+        question:"Which one is a circle?",
+        answers:["⭕","⬜","🔺","⭐"],
+        correct:"⭕"
+      },
+
+      {
+        icon:"🔺",
+        question:"Which one is a triangle?",
+        answers:["⭕","🔺","⬜","❤️"],
+        correct:"🔺"
+      },
+
+      {
+        icon:"⬜",
+        question:"Which one is a square?",
+        answers:["🔺","⭕","⬜","⭐"],
+        correct:"⬜"
+      }
+
+    ]
+
+  },
+
+
+  animals:{
+
+    name:"Animals",
+    icon:"🐶",
+
+    questions:[
+
+      {
+        icon:"🐱",
+        question:"Which animal says meow?",
+        answers:["Cat","Dog","Cow","Duck"],
+        correct:"Cat"
+      },
+
+      {
+        icon:"🐶",
+        question:"Which animal says woof?",
+        answers:["Cat","Dog","Fish","Bird"],
+        correct:"Dog"
+      },
+
+      {
+        icon:"🐟",
+        question:"Which animal can swim?",
+        answers:["Fish","Cow","Lion","Chicken"],
+        correct:"Fish"
+      }
+
+    ]
+
+  }
+
+};
+
+
+/* ============================
+   VARIABLES
+============================ */
+
+let currentTopic = "letters";
+
+let currentQuestion = 0;
+
+let answered = false;
+
+let stars =
+  Number(
+    localStorage.getItem(
+      "littleExplorerStars"
+    )
+  ) || 0;
+
+
+/* ============================
+   HOME TOPICS
+============================ */
+
+function buildHome(){
+
+  const grid =
+    document.getElementById(
+      "topicGrid"
+    );
+
+  grid.innerHTML = "";
+
+  Object.keys(topics).forEach(id=>{
+
+    const topic =
+      topics[id];
+
+    const card =
+      document.createElement(
+        "div"
+      );
+
+    card.className =
+      "topic-card";
+
+    card.innerHTML = `
+
+      <div class="topic-icon">
+        ${topic.icon}
+      </div>
+
+      <h3>
+        ${topic.name}
+      </h3>
+
+      <p>
+        Let's explore!
+      </p>
+
+      <button>
+        Explore →
+      </button>
+
+    `;
+
+    card.querySelector("button")
+      .addEventListener(
+        "click",
+        ()=>startTopic(id)
+      );
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+/* ============================
+   SHOW HOME
+============================ */
+
+function showHome(){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      page =>
+      page.classList.remove(
+        "active"
+      )
+    );
+
+  document
+    .getElementById("home")
+    .classList.add("active");
+
+}
+
+
+/* ============================
+   SHOW PARENT
+============================ */
+
+function showParent(){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      page =>
+      page.classList.remove(
+        "active"
+      )
+    );
+
+  document
+    .getElementById("parent")
+    .classList.add("active");
+
+}
+
+
+/* ============================
+   START TOPIC
+============================ */
+
+function startTopic(id){
+
+  currentTopic = id;
+
+  currentQuestion = 0;
+
+  answered = false;
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      page =>
+      page.classList.remove(
+        "active"
+      )
+    );
+
+  document
+    .getElementById("lesson")
+    .classList.add("active");
+
+  renderQuestion();
+
+}
+
+
+/* ============================
+   RENDER QUESTION
+============================ */
+
+function renderQuestion(){
+
+  const topic =
+    topics[currentTopic];
+
+  const item =
+    topic.questions[
+      currentQuestion
+    ];
+
+
+  document
+    .getElementById("lessonIcon")
+    .textContent =
+      item.icon;
+
+
+  document
+    .getElementById("lessonTitle")
+    .textContent =
+      topic.name;
+
+
+  document
+    .getElementById("question")
+    .textContent =
+      item.question;
+
+
+  const result =
+    document.getElementById(
+      "result"
+    );
+
+  result.className =
+    "result";
+
+  result.style.display =
+    "none";
+
+
+  const answers =
+    document.getElementById(
+      "answers"
+    );
+
+  answers.innerHTML = "";
+
+
+  answered = false;
+
+
+  item.answers.forEach(
+    answerText => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type =
+        "button";
+
+      button.className =
+        "answer";
+
+      button.textContent =
+        answerText;
+
+
+      /*
+        IMPORTANT:
+        The click listener is attached
+        directly to each button.
+      */
+
+      button.addEventListener(
+        "click",
+        function(){
+
+          checkAnswer(
+            answerText,
+            button
+          );
+
+        }
+      );
+
+
+      answers.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+/* ============================
+   CHECK ANSWER
+============================ */
+
+function checkAnswer(
+  selected,
+  selectedButton
+){
+
+  /*
+    Prevent multiple clicks.
+  */
+
+  if(answered){
+
+    return;
+
+  }
+
+
+  answered = true;
+
+
+  const item =
+    topics[
+      currentTopic
+    ].questions[
+      currentQuestion
+    ];
+
+
+  const buttons =
+    document.querySelectorAll(
+      ".answer"
+    );
+
+
+  buttons.forEach(
+    button =>
+      button.classList.add(
+        "disabled"
+      )
+  );
+
+
+  const result =
+    document.getElementById(
+      "result"
+    );
+
+
+  const emoji =
+    document.getElementById(
+      "resultEmoji"
+    );
+
+
+  const title =
+    document.getElementById(
+      "resultTitle"
+    );
+
+
+  const message =
+    document.getElementById(
+      "resultMessage"
+    );
+
+
+  /* CORRECT */
+
+  if(selected === item.correct){
+
+    selectedButton
+      .classList.add(
+        "correct"
+      );
+
+
+    emoji.textContent =
+      "🎉";
+
+
+    title.textContent =
+      "GREAT JOB!";
+
+
+    message.textContent =
+      "You got it! You earned a star! ⭐";
+
+
+    result.className =
+      "result show correct";
+
+
+    result.style.display =
+      "block";
+
+
+    addStar();
+
+
+    speak(
+      "Great job! You got it!"
+    );
+
+  }
+
+
+  /* INCORRECT */
+
+  else{
+
+    selectedButton
+      .classList.add(
+        "wrong"
+      );
+
+
+    buttons.forEach(
+      button => {
+
+        if(
+          button.textContent ===
+          item.correct
+        ){
+
+          button.classList.add(
+            "reveal"
+          );
+
+        }
+
+      }
+    );
+
+
+    emoji.textContent =
+      "🌱";
+
+
+    title.textContent =
+      "LET'S TRY AGAIN!";
+
+
+    message.textContent =
+      "The answer is " +
+      item.correct +
+      ". We can learn together!";
+
+
+    result.className =
+      "result show try";
+
+
+    result.style.display =
+      "block";
+
+
+    speak(
+      "Let's try again. " +
+      "The answer is " +
+      item.correct
+    );
+
+  }
+
+}
+
+
+/* ============================
+   NEXT QUESTION
+============================ */
+
+function nextQuestion(){
+
+  if(!answered){
+
+    const result =
+      document.getElementById(
+        "result"
+      );
+
+    result.style.display =
+      "block";
+
+    result.className =
+      "result show try";
+
+    document.getElementById(
+      "resultEmoji"
+    ).textContent =
+      "👆";
+
+    document.getElementById(
+      "resultTitle"
+    ).textContent =
+      "CHOOSE ONE!";
+
+    document.getElementById(
+      "resultMessage"
+    ).textContent =
+      "Tap an answer to play.";
+
+    return;
+
+  }
+
+
+  currentQuestion++;
+
+
+  const total =
+    topics[
+      currentTopic
+    ].questions.length;
+
+
+  if(
+    currentQuestion >= total
+  ){
+
+    currentQuestion = 0;
+
+  }
+
+
+  renderQuestion();
+
+}
+
+
+/* ============================
+   STARS
+============================ */
+
+function addStar(){
+
+  stars++;
+
+
+  localStorage.setItem(
+    "littleExplorerStars",
+    stars
+  );
+
+
+  updateStars();
+
+}
+
+
+/* ============================
+   UPDATE STARS
+============================ */
+
+function updateStars(){
+
+  document
+    .getElementById("stars")
+    .textContent =
+      stars;
+
+
+  const percentage =
+    Math.min(
+      stars * 5,
+      100
+    );
+
+
+  document
+    .getElementById(
+      "progressFill"
+    )
+    .style.width =
+      percentage + "%";
+
+}
+
+
+/* ============================
+   VOICE
+============================ */
+
+function speak(text){
+
+  if(
+    "speechSynthesis"
+    in window
+  ){
+
+    speechSynthesis.cancel();
+
+
+    const voice =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    voice.rate =
+      .8;
+
+
+    voice.pitch =
+      1.15;
+
+
+    speechSynthesis.speak(
+      voice
+    );
+
+  }
+
+}
+
+
+/* ============================
+   HEAR QUESTION
+============================ */
+
+function hearQuestion(){
+
+  const item =
+    topics[
+      currentTopic
+    ].questions[
+      currentQuestion
+    ];
+
+
+  speak(
+    item.question
+  );
+
+}
+
+
+/* ============================
+   START
+============================ */
+
+buildHome();
+
+updateStars();
+
+</script>
+
+</body>
+</html>
