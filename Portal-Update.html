@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pareja IS Digital Document Portal — Development Update</title>
+
+<style>
+  :root {
+    --navy: #073b6b;
+    --blue: #1469ad;
+    --sky: #eaf5ff;
+    --soft: #f6fbff;
+    --teal: #168c8c;
+    --green: #198754;
+    --gold: #d9a441;
+    --ink: #17324d;
+    --muted: #66788a;
+    --white: #ffffff;
+    --line: #d9e8f5;
+    --shadow: 0 10px 28px rgba(7, 59, 107, 0.10);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--soft);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .container {
+    width: min(100% - 28px, 900px);
+    margin: 0 auto;
+    padding: 24px 0 40px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    border-radius: 22px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    right: -60px;
+    top: -70px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: .85;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(25px, 6vw, 38px);
+    line-height: 1.15;
+  }
+
+  .subtitle {
+    margin: 12px 0 0;
+    font-size: 15px;
+    opacity: .92;
+    max-width: 700px;
+  }
+
+  .pilot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 17px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.20);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 20px 20px 17px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 21px;
+    color: var(--navy);
+  }
+
+  .section-description {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* STATUS */
+  .status-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 20px 4px;
+    padding: 12px 14px;
+    border-radius: 13px;
+    background: #edf9f2;
+    border: 1px solid #ccebd8;
+    color: #17683a;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    flex: 0 0 auto;
+  }
+
+  /* CARDS */
+  .items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    padding: 18px 20px 22px;
+  }
+
+  .item {
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 16px;
+    background: linear-gradient(180deg, #ffffff, #f9fcff);
+  }
+
+  .item-icon {
+    font-size: 24px;
+    margin-bottom: 7px;
+  }
+
+  .item h3 {
+    margin: 0 0 5px;
+    color: var(--navy);
+    font-size: 15px;
+  }
+
+  .item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* DEVELOPMENT */
+  .development .section-header {
+    background: linear-gradient(135deg, #f8fbff, #edf7ff);
+  }
+
+  .phase {
+    padding: 17px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .phase:last-child {
+    border-bottom: none;
+  }
+
+  .number {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--sky);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex: 0 0 auto;
+  }
+
+  .phase h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    color: var(--navy);
+  }
+
+  .phase p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* WORKFLOW */
+  .workflow {
+    margin-top: 22px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    border-radius: 20px;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .workflow h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+  }
+
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flow-step {
+    padding: 8px 11px;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .arrow {
+    opacity: .7;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 620px) {
+    .container {
+      width: min(100% - 20px, 900px);
+      padding-top: 12px;
+    }
+
+    .header {
+      padding: 23px 18px;
+      border-radius: 18px;
+    }
+
+    .section {
+      border-radius: 17px;
+    }
+
+    .items {
+      grid-template-columns: 1fr;
+      padding: 15px;
+    }
+
+    .section-header {
+      padding: 18px 17px 15px;
+    }
+
+    .status-strip {
+      margin: 15px 17px 0;
+    }
+
+    .phase {
+      padding: 15px 17px;
+    }
+
+    .workflow {
+      border-radius: 17px;
+      padding: 20px 17px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .arrow {
+      display: none;
+    }
+
+    .flow-step {
+      text-align: center;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="eyebrow">Pareja Integrated School</div>
+
+    <h1>Digital Document Portal</h1>
+
+    <p class="subtitle">
+      Development Update and Preparation for Pilot Testing
+    </p>
+
+    <div class="pilot-badge">
+      🧪 Target Pilot Testing: Wednesday
+    </div>
+  </header>
+
+
+  <!-- SECTION 1 -->
+  <section class="section">
+
+    <div class="section-header">
+      <h2 class="section-title">
+        ✅ What Is Functioning Right Now?
+      </h2>
+
+      <p class="section-description">
+        The core document submission and review workflow is already operational.
+      </p>
+    </div>
+
+    <div class="status-strip">
+      <span class="status-dot"></span>
+      Core workflow is operational
+    </div>
+
+    <div class="items">
+
+      <div class="item">
+        <div class="item-icon">🔐</div>
+        <h3>User Authentication</h3>
+        <p>
+          The portal recognizes registered users and applies their assigned role.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">📤</div>
+        <h3>Submit a Document</h3>
+        <p>
+          Authorized personnel can upload documents through the portal.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">📂</div>
+        <h3>My Submissions</h3>
+        <p>
+          Users can see documents they submitted and their current status.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">💾</div>
+        <h3>Drive Filing</h3>
+        <p>
+          Submitted files are stored in the designated Google Drive location.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">🔎</div>
+        <h3>Review Queue</h3>
+        <p>
+          Authorized reviewers can see documents awaiting review.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">✅</div>
+        <h3>Approval Workflow</h3>
+        <p>
+          Reviewers can approve, return, or reject submitted documents.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">📝</div>
+        <h3>Review Remarks</h3>
+        <p>
+          Review actions can include remarks for returned or rejected documents.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">🛡️</div>
+        <h3>Role-Based Access</h3>
+        <p>
+          Access is controlled according to user role and authorized responsibility.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 2 -->
+  <section class="section development">
+
+    <div class="section-header">
+      <h2 class="section-title">
+        🚧 What Should Be Developed Before Pilot Testing?
+      </h2>
+
+      <p class="section-description">
+        The remaining work focuses on organizing approved records, refining access,
+        and making the portal ready for actual school use.
+      </p>
+    </div>
+
+    <div class="phase">
+
+      <div class="number">1</div>
+
+      <div>
+        <h3>Finalize Portal Structure</h3>
+
+        <p>
+          Finalize the purpose and navigation of Submit a Document,
+          Teacher Document Repository, Approved Documents, and
+          School Programs &amp; Work Areas.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">2</div>
+
+      <div>
+        <h3>Finalize Privacy &amp; Access Control</h3>
+
+        <p>
+          Define who can view teacher documents, school-program documents,
+          approved records, and assigned work-area records.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">3</div>
+
+      <div>
+        <h3>Develop the Teacher Document Repository</h3>
+
+        <p>
+          Transform the current Requirements section into an organized
+          repository for Curriculum &amp; Instruction, Assessment, and
+          Teacher Records.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">4</div>
+
+      <div>
+        <h3>Add the Approved Documents Card</h3>
+
+        <p>
+          Provide the School Head and Master Teacher with a convenient
+          view of approved documents and a secure View File function.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">5</div>
+
+      <div>
+        <h3>Activate School Programs &amp; Work Areas</h3>
+
+        <p>
+          Connect ARAL, SBM &amp; Governance, School Planning,
+          LAC &amp; Professional Development, School Programs,
+          and Reports &amp; Accomplishments to actual document records.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">6</div>
+
+      <div>
+        <h3>Standardize Drive Organization</h3>
+
+        <p>
+          Ensure teacher folders follow a consistent naming structure
+          and submitted files are stored in their correct locations.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">7</div>
+
+      <div>
+        <h3>Complete User &amp; Assignment Preparation</h3>
+
+        <p>
+          Verify teacher accounts, active status, and relevant assignments
+          needed for correct access during the pilot.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="phase">
+
+      <div class="number">8</div>
+
+      <div>
+        <h3>Conduct End-to-End Testing</h3>
+
+        <p>
+          Test the complete workflow using Teacher, Coordinator,
+          Master Teacher, and School Head scenarios before pilot use.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORKFLOW -->
+  <section class="workflow">
+
+    <h2>🔄 Target Document Workflow</h2>
+
+    <div class="flow">
+
+      <div class="flow-step">📤 Submit</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-step">💾 Store</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-step">🔎 Review</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-step">✅ Approve</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-step">📚 Repository</div>
+
+      <div class="arrow">→</div>
+
+      <div class="flow-step">👁 View File</div>
+
+    </div>
+
+  </section>
+
+
+  <div class="footer">
+    Pareja Integrated School • Digital Document Portal • SY 2026–2027
+  </div>
+
+</div>
+
+</body>
+</html>
