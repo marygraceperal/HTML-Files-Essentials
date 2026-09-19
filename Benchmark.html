@@ -15,61 +15,95 @@
     .font-handwriting {
       font-family: 'Reenie Beanie', cursive;
     }
-    .hero-bg {
-      background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 40%, #ffffff 100%);
+    /* Stripe-style Hero Background */
+    .stripe-hero-bg {
+      background: linear-gradient(135deg, #0a2540 0%, #0d1b2a 40%, #1b263b 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .stripe-glow-1 {
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(168,85,247,0.1) 50%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .stripe-glow-2 {
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(99,102,241,0.1) 50%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    /* Hover Lift Card Effect */
+    .stripe-card {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .stripe-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
     }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
-  <!-- Header / Navigation -->
-  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-sky-100">
+  <!-- Header / Navigation (Stripe Dark Glassmorphism) -->
+  <header class="bg-[#0a2540]/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 text-white">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="flex items-center space-x-2">
-        <div class="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-lg">G</div>
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-400 to-indigo-500 flex items-center justify-center text-white font-bold text-lg shadow-md">G</div>
         <div>
-          <span class="text-xl font-extrabold text-sky-900 tracking-tight">GraceFlow <span class="text-sky-600">Tech</span></span>
-          <span class="block text-[9px] font-semibold text-sky-500 tracking-widest uppercase -mt-1">Better Systems. Brighter Tomorrow.</span>
+          <span class="text-xl font-extrabold text-white tracking-tight">GraceFlow <span class="text-sky-400">Tech</span></span>
+          <span class="block text-[9px] font-semibold text-sky-300 tracking-widest uppercase -mt-1">Better Systems. Brighter Tomorrow.</span>
         </div>
       </a>
 
-      <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
-        <a href="#" class="text-sky-600 border-b-2 border-sky-600 pb-1">Home</a>
-        <a href="#" class="hover:text-sky-600 transition">Solutions ▾</a>
-        <a href="#" class="hover:text-sky-600 transition">Products ▾</a>
-        <a href="#" class="hover:text-sky-600 transition">About ▾</a>
-        <a href="#" class="hover:text-sky-600 transition">Resources ▾</a>
-        <a href="#" class="hover:text-sky-600 transition">Contact</a>
+      <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-300">
+        <a href="#" class="text-sky-400 border-b-2 border-sky-400 pb-1">Home</a>
+        <a href="#" class="hover:text-white transition">Solutions ▾</a>
+        <a href="#" class="hover:text-white transition">Products ▾</a>
+        <a href="#" class="hover:text-white transition">About ▾</a>
+        <a href="#" class="hover:text-white transition">Resources ▾</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
       </nav>
 
       <div class="flex items-center space-x-4">
-        <button class="text-slate-500 hover:text-sky-600 transition p-2">
+        <button class="text-slate-300 hover:text-white transition p-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
-        <a href="#" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold rounded-full shadow-md shadow-sky-600/20 transition">Start a Project</a>
+        <a href="#" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-full shadow-md shadow-indigo-600/30 transition">Start a Project</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-bg relative pt-12 pb-24 px-6 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+  <!-- Hero Section (Stripe Dynamic Gradient Mesh) -->
+  <section class="stripe-hero-bg text-white relative pt-12 pb-24 px-6">
+    <div class="stripe-glow-1"></div>
+    <div class="stripe-glow-2"></div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
       
       <!-- Left Column: Copy -->
-      <div class="lg:col-span-7 z-10">
-        <span class="text-xs font-bold text-sky-600 tracking-widest uppercase mb-3 block">Simpler Systems. Brighter Tomorrow.</span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-sky-950 tracking-tight leading-tight mb-4">
-          Turn everyday processes into <span class="text-sky-600">better flow.</span>
+      <div class="lg:col-span-7">
+        <span class="inline-block text-xs font-bold text-sky-300 tracking-widest uppercase mb-3 px-3 py-1 bg-sky-500/10 rounded-full border border-sky-400/20">Simpler Systems. Brighter Tomorrow.</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+          Turn everyday processes into <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-300">better flow.</span>
         </h1>
-        <p class="text-lg font-medium text-slate-600 mb-8">
+        <p class="text-lg font-medium text-slate-300 mb-8">
           Digital Systems • Learning Products • Automation
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#" class="px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-full shadow-lg shadow-sky-600/30 transition flex items-center space-x-2">
+          <a href="#" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg shadow-indigo-600/30 transition flex items-center space-x-2">
             <span>Start a Project</span>
             <span>&rarr;</span>
           </a>
-          <a href="#" class="px-6 py-3 bg-white hover:bg-slate-50 text-sky-700 font-semibold border border-sky-200 rounded-full shadow-sm transition">
+          <a href="#" class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 rounded-full backdrop-blur transition">
             Explore Solutions
           </a>
         </div>
@@ -77,15 +111,15 @@
 
       <!-- Right Column: Hero Graphic Banner -->
       <div class="lg:col-span-5 relative">
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20">
           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80" alt="Landscape" class="w-full h-80 object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-t from-sky-950/60 via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0a2540] via-transparent to-transparent opacity-80"></div>
           
           <div class="absolute top-6 right-6 text-right">
             <span class="font-handwriting text-3xl sm:text-4xl text-white drop-shadow-md leading-none block">Technology</span>
-            <span class="font-handwriting text-2xl sm:text-3xl text-sky-100 drop-shadow-md block">for a more capable,</span>
-            <span class="font-handwriting text-2xl sm:text-3xl text-sky-100 drop-shadow-md block">compassionate, and</span>
-            <span class="font-handwriting text-2xl sm:text-3xl text-sky-100 drop-shadow-md block">productive tomorrow.</span>
+            <span class="font-handwriting text-2xl sm:text-3xl text-sky-200 drop-shadow-md block">for a more capable,</span>
+            <span class="font-handwriting text-2xl sm:text-3xl text-sky-200 drop-shadow-md block">compassionate, and</span>
+            <span class="font-handwriting text-2xl sm:text-3xl text-sky-200 drop-shadow-md block">productive tomorrow.</span>
           </div>
 
           <div class="absolute bottom-6 right-6 text-right text-white">
@@ -98,50 +132,50 @@
 
     </div>
 
-    <!-- Category Strip -->
-    <div class="max-w-7xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <a href="#" class="bg-white/80 backdrop-blur border border-sky-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-sky-300 transition flex items-center space-x-4 group">
-        <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">🎓</div>
+    <!-- Category Strip (Glass Cards) -->
+    <div class="max-w-7xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+      <a href="#" class="stripe-card bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl shadow-lg hover:border-sky-400/50 transition flex items-center space-x-4 group">
+        <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-300 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">🎓</div>
         <div>
-          <h3 class="font-bold text-slate-900 group-hover:text-sky-600 transition">Education</h3>
-          <p class="text-xs text-slate-500">Learn. Manage. Grow.</p>
+          <h3 class="font-bold text-white group-hover:text-sky-300 transition">Education</h3>
+          <p class="text-xs text-slate-300">Learn. Manage. Grow.</p>
         </div>
       </a>
 
-      <a href="#" class="bg-white/80 backdrop-blur border border-sky-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-sky-300 transition flex items-center space-x-4 group">
-        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">🏢</div>
+      <a href="#" class="stripe-card bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl shadow-lg hover:border-emerald-400/50 transition flex items-center space-x-4 group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">🏢</div>
         <div>
-          <h3 class="font-bold text-slate-900 group-hover:text-emerald-600 transition">Business</h3>
-          <p class="text-xs text-slate-500">Operate Smarter.</p>
+          <h3 class="font-bold text-white group-hover:text-emerald-300 transition">Business</h3>
+          <p class="text-xs text-slate-300">Operate Smarter.</p>
         </div>
       </a>
 
-      <a href="#" class="bg-white/80 backdrop-blur border border-sky-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-sky-300 transition flex items-center space-x-4 group">
-        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">📊</div>
+      <a href="#" class="stripe-card bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl shadow-lg hover:border-amber-400/50 transition flex items-center space-x-4 group">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">📊</div>
         <div>
-          <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition">Financial</h3>
-          <p class="text-xs text-slate-500">Build Financial Resilience.</p>
+          <h3 class="font-bold text-white group-hover:text-amber-300 transition">Financial</h3>
+          <p class="text-xs text-slate-300">Build Financial Resilience.</p>
         </div>
       </a>
 
-      <a href="#" class="bg-white/80 backdrop-blur border border-sky-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-sky-300 transition flex items-center space-x-4 group">
-        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">👥</div>
+      <a href="#" class="stripe-card bg-white/10 backdrop-blur-md border border-white/15 p-5 rounded-2xl shadow-lg hover:border-purple-400/50 transition flex items-center space-x-4 group">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition">👥</div>
         <div>
-          <h3 class="font-bold text-slate-900 group-hover:text-purple-600 transition">Public Sector</h3>
-          <p class="text-xs text-slate-500">Serve with Greater Impact.</p>
+          <h3 class="font-bold text-white group-hover:text-purple-300 transition">Public Sector</h3>
+          <p class="text-xs text-slate-300">Serve with Greater Impact.</p>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- Section: Purpose-Built Tools -->
+  <!-- Section: Purpose-Built Tools (Stripe Light Feature Cards) -->
   <section class="py-20 px-6 max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
       <div>
-        <span class="text-xs font-bold text-sky-600 tracking-widest uppercase mb-2 block">Our Products</span>
+        <span class="text-xs font-bold text-indigo-600 tracking-widest uppercase mb-2 block">Our Products</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Purpose-built tools for real needs.</h2>
       </div>
-      <a href="#" class="text-sky-600 hover:text-sky-700 font-semibold text-sm flex items-center space-x-1 mt-4 md:mt-0">
+      <a href="#" class="text-indigo-600 hover:text-indigo-700 font-semibold text-sm flex items-center space-x-1 mt-4 md:mt-0">
         <span>View All Products</span>
         <span>&rarr;</span>
       </a>
@@ -150,75 +184,75 @@
     <!-- 6 Clickable Product Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
       
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-indigo-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold mb-4">🎓</div>
-          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition">Grade Viewing</h3>
+          <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold mb-4">🎓</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition">Grade Viewing</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">View and manage student grades securely and easily.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-sky-200 text-sky-600 flex items-center justify-center text-xs group-hover:bg-sky-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-indigo-600 flex items-center justify-center text-xs group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition">&rarr;</div>
       </a>
 
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-teal-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold mb-4">🧮</div>
+          <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold mb-4">🧮</div>
           <h3 class="font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition">ARAL Math</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">Intervention tools and resources for better learning outcomes.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-teal-200 text-teal-600 flex items-center justify-center text-xs group-hover:bg-teal-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-teal-600 flex items-center justify-center text-xs group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition">&rarr;</div>
       </a>
 
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-indigo-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold mb-4">📄</div>
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold mb-4">📄</div>
           <h3 class="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition">Teacher Core</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">Forms, reports and ready-to-use templates.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-indigo-200 text-indigo-600 flex items-center justify-center text-xs group-hover:bg-indigo-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-indigo-600 flex items-center justify-center text-xs group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition">&rarr;</div>
       </a>
 
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-cyan-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold mb-4">📁</div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold mb-4">📁</div>
           <h3 class="font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition">Document Portal</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">Manage your files and records in one secure place.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-cyan-200 text-cyan-600 flex items-center justify-center text-xs group-hover:bg-cyan-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-cyan-600 flex items-center justify-center text-xs group-hover:bg-cyan-600 group-hover:text-white group-hover:border-cyan-600 transition">&rarr;</div>
       </a>
 
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-blue-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold mb-4">📖</div>
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-4">📖</div>
           <h3 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition">Resource Vault</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">Explore and share learning materials that inspire.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-blue-200 text-blue-600 flex items-center justify-center text-xs group-hover:bg-blue-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-blue-600 flex items-center justify-center text-xs group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition">&rarr;</div>
       </a>
 
-      <a href="#" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 flex flex-col justify-between group">
+      <a href="#" class="stripe-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:border-emerald-500 flex flex-col justify-between group">
         <div>
-          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold mb-4">📊</div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4">📊</div>
           <h3 class="font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition">Analytics</h3>
           <p class="text-xs text-slate-500 leading-relaxed mb-6">Track progress and make data-informed decisions.</p>
         </div>
-        <div class="w-7 h-7 rounded-full border border-emerald-200 text-emerald-600 flex items-center justify-center text-xs group-hover:bg-emerald-600 group-hover:text-white transition">&rarr;</div>
+        <div class="w-7 h-7 rounded-full border border-slate-200 text-emerald-600 flex items-center justify-center text-xs group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 transition">&rarr;</div>
       </a>
 
     </div>
   </section>
 
   <!-- Section: GraceFlow Core Platform -->
-  <section class="bg-sky-50/50 py-20 px-6 border-y border-sky-100">
+  <section class="bg-slate-100/70 py-20 px-6 border-y border-slate-200/60">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
       <div class="lg:col-span-5">
-        <span class="text-xs font-bold text-sky-600 tracking-widest uppercase mb-2 block">Built on a Strong Foundation</span>
+        <span class="text-xs font-bold text-indigo-600 tracking-widest uppercase mb-2 block">Built on a Strong Foundation</span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">GraceFlow Core</h2>
-        <p class="text-lg font-bold text-sky-700 mb-4">One Platform. Many Possibilities.</p>
+        <p class="text-lg font-bold text-indigo-700 mb-4">One Platform. Many Possibilities.</p>
         <p class="text-sm text-slate-600 leading-relaxed mb-8">
           GraceFlow Core powers all applications with secure authentication, organization management, role-based access, data protection and more — so you can focus on your work, not the technical details.
         </p>
-        <a href="#" class="inline-flex items-center space-x-2 px-6 py-3 border border-sky-600 text-sky-600 hover:bg-sky-600 hover:text-white font-semibold text-sm rounded-full transition">
+        <a href="#" class="inline-flex items-center space-x-2 px-6 py-3 border border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white font-semibold text-sm rounded-full transition shadow-sm">
           <span>Learn about GraceFlow Core</span>
           <span>&rarr;</span>
         </a>
@@ -226,46 +260,46 @@
 
       <!-- Module Grid -->
       <div class="lg:col-span-7">
-        <div class="bg-white p-8 rounded-3xl shadow-xl border border-sky-100">
+        <div class="bg-white p-8 rounded-3xl shadow-lg border border-slate-200/80">
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
             
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">🔒</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">🔒</div>
               <p class="text-xs font-bold text-slate-800">Authentication</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">👥</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">👥</div>
               <p class="text-xs font-bold text-slate-800">User Management</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">🏢</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">🏢</div>
               <p class="text-xs font-bold text-slate-800">Organization/Tenant</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">🛡️</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">🛡️</div>
               <p class="text-xs font-bold text-slate-800">Permissions</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">📄</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">📄</div>
               <p class="text-xs font-bold text-slate-800">Files & Documents</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">🔔</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">🔔</div>
               <p class="text-xs font-bold text-slate-800">Notifications</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">📊</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">📊</div>
               <p class="text-xs font-bold text-slate-800">Analytics</p>
             </a>
 
-            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-sky-50/80 hover:border-sky-200 transition group">
-              <div class="text-sky-600 text-xl mb-2 group-hover:scale-110 transition">🧩</div>
+            <a href="#" class="p-4 rounded-xl border border-slate-100 text-center hover:bg-indigo-50/50 hover:border-indigo-200 transition group">
+              <div class="text-indigo-600 text-xl mb-2 group-hover:scale-110 transition">🧩</div>
               <p class="text-xs font-bold text-slate-800">Integrations (API)</p>
             </a>
 
@@ -273,9 +307,9 @@
 
           <!-- Feature Pills Strip -->
           <div class="flex flex-wrap items-center justify-between pt-4 border-t border-slate-100 text-xs font-semibold text-slate-600 gap-2">
-            <span class="flex items-center space-x-1"><span class="text-sky-500">🛡️</span> <span>Secure</span></span>
-            <span class="flex items-center space-x-1"><span class="text-sky-500">📈</span> <span>Scalable</span></span>
-            <span class="flex items-center space-x-1"><span class="text-sky-500">☁️</span> <span>Reliable</span></span>
+            <span class="flex items-center space-x-1"><span class="text-indigo-500">🛡️</span> <span>Secure</span></span>
+            <span class="flex items-center space-x-1"><span class="text-indigo-500">📈</span> <span>Scalable</span></span>
+            <span class="flex items-center space-x-1"><span class="text-indigo-500">☁️</span> <span>Reliable</span></span>
             <span class="flex items-center space-x-1"><span class="text-purple-500">💜</span> <span>People-Centered</span></span>
             <span class="flex items-center space-x-1"><span class="text-emerald-500">👥</span> <span>Built for Real Users</span></span>
           </div>
@@ -295,20 +329,20 @@
         <p class="text-sm text-slate-500 mb-8">From classrooms to businesses, GraceFlow helps people work smarter and achieve more.</p>
 
         <div class="grid grid-cols-2 gap-6">
-          <a href="#" class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-md transition">
-            <p class="text-2xl font-black text-sky-900">1K+</p>
+          <a href="#" class="stripe-card p-4 rounded-xl border border-slate-200/80 bg-white hover:border-indigo-500 transition">
+            <p class="text-2xl font-black text-indigo-900">1K+</p>
             <p class="text-xs font-semibold text-slate-500">Users</p>
           </a>
-          <a href="#" class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-md transition">
-            <p class="text-2xl font-black text-sky-900">100+</p>
+          <a href="#" class="stripe-card p-4 rounded-xl border border-slate-200/80 bg-white hover:border-indigo-500 transition">
+            <p class="text-2xl font-black text-indigo-900">100+</p>
             <p class="text-xs font-semibold text-slate-500">Organizations</p>
           </a>
-          <a href="#" class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-md transition">
-            <p class="text-2xl font-black text-sky-900">50K+</p>
+          <a href="#" class="stripe-card p-4 rounded-xl border border-slate-200/80 bg-white hover:border-indigo-500 transition">
+            <p class="text-2xl font-black text-indigo-900">50K+</p>
             <p class="text-xs font-semibold text-slate-500">Documents Generated</p>
           </a>
-          <a href="#" class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-md transition">
-            <p class="text-2xl font-black text-sky-900">99.9%</p>
+          <a href="#" class="stripe-card p-4 rounded-xl border border-slate-200/80 bg-white hover:border-indigo-500 transition">
+            <p class="text-2xl font-black text-indigo-900">99.9%</p>
             <p class="text-xs font-semibold text-slate-500">Uptime</p>
           </a>
         </div>
@@ -318,21 +352,21 @@
       <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-12 gap-6 items-stretch">
         
         <!-- Clickable Testimonial Card -->
-        <a href="#" class="sm:col-span-7 bg-white p-6 rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition flex flex-col justify-between group">
+        <a href="#" class="stripe-card sm:col-span-7 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:border-indigo-500 transition flex flex-col justify-between group">
           <div class="flex items-center space-x-4 mb-4">
-            <div class="w-12 h-12 rounded-full bg-slate-200 flex-shrink-0 overflow-hidden">
+            <div class="w-12 h-12 rounded-full bg-slate-200 flex-shrink-0 overflow-hidden ring-2 ring-indigo-500/20">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Mary Grace M. Peral" class="w-full h-full object-cover" />
             </div>
             <div>
-              <h4 class="font-bold text-slate-900 text-sm group-hover:text-sky-600 transition">Mary Grace M. Peral</h4>
-              <p class="text-xs text-slate-500">Teacher, Pareja Integrated School</p>
+              <h4 class="font-bold text-slate-900 text-sm group-hover:text-indigo-600 transition">Mary Grace M. Peral[span_1](start_span)[span_1](end_span)</h4>
+              <p class="text-xs text-slate-500">Teacher, Pareja Integrated School[span_2](start_span)[span_2](end_span)</p>
             </div>
           </div>
           <blockquote class="text-xs text-slate-600 italic leading-relaxed mb-6">
-            "GraceFlow Tech has made our documentation faster and our classes more organized. It's simple, beautiful and works like a real professional platform."
+            "GraceFlow Tech has made our documentation faster and our classes more organized. It's simple, beautiful and works like a real professional platform.[span_3](start_span)"[span_3](end_span)
           </blockquote>
           <div class="flex justify-center space-x-1.5">
-            <div class="w-2 h-2 rounded-full bg-sky-600"></div>
+            <div class="w-2 h-2 rounded-full bg-indigo-600"></div>
             <div class="w-2 h-2 rounded-full bg-slate-200"></div>
             <div class="w-2 h-2 rounded-full bg-slate-200"></div>
             <div class="w-2 h-2 rounded-full bg-slate-200"></div>
@@ -340,9 +374,9 @@
         </a>
 
         <!-- Clickable Photo Card -->
-        <a href="#" class="sm:col-span-5 relative rounded-3xl overflow-hidden shadow-lg group">
+        <a href="#" class="stripe-card sm:col-span-5 relative rounded-3xl overflow-hidden shadow-sm group">
           <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Mountain Banner" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-          <div class="absolute inset-0 bg-gradient-to-t from-sky-900/60 to-transparent flex items-end p-6">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0a2540]/80 to-transparent flex items-end p-6">
             <span class="font-handwriting text-3xl text-white leading-none drop-shadow">Better People<br>Brighter Tomorrows</span>
           </div>
         </a>
@@ -352,15 +386,15 @@
     </div>
   </section>
 
-  <!-- CTA Banner Section -->
+  <!-- CTA Banner Section (Stripe Dynamic Gradient) -->
   <section class="max-w-7xl mx-auto px-6 mb-20">
-    <div class="bg-gradient-to-r from-sky-600 to-blue-700 rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between shadow-xl shadow-sky-600/20 relative overflow-hidden">
+    <div class="bg-gradient-to-r from-[#0a2540] via-indigo-900 to-purple-900 rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between shadow-xl relative overflow-hidden">
       <div class="mb-6 md:mb-0 z-10">
         <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Let's build a more purposeful tomorrow.</h2>
-        <p class="text-sky-100 text-sm">Join schools, businesses and organizations using GraceFlow Tech.</p>
+        <p class="text-sky-200 text-sm">Join schools, businesses and organizations using GraceFlow Tech.</p>
       </div>
       <div class="text-center md:text-right z-10">
-        <a href="#" class="px-6 py-3.5 bg-white hover:bg-sky-50 text-sky-700 font-bold text-sm rounded-full shadow-md transition inline-flex items-center space-x-2 mb-2">
+        <a href="#" class="px-6 py-3.5 bg-white hover:bg-slate-100 text-indigo-900 font-bold text-sm rounded-full shadow-md transition inline-flex items-center space-x-2 mb-2">
           <span>Get Started Today</span>
           <span>&rarr;</span>
         </a>
@@ -369,31 +403,31 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-slate-100 py-12 px-6">
+  <!-- Footer (Stripe Midnight Dark) -->
+  <footer class="bg-[#0a2540] text-white border-t border-white/10 py-12 px-6">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <a href="#" class="flex items-center space-x-2">
-        <div class="w-7 h-7 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-sm">G</div>
+        <div class="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold text-sm">G</div>
         <div>
-          <span class="text-lg font-extrabold text-sky-900 tracking-tight">GraceFlow <span class="text-sky-600">Tech</span></span>
-          <span class="block text-[8px] font-semibold text-sky-500 tracking-widest uppercase -mt-1">Better Systems. Brighter Tomorrow.</span>
+          <span class="text-lg font-extrabold text-white tracking-tight">GraceFlow <span class="text-sky-400">Tech</span></span>
+          <span class="block text-[8px] font-semibold text-sky-300 tracking-widest uppercase -mt-1">Better Systems. Brighter Tomorrow.</span>
         </div>
       </a>
 
-      <div class="flex flex-wrap justify-center space-x-6 text-xs font-semibold text-slate-500">
-        <a href="#" class="hover:text-sky-600 transition">Home</a>
-        <a href="#" class="hover:text-sky-600 transition">Solutions ▾</a>
-        <a href="#" class="hover:text-sky-600 transition">Products</a>
-        <a href="#" class="hover:text-sky-600 transition">About</a>
-        <a href="#" class="hover:text-sky-600 transition">Resources</a>
-        <a href="#" class="hover:text-sky-600 transition">Contact</a>
+      <div class="flex flex-wrap justify-center space-x-6 text-xs font-semibold text-slate-300">
+        <a href="#" class="hover:text-white transition">Home</a>
+        <a href="#" class="hover:text-white transition">Solutions ▾</a>
+        <a href="#" class="hover:text-white transition">Products</a>
+        <a href="#" class="hover:text-white transition">About</a>
+        <a href="#" class="hover:text-white transition">Resources</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
       </div>
 
       <div class="flex items-center space-x-4 text-slate-400">
-        <a href="#" class="hover:text-sky-600 transition">🌐</a>
-        <a href="#" class="hover:text-sky-600 transition">▶</a>
-        <a href="#" class="hover:text-sky-600 transition">in</a>
-        <a href="#" class="hover:text-sky-600 transition">🐙</a>
+        <a href="#" class="hover:text-white transition">🌐</a>
+        <a href="#" class="hover:text-white transition">▶</a>
+        <a href="#" class="hover:text-white transition">in</a>
+        <a href="#" class="hover:text-white transition">🐙</a>
       </div>
     </div>
     
