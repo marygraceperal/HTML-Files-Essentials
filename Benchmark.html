@@ -3,130 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GraceFlow Tech — Modern Digital Solutions</title>
+  <title>GraceFlow Tech — Dynamic Motion</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Stripe-like Mesh Gradient Background */
-    .stripe-hero-bg {
-      background: linear-gradient(135deg, #0a2540 0%, #1a1f36 40%, #2e1065 100%);
-      position: relative;
-      overflow: hidden;
+    /* Continuous floating motion keyframes */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
     }
-    .stripe-gradient-overlay {
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(168,85,247,0.15) 50%, rgba(0,0,0,0) 70%);
-      filter: blur(60px);
-      pointer-events: none;
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
     }
-    /* Smooth hover card lift */
-    .stripe-card {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid rgba(226, 232, 240, 0.8);
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
     }
-    .stripe-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-      border-color: #6366f1;
+    .animate-glow {
+      animation: pulseGlow 8s ease-in-out infinite;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+<body class="bg-slate-950 text-white font-sans antialiased overflow-x-hidden">
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800 text-white">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">GraceFlow Tech</span>
-      </div>
-      <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-        <a href="#features" class="hover:text-white transition">Solutions</a>
-        <a href="#developers" class="hover:text-white transition">Architecture</a>
-        <a href="#about" class="hover:text-white transition">About</a>
-      </nav>
-      <a href="#contact" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm rounded-full transition shadow-md shadow-indigo-600/30">Get Started &rarr;</a>
-    </div>
-  </header>
+  <!-- Hero Section with Animated Ambient Objects -->
+  <section class="relative py-28 px-6 min-h-screen flex items-center justify-center">
+    
+    <!-- Moving Ambient Orbs in Background -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/30 rounded-full filter blur-3xl animate-glow pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full filter blur-3xl animate-glow pointer-events-none" style="animation-delay: -4s;"></div>
 
-  <!-- Hero Section (Stripe Mesh Aesthetic) -->
-  <section class="stripe-hero-bg text-white py-24 px-6 relative">
-    <div class="stripe-gradient-overlay"></div>
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      
+      <!-- Text & Interactive Content -->
       <div>
-        <div class="inline-flex items-center space-x-2 px-3 py-1 bg-indigo-500/10 border border-indigo-400/30 rounded-full text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-6">
-          <span>✨ Next-Gen Web Ecosystems</span>
-        </div>
         <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-          Financial & Educational Technology <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">Simplified.</span>
+          Bring Your Pages to Life with <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">Fluid Motion.</span>
         </h1>
         <p class="text-lg text-slate-300 mb-8 max-w-xl">
-          Empowering modern educators, businesses, and creators with localized progressive web apps, resilient scheduling tools, and seamless data management solutions.
+          Integrate GPU-accelerated video frames and smooth vector motion directly into your digital workspace.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg shadow-lg shadow-indigo-500/25 text-center transition">Explore Solutions</a>
-          <a href="#features" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg text-center transition">Documentation &rarr;</a>
+        <div class="flex gap-4">
+          <button class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 font-semibold rounded-lg shadow-lg shadow-indigo-500/30 transition hover:scale-105 transform">
+            Get Started
+          </button>
         </div>
       </div>
 
-      <!-- Stripe-style Floating UI Mockup Card -->
-      <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
-          <div class="flex space-x-2">
-            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+      <!-- Moving Object 1: Floating Card with Embedded Video Background -->
+      <div class="relative animate-float">
+        <div class="relative bg-slate-900/80 border border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl">
+          
+          <!-- Video Background Layer -->
+          <div class="relative h-64 sm:h-80 w-full overflow-hidden">
+            <video 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              class="absolute inset-0 w-full h-full object-cover opacity-60">
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-lines-27661-large.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
           </div>
-          <span class="text-xs text-slate-400 font-mono">graceflow-app.js</span>
+
+          <!-- Card Content Overlay -->
+          <div class="p-6 relative z-10 -mt-12">
+            <span class="px-3 py-1 bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold rounded-full uppercase">
+              Live Preview
+            </span>
+            <h3 class="text-xl font-bold mt-2">Dynamic Video Card</h3>
+            <p class="text-slate-400 text-sm mt-1">Background video integrated directly inside card components.</p>
+          </div>
+
         </div>
-        <pre class="text-xs font-mono text-indigo-300 overflow-x-auto p-4 bg-slate-950 rounded-lg"><code><span class="text-purple-400">import</span> { GraceFlowEngine } <span class="text-purple-400">from</span> <span class="text-green-400">'@graceflow/core'</span>;
-
-<span class="text-slate-500">// Initialize Resilient Workflow</span>
-<span class="text-purple-400">const</span> app = <span class="text-purple-400">new</span> GraceFlowEngine({
-  curriculum: <span class="text-green-400">'K-12'</span>,
-  automation: <span class="text-purple-400">true</span>,
-  realtimeSync: <span class="text-purple-400">true</span>
-});
-
-app.deploy();</code></pre>
       </div>
+
     </div>
   </section>
-
-  <!-- Features Grid Section -->
-  <section id="features" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Built for Performance & Scale</h2>
-      <p class="text-slate-600 mt-2">Comprehensive tools tailored to elevate digital workflows.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="stripe-card bg-white p-8 rounded-2xl shadow-sm">
-        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">⚡</div>
-        <h3 class="text-xl font-bold text-slate-900 mb-2">Progressive Web Apps</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Fast, responsive, and offline-capable applications designed for classroom management and updates.</p>
-      </div>
-
-      <div class="stripe-card bg-white p-8 rounded-2xl shadow-sm">
-        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">🎯</div>
-        <h3 class="text-xl font-bold text-slate-900 mb-2">Resilient Scheduling</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Intelligent time-allocation frameworks built to harmonize complex schedules for educators and teams.</p>
-      </div>
-
-      <div class="stripe-card bg-white p-8 rounded-2xl shadow-sm">
-        <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">📊</div>
-        <h3 class="text-xl font-bold text-slate-900 mb-2">Localized Integration</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Context-aware tools customized for economic and academic needs with maximum clarity and efficiency.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 text-center">
-    <p class="text-sm">&copy; 2026 GraceFlow Tech. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>
