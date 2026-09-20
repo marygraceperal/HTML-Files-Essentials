@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GraceFlow Private Portal — Prototype</title>
+    
+    <style>
+        /* ==========================================
+           1. DESIGN SYSTEM & CSS VARIABLES
+           ========================================== */
+        :root {
+            --navy: #171A3A;
+            --blue: #3155D9;
+            --violet: #6C4BEF;
+            --purple: #9B7BFF;
+            --teal: #35B8B0;
+            --gold: #E6B65C;
+            --bg: #F6F7FB;
+            --muted: #6B6E82;
+            --line: rgba(23, 26, 58, .09);
+            --shadow: 0 18px 50px rgba(23, 26, 58, .08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--navy);
+        }
+
+        button, input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ==========================================
+           2. LOGIN SCREEN STYLES
+           ========================================== */
+        .login {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #f8f8fc, #f0edff);
+        }
+
+        .loginbox {
+            width: min(430px, 92vw);
+            padding: 34px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            color: #fff;
+            display: grid;
+            place-items: center;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            color: var(--violet);
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-top: 24px;
+        }
+
+        .login h1 {
+            margin: 6px 0;
+        }
+
+        .sub {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .login label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 18px 0 7px;
+        }
+
+        .login input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+        }
+
+        .primary {
+            border: 0;
+            border-radius: 12px;
+            padding: 11px 16px;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            color: #fff;
+            font-weight: 800;
+            transition: opacity 0.2s ease;
+        }
+
+        .primary:hover {
+            opacity: 0.9;
+        }
+
+        .login .primary {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* ==========================================
+           3. APP LAYOUT & SIDEBAR NAVIGATION
+           ========================================== */
+        .app {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .side {
+            width: 250px;
+            position: fixed;
+            inset: 0 auto 0 0;
+            background: var(--navy);
+            color: #fff;
+            padding: 24px 16px;
+            z-index: 10;
+        }
+
+        .side .brand {
+            padding: 0 10px 26px;
+        }
+
+        .label {
+            font-size: 10px;
+            letter-spacing: .14em;
+            color: #bfc4e8;
+            margin: 0 10px 16px;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: grid;
+            gap: 4px;
+        }
+
+        .nav button {
+            border: 0;
+            background: transparent;
+            color: #d9dcf2;
+            padding: 11px 12px;
+            border-radius: 12px;
+            text-align: left;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .nav button:hover, 
+        .nav button.active {
+            background: rgba(255, 255, 255, .1);
+            color: #fff;
+        }
+
+        .bottom {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            padding-top: 15px;
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           4. MAIN CONTENT AREA & COMPONENTS
+           ========================================== */
+        .main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+        }
+
+        .top {
+            height: 76px;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, .92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            z-index: 5;
+        }
+
+        .search {
+            width: 320px;
+            padding: 10px 14px;
+            border: 0;
+            background: #f3f4f8;
+            border-radius: 12px;
+        }
+
+        .page {
+            padding: 30px;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: 30px;
+            letter-spacing: -.03em;
+            margin: 5px 0;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat {
+            padding: 20px;
+        }
+
+        .stat small {
+            color: var(--muted);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 29px;
+            margin-top: 7px;
+        }
+
+        .green {
+            color: #168a81 !important;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .panel {
+            padding: 20px;
+        }
+
+        .panel h2 {
+            font-size: 17px;
+            margin: 0 0 15px;
+        }
+
+        .row {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            font-size: 13px;
+        }
+
+        .row:last-child {
+            border: 0;
+        }
+
+        .row small {
+            display: block;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 800;
+            padding: 5px 8px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .new {
+            background: #eaf0ff;
+            color: var(--blue);
+        }
+
+        .review {
+            background: #f0edff;
+            color: var(--violet);
+        }
+
+        .paid {
+            background: #e9f8f5;
+            color: #168a81;
+        }
+
+        .table {
+            overflow: auto;
+        }
+
+        .table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .table th, .table td {
+            text-align: left;
+            padding: 12px 9px;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px;
+        }
+
+        .table th {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .quick {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .quick button {
+            padding: 14px;
+            text-align: left;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            transition: border-color 0.2s ease;
+        }
+
+        .quick button:hover {
+            border-color: var(--blue);
+        }
+
+        .quick b {
+            display: block;
+            font-size: 13px;
+        }
+
+        .quick span {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .menu {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 23px;
+        }
+
+        /* ==========================================
+           5. RESPONSIVE MEDIA QUERIES
+           ========================================== */
+        @media(max-width: 900px) {
+            .side {
+                transform: translateX(-100%);
+                transition: transform .2s ease;
+            }
+            .side.open {
+                transform: translateX(0);
+            }
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
+            .menu {
+                display: block;
+            }
+            .top {
+                padding: 0 16px;
+            }
+            .search {
+                display: none;
+            }
+            .page {
+                padding: 20px 16px;
+            }
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 520px) {
+            .cards {
+                gap: 10px;
+                grid-template-columns: 1fr;
+            }
+            .stat {
+                padding: 15px;
+            }
+            .stat strong {
+                font-size: 24px;
+            }
+            .head {
+                display: block;
+            }
+            .head .primary {
+                margin-top: 12px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       LOGIN SCREEN
+       ========================================== -->
+    <div id="login" class="login">
+        <div class="loginbox">
+            <div class="brand">
+                <div class="mark">G</div>GraceFlow Tech
+            </div>
+            <div class="eyebrow">Private Portal</div>
+            <h1>Welcome back</h1>
+            <p class="sub">Polished prototype of the GraceFlow administrative platform.</p>
+            <label>Email</label>
+            <input value="admin@graceflow.tech">
+            <label>Password</label>
+            <input type="password" value="prototype">
+            <button class="primary" onclick="login()">Enter Portal</button>
+            <div class="note">Prototype only. Live authentication, permissions and backend services will be connected later.</div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       MAIN APPLICATION VIEW
+       ========================================== -->
+    <div id="app" class="app hidden">
+        
+        <!-- Sidebar Navigation Menu -->
+        <aside id="side" class="side">
+            <div class="brand">
+                <div class="mark">G</div>GraceFlow Tech
+            </div>
+            <div class="label">Private Portal</div>
+            <nav class="nav">
+                <button class="active" onclick="page('dashboard',this)">⌂ &nbsp; Dashboard</button>
+                <button onclick="page('inquiries',this)">◌ &nbsp; Project Inquiries</button>
+                <button onclick="page('clients',this)">◎ &nbsp; Clients</button>
+                <button onclick="page('projects',this)">◆ &nbsp; Projects</button>
+                <button onclick="page('resources',this)">▣ &nbsp; Resources</button>
+                <button onclick="page('payments',this)">₱ &nbsp; Payments</button>
+                <button onclick="page('subscriptions',this)">★ &nbsp; Subscriptions</button>
+                <button onclick="page('income',this)">₱ &nbsp; Income Flow</button>
+                <button onclick="page('metrics',this)">↗ &nbsp; Metrics</button>
+                <button onclick="page('notifications',this)">● &nbsp; Notifications</button>
+                <button onclick="page('users',this)">◎ &nbsp; Users</button>
+                <button onclick="page('settings',this)">⚙ &nbsp; Settings</button>
+            </nav>
+            <div class="bottom">
+                <b>GraceFlow Admin</b><br>
+                <span style="color:#aeb4d7">Administrator</span>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="main">
+            <header class="top">
+                <div>
+                    <button class="menu" onclick="document.getElementById('side').classList.toggle('open')">☰</button>
+                    <input class="search" placeholder="Search GraceFlow...">
+                </div>
+                <button onclick="page('notifications')" style="border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px">🔔</button>
+            </header>
+
+            <!-- 1. DASHBOARD PAGE -->
+            <section id="dashboard" class="page">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Overview</div>
+                        <h1>Good morning, GraceFlow</h1>
+                        <p class="sub">A simple control center for projects, resources, clients and platform activity.</p>
+                    </div>
+                    <button class="primary" onclick="page('inquiries')">+ Add Inquiry</button>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>New inquiries</small><strong>12</strong><span class="green">+3 this week</span></div>
+                    <div class="card stat"><small>Active projects</small><strong>7</strong><span class="green">2 need attention</span></div>
+                    <div class="card stat"><small>Resources</small><strong>86</strong><span class="green">+5 this month</span></div>
+                    <div class="card stat"><small>Pro subscribers</small><strong>24</strong><span class="green">+4 this month</span></div>
+                </div>
+                <div class="grid">
+                    <div class="card panel">
+                        <h2>Recent Project Inquiries</h2>
+                        <div class="row"><div><b>School Management Portal</b><small>ABC School · Website</small></div><span class="badge new">NEW</span></div>
+                        <div class="row"><div><b>Business Automation</b><small>XYZ Bakery · Personal Contact</small></div><span class="badge review">REVIEWING</span></div>
+                        <div class="row"><div><b>Learning Resource Hub</b><small>DEF Learning · Referral</small></div><span class="badge paid">CONTACTED</span></div>
+                    </div>
+                    <div class="card panel">
+                        <h2>Quick Actions</h2>
+                        <div class="quick">
+                            <button onclick="page('inquiries')"><b>Add Inquiry</b><span>Create an admin-entered inquiry</span></button>
+                            <button onclick="page('projects')"><b>New Project</b><span>Free, Pro or Paid</span></button>
+                            <button onclick="page('resources')"><b>Add Resource</b><span>Create and classify</span></button>
+                            <button onclick="page('payments')"><b>Verify Payment</b><span>Review evidence</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card panel" style="margin-top:18px">
+                    <h2>Recent Activity</h2>
+                    <div class="row"><div><b>Payment received</b><small>ABC International · USD 500 · 1 hour ago</small></div></div>
+                    <div class="row"><div><b>Resource downloaded</b><small>Unit Conversion Activity · 32 minutes ago</small></div></div>
+                    <div class="row"><div><b>New inquiry created</b><small>School Management Portal · 10 minutes ago</small></div></div>
+                </div>
+            </section>
+
+            <!-- 2. PROJECT INQUIRIES PAGE -->
+            <section id="inquiries" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Client intake</div>
+                        <h1>Project Inquiries</h1>
+                        <p class="sub">Website, personal, email, phone and referral inquiries in one place.</p>
+                    </div>
+                    <button class="primary">+ Add Inquiry</button>
+                </div>
+                <div class="card panel table">
+                    <table>
+                        <thead>
+                            <tr><th>Inquiry</th><th>Client</th><th>Source</th><th>Status</th><th>Date</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>School Management Portal</td><td>ABC School</td><td>Website</td><td><span class="badge new">NEW</span></td><td>Sep 20, 2026</td></tr>
+                            <tr><td>Business Automation</td><td>XYZ Bakery</td><td>Personal Contact</td><td><span class="badge review">REVIEWING</span></td><td>Sep 19, 2026</td></tr>
+                            <tr><td>Learning Resource Hub</td><td>DEF Learning</td><td>Referral</td><td><span class="badge paid">CONTACTED</span></td><td>Sep 18, 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. CLIENTS PAGE -->
+            <section id="clients" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Client accounts</div>
+                        <h1>Clients</h1>
+                        <p class="sub">Central account records for GraceFlow clients and their private workspaces.</p>
+                    </div>
+                    <button class="primary">+ Add Client</button>
+                </div>
+
+                <div class="cards">
+                    <div class="card stat"><small>Total clients</small><strong>148</strong><span class="green">+12 this month</span></div>
+                    <div class="card stat"><small>Active accounts</small><strong>141</strong><span class="green">95.3% active</span></div>
+                    <div class="card stat"><small>Pro clients</small><strong>24</strong><span class="green">+4 this month</span></div>
+                    <div class="card stat"><small>New accounts</small><strong>12</strong><span>Last 30 days</span></div>
+                </div>
+
+                <div class="card panel" style="margin-top:18px">
+                    <h2>Client Directory</h2>
+                    <p class="sub">Each client has a unique account identity. Client data is private to that client and is not shared with other clients.</p>
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr><th>Client</th><th>Email</th><th>Organization</th><th>Plan</th><th>Projects</th><th>Status</th><th>Joined</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Juan Dela Cruz</b><small>GF-000124</small></td>
+                                    <td>juan@example.com</td>
+                                    <td>Juan's Business</td>
+                                    <td>Free</td>
+                                    <td>2</td>
+                                    <td><span class="badge paid">ACTIVE</span></td>
+                                    <td>Sep 20, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td><b>ABC School</b><small>GF-000123</small></td>
+                                    <td>admin@abcschool.example</td>
+                                    <td>ABC School</td>
+                                    <td>Pro</td>
+                                    <td>4</td>
+                                    <td><span class="badge paid">ACTIVE</span></td>
+                                    <td>Sep 18, 2026</td>
+                                </tr>
+                                <tr>
+                                    <td><b>XYZ Bakery</b><small>GF-000122</small></td>
+                                    <td>owner@xyzbakery.example</td>
+                                    <td>XYZ Bakery</td>
+                                    <td>Free</td>
+                                    <td>1</td>
+                                    <td><span class="badge review">PENDING</span></td>
+                                    <td>Sep 17, 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="card panel">
+                        <h2>Selected Client Profile</h2>
+                        <div class="row"><div><b>Client ID</b><small>GF-000124</small></div></div>
+                        <div class="row"><div><b>Name</b><small>Juan Dela Cruz</small></div></div>
+                        <div class="row"><div><b>Email</b><small>juan@example.com</small></div></div>
+                        <div class="row"><div><b>Account Status</b><small>Active</small></div></div>
+                        <div class="row"><div><b>Plan / Entitlement</b><small>Free</small></div></div>
+                        <div class="row"><div><b>Organization</b><small>Juan's Business</small></div></div>
+                        <div class="row"><div><b>Joined</b><small>September 20, 2026</small></div></div>
+                        <div class="row"><div><b>Last Activity</b><small>September 20, 2026 · 11:42 AM</small></div></div>
+                    </div>
+
+                    <div class="card panel">
+                        <h2>Client Workspace</h2>
+                        <div class="row"><div><b>Projects</b><small>2 active projects</small></div><span class="badge new">VIEW</span></div>
+                        <div class="row"><div><b>Resources</b><small>8 available resources</small></div><span class="badge new">VIEW</span></div>
+                        <div class="row"><div><b>Payments</b><small>₱0 outstanding</small></div><span class="badge paid">CLEAR</span></div>
+                        <div class="row"><div><b>Documents</b><small>3 client documents</small></div><span class="badge new">VIEW</span></div>
+                        <div class="row"><div><b>Project Lab</b><small>Not available on Free plan</small></div><span class="badge review">PRO</span></div>
+                    </div>
+                </div>
+
+                <div class="card panel" style="margin-top:18px">
+                    <h2>Recent Client Activity</h2>
+                    <div class="row"><div><b>Account created</b><small>Juan Dela Cruz · September 20, 2026</small></div></div>
+                    <div class="row"><div><b>Resource viewed</b><small>Getting Started with Digital Flow · 18 minutes ago</small></div></div>
+                    <div class="row"><div><b>Project inquiry submitted</b><small>Business Website · 42 minutes ago</small></div></div>
+                    <div class="row"><div><b>Signed in</b><small>Client account · 11:42 AM</small></div></div>
+                </div>
+
+                <div class="card panel" style="margin-top:18px">
+                    <h2>Architecture Note</h2>
+                    <p class="sub">Prototype only. In the live system, the client's email identifies the account for sign-in and communication, while a stable internal User ID and Organization/Tenant ID connect the client's authorized projects, resources, payments, documents, subscriptions and activity. Client workspaces remain isolated from one another.</p>
+                </div>
+            </section>
+
+            <!-- 4. PROJECTS PAGE -->
+            <section id="projects" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Work management</div>
+                        <h1>Projects</h1>
+                        <p class="sub">Classify projects as Free, Pro or Paid.</p>
+                    </div>
+                    <button class="primary">+ New Project</button>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>Free projects</small><strong>24</strong></div>
+                    <div class="card stat"><small>Pro projects</small><strong>18</strong></div>
+                    <div class="card stat"><small>Paid projects</small><strong>11</strong></div>
+                    <div class="card stat"><small>Completed</small><strong>32</strong></div>
+                </div>
+            </section>
+
+            <!-- 5. RESOURCES PAGE -->
+            <section id="resources" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Resource system</div>
+                        <h1>Resources</h1>
+                        <p class="sub">Create, classify, publish and monitor resources.</p>
+                    </div>
+                    <button class="primary">+ Add Resource</button>
+                </div>
+                <div class="card panel table">
+                    <table>
+                        <thead>
+                            <tr><th>Resource</th><th>Access</th><th>Views</th><th>Downloads</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Unit Conversion Activity</td><td>Free</td><td>428</td><td>186</td><td>Published</td></tr>
+                            <tr><td>Advanced Math Toolkit</td><td>Pro</td><td>213</td><td>94</td><td>Published</td></tr>
+                            <tr><td>Custom Learning Package</td><td>Paid</td><td>37</td><td>12</td><td>Restricted</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 6. PAYMENTS PAGE -->
+            <section id="payments" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Financial operations</div>
+                        <h1>Payments</h1>
+                        <p class="sub">Monitor payments and review transfer evidence.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>Pending verification</small><strong>3</strong></div>
+                    <div class="card stat"><small>Verified this month</small><strong>18</strong></div>
+                    <div class="card stat"><small>Subscriptions</small><strong>24</strong></div>
+                    <div class="card stat"><small>Currencies</small><strong>2</strong></div>
+                </div>
+                <div class="card panel" style="margin-top:18px">
+                    <p class="sub">Payment verification queue will connect to live payment services and private receipt storage.</p>
+                </div>
+            </section>
+
+            <!-- 7. SUBSCRIPTIONS PAGE -->
+            <section id="subscriptions" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Access plans</div>
+                        <h1>Subscriptions</h1>
+                        <p class="sub">Manage Free and Pro access through entitlements.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>Free accounts</small><strong>148</strong></div>
+                    <div class="card stat"><small>Active Pro</small><strong>24</strong></div>
+                    <div class="card stat"><small>Renewals this month</small><strong>19</strong></div>
+                    <div class="card stat"><small>Pending</small><strong>2</strong></div>
+                </div>
+            </section>
+
+            <!-- 8. INCOME FLOW PAGE -->
+            <section id="income" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Financial intelligence</div>
+                        <h1>Income Flow</h1>
+                        <p class="sub">A central view of GraceFlow revenue across subscriptions, projects and services.</p>
+                    </div>
+                    <button class="primary">+ Record Income</button>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>Total income</small><strong>₱19,000</strong><span class="green">+12.4% this month</span></div>
+                    <div class="card stat"><small>Received</small><strong>₱17,500</strong><span class="green">92.1% collected</span></div>
+                    <div class="card stat"><small>Pending</small><strong>₱1,500</strong><span>2 transactions</span></div>
+                    <div class="card stat"><small>This month</small><strong>₱19,000</strong><span class="green">3 income sources</span></div>
+                </div>
+                <div class="grid">
+                    <div class="card panel">
+                        <h2>Recent Income</h2>
+                        <div class="row"><div><b>Pro Subscription</b><small>Client account · Monthly subscription</small></div><span class="badge paid">₱2,500 · RECEIVED</span></div>
+                        <div class="row"><div><b>Website Project</b><small>ABC School · Paid project</small></div><span class="badge paid">₱15,000 · RECEIVED</span></div>
+                        <div class="row"><div><b>Digital Product</b><small>Resource purchase</small></div><span class="badge review">₱1,500 · PENDING</span></div>
+                    </div>
+                    <div class="card panel">
+                        <h2>Income Sources</h2>
+                        <div class="row"><span>Paid Projects</span><b>₱15,000</b></div>
+                        <div class="row"><span>Subscriptions</span><b>₱2,500</b></div>
+                        <div class="row"><span>Digital Products</span><b>₱1,500</b></div>
+                    </div>
+                </div>
+                <div class="card panel" style="margin-top:18px">
+                    <h2>Architecture Note</h2>
+                    <p class="sub">Prototype only. Later, Income Flow should pull verified records from Payments, Subscriptions and Projects rather than becoming a separate manual source of truth.</p>
+                </div>
+            </section>
+
+            <!-- 9. METRICS PAGE -->
+            <section id="metrics" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Platform intelligence</div>
+                        <h1>Metrics</h1>
+                        <p class="sub">Automatic activity statistics from GraceFlow events.</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card stat"><small>Page views</small><strong>8,426</strong></div>
+                    <div class="card stat"><small>Resource views</small><strong>2,184</strong></div>
+                    <div class="card stat"><small>Downloads</small><strong>486</strong></div>
+                    <div class="card stat"><small>Resources created</small><strong>72</strong></div>
+                </div>
+            </section>
+
+            <!-- 10. NOTIFICATIONS PAGE -->
+            <section id="notifications" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">System communication</div>
+                        <h1>Notifications</h1>
+                        <p class="sub">Important events and system messages.</p>
+                    </div>
+                </div>
+                <div class="card panel">
+                    <div class="row"><b>New project inquiry<small>School Management Portal · 10 minutes ago</small></b></div>
+                    <div class="row"><b>Payment verified<small>ABC International · 1 hour ago</small></b></div>
+                    <div class="row"><b>Pro subscription activated<small>Client account · 3 hours ago</small></b></div>
+                </div>
+            </section>
+
+            <!-- 11. USERS PAGE -->
+            <section id="users" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Identity</div>
+                        <h1>Users</h1>
+                        <p class="sub">Internal identity, roles and organization access. Client account records are managed in Clients.</p>
+                    </div>
+                </div>
+                <div class="card panel table">
+                    <table>
+                        <thead>
+                            <tr><th>User</th><th>Organization</th><th>Role</th><th>Plan</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>GraceFlow Admin</td><td>GraceFlow Tech</td><td>ADMIN</td><td>Internal</td><td>Active</td></tr>
+                            <tr><td>Client User</td><td>ABC School</td><td>CLIENT</td><td>Pro</td><td>Active</td></tr>
+                            <tr><td>Free User</td><td>—</td><td>FREE_USER</td><td>Free</td><td>Active</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 12. SETTINGS PAGE -->
+            <section id="settings" class="page hidden">
+                <div class="head">
+                    <div>
+                        <div class="eyebrow">Configuration</div>
+                        <h1>Settings</h1>
+                        <p class="sub">Portal and account settings.</p>
+                    </div>
+                </div>
+                <div class="card panel">
+                    <h2>GraceFlow Portal</h2>
+                    <p class="sub">Prototype configuration. Live authentication, tenant isolation, payments, notifications and audit controls will be connected during implementation.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ==========================================
+       JAVASCRIPT LOGIC
+       ========================================== -->
+    <script>
+        // Switch view from login to main dashboard application
+        function login() {
+            const loginEl = document.getElementById('login');
+            loginEl.classList.add('hidden');
+            document.getElementById('app').classList.remove('hidden');
+        }
+
+        // Handle sidebar navigation between pages
+        function page(id, b) {
+            document.querySelectorAll('.page').forEach(x => x.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            document.querySelectorAll('.nav button').forEach(x => x.classList.remove('active'));
+            if (b) b.classList.add('active');
+            document.getElementById('side').classList.remove('open');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
