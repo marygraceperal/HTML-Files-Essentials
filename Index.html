@@ -1,376 +1,470 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <base target="_top">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Grade Viewing Repository</title>
-  <style>
-    :root{
-      --navy:#17365d;
-      --blue:#2f75b5;
-      --teal:#2f8f9d;
-      --gold:#d6b656;
-      --ink:#243447;
-      --muted:#6b7785;
-      --bg:#f4f8fc;
-      --card:#ffffff;
-      --line:#dce6f0;
-      --danger:#b42318;
-      --shadow:0 10px 30px rgba(23,54,93,.10);
-      --radius:20px;
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#171A3A"
+>
+
+<meta
+    name="description"
+    content="GraceFlow Tech creates digital systems, learning products, and automation solutions that turn everyday processes into better flow."
+>
+
+<meta
+    property="og:title"
+    content="GraceFlow Tech | Digital Systems • Learning Products • Automation"
+>
+
+<meta
+    property="og:description"
+    content="Turning everyday processes into better flow through digital systems, learning products, and automation."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<title>
+    GraceFlow Tech | Digital Systems • Learning Products • Automation
+</title>
+
+
+<style>
+
+/* =========================================================
+   GRACEFLOW TECH — DESIGN SYSTEM
+========================================================= */
+
+:root{
+
+    /* Brand */
+    --navy:#171A3A;
+    --navy-2:#202653;
+    --blue:#3155D9;
+    --blue-light:#6F91FF;
+    --violet:#6C4BEF;
+    --purple:#9B7BFF;
+    --teal:#35B8B0;
+    --gold:#E6B65C;
+
+    /* Surfaces */
+    --white:#FFFFFF;
+    --bg:#F7F8FC;
+    --surface:#FFFFFF;
+    --surface-soft:#F0EDFF;
+    --surface-blue:#EDF2FF;
+
+    /* Text */
+    --text:#171A3A;
+    --text-soft:#4F5872;
+    --muted:#6D7388;
+    --muted-light:#9298AB;
+
+    /* Lines */
+    --line:rgba(23,26,58,.09);
+    --line-strong:rgba(23,26,58,.14);
+
+    /* Effects */
+    --shadow-sm:0 8px 25px rgba(23,26,58,.055);
+    --shadow-md:0 18px 45px rgba(23,26,58,.09);
+    --shadow-lg:0 30px 80px rgba(23,26,58,.13);
+
+    /* Radius */
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:26px;
+    --radius-xl:34px;
+
+    /* Layout */
+    --container:1180px;
+
+    /* Motion */
+    --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    overflow-x:hidden;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+img,
+svg{
+    display:block;
+    max-width:100%;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+::selection{
+    color:white;
+    background:var(--violet);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.skip-link{
+    position:fixed;
+    top:12px;
+    left:12px;
+    z-index:9999;
+    padding:10px 16px;
+    border-radius:10px;
+    color:white;
+    background:var(--navy);
+    transform:translateY(-150%);
+    transition:transform .2s ease;
+}
+
+.skip-link:focus{
+    transform:translateY(0);
+}
+
+:focus-visible{
+    outline:3px solid var(--purple);
+    outline-offset:4px;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container{
+    width:min(
+        var(--container),
+        calc(100% - 40px)
+    );
+    margin-inline:auto;
+}
+
+.section{
+    position:relative;
+    padding:110px 0;
+}
+
+.section-label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--violet);
+    font-size:.7rem;
+    font-weight:850;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+}
+
+.section-label::before{
+    content:"";
+    width:26px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(
+        90deg,
+        var(--blue),
+        var(--violet)
+    );
+}
+
+.section-heading{
+    max-width:820px;
+}
+
+.section-heading.center{
+    margin-inline:auto;
+    text-align:center;
+}
+
+.section-heading h2{
+    margin:12px 0 17px;
+    font-size:clamp(2.5rem,5vw,4.35rem);
+    line-height:.99;
+    letter-spacing:-.055em;
+}
+
+.section-heading h2 span{
+    background:
+        linear-gradient(
+            100deg,
+            var(--blue),
+            var(--violet),
+            var(--purple)
+        );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.section-heading p{
+    max-width:720px;
+    margin:0;
+    color:var(--text-soft);
+    font-size:1rem;
+    line-height:1.75;
+}
+
+.section-heading.center p{
+    margin-inline:auto;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:
+        opacity .7s var(--ease),
+        transform .7s var(--ease);
+}
+
+.reveal.is-visible{
+    opacity:1;
+    transform:none;
+}
+
+
+/* =========================================================
+   TOP WELCOME BAR
+========================================================= */
+
+.welcome{
+    position:relative;
+    overflow:hidden;
+    padding:25px 0 27px;
+    background:
+        radial-gradient(
+            circle at 20% 100%,
+            rgba(49,85,217,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(108,75,239,.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #F8F8FC,
+            #F0EDFF
+        );
+    border-bottom:1px solid rgba(108,75,239,.1);
+}
+
+.welcome::before,
+.welcome::after{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:150px;
+    border:1px solid rgba(108,75,239,.14);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.welcome::before{
+    left:-220px;
+    bottom:-75px;
+    transform:rotate(-10deg);
+}
+
+.welcome::after{
+    right:-220px;
+    top:-75px;
+    transform:rotate(-10deg);
+}
+
+.welcome-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.welcome-kicker{
+    margin-bottom:4px;
+    color:var(--navy);
+    font-size:.66rem;
+    font-weight:850;
+    letter-spacing:.28em;
+}
+
+.welcome h1{
+    margin:0;
+    font-size:clamp(
+        2.5rem,
+        6vw,
+        5rem
+    );
+    line-height:.95;
+    letter-spacing:-.065em;
+    font-weight:950;
+}
+
+.gradient-text{
+    background:
+        linear-gradient(
+            100deg,
+            var(--blue),
+            var(--violet),
+            var(--purple),
+            var(--blue)
+        );
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer{
+    0%,100%{
+        background-position:0 50%;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      color:var(--ink);
-      background:linear-gradient(180deg,#edf5fb 0%,var(--bg) 45%,#fff 100%);
-      min-height:100vh;
+    50%{
+        background-position:100% 50%;
     }
-    header{
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:#fff;
-      padding:28px 18px 34px;
-      text-align:center;
-    }
-    header h1{margin:0;font-size:clamp(25px,5vw,38px)}
-    header p{margin:8px 0 0;opacity:.9}
-    main{max-width:1100px;margin:-18px auto 50px;padding:0 16px}
-    .panel{
-      background:var(--card);border:1px solid var(--line);
-      border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;
-    }
-    .section-title{margin:0 0 14px;font-size:20px;color:var(--navy)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .level-card,.section-card,.student-card,.subject-card{
-      border:1px solid var(--line);background:#fff;border-radius:18px;
-      padding:20px;cursor:pointer;transition:.18s ease;
-      width:100%;font:inherit;color:var(--ink);text-align:left;
-      appearance:none;-webkit-appearance:none;
-    }
-    .level-card:hover,.section-card:hover,.student-card:hover,.subject-card:hover{
-      transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,54,93,.10);border-color:#b8d1e8;
-    }
-    .level-card:focus-visible,.section-card:focus-visible,.student-card:focus-visible,.subject-card:focus-visible{
-      outline:3px solid rgba(47,117,181,.30);outline-offset:2px;
-    }
-    .level-card .icon{font-size:34px}.level-card h3,.student-card h3{margin:10px 0 4px}
-    .muted{color:var(--muted);font-size:14px}
-    .crumbs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;color:var(--muted);font-size:14px}
-    .crumbs button{border:0;background:none;color:var(--blue);cursor:pointer;padding:0}
-    .student-card{display:flex;align-items:center;gap:14px}
-    .avatar{
-      width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
-      background:#e5f0fa;color:var(--navy);font-weight:bold;font-size:18px;flex:none;
-    }
-    .subject-card{text-align:center;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-    .subject-icon{font-size:42px}
-    .subject-card h3{font-size:16px;margin:10px 0 0}
-    .badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#edf6f4;color:#28737b;font-size:12px;margin-top:8px}
-    .hidden{display:none!important}
-    .empty{text-align:center;padding:35px;color:var(--muted)}
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(10,28,46,.55);display:grid;place-items:center;
-      padding:18px;z-index:20;
-    }
-    .modal{
-      width:min(430px,100%);background:#fff;border-radius:22px;padding:26px;box-shadow:0 25px 70px rgba(0,0,0,.25)
-    }
-    .modal h2{margin:0;color:var(--navy)}
-    .modal input{
-      width:100%;padding:14px 15px;border:1px solid #cbd8e4;border-radius:12px;
-      font-size:20px;letter-spacing:5px;margin:14px 0;outline:none;
-    }
-    .modal input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #e4f0fa}
-    .actions{display:flex;gap:10px;justify-content:flex-end}
-    button.primary,button.secondary{
-      border:0;border-radius:12px;padding:11px 16px;font-weight:bold;cursor:pointer
-    }
-    button.primary{background:var(--blue);color:#fff}
-    button.secondary{background:#edf2f6;color:var(--ink)}
-    .error{color:var(--danger);font-size:14px;min-height:20px}
-    .student-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;flex-wrap:wrap}
-    .logout{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:10px;cursor:pointer}
-    .grade-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-    .grade-icon{font-size:38px}
-    .term{
-      border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:16px 0;background:#fff
-    }
-    .term-title{background:#f0f6fb;padding:12px 15px;font-weight:bold;color:var(--navy)}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:right}
-    th:first-child,td:first-child{text-align:left}
-    th{font-size:13px;color:var(--muted);font-weight:bold}
-    td{font-size:15px}
-    tr:last-child td{border-bottom:0}
-    .final{font-weight:bold;color:var(--navy)}
-    .loading{padding:30px;text-align:center;color:var(--muted)}
-    footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
-    @media(max-width:600px){
-      main{padding:0 10px}
-      .panel{padding:16px}
-      th,td{padding:10px 8px;font-size:13px}
-      .student-head{display:block}
-      .logout{margin-top:10px}
-    }
-  </style>
-</head>
-<body>
-<header>
-  <h1 id="appTitle">Grade Viewing Repository</h1>
-  <p id="schoolName">Loading...</p>
-</header>
+}
 
-<main>
-  <section id="browseView" class="panel">
-    <div id="breadcrumbs" class="crumbs"></div>
-    <h2 id="browseTitle" class="section-title">Select Grade Level</h2>
-    <div id="browseGrid" class="grid"></div>
-  </section>
+.welcome-company{
+    margin-top:7px;
+    color:var(--violet);
+    font-size:.86rem;
+    font-weight:700;
+    letter-spacing:.2em;
+}
 
-  <section id="dashboardView" class="panel hidden">
-    <div class="student-head">
-      <div>
-        <div class="muted">Authenticated student</div>
-        <h2 id="studentName" class="section-title" style="margin-bottom:4px"></h2>
-        <div id="studentMeta" class="muted"></div>
-      </div>
-      <button class="logout" onclick="logout()">Log Out</button>
-    </div>
-    <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
-    <h3 class="section-title">Subjects</h3>
-    <div id="subjectGrid" class="grid"></div>
-  </section>
+.welcome-line{
+    margin-top:9px;
+    color:#7C8194;
+    font-size:.58rem;
+    font-weight:800;
+    letter-spacing:.2em;
+}
 
-  <section id="gradeView" class="panel hidden">
-    <div class="crumbs"><button onclick="showDashboard()">← Back to Subjects</button></div>
-    <div id="gradeContent"></div>
-  </section>
-</main>
 
-<footer>Grade Viewing Repository • Google Sheets + Apps Script</footer>
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-<div id="loginModal" class="modal-backdrop hidden">
-  <div class="modal">
-    <h2>🔐 Secure Access</h2>
-    <p id="loginStudent" class="muted"></p>
-    <input id="passcode" type="password" inputmode="numeric" maxlength="6" placeholder="6-digit passcode" onkeydown="if(event.key==='Enter') submitLogin()">
-    <div id="loginError" class="error"></div>
-    <div class="actions">
-      <button class="secondary" onclick="closeLogin()">Cancel</button>
-      <button class="primary" onclick="submitLogin()">Enter</button>
-    </div>
-  </div>
-</div>
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(247,248,252,.84);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
 
-<script>
-  let DATA = null;
-  let selectedGrade = null;
-  let selectedSection = null;
-  let selectedStudent = null;
-  let pendingStudent = null;
-  let authenticatedStudent = null;
+.nav{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
 
-  function init(){
-    google.script.run
-      .withSuccessHandler(data => {
-        DATA = data;
-        document.getElementById('appTitle').textContent = data.settings['Repository Title'] || 'Grade Viewing Repository';
-        document.getElementById('schoolName').textContent = data.settings['School Name'] || '';
-        renderGrades();
-      })
-      .withFailureHandler(err => showError(err))
-      .getInitialData();
-  }
+.logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+    font-size:.95rem;
+    font-weight:850;
+    letter-spacing:-.025em;
+}
 
-  function renderGrades(){
-    selectedGrade = null; selectedSection = null;
-    document.getElementById('browseTitle').textContent = 'Select Grade Level';
-    document.getElementById('breadcrumbs').innerHTML = '';
-    const grades = [...new Set(DATA.students.map(s => s.gradeLevel))];
-    const grid = document.getElementById('browseGrid');
+.logo-mark{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    color:white;
+    font-size:.9rem;
+    font-weight:950;
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--violet)
+        );
+    box-shadow:
+        0 9px 24px rgba(108,75,239,.25);
+}
 
-    if (!grades.length) {
-      grid.innerHTML = '<div class="empty">No active students were found.</div>';
-      return;
-    }
+.main-nav{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
 
-    grid.innerHTML = grades.map((g, i) => `
-      <button type="button" class="level-card" data-action="grade" data-value="${esc(g)}" aria-label="Open ${esc(g)}">
-        <div class="icon">🎓</div>
-        <h3>${esc(g)}</h3>
-        <div class="muted">${DATA.students.filter(s=>s.gradeLevel===g).length} student(s)</div>
-      </button>`).join('');
+.main-nav a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:#555B71;
+    font-size:.78rem;
+    font-weight:750;
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
 
-    bindBrowseButtons();
-  }
+.main-nav a:hover{
+    color:var(--navy);
+    background:rgba(108,75,239,.07);
+}
 
-  function bindBrowseButtons(){
-    document.querySelectorAll('#browseGrid [data-action="grade"]').forEach(btn => {
-      btn.addEventListener('click', () => chooseGrade(btn.dataset.value));
-    });
-    document.querySelectorAll('#browseGrid [data-action="section"]').forEach(btn => {
-      btn.addEventListener('click', () => chooseSection(btn.dataset.value));
-    });
-    document.querySelectorAll('#browseGrid [data-action="student"]').forEach(btn => {
-      btn.addEventListener('click', () => openLogin(btn.dataset.value));
-    });
-  }
-
-  function chooseGrade(grade){
-    selectedGrade = grade;
-    const sections = [...new Set(DATA.students.filter(s=>s.gradeLevel===grade).map(s=>s.section))];
-    document.getElementById('browseTitle').textContent = grade + ' — Select Section';
-    document.getElementById('breadcrumbs').innerHTML = `<button type="button" onclick="renderGrades()">Grade Levels</button> / ${esc(grade)}`;
-
-    document.getElementById('browseGrid').innerHTML = sections.map(sec => `
-      <button type="button" class="section-card" data-action="section" data-value="${esc(sec)}" aria-label="Open ${esc(sec)}">
-        <div class="icon">🏫</div>
-        <h3>${esc(sec)}</h3>
-        <div class="muted">${DATA.students.filter(s=>s.gradeLevel===grade && s.section===sec).length} student(s)</div>
-      </button>`).join('');
-
-    bindBrowseButtons();
-  }
-
-  function chooseSection(section){
-    selectedSection = section;
-    const students = DATA.students.filter(s=>s.gradeLevel===selectedGrade && s.section===section);
-    document.getElementById('browseTitle').textContent = selectedGrade + ' — ' + section;
-    document.getElementById('breadcrumbs').innerHTML =
-      `<button type="button" onclick="renderGrades()">Grade Levels</button> / ` +
-      `<button type="button" onclick="chooseGrade('${esc(selectedGrade)}')">${esc(selectedGrade)}</button> / ${esc(section)}`;
-
-    document.getElementById('browseGrid').innerHTML = students.map(s => `
-      <button type="button" class="student-card" data-action="student" data-value="${esc(s.studentId)}" aria-label="Open ${esc(s.name)}">
-        <div class="avatar">${esc(initials(s.name))}</div>
-        <div>
-          <h3>${esc(s.name)}</h3>
-          <div class="muted">${esc(s.gradeLevel)} • ${esc(s.section)}</div>
-        </div>
-      </button>`).join('');
-
-    bindBrowseButtons();
-  }
-
-  function openLogin(studentId){
-    pendingStudent = DATA.students.find(s=>s.studentId===studentId);
-    document.getElementById('loginStudent').textContent = pendingStudent.name + ' • ' + pendingStudent.gradeLevel + ' – ' + pendingStudent.section;
-    document.getElementById('passcode').value = '';
-    document.getElementById('loginError').textContent = '';
-    document.getElementById('loginModal').classList.remove('hidden');
-    setTimeout(()=>document.getElementById('passcode').focus(),50);
-  }
-
-  function closeLogin(){
-    document.getElementById('loginModal').classList.add('hidden');
-    pendingStudent = null;
-  }
-
-  function submitLogin(){
-    if(!pendingStudent) return;
-    const code = document.getElementById('passcode').value.trim();
-    if(!/^\d{6}$/.test(code)){
-      document.getElementById('loginError').textContent = 'Please enter a 6-digit passcode.';
-      return;
-    }
-    document.getElementById('loginError').textContent = 'Verifying...';
-    google.script.run
-      .withSuccessHandler(result => {
-        if(!result.ok){
-          document.getElementById('loginError').textContent = result.message;
-          return;
-        }
-        authenticatedStudent = result;
-        closeLogin();
-        showDashboard();
-      })
-      .withFailureHandler(err => {
-        document.getElementById('loginError').textContent = 'Unable to verify right now.';
-      })
-      .authenticate(pendingStudent.studentId, code);
-  }
-
-  function showDashboard(){
-    if(!authenticatedStudent) return;
-    document.getElementById('browseView').classList.add('hidden');
-    document.getElementById('gradeView').classList.add('hidden');
-    document.getElementById('dashboardView').classList.remove('hidden');
-
-    const s = authenticatedStudent.student;
-    document.getElementById('studentName').textContent = s.name;
-    document.getElementById('studentMeta').textContent = s.gradeLevel + ' • ' + s.section;
-
-    document.getElementById('subjectGrid').innerHTML = authenticatedStudent.subjects.map(sub => `
-      <button type="button" class="subject-card" data-subject-id="${esc(sub.subjectId)}" aria-label="View ${esc(sub.name)} grades">
-        <div class="subject-icon">${esc(sub.icon)}</div>
-        <h3>${esc(sub.name)}</h3>
-        <span class="badge">View Grades</span>
-      </button>`).join('');
-
-    document.querySelectorAll('#subjectGrid [data-subject-id]').forEach(btn => {
-      btn.addEventListener('click', () => openSubject(btn.dataset.subjectId));
-    });
-  }
-
-  function openSubject(subjectId){
-    document.getElementById('dashboardView').classList.add('hidden');
-    document.getElementById('gradeView').classList.remove('hidden');
-    document.getElementById('gradeContent').innerHTML = '<div class="loading">Loading grades...</div>';
-
-    google.script.run
-      .withSuccessHandler(data => renderGradesTable(data))
-      .withFailureHandler(err => {
-        document.getElementById('gradeContent').innerHTML = '<div class="empty">Unable to load grades.</div>';
-      })
-      .getGrades(authenticatedStudent.student.studentId, subjectId);
-  }
-
-  function renderGradesTable(data){
-    let html = `
-      <div class="grade-header">
-        <div class="grade-icon">${esc(data.subject.icon)}</div>
-        <div><h2 class="section-title" style="margin:0">${esc(data.subject.name)}</h2>
-        <div class="muted">${esc(authenticatedStudent.student.name)} • ${esc(authenticatedStudent.student.gradeLevel)} – ${esc(authenticatedStudent.student.section)}</div></div>
-      </div>`;
-    if(!data.grades.length){
-      html += '<div class="empty">No grade records are available for this subject yet.</div>';
-    } else {
-      data.grades.forEach(g => {
-        html += `
-          <div class="term">
-            <div class="term-title">${esc(g.term)}</div>
-            <table>
-              <thead><tr><th>Component</th><th>Percentage</th></tr></thead>
-              <tbody>
-                <tr><td>Written Works</td><td>${fmt(g.written)}%</td></tr>
-                <tr><td>Performance Tasks</td><td>${fmt(g.performance)}%</td></tr>
-                <tr><td>Examination</td><td>${fmt(g.examination)}%</td></tr>
-                <tr><td class="final">Final Grade</td><td class="final">${fmt(g.finalGrade)}%</td></tr>
-              </tbody>
-            </table>
-          </div>`;
-      });
-    }
-    document.getElementById('gradeContent').innerHTML = html;
-  }
-
-  function logout(){
-    authenticatedStudent = null;
-    document.getElementById('dashboardView').classList.add('hidden');
-    document.getElementById('gradeView').classList.add('hidden');
-    document.getElementById('browseView').classList.remove('hidden');
-    renderGrades();
-  }
-
-  function fmt(v){ return v === '' || v === null || typeof v === 'undefined' ? '—' : Number(v).toFixed(0); }
-  function initials(name){ return String(name).split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase(); }
-  function esc(v){
-    return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-  function showError(err){ document.getElementById('browseGrid').innerHTML = '<div class="empty">Unable to load the repository data. Check the spreadsheet ID and sheet names.</div>'; }
-
-  init();
-</script>
-</body>
-</html>
+.main-nav .nav-cta{
+    margin-left:6px;
+    padding:11px 17px
