@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | GraceFlow Tech</title>
+
+<meta
+  name="description"
+  content="Explore GraceFlow Tech digital products, systems, tools, and resources for educators, schools, businesses, professionals, and organizations."
+>
+
+<style>
+/* =========================================================
+   GRACEFLOW TECH — PRODUCTS LANDING PAGE
+   Brand: Deep Indigo • Royal Violet • Lavender • Gold
+   ========================================================= */
+
+:root{
+    --navy:#241B3D;
+    --blue:#5A3DB8;
+    --violet:#7B61E8;
+    --purple:#B19AF7;
+
+    --gold:#D8AD55;
+    --gold-soft:#F2E2B8;
+
+    --white:#FFFFFF;
+    --bg:#FCFAF6;
+    --mist:#F1ECFF;
+    --surface:#FFFFFF;
+
+    --text:#241B3D;
+    --muted:#6F6780;
+
+    --line:rgba(36,27,61,.10);
+
+    --shadow:0 20px 60px rgba(36,27,61,.10);
+    --shadow-hover:0 24px 55px rgba(90,61,184,.18);
+
+    --radius-lg:24px;
+    --radius-md:18px;
+    --radius-sm:12px;
+
+    --max-width:1180px;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button{
+    font:inherit;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.container{
+    width:min(92%,var(--max-width));
+    margin:auto;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(252,250,246,.94);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--line);
+}
+
+.navbar{
+    min-height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:24px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    font-weight:800;
+    letter-spacing:-.02em;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.brand-name{
+    color:var(--navy);
+    font-size:1.05rem;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+
+    font-size:.94rem;
+    font-weight:600;
+    color:var(--muted);
+}
+
+.nav-links a{
+    transition:.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--blue);
+}
+
+.nav-cta{
+    padding:10px 17px;
+
+    border-radius:999px;
+
+    background:var(--navy);
+    color:#fff !important;
+
+    box-shadow:0 8px 24px rgba(36,27,61,.15);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:90px 0 70px;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(123,97,232,.18),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(216,173,85,.13),
+            transparent 30%
+        ),
+        var(--bg);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+    width:360px;
+    height:360px;
+
+    border-radius:50%;
+
+    background:rgba(177,154,247,.12);
+
+    top:-160px;
+    right:-120px;
+
+    filter:blur(5px);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:850px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:20px;
+
+    padding:7px 13px;
+
+    border:1px solid rgba(90,61,184,.16);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.72);
+
+    color:var(--blue);
+
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
+
+.eyebrow::before{
+    content:"";
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+}
+
+.hero h1{
+    max-width:800px;
+
+    font-size:clamp(2.5rem,6vw,5rem);
+
+    line-height:1.02;
+    letter-spacing:-.055em;
+
+    color:var(--navy);
+}
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+.hero p{
+    max-width:680px;
+
+    margin-top:24px;
+
+    font-size:1.08rem;
+    color:var(--muted);
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
+    padding:0 20px;
+
+    border-radius:999px;
+
+    font-weight:750;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:#fff;
+
+    box-shadow:0 12px 28px rgba(90,61,184,.25);
+}
+
+.btn-primary:hover{
+    background:var(--violet);
+}
+
+.btn-secondary{
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--navy);
+}
+
+.btn-secondary:hover{
+    box-shadow:var(--shadow);
+}
+
+/* =========================================================
+   CATEGORY NAVIGATION
+   ========================================================= */
+
+.category-section{
+    padding:24px 0 10px;
+}
+
+.category-bar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    overflow-x:auto;
+
+    padding:7px;
+
+    border:1px solid var(--line);
+    border-radius:999px;
+
+    background:#fff;
+
+    box-shadow:0 10px 30px rgba(36,27,61,.05);
+
+    scrollbar-width:none;
+}
+
+.category-bar::-webkit-scrollbar{
+    display:none;
+}
+
+.category-btn{
+    border:0;
+    background:transparent;
+
+    color:var(--muted);
+
+    padding:10px 17px;
+
+    border-radius:999px;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.2s ease;
+}
+
+.category-btn:hover{
+    color:var(--blue);
+}
+
+.category-btn.active{
+    background:var(--navy);
+    color:#fff;
+}
+
+/* =========================================================
+   PRODUCT SECTION
+   ========================================================= */
+
+.products-section{
+    padding:70px 0 100px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+
+    gap:30px;
+
+    margin-bottom:32px;
+}
+
+.section-heading h2{
+    font-size:clamp(1.8rem,4vw,2.7rem);
+
+    line-height:1.1;
+    letter-spacing:-.04em;
+
+    color:var(--navy);
+}
+
+.section-heading p{
+    max-width:520px;
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+}
+
+.product-card{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:365px;
+
+    padding:25px;
+
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+
+    background:var(--surface);
+
+    box-shadow:0 12px 35px rgba(36,27,61,.055);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.product-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--violet),
+            var(--gold)
+        );
+
+    opacity:.9;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:rgba(90,61,184,.18);
+}
+
+.product-icon{
+    width:54px;
+    height:54px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:22px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--mist),
+            #fff
+        );
+
+    border:1px solid rgba(90,61,184,.10);
+
+    color:var(--blue);
+
+    font-size:1.2rem;
+    font-weight:900;
+}
+
+.product-type{
+    display:inline-block;
+
+    margin-bottom:8px;
+
+    color:var(--gold);
+
+    font-size:.72rem;
+    font-weight:850;
+
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
+
+.product-card h3{
+    margin-bottom:10px;
+
+    color:var(--navy);
+
+    font-size:1.25rem;
+
+    line-height:1.25;
+    letter-spacing:-.025em;
+}
+
+.product-card p{
+    color:var(--muted);
+
+    font-size:.94rem;
+}
+
+.product-meta{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:17px;
+}
+
+.product-tag{
+    padding:5px 9px;
+
+    border-radius:999px;
+
+    background:#F7F3FF;
+
+    color:var(--blue);
+
+    font-size:.72rem;
+    font-weight:750;
+}
+
+.product-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    margin-top:auto;
+    padding-top:23px;
+
+    color:var(--blue);
+
+    font-weight:800;
+
+    font-size:.9rem;
+}
+
+.product-link span{
+    transition:transform .2s ease;
+}
+
+.product-card:hover .product-link span{
+    transform:translateX(4px);
+}
+
+/* =========================================================
+   FEATURED PRODUCT
+   ========================================================= */
+
+.featured{
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap:0;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:var(--navy);
+
+    color:#fff;
+
+    box-shadow:var(--shadow);
+}
+
+.featured-copy{
+    padding:50px;
+}
+
+.featured-label{
+    color:var(--gold);
+
+    font-size:.75rem;
+    font-weight:850;
+
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.featured h2{
+    margin-top:13px;
+
+    max-width:600px;
+
+    font-size:clamp(2rem,4vw,3.3rem);
+
+    line-height:1.08;
+
+    letter-spacing:-.045em;
+}
+
+.featured p{
+    max-width:600px;
+
+    margin-top:17px;
+
+    color:rgba(255,255,255,.72);
+}
+
+.featured-actions{
+    margin-top:28px;
+}
+
+.featured-visual{
+    min-height:360px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(123,97,232,.55),
+            transparent 52%
+        ),
+        linear-gradient(
+            135deg,
+            #34275A,
+            #201932
+        );
+}
+
+.featured-orb{
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #D7CAFF,
+            #7B61E8 45%,
+            #4C319E 75%,
+            #241B3D
+        );
+
+    box-shadow:
+        0 0 70px rgba(123,97,232,.45),
+        0 20px 60px rgba(0,0,0,.30);
+}
+
+.featured-orb::after{
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    opacity:.9;
+
+    transform:
+        translate(
+            80px,
+            -75px
+        );
+
+    box-shadow:
+        0 0 35px rgba(216,173,85,.35);
+}
+
+/* =========================================================
+   PRODUCT PRINCIPLES
+   ========================================================= */
+
+.principles{
+    padding:100px 0;
+}
+
+.principles-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:16px;
+}
+
+.principle{
+    padding:24px;
+
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+
+    background:#fff;
+}
+
+.principle-number{
+    color:var(--gold);
+
+    font-size:.75rem;
+    font-weight:900;
+
+    letter-spacing:.08em;
+}
+
+.principle h3{
+    margin-top:10px;
+
+    font-size:1.05rem;
+
+    color:var(--navy);
+}
+
+.principle p{
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:.88rem;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+    padding:0 0 90px;
+}
+
+.cta-box{
+    padding:55px 30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F2EDFF,
+            #FFF8E8
+        );
+
+    border:1px solid rgba(90,61,184,.10);
+}
+
+.cta-box h2{
+    color:var(--navy);
+
+    font-size:clamp(1.9rem,4vw,2.8rem);
+
+    letter-spacing:-.04em;
+}
+
+.cta-box p{
+    max-width:620px;
+
+    margin:13px auto 25px;
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    padding:38px 0;
+
+    border-top:1px solid var(--line);
+
+    background:#fff;
+}
+
+.footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:800;
+
+    color:var(--navy);
+}
+
+.footer-brand img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+}
+
+.footer-copy{
+    color:var(--muted);
+
+    font-size:.82rem;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+
+    color:var(--muted);
+
+    font-size:.84rem;
+}
+
+.footer-links a:hover{
+    color:var(--blue);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .product-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .principles-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .featured{
+        grid-template-columns:1fr;
+    }
+
+    .featured-visual{
+        min-height:260px;
+    }
+}
+
+@media(max-width:620px){
+
+    .navbar{
+        min-height:68px;
+    }
+
+    .brand-logo{
+        width:38px;
+        height:38px;
+    }
+
+    .brand-name{
+        font-size:.94rem;
+    }
+
+    .nav-cta{
+        padding:8px 13px;
+        font-size:.78rem;
+    }
+
+    .hero{
+        padding:65px 0 50px;
+    }
+
+    .hero h1{
+        font-size:2.55rem;
+    }
+
+    .hero p{
+        font-size:.98rem;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .category-section{
+        padding-top:15px;
+    }
+
+    .products-section{
+        padding:55px 0 70px;
+    }
+
+    .section-heading{
+        display:block;
+        margin-bottom:25px;
+    }
+
+    .section-heading p{
+        margin-top:10px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-card{
+        min-height:330px;
+    }
+
+    .featured-copy{
+        padding:34px 25px;
+    }
+
+    .featured-visual{
+        min-height:230px;
+    }
+
+    .featured-orb{
+        width:135px;
+        height:135px;
+    }
+
+    .principles{
+        padding:70px 0;
+    }
+
+    .principles-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding-bottom:65px;
+    }
+
+    .cta-box{
+        padding:42px 22px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+
+<header class="site-header">
+
+    <div class="container navbar">
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="graceflow-logo.png"
+                alt="GraceFlow Tech"
+                class="brand-logo"
+            >
+
+            <span class="brand-name">
+                GraceFlow Tech
+            </span>
+
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="solutions.html">
+                Solutions
+            </a>
+
+            <a href="products.html" class="active">
+                Products
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+            <a href="#contact" class="nav-cta">
+                Let's Talk
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                GraceFlow Tech Products
+            </div>
+
+            <h1>
+                Digital tools built
+                <span>to do something useful.</span>
+            </h1>
+
+            <p>
+                Explore practical digital systems, tools, builders,
+                automation solutions, and learning products designed
+                to turn everyday work into smoother digital workflows.
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    href="#products"
+                    class="btn btn-primary"
+                >
+                    Explore Products
+                </a>
+
+                <a
+                    href="solutions.html"
+                    class="btn btn-secondary"
+                >
+                    Explore Solutions
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CATEGORY FILTER
+     ======================================================= -->
+
+<section class="category-section">
+
+    <div class="container">
+
+        <div class="category-bar" id="categoryBar">
+
+            <button
+                class="category-btn active"
+                data-category="all"
+            >
+                All Products
+            </button>
+
+            <button
+                class="category-btn"
+                data-category="education"
+            >
+                Education
+            </button>
+
+            <button
+                class="category-btn"
+                data-category="business"
+            >
+                Business
+            </button>
+
+            <button
+                class="category-btn"
+                data-category="professional"
+            >
+                Professional
+            </button>
+
+            <button
+                class="category-btn"
+                data-category="productivity"
+            >
+                Productivity
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PRODUCTS
+     ======================================================= -->
+
+<section
+    class="products-section"
+    id="products"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>
+                    Explore the product ecosystem.
+                </h2>
+            </div>
+
+            <p>
+                From education systems to business workflows,
+                GraceFlow Tech products are designed around
+                practical use, clarity, and automation.
+            </p>
+
+        </div>
+
+
+        <div
+            class="product-grid"
+            id="productGrid"
+        ></div>
+
+
+        <!-- FEATURED PRODUCT -->
+
+        <div class="featured">
+
+            <div class="featured-copy">
+
+                <div class="featured-label">
+                    Featured Ecosystem
+                </div>
+
+                <h2>
+                    GraceFlow Educator Hub
+                </h2>
+
+                <p>
+                    A connected environment for educators to
+                    create, organize, monitor, document, and
+                    improve their teaching workflows.
+                </p>
+
+                <div class="featured-actions">
+
+                    <a
+                        href="educator-hub.html"
+                        class="btn btn-primary"
+                    >
+                        Explore Educator Hub
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="featured-visual">
+
+                <div class="featured-orb"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PRODUCT PRINCIPLES
+     ======================================================= -->
+
+<section class="principles">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>
+                    Built with purpose.
+                </h2>
+            </div>
+
+            <p>
+                GraceFlow Tech products are designed around
+                real workflows rather than technology for
+                technology's sake.
+            </p>
+
+        </div>
+
+
+        <div class="principles-grid">
+
+            <article class="principle">
+
+                <div class="principle-number">
+                    01
+                </div>
+
+                <h3>
+                    Practical
+                </h3>
+
+                <p>
+                    Designed to solve recognizable,
+                    everyday problems.
+                </p>
+
+            </article>
+
+
+            <article class="principle">
+
+                <div class="principle-number">
+                    02
+                </div>
+
+                <h3>
+                    Connected
+                </h3>
+
+                <p>
+                    Products can work together as
+                    part of a larger digital ecosystem.
+                </p>
+
+            </article>
+
+
+            <article class="principle">
+
+                <div class="principle-number">
+                    03
+                </div>
+
+                <h3>
+                    Adaptable
+                </h3>
+
+                <p>
+                    Built so workflows can evolve
+                    as users and organizations grow.
+                </p>
+
+            </article>
+
+
+            <article class="principle">
+
+                <div class="principle-number">
+                    04
+                </div>
+
+                <h3>
+                    Human-centered
+                </h3>
+
+                <p>
+                    Technology stays in the background
+                    while people stay at the center.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CTA
+     ======================================================= -->
+
+<section
+    class="cta"
+    id="contact"
+>
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Need something built for your workflow?
+            </h2>
+
+            <p>
+                Not every digital need fits a ready-made product.
+                GraceFlow Tech can also create systems and
+                workflows around a specific requirement.
+            </p>
+
+            <a
+                href="mailto:marygraceperal@deped.gov.ph"
+                class="btn btn-primary"
+            >
+                Start a Conversation
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+            <img
+                src="graceflow-logo.png"
+                alt=""
+            >
+
+            <span>
+                GraceFlow Tech
+            </span>
+
+        </div>
+
+        <div class="footer-copy">
+            Digital Systems • Learning Products • Automation
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="solutions.html">
+                Solutions
+            </a>
+
+            <a href="projects.html">
+                Projects
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
+
+<script>
+
+/* =========================================================
+   PRODUCT DATA
+   Add new products here.
+   No need to rebuild the HTML cards.
+   ========================================================= */
+
+const products = [
+
+    {
+        name:"GraceFlow Educator Hub",
+
+        description:
+            "A connected workspace for educators to create, organize, monitor, document, and improve teaching workflows.",
+
+        category:"education",
+
+        type:"Digital Ecosystem",
+
+        tags:["Educators","Teaching","Workflow"],
+
+        icon:"E",
+
+        url:"educator-hub.html"
+    },
+
+    {
+        name:"Teacher Monitoring System",
+
+        description:
+            "Track attendance, activities, scores, learner progress, and intervention evidence in one organized system.",
+
+        category:"education",
+
+        type:"Digital System",
+
+        tags:["Teachers","Monitoring","Data"],
+
+        icon:"M",
+
+        url:"teacher-monitoring-system.html"
+    },
+
+    {
+        name:"Learning Package Builder",
+
+        description:
+            "Create structured lesson packages, learning activities, discussion materials, and supporting resources.",
+
+        category:"education",
+
+        type:"Builder",
+
+        tags:["Lessons","Resources","Learning"],
+
+        icon:"L",
+
+        url:"learning-package-builder.html"
+    },
+
+    {
+        name:"Assessment Toolkit",
+
+        description:
+            "Build organized assessments, practice activities, answer keys, and assessment resources.",
+
+        category:"education",
+
+        type:"Toolkit",
+
+        tags:["Assessment","Tests","Activities"],
+
+        icon:"A",
+
+        url:"assessment-toolkit.html"
+    },
+
+    {
+        name:"Certificate Automation",
+
+        description:
+            "Generate school, training, event, and participation certificates through an organized digital workflow.",
+
+        category:"productivity",
+
+        type:"Automation",
+
+        tags:["Certificates","Automation","Documents"],
+
+        icon:"C",
+
+        url:"certificate-automation.html"
+    },
+
+    {
+        name:"Resource Vault",
+
+        description:
+            "Organize digital teaching resources, references, links, files, and reusable materials.",
+
+        category:"education",
+
+        type:"Resource System",
+
+        tags:["Resources","Files","Organization"],
+
+        icon:"R",
+
+        url:"resource-vault.html"
+    },
+
+    {
+        name:"Educator Portfolio Builder",
+
+        description:
+            "Create a professional digital portfolio that presents teaching experience, evidence, projects, and achievements.",
+
+        category:"professional",
+
+        type:"Portfolio Builder",
+
+        tags:["Portfolio","Career","Professional"],
+
+        icon:"P",
+
+        url:"educator-portfolio-builder.html"
+    },
+
+    {
+        name:"Business Workflow Automation",
+
+        description:
+            "Turn repetitive business processes into clearer, more organized digital workflows.",
+
+        category:"business",
+
+        type:"Automation",
+
+        tags:["Business","Workflow","Automation"],
+
+        icon:"W",
+
+        url:"business-workflow-automation.html"
+    },
+
+    {
+        name:"Business Dashboard",
+
+        description:
+            "Bring important business information, activities, and operational data into one visual workspace.",
+
+        category:"business",
+
+        type:"Dashboard",
+
+        tags:["Business","Dashboard","Data"],
+
+        icon:"D",
+
+        url:"business-dashboard.html"
+    },
+
+    {
+        name:"School Portal",
+
+        description:
+            "A structured digital environment for school workflows, resources, documents, and user access.",
+
+        category:"education",
+
+        type:"Portal",
+
+        tags:["Schools","Portal","Management"],
+
+        icon:"S",
+
+        url:"school-portal.html"
+    },
+
+    {
+        name:"Digital Document System",
+
+        description:
+            "Organize document workflows, access, reporting, and digital records in a centralized system.",
+
+        category:"productivity",
+
+        type:"Document System",
+
+        tags:["Documents","Records","Workflow"],
+
+        icon:"D",
+
+        url:"digital-document-system.html"
+    },
+
+    {
+        name:"Project Management System",
+
+        description:
+            "Plan projects, organize tasks, monitor progress, and keep project information connected.",
+
+        category:"productivity",
+
+        type:"Management System",
+
+        tags:["Projects","Tasks","Progress"],
+
+        icon:"P",
+
+        url:"project-management-system.html"
+    }
+
+];
+
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
+const productGrid =
+    document.getElementById("productGrid");
+
+const categoryButtons =
+    document.querySelectorAll(".category-btn");
+
+
+function renderProducts(category = "all"){
+
+    const filteredProducts =
+        category === "all"
+            ? products
+            : products.filter(
+                product => product.category === category
+            );
+
+
+    productGrid.innerHTML =
+        filteredProducts.map(product => `
+
+            <article class="product-card">
+
+                <div class="product-icon">
+                    ${product.icon}
+                </div>
+
+                <div class="product-type">
+                    ${product.type}
+                </div>
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    ${product.description}
+                </p>
+
+                <div class="product-meta">
+
+                    ${product.tags.map(tag => `
+                        <span class="product-tag">
+                            ${tag}
+                        </span>
+                    `).join("")}
+
+                </div>
+
+                <a
+                    href="${product.url}"
+                    class="product-link"
+                >
+                    Explore Product
+                    <span>→</span>
+                </a>
+
+            </article>
+
+        `).join("");
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+   ========================================================= */
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        categoryButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        renderProducts(
+            button.dataset.category
+        );
+
+    });
+
+});
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
