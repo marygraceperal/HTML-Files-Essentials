@@ -7,23 +7,23 @@
 <title>Solutions | GraceFlow Tech</title>
 
 <meta name="description"
-content="Explore GraceFlow Tech solutions for educators, schools, businesses, professionals, creators, and organizations.">
+content="Explore GraceFlow Tech solutions by client, need, value, and digital response.">
 
 <style>
+
 :root{
     --navy:#241B3D;
     --deep:#171126;
-    --violet:#7B61E8;
     --royal:#5A3DB8;
+    --violet:#7B61E8;
     --lavender:#B19AF7;
     --mist:#F1ECFF;
     --gold:#D8AD55;
-    --gold-soft:#F4E5BF;
     --white:#FFFFFF;
     --bg:#FCFAF6;
-    --muted:#6F6780;
+    --muted:#706981;
     --line:rgba(36,27,61,.10);
-    --shadow:0 18px 50px rgba(36,27,61,.09);
+    --shadow:0 18px 55px rgba(36,27,61,.08);
 }
 
 *{
@@ -55,8 +55,8 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(252,250,246,.94);
-    backdrop-filter:blur(18px);
+    background:rgba(252,250,246,.95);
+    backdrop-filter:blur(16px);
     border-bottom:1px solid var(--line);
 }
 
@@ -64,6 +64,7 @@ header{
     max-width:1180px;
     margin:auto;
     padding:12px 22px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -73,10 +74,11 @@ header{
     display:flex;
     align-items:center;
     gap:10px;
+
     color:var(--navy);
     text-decoration:none;
+
     font-weight:800;
-    font-size:1rem;
 }
 
 .brand img{
@@ -92,8 +94,8 @@ header{
 }
 
 .nav-links a{
-    text-decoration:none;
     color:var(--navy);
+    text-decoration:none;
     font-size:.88rem;
     font-weight:650;
 }
@@ -114,8 +116,9 @@ header{
 ========================= */
 
 .hero{
-    padding:82px 22px 75px;
+    padding:85px 22px 70px;
     text-align:center;
+
     background:
         radial-gradient(
             circle at 85% 15%,
@@ -130,7 +133,7 @@ header{
 }
 
 .hero-inner{
-    max-width:900px;
+    max-width:850px;
     margin:auto;
 }
 
@@ -138,17 +141,21 @@ header{
     display:inline-flex;
     align-items:center;
     gap:8px;
+
     padding:7px 14px;
-    border-radius:999px;
+
     background:var(--mist);
     color:var(--royal);
-    font-size:.74rem;
-    font-weight:850;
-    letter-spacing:.09em;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+    font-weight:900;
+    letter-spacing:.1em;
     text-transform:uppercase;
 }
 
-.eyebrow-dot{
+.dot{
     width:7px;
     height:7px;
     border-radius:50%;
@@ -157,67 +164,72 @@ header{
 
 .hero h1{
     margin:22px 0 15px;
-    font-size:clamp(2.6rem,6vw,5rem);
+
+    font-size:clamp(2.7rem,6vw,5rem);
     line-height:1.02;
     letter-spacing:-.055em;
 }
 
 .hero h1 span{
-    background:linear-gradient(
-        90deg,
-        var(--royal),
-        var(--violet),
-        var(--gold)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--royal),
+            var(--violet),
+            var(--gold)
+        );
+
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
 
 .hero p{
-    max-width:700px;
+    max-width:680px;
     margin:auto;
+
     color:var(--muted);
     font-size:1.05rem;
 }
 
 .hero-actions{
     margin-top:28px;
+
     display:flex;
     justify-content:center;
     gap:12px;
     flex-wrap:wrap;
 }
 
-.btn{
+.button{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    text-decoration:none;
+
     padding:12px 20px;
+
     border-radius:12px;
+
+    text-decoration:none;
     font-weight:800;
+
     transition:.2s ease;
 }
 
-.btn-primary{
-    color:white;
+.button.primary{
     background:var(--navy);
+    color:white;
 }
 
-.btn-primary:hover{
+.button.primary:hover{
     background:var(--royal);
     transform:translateY(-2px);
 }
 
-.btn-secondary{
-    color:var(--navy);
+.button.secondary{
     background:white;
+    color:var(--navy);
     border:1px solid var(--line);
-}
-
-.btn-secondary:hover{
-    border-color:var(--lavender);
 }
 
 /* =========================
@@ -225,28 +237,32 @@ header{
 ========================= */
 
 .flow{
-    max-width:1100px;
-    margin:-20px auto 65px;
+    max-width:1080px;
+    margin:-18px auto 70px;
     padding:0 22px;
 }
 
 .flow-box{
+    padding:25px;
+
     background:white;
     border:1px solid var(--line);
     border-radius:22px;
+
     box-shadow:var(--shadow);
-    padding:26px;
 }
 
 .flow-grid{
     display:grid;
+
     grid-template-columns:
         1fr auto
         1fr auto
         1fr auto
         1.2fr;
+
     align-items:center;
-    gap:14px;
+    gap:12px;
 }
 
 .flow-step{
@@ -254,39 +270,44 @@ header{
 }
 
 .flow-number{
-    width:36px;
-    height:36px;
+    width:35px;
+    height:35px;
+
     display:grid;
     place-items:center;
+
     margin:0 auto 7px;
-    border-radius:50%;
+
     background:var(--mist);
     color:var(--royal);
-    font-size:.85rem;
+
+    border-radius:50%;
+
+    font-size:.8rem;
     font-weight:900;
 }
 
 .flow-step strong{
     display:block;
-    font-size:.88rem;
+    font-size:.86rem;
 }
 
 .flow-step small{
     color:var(--muted);
-    font-size:.75rem;
+    font-size:.72rem;
 }
 
 .flow-arrow{
     color:var(--gold);
-    font-size:1.3rem;
     font-weight:900;
+    font-size:1.3rem;
 }
 
 /* =========================
    MAIN
 ========================= */
 
-.section{
+main{
     max-width:1150px;
     margin:auto;
     padding:0 22px 80px;
@@ -294,11 +315,12 @@ header{
 
 .section-intro{
     max-width:720px;
-    margin-bottom:38px;
+    margin-bottom:45px;
 }
 
 .section-label{
     color:var(--royal);
+
     font-size:.72rem;
     font-weight:900;
     letter-spacing:.1em;
@@ -306,7 +328,8 @@ header{
 }
 
 .section-intro h2{
-    margin:7px 0 12px;
+    margin:8px 0 12px;
+
     font-size:clamp(2rem,4vw,3.2rem);
     line-height:1.08;
     letter-spacing:-.04em;
@@ -317,19 +340,20 @@ header{
 }
 
 /* =========================
-   CLIENT SECTION
+   CLIENT GROUP
 ========================= */
 
-.client-section{
-    margin-bottom:58px;
+.client-group{
+    margin-bottom:65px;
 }
 
 .client-heading{
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     gap:20px;
-    margin-bottom:16px;
+
+    margin-bottom:18px;
 }
 
 .client-title{
@@ -341,21 +365,23 @@ header{
 .client-icon{
     width:48px;
     height:48px;
+
     display:grid;
     place-items:center;
+
     border-radius:14px;
+
     background:var(--mist);
     color:var(--royal);
+
     font-weight:900;
 }
 
 .client-title h3{
     font-size:1.45rem;
-    line-height:1.15;
 }
 
 .client-title p{
-    margin-top:3px;
     color:var(--muted);
     font-size:.82rem;
 }
@@ -363,108 +389,138 @@ header{
 .client-link{
     color:var(--royal);
     text-decoration:none;
-    font-size:.82rem;
+
+    font-size:.8rem;
     font-weight:800;
 }
 
-.client-link:hover{
-    color:var(--gold);
-}
-
 /* =========================
-   SOLUTION TABLE
+   SOLUTION CARDS
 ========================= */
 
-.solution-table{
+.solution-list{
     display:grid;
+    gap:14px;
+}
+
+.solution-card{
+    display:grid;
+
     grid-template-columns:
-        1fr
-        1.25fr
-        1.25fr
+        .8fr
+        1.15fr
+        1.15fr
         1.5fr;
 
     background:white;
+
     border:1px solid var(--line);
     border-radius:18px;
+
     overflow:hidden;
-    box-shadow:0 8px 30px rgba(36,27,61,.04);
-}
 
-.table-head{
-    padding:13px 16px;
-    background:var(--navy);
-    color:white;
-    font-size:.7rem;
-    font-weight:850;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
+    box-shadow:
+        0 7px 25px rgba(36,27,61,.035);
 
-.cell{
-    min-height:65px;
-    display:flex;
-    align-items:center;
-    padding:15px 16px;
-    border-top:1px solid var(--line);
-    font-size:.88rem;
-}
-
-.cell.client{
-    font-weight:800;
-    color:var(--navy);
-}
-
-.cell.need{
-    color:var(--muted);
-}
-
-.cell.value{
-    color:var(--muted);
-}
-
-.cell.response{
-    background:
-        linear-gradient(
-            135deg,
-            rgba(241,236,255,.72),
-            rgba(255,253,247,.72)
-        );
-}
-
-.response a{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    color:var(--royal);
-    text-decoration:none;
-    font-weight:850;
     transition:.2s ease;
 }
 
-.response a::after{
-    content:"→";
+.solution-card:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(36,27,61,.08);
+}
+
+/* Each block */
+
+.solution-block{
+    min-height:105px;
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.solution-block + .solution-block{
+    border-left:1px solid var(--line);
+}
+
+.solution-label{
+    margin-bottom:6px;
+
+    color:var(--royal);
+
+    font-size:.65rem;
+    font-weight:900;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+}
+
+.solution-text{
+    color:var(--navy);
+    font-size:.94rem;
+    font-weight:650;
+}
+
+.solution-block.need .solution-text,
+.solution-block.value .solution-text{
+    color:var(--muted);
+    font-weight:550;
+}
+
+/* Response */
+
+.solution-block.response{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(241,236,255,.75),
+            rgba(255,253,247,.75)
+        );
+}
+
+.response-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:var(--royal);
+
+    text-decoration:none;
+
+    font-size:.94rem;
+    font-weight:850;
+}
+
+.response-link span{
     color:var(--gold);
     transition:.2s ease;
 }
 
-.response a:hover{
+.response-link:hover{
     color:var(--violet);
-    transform:translateX(2px);
 }
 
-.response a:hover::after{
-    transform:translateX(3px);
+.response-link:hover span{
+    transform:translateX(4px);
 }
 
 /* =========================
-   FEATURED
+   ECOSYSTEM
 ========================= */
 
-.featured{
-    margin-top:15px;
-    padding:35px;
-    border-radius:24px;
+.ecosystem{
+    margin-top:20px;
+
+    padding:36px;
+
+    border-radius:25px;
+
     color:white;
+
     background:
         radial-gradient(
             circle at 90% 10%,
@@ -478,59 +534,66 @@ header{
         );
 }
 
-.featured-label{
+.ecosystem-label{
     color:var(--gold);
-    font-size:.72rem;
+
+    font-size:.7rem;
     font-weight:900;
     letter-spacing:.1em;
     text-transform:uppercase;
 }
 
-.featured h3{
+.ecosystem h3{
     margin:7px 0 8px;
+
     font-size:1.8rem;
 }
 
-.featured p{
-    color:#d9d2e8;
+.ecosystem p{
     max-width:650px;
+    color:#d8d2e5;
 }
 
-.featured-grid{
-    margin-top:24px;
+.ecosystem-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:12px;
+
+    margin-top:25px;
 }
 
-.featured-card{
+.ecosystem-card{
     padding:17px;
-    border-radius:14px;
+
     color:white;
     text-decoration:none;
-    border:1px solid rgba(255,255,255,.12);
+
     background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+
     transition:.2s ease;
 }
 
-.featured-card:hover{
-    transform:translateY(-3px);
+.ecosystem-card:hover{
     background:rgba(255,255,255,.1);
+    transform:translateY(-3px);
 }
 
-.featured-card small{
+.ecosystem-card small{
     display:block;
+
     color:var(--gold);
-    font-size:.67rem;
-    font-weight:850;
+
+    font-size:.65rem;
+    font-weight:900;
     text-transform:uppercase;
-    letter-spacing:.07em;
 }
 
-.featured-card strong{
+.ecosystem-card strong{
     display:block;
     margin-top:4px;
-    font-size:.92rem;
 }
 
 /* =========================
@@ -538,33 +601,39 @@ header{
 ========================= */
 
 .cta{
-    max-width:1100px;
-    margin:0 auto 80px;
+    max-width:1080px;
+    margin:0 auto 75px;
+
     padding:0 22px;
 }
 
 .cta-box{
     padding:50px 30px;
+
     text-align:center;
-    border:1px solid var(--line);
-    border-radius:26px;
+
     background:
         linear-gradient(
             135deg,
             var(--mist),
             #fffdf7
         );
+
+    border:1px solid var(--line);
+    border-radius:26px;
 }
 
 .cta-box h2{
+    margin-bottom:10px;
+
     font-size:clamp(1.9rem,4vw,2.8rem);
     line-height:1.1;
-    margin-bottom:12px;
 }
 
 .cta-box p{
-    max-width:650px;
-    margin:0 auto 24px;
+    max-width:620px;
+    margin:0 auto 23px;
+
     color:var(--muted);
 }
 
@@ -574,13 +643,15 @@ header{
 
 footer{
     padding:42px 22px;
+
     background:var(--deep);
     color:white;
 }
 
 .footer-inner{
-    max-width:1100px;
+    max-width:1080px;
     margin:auto;
+
     display:flex;
     justify-content:space-between;
     gap:25px;
@@ -591,6 +662,7 @@ footer{
     display:flex;
     align-items:center;
     gap:9px;
+
     font-weight:800;
 }
 
@@ -600,7 +672,8 @@ footer{
 }
 
 .footer-description{
-    margin-top:9px;
+    margin-top:8px;
+
     color:#bdb5cf;
     font-size:.8rem;
 }
@@ -637,53 +710,34 @@ footer{
 
     .flow-grid{
         grid-template-columns:1fr;
-        gap:7px;
+        gap:6px;
     }
 
     .flow-arrow{
         transform:rotate(90deg);
     }
 
-    .solution-table{
+    .solution-card{
         display:block;
     }
 
-    .table-head{
-        display:none;
-    }
-
-    .cell{
+    .solution-block{
         min-height:auto;
-        display:block;
-        padding:13px 16px;
-        border-top:0;
-        border-bottom:1px solid var(--line);
+        padding:16px 18px;
     }
 
-    .cell::before{
-        display:block;
-        margin-bottom:4px;
-        color:var(--royal);
-        font-size:.65rem;
-        font-weight:900;
-        letter-spacing:.08em;
-        text-transform:uppercase;
+    .solution-block + .solution-block{
+        border-left:none;
+        border-top:1px solid var(--line);
     }
 
-    .cell.client::before{
-        content:"Client";
-    }
-
-    .cell.need::before{
-        content:"Need";
-    }
-
-    .cell.value::before{
-        content:"Value";
-    }
-
-    .cell.response::before{
-        content:"GraceFlow Tech";
+    .solution-block.response{
+        background:
+            linear-gradient(
+                135deg,
+                rgba(241,236,255,.8),
+                rgba(255,253,247,.8)
+            );
     }
 
     .client-heading{
@@ -691,18 +745,18 @@ footer{
         flex-direction:column;
     }
 
-    .featured-grid{
+    .ecosystem-grid{
         grid-template-columns:1fr;
     }
 
-    .cta-box{
-        padding:40px 22px;
-    }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -718,10 +772,21 @@ footer{
 </a>
 
 <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="#solutions">Solutions</a>
-    <a href="projects.html">Projects</a>
-    <a href="#contact" class="nav-cta">Start a Project</a>
+
+<a href="index.html">Home</a>
+
+<a href="#solutions">
+    Solutions
+</a>
+
+<a href="projects.html">
+    Projects
+</a>
+
+<a href="#contact" class="nav-cta">
+    Start a Project
+</a>
+
 </div>
 
 </nav>
@@ -738,7 +803,7 @@ footer{
 <div class="hero-inner">
 
 <div class="eyebrow">
-    <span class="eyebrow-dot"></span>
+    <span class="dot"></span>
     GraceFlow Tech Solutions
 </div>
 
@@ -748,18 +813,18 @@ footer{
 </h1>
 
 <p>
-    Explore what GraceFlow Tech can provide based on
-    the needs of educators, schools, businesses,
-    professionals, creators, and organizations.
+    Explore the needs we can help address,
+    the value we can create, and the digital
+    solutions GraceFlow Tech can provide.
 </p>
 
 <div class="hero-actions">
 
-<a href="#solutions" class="btn btn-primary">
+<a href="#solutions" class="button primary">
     Explore Solutions
 </a>
 
-<a href="#contact" class="btn btn-secondary">
+<a href="#contact" class="button secondary">
     Start a Conversation
 </a>
 
@@ -781,33 +846,55 @@ footer{
 <div class="flow-grid">
 
 <div class="flow-step">
-    <div class="flow-number">1</div>
-    <strong>Client</strong>
-    <small>Who needs help?</small>
+
+<div class="flow-number">1</div>
+
+<strong>Client</strong>
+
+<small>Who needs help?</small>
+
 </div>
+
 
 <div class="flow-arrow">→</div>
 
+
 <div class="flow-step">
-    <div class="flow-number">2</div>
-    <strong>Need</strong>
-    <small>What is needed?</small>
+
+<div class="flow-number">2</div>
+
+<strong>Need</strong>
+
+<small>What is needed?</small>
+
 </div>
+
 
 <div class="flow-arrow">→</div>
 
+
 <div class="flow-step">
-    <div class="flow-number">3</div>
-    <strong>Value</strong>
-    <small>What improves?</small>
+
+<div class="flow-number">3</div>
+
+<strong>Value</strong>
+
+<small>What improves?</small>
+
 </div>
+
 
 <div class="flow-arrow">→</div>
 
+
 <div class="flow-step">
-    <div class="flow-number">4</div>
-    <strong>GraceFlow Response</strong>
-    <small>What can we provide?</small>
+
+<div class="flow-number">4</div>
+
+<strong>GraceFlow Response</strong>
+
+<small>What can we provide?</small>
+
 </div>
 
 </div>
@@ -821,7 +908,8 @@ footer{
      SOLUTIONS
 ========================= -->
 
-<main id="solutions" class="section">
+<main id="solutions">
+
 
 <div class="section-intro">
 
@@ -830,12 +918,12 @@ footer{
 </div>
 
 <h2>
-    Find the solution that fits your need.
+    Find what you need.
 </h2>
 
 <p>
-    Each GraceFlow Tech response is a potential service,
-    digital product, system, or customized solution.
+    Each GraceFlow Tech solution below is a starting point
+    for a dedicated digital service or product.
 </p>
 
 </div>
@@ -845,17 +933,24 @@ footer{
      EDUCATORS
 ===================================================== -->
 
-<section class="client-section">
+<section class="client-group">
 
 <div class="client-heading">
 
 <div class="client-title">
 
-<div class="client-icon">E</div>
+<div class="client-icon">
+    E
+</div>
 
 <div>
+
 <h3>Educators</h3>
-<p>Teachers, instructors, tutors and trainers</p>
+
+<p>
+    Teachers, instructors, tutors and trainers
+</p>
+
 </div>
 
 </div>
@@ -867,164 +962,520 @@ footer{
 </div>
 
 
-<div class="solution-table">
-
-<div class="table-head">Client</div>
-<div class="table-head">Need</div>
-<div class="table-head">Value</div>
-<div class="table-head">GraceFlow Tech Response</div>
+<div class="solution-list">
 
 
-<!-- 1 -->
+<!-- LEARNING GAPS -->
 
-<div class="cell client">Educators</div>
+<article class="solution-card">
 
-<div class="cell need">
-    Lesson preparation
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
 </div>
 
-<div class="cell value">
-    Faster planning
+<div class="solution-text">
+    Educators
 </div>
 
-<div class="cell response">
-    <a href="educator-lesson-planning.html">
-        Lesson Planning Systems
-    </a>
 </div>
 
 
-<!-- 2 -->
+<div class="solution-block need">
 
-<div class="cell client">Educators</div>
-
-<div class="cell need">
-    Learning resources
+<div class="solution-label">
+    Need
 </div>
 
-<div class="cell value">
-    Ready-to-use materials
-</div>
-
-<div class="cell response">
-    <a href="educator-learning-resources.html">
-        Learning Resource Builder
-    </a>
-</div>
-
-
-<!-- 3 -->
-
-<div class="cell client">Educators</div>
-
-<div class="cell need">
-    Assessment creation
-</div>
-
-<div class="cell value">
-    Consistent assessment
-</div>
-
-<div class="cell response">
-    <a href="educator-assessment.html">
-        Assessment Systems
-    </a>
-</div>
-
-
-<!-- 4 -->
-
-<div class="cell client">Educators</div>
-
-<div class="cell need">
-    Student monitoring
-</div>
-
-<div class="cell value">
-    Clear progress tracking
-</div>
-
-<div class="cell response">
-    <a href="educator-monitoring.html">
-        Teacher Monitoring Systems
-    </a>
-</div>
-
-
-<!-- 5 -->
-
-<div class="cell client">Educators</div>
-
-<div class="cell need">
+<div class="solution-text">
     Learning gaps
 </div>
 
-<div class="cell value">
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
     Targeted learner support
 </div>
 
-<div class="cell response">
-    <a href="educator-intervention.html">
-        Intervention & Remediation Systems
-    </a>
 </div>
 
 
-<!-- 6 -->
+<div class="solution-block response">
 
-<div class="cell client">Educators</div>
+<div class="solution-label">
+    GraceFlow Tech
+</div>
 
-<div class="cell need">
+<a
+href="educator-intervention.html"
+class="response-link">
+
+Intervention & Remediation System
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- LESSON PLANNING -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
+    Lesson preparation
+</div>
+
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
+    Faster planning
+</div>
+
+</div>
+
+
+<div class="solution-block response">
+
+<div class="solution-label">
+    GraceFlow Tech
+</div>
+
+<a
+href="educator-lesson-planning.html"
+class="response-link">
+
+Lesson Planning System
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- LEARNING RESOURCES -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
+    Learning resources
+</div>
+
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
+    Ready-to-use materials
+</div>
+
+</div>
+
+
+<div class="solution-block response">
+
+<div class="solution-label">
+    GraceFlow Tech
+</div>
+
+<a
+href="educator-learning-resources.html"
+class="response-link">
+
+Learning Resource Builder
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- ASSESSMENT -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
+    Assessment creation
+</div>
+
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
+    Consistent assessment
+</div>
+
+</div>
+
+
+<div class="solution-block response">
+
+<div class="solution-label">
+    GraceFlow Tech
+</div>
+
+<a
+href="educator-assessment.html"
+class="response-link">
+
+Assessment System
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- MONITORING -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
+    Student monitoring
+</div>
+
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
+    Clear progress tracking
+</div>
+
+</div>
+
+
+<div class="solution-block response">
+
+<div class="solution-label">
+    GraceFlow Tech
+</div>
+
+<a
+href="educator-monitoring.html"
+class="response-link">
+
+Teacher Monitoring System
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- DOCUMENTATION -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
     Documentation
 </div>
 
-<div class="cell value">
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
     Less paperwork
 </div>
 
-<div class="cell response">
-    <a href="educator-documentation.html">
-        Teacher Documentation Systems
-    </a>
 </div>
 
 
-<!-- 7 -->
+<div class="solution-block response">
 
-<div class="cell client">Educators</div>
+<div class="solution-label">
+    GraceFlow Tech
+</div>
 
-<div class="cell need">
+<a
+href="educator-documentation.html"
+class="response-link">
+
+Teacher Documentation System
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- PORTFOLIO -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
     Professional portfolio
 </div>
 
-<div class="cell value">
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
     Stronger professional presence
 </div>
 
-<div class="cell response">
-    <a href="educator-portfolio.html">
-        Educator Portfolio Builder
-    </a>
 </div>
 
 
-<!-- 8 -->
+<div class="solution-block response">
 
-<div class="cell client">Educators</div>
+<div class="solution-label">
+    GraceFlow Tech
+</div>
 
-<div class="cell need">
+<a
+href="educator-portfolio.html"
+class="response-link">
+
+Educator Portfolio Builder
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- AUTOMATION -->
+
+<article class="solution-card">
+
+<div class="solution-block">
+
+<div class="solution-label">
+    Client
+</div>
+
+<div class="solution-text">
+    Educators
+</div>
+
+</div>
+
+
+<div class="solution-block need">
+
+<div class="solution-label">
+    Need
+</div>
+
+<div class="solution-text">
     Repetitive tasks
 </div>
 
-<div class="cell value">
+</div>
+
+
+<div class="solution-block value">
+
+<div class="solution-label">
+    Value
+</div>
+
+<div class="solution-text">
     More time
 </div>
 
-<div class="cell response">
-    <a href="educator-automation.html">
-        Teacher Workflow Automation
-    </a>
 </div>
+
+
+<div class="solution-block response">
+
+<div class="solution-label">
+    GraceFlow Tech
+</div>
+
+<a
+href="educator-automation.html"
+class="response-link">
+
+Teacher Workflow Automation
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
 
 </div>
 
@@ -1035,17 +1486,24 @@ footer{
      SCHOOLS
 ===================================================== -->
 
-<section class="client-section">
+<section class="client-group">
 
 <div class="client-heading">
 
 <div class="client-title">
 
-<div class="client-icon">S</div>
+<div class="client-icon">
+    S
+</div>
 
 <div>
+
 <h3>Schools & Educational Institutions</h3>
-<p>Schools, colleges and learning organizations</p>
+
+<p>
+    Schools, colleges and learning organizations
+</p>
+
 </div>
 
 </div>
@@ -1057,44 +1515,123 @@ footer{
 </div>
 
 
-<div class="solution-table">
-
-<div class="table-head">Client</div>
-<div class="table-head">Need</div>
-<div class="table-head">Value</div>
-<div class="table-head">GraceFlow Tech Response</div>
+<div class="solution-list">
 
 
-<div class="cell client">Schools</div>
-<div class="cell need">Digital school workflows</div>
-<div class="cell value">Centralized operations</div>
-<div class="cell response">
-    <a href="school-portals.html">School Portal Systems</a>
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Schools</div>
 </div>
 
-
-<div class="cell client">Schools</div>
-<div class="cell need">Documents and records</div>
-<div class="cell value">Organized information</div>
-<div class="cell response">
-    <a href="school-document-systems.html">Digital Document Systems</a>
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Digital workflows</div>
 </div>
 
-
-<div class="cell client">Schools</div>
-<div class="cell need">Certificates</div>
-<div class="cell value">Faster production</div>
-<div class="cell response">
-    <a href="certificate-systems.html">Certificate Automation</a>
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Centralized operations</div>
 </div>
 
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
 
-<div class="cell client">Schools</div>
-<div class="cell need">School data</div>
-<div class="cell value">Actionable information</div>
-<div class="cell response">
-    <a href="school-dashboards.html">School Dashboards</a>
+    <a href="school-portals.html" class="response-link">
+        School Portal System
+        <span>→</span>
+    </a>
 </div>
+
+</article>
+
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Schools</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Documents and records</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Organized information</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="school-document-systems.html" class="response-link">
+        Digital Document System
+        <span>→</span>
+    </a>
+</div>
+
+</article>
+
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Schools</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Certificates</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Faster production</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="certificate-systems.html" class="response-link">
+        Certificate Automation
+        <span>→</span>
+    </a>
+</div>
+
+</article>
+
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Schools</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">School data</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Better visibility</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="school-dashboards.html" class="response-link">
+        School Dashboard
+        <span>→</span>
+    </a>
+</div>
+
+</article>
 
 </div>
 
@@ -1102,20 +1639,27 @@ footer{
 
 
 <!-- =====================================================
-     SMALL BUSINESSES
+     BUSINESSES
 ===================================================== -->
 
-<section class="client-section">
+<section class="client-group">
 
 <div class="client-heading">
 
 <div class="client-title">
 
-<div class="client-icon">B</div>
+<div class="client-icon">
+    B
+</div>
 
 <div>
+
 <h3>Small Businesses</h3>
-<p>Entrepreneurs, MSMEs and startups</p>
+
+<p>
+    Entrepreneurs, MSMEs and startups
+</p>
+
 </div>
 
 </div>
@@ -1127,44 +1671,94 @@ footer{
 </div>
 
 
-<div class="solution-table">
-
-<div class="table-head">Client</div>
-<div class="table-head">Need</div>
-<div class="table-head">Value</div>
-<div class="table-head">GraceFlow Tech Response</div>
+<div class="solution-list">
 
 
-<div class="cell client">Small Businesses</div>
-<div class="cell need">Online presence</div>
-<div class="cell value">Professional visibility</div>
-<div class="cell response">
-    <a href="business-websites.html">Business Websites</a>
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Small Businesses</div>
 </div>
 
-
-<div class="cell client">Small Businesses</div>
-<div class="cell need">Manual processes</div>
-<div class="cell value">Less repetitive work</div>
-<div class="cell response">
-    <a href="business-automation.html">Business Workflow Automation</a>
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Online presence</div>
 </div>
 
-
-<div class="cell client">Small Businesses</div>
-<div class="cell need">Business information</div>
-<div class="cell value">Better visibility</div>
-<div class="cell response">
-    <a href="business-dashboards.html">Business Dashboards</a>
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Professional visibility</div>
 </div>
 
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
 
-<div class="cell client">Small Businesses</div>
-<div class="cell need">Digital customer workflows</div>
-<div class="cell value">Smoother operations</div>
-<div class="cell response">
-    <a href="customer-systems.html">Customer Management Systems</a>
+    <a href="business-websites.html" class="response-link">
+        Business Website
+        <span>→</span>
+    </a>
 </div>
+
+</article>
+
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Small Businesses</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Manual processes</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Less repetitive work</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="business-automation.html" class="response-link">
+        Business Workflow Automation
+        <span>→</span>
+    </a>
+</div>
+
+</article>
+
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Small Businesses</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Business data</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Better visibility</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="business-dashboards.html" class="response-link">
+        Business Dashboard
+        <span>→</span>
+    </a>
+</div>
+
+</article>
 
 </div>
 
@@ -1172,20 +1766,27 @@ footer{
 
 
 <!-- =====================================================
-     PROFESSIONALS & CREATORS
+     PROFESSIONALS
 ===================================================== -->
 
-<section class="client-section">
+<section class="client-group">
 
 <div class="client-heading">
 
 <div class="client-title">
 
-<div class="client-icon">P</div>
+<div class="client-icon">
+    P
+</div>
 
 <div>
+
 <h3>Professionals & Creators</h3>
-<p>Freelancers, consultants, coaches and creators</p>
+
+<p>
+    Freelancers, consultants, coaches and creators
+</p>
+
 </div>
 
 </div>
@@ -1197,52 +1798,94 @@ footer{
 </div>
 
 
-<div class="solution-table">
-
-<div class="table-head">Client</div>
-<div class="table-head">Need</div>
-<div class="table-head">Value</div>
-<div class="table-head">GraceFlow Tech Response</div>
+<div class="solution-list">
 
 
-<div class="cell client">Professionals</div>
-<div class="cell need">Professional identity</div>
-<div class="cell value">Credible online presence</div>
-<div class="cell response">
-    <a href="professional-websites.html">
-        Professional Portfolio Websites
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Professionals</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Professional identity</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Credible online presence</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="professional-websites.html" class="response-link">
+        Professional Portfolio Website
+        <span>→</span>
     </a>
 </div>
 
+</article>
 
-<div class="cell client">Creators</div>
-<div class="cell need">Digital products</div>
-<div class="cell value">Productized knowledge</div>
-<div class="cell response">
-    <a href="digital-products.html">
-        Digital Product Systems
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Creators</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Digital products</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Productized knowledge</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="digital-products.html" class="response-link">
+        Digital Product System
+        <span>→</span>
     </a>
 </div>
 
+</article>
 
-<div class="cell client">Creators</div>
-<div class="cell need">Online courses</div>
-<div class="cell value">Structured learning experiences</div>
-<div class="cell response">
-    <a href="course-systems.html">
-        Course & Learning Systems
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Creators</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Online courses</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Structured learning</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="course-systems.html" class="response-link">
+        Course & Learning System
+        <span>→</span>
     </a>
 </div>
 
-
-<div class="cell client">Professionals</div>
-<div class="cell need">Project organization</div>
-<div class="cell value">Clearer workflows</div>
-<div class="cell response">
-    <a href="professional-workflows.html">
-        Professional Workflow Systems
-    </a>
-</div>
+</article>
 
 </div>
 
@@ -1253,17 +1896,24 @@ footer{
      ORGANIZATIONS
 ===================================================== -->
 
-<section class="client-section">
+<section class="client-group">
 
 <div class="client-heading">
 
 <div class="client-title">
 
-<div class="client-icon">O</div>
+<div class="client-icon">
+    O
+</div>
 
 <div>
+
 <h3>Organizations & Community Groups</h3>
-<p>Associations, NGOs, teams and community organizations</p>
+
+<p>
+    Associations, NGOs, teams and community organizations
+</p>
+
 </div>
 
 </div>
@@ -1275,106 +1925,148 @@ footer{
 </div>
 
 
-<div class="solution-table">
-
-<div class="table-head">Client</div>
-<div class="table-head">Need</div>
-<div class="table-head">Value</div>
-<div class="table-head">GraceFlow Tech Response</div>
+<div class="solution-list">
 
 
-<div class="cell client">Organizations</div>
-<div class="cell need">Project coordination</div>
-<div class="cell value">Organized activities</div>
-<div class="cell response">
-    <a href="project-management.html">
-        Project Management Systems
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Organizations</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Project coordination</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Organized activities</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="project-management.html" class="response-link">
+        Project Management System
+        <span>→</span>
     </a>
 </div>
 
+</article>
 
-<div class="cell client">Organizations</div>
-<div class="cell need">Events</div>
-<div class="cell value">Simpler event workflows</div>
-<div class="cell response">
-    <a href="event-systems.html">
-        Event Management Systems
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Organizations</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Events</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Simpler event workflows</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="event-systems.html" class="response-link">
+        Event Management System
+        <span>→</span>
     </a>
 </div>
 
+</article>
 
-<div class="cell client">Organizations</div>
-<div class="cell need">Reports</div>
-<div class="cell value">Clear documentation</div>
-<div class="cell response">
-    <a href="reporting-systems.html">
-        Reporting & Information Systems
+
+<article class="solution-card">
+
+<div class="solution-block">
+    <div class="solution-label">Client</div>
+    <div class="solution-text">Organizations</div>
+</div>
+
+<div class="solution-block need">
+    <div class="solution-label">Need</div>
+    <div class="solution-text">Reports</div>
+</div>
+
+<div class="solution-block value">
+    <div class="solution-label">Value</div>
+    <div class="solution-text">Clear documentation</div>
+</div>
+
+<div class="solution-block response">
+    <div class="solution-label">GraceFlow Tech</div>
+
+    <a href="reporting-systems.html" class="response-link">
+        Reporting System
+        <span>→</span>
     </a>
 </div>
 
-
-<div class="cell client">Organizations</div>
-<div class="cell need">Member information</div>
-<div class="cell value">Organized records</div>
-<div class="cell response">
-    <a href="membership-systems.html">
-        Membership Systems
-    </a>
-</div>
+</article>
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     GRACEFLOW ECOSYSTEM
-===================================================== -->
+<!-- =========================
+     ECOSYSTEM
+========================= -->
 
-<section class="featured">
+<section class="ecosystem">
 
-<div class="featured-label">
+<div class="ecosystem-label">
     GraceFlow Tech Ecosystem
 </div>
 
 <h3>
-    Solutions that can grow with you.
+    One need can become a complete system.
 </h3>
 
 <p>
-    Start with one solution and expand into connected
-    digital systems as your needs grow.
+    Start with one solution and connect additional
+    tools as your work grows.
 </p>
 
 
-<div class="featured-grid">
+<div class="ecosystem-grid">
 
-<a href="educator-hub.html" class="featured-card">
+<a href="educator-hub.html" class="ecosystem-card">
     <small>Education</small>
     <strong>Educator Hub</strong>
 </a>
 
-<a href="resource-vault.html" class="featured-card">
+<a href="resource-vault.html" class="ecosystem-card">
     <small>Resources</small>
-    <strong>Digital Resource Vault</strong>
+    <strong>Resource Vault</strong>
 </a>
 
-<a href="automation.html" class="featured-card">
+<a href="automation.html" class="ecosystem-card">
     <small>Automation</small>
     <strong>Workflow Automation</strong>
 </a>
 
-<a href="portfolio-builder.html" class="featured-card">
+<a href="portfolio-builder.html" class="ecosystem-card">
     <small>Professional</small>
     <strong>Portfolio Builder</strong>
 </a>
 
-<a href="certificate-systems.html" class="featured-card">
+<a href="certificate-systems.html" class="ecosystem-card">
     <small>Documents</small>
     <strong>Certificate Automation</strong>
 </a>
 
-<a href="dashboard-systems.html" class="featured-card">
+<a href="dashboard-systems.html" class="ecosystem-card">
     <small>Data</small>
     <strong>Dashboard Systems</strong>
 </a>
@@ -1399,12 +2091,12 @@ footer{
 </h2>
 
 <p>
-    You don't need to know exactly what technology you need.
-    Tell GraceFlow Tech what you want to accomplish,
-    and we can explore a practical digital solution.
+    Tell us what you need to accomplish.
+    GraceFlow Tech can help translate the need
+    into a practical digital solution.
 </p>
 
-<a href="contact.html" class="btn btn-primary">
+<a href="contact.html" class="button primary">
     Start a Conversation
 </a>
 
@@ -1424,8 +2116,11 @@ footer{
 <div>
 
 <div class="footer-brand">
-    <img src="graceflow-logo.png" alt="GraceFlow Tech">
-    <span>GraceFlow Tech</span>
+
+<img src="graceflow-logo.png" alt="GraceFlow Tech">
+
+<span>GraceFlow Tech</span>
+
 </div>
 
 <p class="footer-description">
@@ -1436,15 +2131,21 @@ footer{
 
 
 <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="#solutions">Solutions</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+
+<a href="index.html">Home</a>
+
+<a href="#solutions">Solutions</a>
+
+<a href="projects.html">Projects</a>
+
+<a href="contact.html">Contact</a>
+
 </div>
 
 </div>
 
 </footer>
+
 
 </body>
 </html>
