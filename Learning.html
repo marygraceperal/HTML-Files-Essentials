@@ -1,938 +1,710 @@
-```html
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02 Learning — Educational Digital Products & Frameworks | Graceflow Tech</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f4f3ff',
-                            100: '#ebe9fe',
-                            200: '#d9d6fe',
-                            300: '#bdb4fe',
-                            400: '#9b8afb',
-                            500: '#7c5cf7',
-                            600: '#6d3bf3',
-                            700: '#5c28dc',
-                            800: '#4d20b7',
-                            900: '#401c94',
-                            950: '#260d65',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Font Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graceflow Tech — Digital Learning Products & Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #FAF9FE;
+      --card-bg: #FFFFFF;
+      --text-primary: #1D1D2C;
+      --text-muted: #626077;
+      --violet-primary: #7B61FF;
+      --violet-hover: #6342E8;
+      --violet-light: #EFEAFF;
+      --violet-border: #E2DAFF;
+      --border-color: #ECEAF5;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-sm: 0 4px 20px rgba(123, 97, 255, 0.05);
+      --shadow-hover: 0 12px 32px rgba(123, 97, 255, 0.12);
+    }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0914;
-            color: #f3f2f8;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-        .purple-glow {
-            box-shadow: 0 0 50px -10px rgba(124, 92, 247, 0.35);
-        }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
 
-        .card-glow:hover {
-            box-shadow: 0 10px 30px -10px rgba(124, 92, 247, 0.4);
-            border-color: rgba(155, 138, 251, 0.6);
-        }
+    /* Top Navigation */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-        .glass-panel {
-            background: rgba(22, 18, 38, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(155, 138, 251, 0.15);
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .glass-card {
-            background: rgba(30, 24, 52, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(155, 138, 251, 0.18);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b0914;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #401c94;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6d3bf3;
-        }
-    </style>
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--violet-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .brand-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text span {
+      color: var(--violet-primary);
+    }
+
+    .nav-btn {
+      background: var(--violet-primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--violet-hover);
+      box-shadow: 0 4px 14px rgba(123, 97, 255, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--violet-light);
+      color: var(--violet-primary);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: var(--violet-primary);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--violet-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(123, 97, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--violet-primary);
+      color: var(--violet-primary);
+    }
+
+    /* Learning Reference Card Replica */
+    .reference-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 32px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reference-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: rgba(123, 97, 255, 0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .card-number {
+      font-size: 80px;
+      font-weight: 800;
+      color: rgba(123, 97, 255, 0.45);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .card-icon-badge {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      width: 72px;
+      height: 72px;
+      background: var(--violet-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      box-shadow: 0 8px 20px rgba(123, 97, 255, 0.3);
+    }
+
+    .card-title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .card-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--violet-primary);
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    /* Catalog Section */
+    .section-container {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* Category Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--violet-light);
+      border-color: var(--violet-border);
+      color: var(--violet-primary);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--violet-border);
+    }
+
+    .product-tag {
+      align-self: flex-start;
+      background: var(--violet-light);
+      color: var(--violet-primary);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .product-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .product-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--violet-primary);
+    }
+
+    .btn-sm {
+      background: var(--violet-light);
+      color: var(--violet-primary);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-sm:hover {
+      background: var(--violet-primary);
+      color: white;
+    }
+
+    /* Interactive Demo Box */
+    .demo-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flashcard-box {
+      background: var(--violet-light);
+      border: 2px dashed var(--violet-border);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .flashcard-box:hover {
+      background: #E8E2FF;
+    }
+
+    /* Pricing Calculator */
+    .calc-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .custom-check {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .custom-check input {
+      accent-color: var(--violet-primary);
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1200px;
+      margin: 80px auto 0;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .calc-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+<body>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-panel border-b border-brand-500/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 to-brand-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid font-bold text-lg">GF</i>
-                </div>
-                <div>
-                    <span class="text-lg font-bold tracking-tight text-white block leading-none">Graceflow<span class="text-brand-400">Tech</span></span>
-                    <span class="text-[10px] font-semibold text-brand-300 uppercase tracking-widest block mt-1">Digital Ecosystems</span>
-                </div>
-            </a>
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">✦</div>
+        <div class="brand-text">Graceflow <span>Tech</span></div>
+      </a>
+      <a href="#order" class="nav-btn">Get Started</a>
+    </div>
+  </header>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#offers" class="hover:text-brand-300 transition-colors">Products & Offers</a>
-                <a href="#estimator" class="hover:text-brand-300 transition-colors">Pricing Calculator</a>
-                <a href="#demo" class="hover:text-brand-300 transition-colors">Live Interactive Demo</a>
-                <a href="#contact" class="hover:text-brand-300 transition-colors">Custom Request</a>
-            </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <div class="hero-badge">✦ Category 02 — Digital Products</div>
+      <h1 class="hero-title">Simple, structured, & enjoyable learning systems.</h1>
+      <p class="hero-subtitle">We design custom interactive study hubs, automated email courses, STEM worksheets, and teacher curriculum frameworks to supercharge learning.</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn-primary">Explore Products</a>
+        <a href="#calculator" class="btn-secondary">Build Custom Package</a>
+      </div>
+    </div>
 
-            <!-- Action Button -->
-            <div class="hidden sm:flex items-center gap-3">
-                <a href="#estimator" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-brand-600/30 hover:shadow-brand-500/50 flex items-center gap-2">
-                    <span>Explore Offers</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-            </div>
+    <!-- 02 Learning Card Replica -->
+    <div class="reference-card">
+      <div class="card-number">02</div>
+      <div class="card-icon-badge">✦</div>
+      <h2 class="card-title">Learning</h2>
+      <p class="card-desc">Engaging resources and digital products that make learning simple, structured, and enjoyable.</p>
+      <a href="#catalog" class="card-link">Explore learning →</a>
+    </div>
+  </section>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-brand-900/50 text-slate-300 hover:text-white focus:outline-none">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
+  <!-- Catalog Section -->
+  <section class="section-container" id="catalog">
+    <div class="section-header">
+      <h2 class="section-title">Digital Learning Products</h2>
+      <p class="section-subtitle">Choose from ready-to-use digital templates or request custom system builds.</p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="tab-btn active" onclick="filterProducts('all')">All Products</button>
+      <button class="tab-btn" onclick="filterProducts('students')">For Students</button>
+      <button class="tab-btn" onclick="filterProducts('stem')">Math & STEM</button>
+      <button class="tab-btn" onclick="filterProducts('educators')">For Educators</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productGrid">
+      
+      <!-- Card 1 -->
+      <div class="product-card" data-category="students">
+        <div>
+          <span class="product-tag">Study Workspace</span>
+          <h3 class="product-title">Notion Active Recall Hub</h3>
+          <p class="product-desc">All-in-one student workspace equipped with spaced repetition schedulers, flashcard decks, and exam countdowns.</p>
         </div>
-
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-brand-500/20 bg-brand-950/95 px-4 pt-4 pb-6 space-y-3">
-            <a href="#offers" class="mobile-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-brand-900/50">Products & Offers</a>
-            <a href="#estimator" class="mobile-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-brand-900/50">Pricing Calculator</a>
-            <a href="#demo" class="mobile-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-brand-900/50">Live Interactive Demo</a>
-            <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-slate-200 hover:bg-brand-900/50">Custom Request</a>
-            <a href="#estimator" class="mobile-link block text-center mt-4 px-5 py-2.5 rounded-full bg-brand-600 text-white font-medium text-sm">Explore Offers</a>
+        <div class="product-footer">
+          <div class="product-price">$29</div>
+          <button class="btn-sm" onclick="selectProduct('Notion Active Recall Hub', 29)">Select</button>
         </div>
-    </header>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
-        <!-- Background Ambient Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/20 rounded-full blur-[140px] pointer-events-none"></div>
-        <div class="absolute top-10 right-10 w-72 h-72 bg-brand-400/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Left Hero Text -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-900/60 border border-brand-500/30 text-brand-300 text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-sparkles text-brand-400"></i>
-                        <span>Graceflow Tech Product Catalog</span>
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-                        Mastery Made Simple, Structured & <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-300 via-brand-400 to-indigo-300">Enjoyable</span>
-                    </h1>
-
-                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Discover engineered learning frameworks, active recall study engines, STEM problem-solving toolkits, and turnkey educator systems designed for high-efficiency digital education.
-                    </p>
-
-                    <!-- Hero Call to Action Buttons -->
-                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-                        <a href="#offers" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-lg shadow-brand-600/40 hover:shadow-brand-500/60 transition-all flex items-center justify-center gap-3 group">
-                            <span>Browse Catalog</span>
-                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                        <button onclick="openDemoModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel text-slate-200 hover:text-white border border-brand-400/30 hover:border-brand-400/60 transition-all flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-circle-play text-brand-400"></i>
-                            <span>Try Interactive Demo</span>
-                        </button>
-                    </div>
-
-                    <!-- Trust Stats -->
-                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-brand-900/60 max-w-lg mx-auto lg:mx-0">
-                        <div>
-                            <p class="text-2xl font-bold text-white">15k+</p>
-                            <p class="text-xs text-slate-400">Students & Educators</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-bold text-white">99.4%</p>
-                            <p class="text-xs text-slate-400">Active Recall Rate</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-bold text-white">4.9/5</p>
-                            <p class="text-xs text-slate-400">User Rating</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Feature Card (Recreating Reference Card Style) -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 text-slate-900 shadow-2xl purple-glow transition-all duration-300 hover:scale-[1.02] overflow-hidden">
-                        <!-- Top Gradient Decorative Arc -->
-                        <div class="absolute -top-12 -right-12 w-48 h-48 bg-brand-100 rounded-full pointer-events-none"></div>
-
-                        <!-- Card Header Badge & Sparkle Icon -->
-                        <div class="flex items-start justify-between relative z-10 mb-8">
-                            <span class="text-6xl sm:text-7xl font-extrabold text-brand-400 tracking-tight leading-none">02</span>
-                            <div class="w-16 h-16 rounded-full bg-brand-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/40">
-                                <i class="fa-solid fa-sparkles text-2xl"></i>
-                            </div>
-                        </div>
-
-                        <!-- Card Body Content -->
-                        <div class="relative z-10 space-y-4">
-                            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Learning</h2>
-                            <p class="text-slate-600 leading-relaxed text-base">
-                                Engaging resources and digital products that make learning simple, structured, and enjoyable.
-                            </p>
-                            <div class="pt-4">
-                                <a href="#offers" class="inline-flex items-center gap-3 text-brand-600 font-bold hover:text-brand-700 transition-colors group text-base">
-                                    <span>Explore learning</span>
-                                    <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1.5 transition-transform"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Sub-badge footer -->
-                        <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                            <span class="font-medium">Graceflow Tech Standard</span>
-                            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-semibold">Instant Access</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <!-- Card 2 -->
+      <div class="product-card" data-category="stem">
+        <div>
+          <span class="product-tag">STEM & Math</span>
+          <h3 class="product-title">Dynamic Math Practice Generator</h3>
+          <p class="product-desc">Automated Excel/Google Sheets template generating infinite practice problems with auto-grading step keys.</p>
         </div>
-    </section>
-
-    <!-- Catalog Offers Section -->
-    <section id="offers" class="py-20 bg-brand-950/40 border-y border-brand-900/50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="text-xs font-bold text-brand-400 tracking-widest uppercase">Digital Offerings</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Engineered Learning Solutions</h2>
-                <p class="text-slate-400">Select a target audience tier to filter our specialized learning packages.</p>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button onclick="filterOffers('all')" class="filter-btn active px-6 py-2.5 rounded-full text-sm font-semibold transition-all bg-brand-600 text-white shadow-lg shadow-brand-600/30" data-category="all">
-                    All Products
-                </button>
-                <button onclick="filterOffers('learners')" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all glass-panel text-slate-300 hover:text-white hover:border-brand-400/50" data-category="learners">
-                    Self-Learners & Students
-                </button>
-                <button onclick="filterOffers('stem')" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all glass-panel text-slate-300 hover:text-white hover:border-brand-400/50" data-category="stem">
-                    Math & STEM Specialties
-                </button>
-                <button onclick="filterOffers('educators')" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold transition-all glass-panel text-slate-300 hover:text-white hover:border-brand-400/50" data-category="educators">
-                    Educators & Tutors
-                </button>
-            </div>
-
-            <!-- Products Grid -->
-            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Product Card 1 -->
-                <div class="product-card glass-card rounded-2xl p-6 transition-all duration-300 border border-brand-500/20 card-glow flex flex-col justify-between" data-category="learners">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 rounded-md bg-brand-900/80 text-brand-300 text-xs font-bold border border-brand-500/30">02.1 STUDY</span>
-                            <i class="fa-solid fa-brain text-brand-400 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Interactive Study & Revision Hubs</h3>
-                        <p class="text-slate-400 text-sm mb-4">All-in-one Notion workspace equipped with automated spaced repetition, active recall toggles, and Anki card export features.</p>
-                        
-                        <ul class="space-y-2 mb-6 text-xs text-slate-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Notion Active Recall Hub</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Anki Flashcard Sync Decks</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Exam Countdown & Schedulers</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="flex items-baseline justify-between pt-4 border-t border-brand-900/80 mb-4">
-                            <span class="text-xs text-slate-400">Starting at</span>
-                            <span class="text-2xl font-extrabold text-white">$29</span>
-                        </div>
-                        <button onclick="selectProductForCalculator('study')" class="w-full py-2.5 rounded-xl bg-brand-600/80 hover:bg-brand-600 text-white font-medium text-sm transition-colors flex items-center justify-center gap-2">
-                            <span>Configure Offer</span>
-                            <i class="fa-solid fa-sliders text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 2 -->
-                <div class="product-card glass-card rounded-2xl p-6 transition-all duration-300 border border-brand-500/20 card-glow flex flex-col justify-between" data-category="stem">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 rounded-md bg-brand-900/80 text-brand-300 text-xs font-bold border border-brand-500/30">02.2 STEM</span>
-                            <i class="fa-solid fa-square-root-variable text-brand-400 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Interactive Math & STEM Modules</h3>
-                        <p class="text-slate-400 text-sm mb-4">Dynamic problem generators and visual geometry models for deep comprehension and instant automated grading.</p>
-                        
-                        <ul class="space-y-2 mb-6 text-xs text-slate-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Dynamic Equation Solvers</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Amortization & Financial Sheets</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> GeoGebra Visualizer Packs</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="flex items-baseline justify-between pt-4 border-t border-brand-900/80 mb-4">
-                            <span class="text-xs text-slate-400">Starting at</span>
-                            <span class="text-2xl font-extrabold text-white">$39</span>
-                        </div>
-                        <button onclick="selectProductForCalculator('stem')" class="w-full py-2.5 rounded-xl bg-brand-600/80 hover:bg-brand-600 text-white font-medium text-sm transition-colors flex items-center justify-center gap-2">
-                            <span>Configure Offer</span>
-                            <i class="fa-solid fa-sliders text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 3 -->
-                <div class="product-card glass-card rounded-2xl p-6 transition-all duration-300 border border-brand-500/20 card-glow flex flex-col justify-between" data-category="learners">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 rounded-md bg-brand-900/80 text-brand-300 text-xs font-bold border border-brand-500/30">02.3 COURSES</span>
-                            <i class="fa-solid fa-envelope-open-text text-brand-400 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Micro-Courses & Email Bootcamps</h3>
-                        <p class="text-slate-400 text-sm mb-4">Bite-sized, high-retention learning programs delivered via automated daily email drips or self-paced video toolkits.</p>
-                        
-                        <ul class="space-y-2 mb-6 text-xs text-slate-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> 5-Day Automated Drip Courses</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Self-Paced Video & Audio Kits</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Progress Tracking Checklists</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="flex items-baseline justify-between pt-4 border-t border-brand-900/80 mb-4">
-                            <span class="text-xs text-slate-400">Starting at</span>
-                            <span class="text-2xl font-extrabold text-white">$49</span>
-                        </div>
-                        <button onclick="selectProductForCalculator('courses')" class="w-full py-2.5 rounded-xl bg-brand-600/80 hover:bg-brand-600 text-white font-medium text-sm transition-colors flex items-center justify-center gap-2">
-                            <span>Configure Offer</span>
-                            <i class="fa-solid fa-sliders text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div class="product-card glass-card rounded-2xl p-6 transition-all duration-300 border border-brand-500/20 card-glow flex flex-col justify-between" data-category="educators">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-2.5 py-1 rounded-md bg-brand-900/80 text-brand-300 text-xs font-bold border border-brand-500/30">02.4 EDUCATORS</span>
-                            <i class="fa-solid fa-chalkboard-user text-brand-400 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Educator & Curriculum Toolkits</h3>
-                        <p class="text-slate-400 text-sm mb-4">Turnkey systems for teachers and creators including lesson frameworks, student onboarding, and gamified quizzes.</p>
-                        
-                        <ul class="space-y-2 mb-6 text-xs text-slate-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Curriculum & Unit Frameworks</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Student Onboarding Portals</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Gamified Quiz Decks (Kahoot/Quizizz)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="flex items-baseline justify-between pt-4 border-t border-brand-900/80 mb-4">
-                            <span class="text-xs text-slate-400">Starting at</span>
-                            <span class="text-2xl font-extrabold text-white">$69</span>
-                        </div>
-                        <button onclick="selectProductForCalculator('educators')" class="w-full py-2.5 rounded-xl bg-brand-600/80 hover:bg-brand-600 text-white font-medium text-sm transition-colors flex items-center justify-center gap-2">
-                            <span>Configure Offer</span>
-                            <i class="fa-solid fa-sliders text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+        <div class="product-footer">
+          <div class="product-price">$39</div>
+          <button class="btn-sm" onclick="selectProduct('Dynamic Math Practice Generator', 39)">Select</button>
         </div>
-    </section>
+      </div>
 
-    <!-- Estimator Section -->
-    <section id="estimator" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="text-xs font-bold text-brand-400 tracking-widest uppercase">Custom Product Configurator</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Interactive Offer Estimator</h2>
-                <p class="text-slate-400">Customize your digital learning solution with optional add-ons and calculate your instantly estimated investment.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Controls Panel -->
-                <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 space-y-8">
-                    
-                    <!-- 1. Base Package Selection -->
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-200 mb-3">1. Select Core Product Framework</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="basePackageContainer">
-                            <button type="button" onclick="setBasePackage('study', 29)" class="base-pkg-btn active flex items-center gap-3 p-4 rounded-xl border border-brand-500 bg-brand-900/40 text-left transition-all" data-pkg="study">
-                                <div class="w-8 h-8 rounded-lg bg-brand-600/30 text-brand-300 flex items-center justify-center font-bold text-xs">01</div>
-                                <div>
-                                    <p class="text-sm font-bold text-white">Study & Revision Hub</p>
-                                    <p class="text-xs text-slate-400">$29 USD</p>
-                                </div>
-                            </button>
-                            <button type="button" onclick="setBasePackage('stem', 39)" class="base-pkg-btn flex items-center gap-3 p-4 rounded-xl border border-brand-500/20 glass-card text-left transition-all" data-pkg="stem">
-                                <div class="w-8 h-8 rounded-lg bg-brand-600/30 text-brand-300 flex items-center justify-center font-bold text-xs">02</div>
-                                <div>
-                                    <p class="text-sm font-bold text-white">Math & STEM Module</p>
-                                    <p class="text-xs text-slate-400">$39 USD</p>
-                                </div>
-                            </button>
-                            <button type="button" onclick="setBasePackage('courses', 49)" class="base-pkg-btn flex items-center gap-3 p-4 rounded-xl border border-brand-500/20 glass-card text-left transition-all" data-pkg="courses">
-                                <div class="w-8 h-8 rounded-lg bg-brand-600/30 text-brand-300 flex items-center justify-center font-bold text-xs">03</div>
-                                <div>
-                                    <p class="text-sm font-bold text-white">Micro-Course Toolkit</p>
-                                    <p class="text-xs text-slate-400">$49 USD</p>
-                                </div>
-                            </button>
-                            <button type="button" onclick="setBasePackage('educators', 69)" class="base-pkg-btn flex items-center gap-3 p-4 rounded-xl border border-brand-500/20 glass-card text-left transition-all" data-pkg="educators">
-                                <div class="w-8 h-8 rounded-lg bg-brand-600/30 text-brand-300 flex items-center justify-center font-bold text-xs">04</div>
-                                <div>
-                                    <p class="text-sm font-bold text-white">Educator System</p>
-                                    <p class="text-xs text-slate-400">$69 USD</p>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- 2. Custom Add-Ons -->
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-200 mb-3">2. Choose Optional Enhancements</label>
-                        <div class="space-y-3">
-                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-brand-500/20 glass-card cursor-pointer hover:border-brand-500/40 transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" onchange="calculateTotal()" value="20" class="addon-checkbox w-4 h-4 rounded text-brand-600 focus:ring-brand-500 bg-brand-950 border-brand-700">
-                                    <div>
-                                        <p class="text-sm font-medium text-white">Custom Brand Color & Typography Integration</p>
-                                        <p class="text-xs text-slate-400">Tailored UI matching your personal or school brand</p>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-bold text-brand-300">+$20</span>
-                            </label>
-
-                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-brand-500/20 glass-card cursor-pointer hover:border-brand-500/40 transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" onchange="calculateTotal()" value="35" class="addon-checkbox w-4 h-4 rounded text-brand-600 focus:ring-brand-500 bg-brand-950 border-brand-700">
-                                    <div>
-                                        <p class="text-sm font-medium text-white">Automated Email Drip Sequences (Zapier/Make setup)</p>
-                                        <p class="text-xs text-slate-400">Connects Notion or website direct to student inboxes</p>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-bold text-brand-300">+$35</span>
-                            </label>
-
-                            <label class="flex items-center justify-between p-3.5 rounded-xl border border-brand-500/20 glass-card cursor-pointer hover:border-brand-500/40 transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" onchange="calculateTotal()" value="25" class="addon-checkbox w-4 h-4 rounded text-brand-600 focus:ring-brand-500 bg-brand-950 border-brand-700">
-                                    <div>
-                                        <p class="text-sm font-medium text-white">Anki Flashcard Multi-deck Auto Sync</p>
-                                        <p class="text-xs text-slate-400">Pre-compiled algorithm decks for spaced repetition</p>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-bold text-brand-300">+$25</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- 3. Licenses / Quantity -->
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <label class="text-sm font-semibold text-slate-200">3. Educator / Classroom Seat Licenses</label>
-                            <span id="seatCountLabel" class="text-sm font-bold text-brand-300">1 Seat / Personal License</span>
-                        </div>
-                        <input type="range" id="seatSlider" min="1" max="10" value="1" oninput="calculateTotal()" class="w-full h-2 bg-brand-900 rounded-lg appearance-none cursor-pointer accent-brand-500">
-                        <p class="text-[11px] text-slate-400 mt-1">Multi-seat discounts automatically applied for 3+ seats (10% off total).</p>
-                    </div>
-
-                </div>
-
-                <!-- Live Summary Side Card -->
-                <div class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-8 border border-brand-500/30 sticky top-28">
-                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-brand-900">
-                        <div class="w-10 h-10 rounded-xl bg-brand-600/30 text-brand-400 flex items-center justify-center font-bold">
-                            <i class="fa-solid fa-calculator text-lg"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">Order Estimation Summary</h3>
-                            <p class="text-xs text-slate-400">Graceflow Tech Instant Quote</p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4 text-sm mb-6">
-                        <div class="flex justify-between text-slate-300">
-                            <span>Selected Framework:</span>
-                            <span id="summaryPkgName" class="font-semibold text-white">Study & Revision Hub</span>
-                        </div>
-                        <div class="flex justify-between text-slate-300">
-                            <span>Base Package:</span>
-                            <span id="summaryPkgPrice" class="font-semibold text-white">$29.00</span>
-                        </div>
-                        <div class="flex justify-between text-slate-300">
-                            <span>Selected Add-ons:</span>
-                            <span id="summaryAddonPrice" class="font-semibold text-white">$0.00</span>
-                        </div>
-                        <div class="flex justify-between text-slate-300">
-                            <span>Seats Selected:</span>
-                            <span id="summarySeats" class="font-semibold text-white">1</span>
-                        </div>
-                        <div id="discountRow" class="hidden flex justify-between text-emerald-400 font-medium">
-                            <span>Multi-seat Discount (10%):</span>
-                            <span id="summaryDiscount">-$0.00</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 border-t border-brand-900/80 mb-6 flex items-baseline justify-between">
-                        <span class="text-base font-semibold text-slate-200">Total Estimated Price:</span>
-                        <span id="totalPrice" class="text-4xl font-extrabold text-brand-300">$29.00</span>
-                    </div>
-
-                    <button onclick="proceedToOrder()" class="w-full py-4 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-base shadow-lg shadow-brand-600/40 hover:shadow-brand-500/60 transition-all flex items-center justify-center gap-2">
-                        <span>Proceed with Selection</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    <p class="text-center text-xs text-slate-400 mt-3"><i class="fa-solid fa-shield-halved mr-1"></i> Instant delivery & 100% satisfaction guarantee.</p>
-                </div>
-
-            </div>
+      <!-- Card 3 -->
+      <div class="product-card" data-category="educators">
+        <div>
+          <span class="product-tag">Course Delivery</span>
+          <h3 class="product-title">Interactive Micro-Course Drip</h3>
+          <p class="product-desc">7-day automated email learning framework integrated with ConvertKit/Mailchimp for instant course delivery.</p>
         </div>
-    </section>
-
-    <!-- Interactive Live Demo Section -->
-    <section id="demo" class="py-20 bg-brand-950/40 border-t border-brand-900/50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <span class="text-xs font-bold text-brand-400 tracking-widest uppercase">Experience The UI</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Live Interactive Samples</h2>
-                <p class="text-slate-400">Try our active recall flashcard engine or interactive math solver live on this page.</p>
-            </div>
-
-            <!-- Demo Container Box -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto border border-brand-500/30 purple-glow">
-                
-                <!-- Demo Tabs -->
-                <div class="flex justify-center border-b border-brand-900/80 pb-6 mb-8 gap-4">
-                    <button id="tabFlashcardBtn" onclick="switchDemoTab('flashcard')" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-brand-600 text-white">
-                        <i class="fa-solid fa-layer-group mr-2"></i>Active Recall Flashcards
-                    </button>
-                    <button id="tabMathBtn" onclick="switchDemoTab('math')" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition-all glass-card text-slate-300 hover:text-white">
-                        <i class="fa-solid fa-calculator mr-2"></i>Interactive Math Solver
-                    </button>
-                </div>
-
-                <!-- DEMO 1: FLASHCARD ENGINE -->
-                <div id="demoFlashcard" class="space-y-6">
-                    <div class="flex items-center justify-between text-xs text-slate-400">
-                        <span>Card <span id="cardNum">1</span> of 3 — Biology & Neuroscience</span>
-                        <span id="streakCount" class="text-brand-300 font-bold"><i class="fa-solid fa-fire text-amber-400 mr-1"></i>0 Streak</span>
-                    </div>
-
-                    <!-- Flashcard Surface -->
-                    <div id="flashcardBox" onclick="flipCard()" class="min-h-[220px] rounded-2xl glass-card border border-brand-500/40 p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:border-brand-400 transition-all relative group select-none">
-                        <span class="absolute top-4 right-4 text-[11px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded bg-brand-900/60 text-brand-300">Click to Flip</span>
-                        
-                        <!-- Front Face -->
-                        <div id="cardFront" class="space-y-2">
-                            <span class="text-xs text-brand-400 font-bold uppercase tracking-wider">Question</span>
-                            <h3 id="cardQuestion" class="text-xl sm:text-2xl font-bold text-white">What is the primary function of the Hippocampus?</h3>
-                        </div>
-
-                        <!-- Back Face (Hidden initially) -->
-                        <div id="cardBack" class="hidden space-y-2">
-                            <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Answer</span>
-                            <p id="cardAnswer" class="text-base sm:text-lg text-slate-200">Consolidation of information from short-term memory to long-term memory and spatial navigation.</p>
-                        </div>
-                    </div>
-
-                    <!-- Flashcard Controls -->
-                    <div class="flex items-center justify-between pt-2">
-                        <button onclick="prevCard()" class="px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2">
-                            <i class="fa-solid fa-arrow-left"></i> Previous
-                        </button>
-                        <div class="flex gap-2">
-                            <button onclick="rateCard(false)" class="px-4 py-2 rounded-xl bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs font-semibold border border-red-500/30">
-                                Need Review
-                            </button>
-                            <button onclick="rateCard(true)" class="px-4 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
-                                Mastered!
-                            </button>
-                        </div>
-                        <button onclick="nextCard()" class="px-4 py-2 rounded-xl glass-panel text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2">
-                            Next <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- DEMO 2: INTERACTIVE MATH SOLVER -->
-                <div id="demoMath" class="hidden space-y-6">
-                    <div class="text-xs text-slate-400">
-                        <span>Dynamic Compound Interest & Exponential Growth Visualizer</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div>
-                                <label class="text-xs text-slate-300 font-semibold block mb-1">Principal Amount ($)</label>
-                                <input type="number" id="mathPrincipal" value="1000" oninput="solveMath()" class="w-full px-4 py-2.5 rounded-xl bg-brand-950 border border-brand-800 text-white focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-                            <div>
-                                <label class="text-xs text-slate-300 font-semibold block mb-1">Annual Interest Rate (%)</label>
-                                <input type="number" id="mathRate" value="8" step="0.5" oninput="solveMath()" class="w-full px-4 py-2.5 rounded-xl bg-brand-950 border border-brand-800 text-white focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-                            <div>
-                                <label class="text-xs text-slate-300 font-semibold block mb-1">Duration (Years): <span id="mathYearsVal" class="text-brand-300 font-bold">5</span></label>
-                                <input type="range" id="mathYears" min="1" max="30" value="5" oninput="solveMath()" class="w-full h-2 bg-brand-900 rounded-lg appearance-none cursor-pointer accent-brand-500">
-                            </div>
-                        </div>
-
-                        <!-- Computed Box -->
-                        <div class="glass-card rounded-2xl p-6 border border-brand-500/30 flex flex-col justify-center items-center text-center space-y-3">
-                            <span class="text-xs font-bold text-brand-400 uppercase tracking-wider">Calculated Future Value</span>
-                            <div id="mathResult" class="text-3xl sm:text-4xl font-extrabold text-white">$1,469.33</div>
-                            <p class="text-xs text-slate-400">Compound interest calculated annually using Graceflow Math Formula Engine.</p>
-                            <div class="w-full bg-brand-950 rounded-full h-2.5 mt-2 overflow-hidden border border-brand-800">
-                                <div id="mathProgressBar" class="bg-gradient-to-r from-brand-600 to-indigo-400 h-full rounded-full transition-all duration-300" style="width: 40%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="product-footer">
+          <div class="product-price">$59</div>
+          <button class="btn-sm" onclick="selectProduct('Interactive Micro-Course Drip', 59)">Select</button>
         </div>
-    </section>
+      </div>
 
-    <!-- Order Request / Consultation Form -->
-    <section id="contact" class="py-20 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-brand-500/30 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="text-center mb-10 space-y-3">
-                    <span class="text-xs font-bold text-brand-400 tracking-widest uppercase">Graceflow Tech Client Desk</span>
-                    <h2 class="text-3xl font-extrabold text-white">Order or Request a Custom Learning System</h2>
-                    <p class="text-slate-400 text-sm max-w-xl mx-auto">Have specific curriculum requirements or need custom automated Notion workspaces? Reach out directly to our engineering team.</p>
-                </div>
-
-                <form id="orderForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-2">Full Name *</label>
-                            <input type="text" required placeholder="e.g. Dr. Alex Vance" class="w-full px-4 py-3 rounded-xl bg-brand-950/80 border border-brand-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-2">Email Address *</label>
-                            <input type="email" required placeholder="alex@academy.org" class="w-full px-4 py-3 rounded-xl bg-brand-950/80 border border-brand-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-2">Primary Interest</label>
-                            <select id="formProductSelect" class="w-full px-4 py-3 rounded-xl bg-brand-950 border border-brand-800 text-white focus:outline-none focus:border-brand-500 text-sm">
-                                <option value="study">02.1 Interactive Study & Revision Hubs</option>
-                                <option value="stem">02.2 Interactive Math & STEM Modules</option>
-                                <option value="courses">02.3 Micro-Courses & Email Bootcamps</option>
-                                <option value="educators">02.4 Educator & Curriculum Toolkits</option>
-                                <option value="custom">Fully Custom Digital Ecosystem</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-2">Estimated Budget Range</label>
-                            <select class="w-full px-4 py-3 rounded-xl bg-brand-950 border border-brand-800 text-white focus:outline-none focus:border-brand-500 text-sm">
-                                <option>$29 – $100 (Standard Offerings)</option>
-                                <option>$100 – $300 (Custom Brand Modifications)</option>
-                                <option>$300 – $1,000+ (Full Educational System Automation)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-2">Project Details or Requirements</label>
-                        <textarea rows="4" placeholder="Describe your subjects, student group size, or specific custom features needed..." class="w-full px-4 py-3 rounded-xl bg-brand-950/80 border border-brand-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm"></textarea>
-                    </div>
-
-                    <!-- Submission Button -->
-                    <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white font-bold text-base shadow-xl shadow-brand-600/30 transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Submit Order / Inquiry</span>
-                    </button>
-                </form>
-
-                <!-- Confirmation Message Box -->
-                <div id="formSuccessMessage" class="hidden mt-6 p-6 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-center space-y-2">
-                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-white">Inquiry Received!</h4>
-                    <p class="text-sm text-slate-300">Thank you for connecting with Graceflow Tech. A specialist will review your specs and contact you within 24 hours.</p>
-                </div>
-
-            </div>
+      <!-- Card 4 -->
+      <div class="product-card" data-category="educators">
+        <div>
+          <span class="product-tag">Classroom Toolkit</span>
+          <h3 class="product-title">Teacher Curriculum Engine</h3>
+          <p class="product-desc">Lesson plan database, automated rubric builder, and gamified slide deck templates for instructors.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-brand-900/60 bg-brand-950/80 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-xs">GF</div>
-                <span class="text-white font-bold tracking-tight">Graceflow Tech</span>
-                <span class="text-slate-500">| 02 Learning Products</span>
-            </div>
-
-            <p class="text-xs text-slate-500">© 2026 Graceflow Tech. All rights reserved. High-efficiency digital products for modern learners.</p>
-
-            <div class="flex gap-4 text-slate-400">
-                <a href="#" class="hover:text-brand-300"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="hover:text-brand-300"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="hover:text-brand-300"><i class="fa-solid fa-envelope"></i></a>
-            </div>
+        <div class="product-footer">
+          <div class="product-price">$49</div>
+          <button class="btn-sm" onclick="selectProduct('Teacher Curriculum Engine', 49)">Select</button>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+      <!-- Card 5 -->
+      <div class="product-card" data-category="students">
+        <div>
+          <span class="product-tag">Memory Systems</span>
+          <h3 class="product-title">Anki Master Flashcard System</h3>
+          <p class="product-desc">Pre-formatted spaced repetition decks with custom styling algorithms for high-retention learning.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$24</div>
+          <button class="btn-sm" onclick="selectProduct('Anki Master Flashcard System', 24)">Select</button>
+        </div>
+      </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      <!-- Card 6 -->
+      <div class="product-card" data-category="stem">
+        <div>
+          <span class="product-tag">Financial Math</span>
+          <h3 class="product-title">Loan & Amortization Lab</h3>
+          <p class="product-desc">Visual interactive spreadsheet designed for financial literacy, amortization calculations, and yield modeling.</p>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$34</div>
+          <button class="btn-sm" onclick="selectProduct('Loan & Amortization Lab', 34)">Select</button>
+        </div>
+      </div>
 
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
+    </div>
+  </section>
 
-        // --- Category Filtering Logic ---
-        function filterOffers(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const filterBtns = document.querySelectorAll('.filter-btn');
+  <!-- Interactive Demo Section -->
+  <section class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Try an Interactive Sample</h2>
+      <p class="section-subtitle">Experience how active recall system design works inside our digital products.</p>
+    </div>
 
-            filterBtns.forEach(btn => {
-                if (btn.dataset.category === category) {
-                    btn.classList.add('bg-brand-600', 'text-white');
-                    btn.classList.remove('glass-panel', 'text-slate-300');
-                } else {
-                    btn.classList.remove('bg-brand-600', 'text-white');
-                    btn.classList.add('glass-panel', 'text-slate-300');
-                }
-            });
+    <div class="demo-container">
+      <div class="flashcard-box" id="flashcard" onclick="flipCard()">
+        <span style="font-size: 12px; font-weight: 700; color: var(--violet-primary); margin-bottom: 8px;">CLICK TO FLIP CARD</span>
+        <h3 id="cardQuestion" style="font-size: 20px;">Q: What is Spaced Repetition in Learning Systems?</h3>
+        <p id="cardAnswer" style="font-size: 16px; color: var(--text-muted); display: none; margin-top: 8px;">A: A review method where material is revisited at increasing intervals to optimize memory consolidation.</p>
+      </div>
+    </div>
+  </section>
 
-            cards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+  <!-- Pricing Estimator -->
+  <section class="section-container" id="calculator">
+    <div class="section-header">
+      <h2 class="section-title">Build Your System Package</h2>
+      <p class="section-subtitle">Customize a learning solution tailored to your exact workflow needs.</p>
+    </div>
+
+    <div class="calc-box">
+      <div>
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">Select Add-ons & Services</h3>
+        <div class="checkbox-group">
+          <label class="custom-check">
+            <span>Base Learning Template</span>
+            <input type="checkbox" value="35" checked disabled>
+          </label>
+          <label class="custom-check">
+            <span>Custom Branding & Design Theme</span>
+            <input type="checkbox" value="25" onchange="updateTotal()" id="addon1">
+          </label>
+          <label class="custom-check">
+            <span>Automated Email Sequence Setup</span>
+            <input type="checkbox" value="45" onchange="updateTotal()" id="addon2">
+          </label>
+          <label class="custom-check">
+            <span>Database / AppSheet Integration</span>
+            <input type="checkbox" value="65" onchange="updateTotal()" id="addon3">
+          </label>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: center; background: var(--violet-light); padding: 32px; border-radius: var(--radius-md); text-align: center;">
+        <span style="font-weight: 700; color: var(--text-muted); font-size: 14px;">ESTIMATED BUNDLE TOTAL</span>
+        <div id="totalPrice" style="font-size: 56px; font-weight: 800; color: var(--violet-primary); margin: 8px 0;">$35</div>
+        <a href="#order" class="btn-primary" style="margin-top: 16px;">Request This System</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Graceflow Tech — Digital Learning Systems & Tools.</p>
+  </footer>
+
+  <script>
+    // Product Category Filter
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.product-card');
+      const tabs = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
         }
+      });
+    }
 
-        // --- Interactive Calculator State ---
-        let currentBasePkg = 'study';
-        let currentBasePrice = 29;
+    // Flashcard Flip Demo
+    let isFlipped = false;
+    function flipCard() {
+      const q = document.getElementById('cardQuestion');
+      const a = document.getElementById('cardAnswer');
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        q.style.display = 'none';
+        a.style.display = 'block';
+      } else {
+        q.style.display = 'block';
+        a.style.display = 'none';
+      }
+    }
 
-        const pkgNames = {
-            'study': 'Study & Revision Hub',
-            'stem': 'Math & STEM Module',
-            'courses': 'Micro-Course Toolkit',
-            'educators': 'Educator System'
-        };
+    // Pricing Calculator
+    function updateTotal() {
+      let total = 35;
+      if (document.getElementById('addon1').checked) total += 25;
+      if (document.getElementById('addon2').checked) total += 45;
+      if (document.getElementById('addon3').checked) total += 65;
+      document.getElementById('totalPrice').innerText = '$' + total;
+    }
 
-        function setBasePackage(pkgKey, price) {
-            currentBasePkg = pkgKey;
-            currentBasePrice = price;
-
-            document.querySelectorAll('.base-pkg-btn').forEach(btn => {
-                if (btn.dataset.pkg === pkgKey) {
-                    btn.classList.add('border-brand-500', 'bg-brand-900/40');
-                    btn.classList.remove('border-brand-500/20', 'glass-card');
-                } else {
-                    btn.classList.remove('border-brand-500', 'bg-brand-900/40');
-                    btn.classList.add('border-brand-500/20', 'glass-card');
-                }
-            });
-
-            calculateTotal();
-        }
-
-        function selectProductForCalculator(pkgKey) {
-            const prices = { 'study': 29, 'stem': 39, 'courses': 49, 'educators': 69 };
-            setBasePackage(pkgKey, prices[pkgKey]);
-            document.getElementById('estimator').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function calculateTotal() {
-            let addonsTotal = 0;
-            document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
-                addonsTotal += parseFloat(cb.value);
-            });
-
-            const seats = parseInt(document.getElementById('seatSlider').value);
-            document.getElementById('seatCountLabel').innerText = `${seats} Seat${seats > 1 ? 's' : ''} / License${seats > 1 ? 's' : ''}`;
-
-            let subtotal = (currentBasePrice + addonsTotal) * seats;
-            let discount = 0;
-
-            if (seats >= 3) {
-                discount = subtotal * 0.10; // 10% multi-seat discount
-                document.getElementById('discountRow').classList.remove('hidden');
-                document.getElementById('summaryDiscount').innerText = `-$${discount.toFixed(2)}`;
-            } else {
-                document.getElementById('discountRow').classList.add('hidden');
-            }
-
-            const finalTotal = subtotal - discount;
-
-            // Update Summary Card
-            document.getElementById('summaryPkgName').innerText = pkgNames[currentBasePkg];
-            document.getElementById('summaryPkgPrice').innerText = `$${currentBasePrice.toFixed(2)}`;
-            document.getElementById('summaryAddonPrice').innerText = `$${addonsTotal.toFixed(2)}`;
-            document.getElementById('summarySeats').innerText = seats;
-            document.getElementById('totalPrice').innerText = `$${finalTotal.toFixed(2)}`;
-        }
-
-        function proceedToOrder() {
-            document.getElementById('formProductSelect').value = currentBasePkg;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // --- Demo Flashcard Engine Logic ---
-        const flashcardData = [
-            {
-                q: "What is the primary function of the Hippocampus?",
-                a: "Consolidation of information from short-term memory to long-term memory and spatial navigation."
-            },
-            {
-                q: "Define Active Recall in cognitive science.",
-                a: "A learning principle where the mind is stimulated to retrieve information from memory during the study process."
-            },
-            {
-                q: "How does Spaced Repetition optimize retention?",
-                a: "By reviewing information at increasing intervals to leverage the psychological spacing effect."
-            }
-        ];
-
-        let currentCardIdx = 0;
-        let streak = 0;
-
-        function updateCardUI() {
-            const card = flashcardData[currentCardIdx];
-            document.getElementById('cardQuestion').innerText = card.q;
-            document.getElementById('cardAnswer').innerText = card.a;
-            document.getElementById('cardNum').innerText = currentCardIdx + 1;
-
-            // Reset card to question view
-            document.getElementById('cardFront').classList.remove('hidden');
-            document.getElementById('cardBack').classList.add('hidden');
-        }
-
-        function flipCard() {
-            const front = document.getElementById('cardFront');
-            const back = document.getElementById('cardBack');
-
-            if (front.classList.contains('hidden')) {
-                front.classList.remove('hidden');
-                back.classList.add('hidden');
-            } else {
-                front.classList.add('hidden');
-                back.classList.remove('hidden');
-            }
-        }
-
-        function nextCard() {
-            currentCardIdx = (currentCardIdx + 1) % flashcardData.length;
-            updateCardUI();
-        }
-
-        function prevCard() {
-            currentCardIdx = (currentCardIdx - 1 + flashcardData.length) % flashcardData.length;
-            updateCardUI();
-        }
-
-        function rateCard(mastered) {
-            if (mastered) {
-                streak++;
-                document.getElementById('streakCount').innerHTML = `<i class="fa-solid fa-fire text-amber-400 mr-1"></i>${streak} Streak`;
-            } else {
-                streak = 0;
-                document.getElementById('streakCount').innerHTML = `<i class="fa-solid fa-fire text-slate-500 mr-1"></i>0 Streak`;
-            }
-            nextCard();
-        }
-
-        // --- Demo Math Solver Logic ---
-        function solveMath() {
-            const P = parseFloat(document.getElementById('mathPrincipal').value) || 0;
-            const r = (parseFloat(document.getElementById('mathRate').value) || 0) / 100;
-            const t = parseInt(document.getElementById('mathYears').value) || 1;
-
-            document.getElementById('mathYearsVal').innerText = t;
-
-            // A = P(1 + r)^t
-            const A = P * Math.pow((1 + r), t);
-
-            document.getElementById('mathResult').innerText = `$${A.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
-            // Bar visualizer percentage capped at 100
-            const progress = Math.min(100, (A / (P * 3)) * 100);
-            document.getElementById('mathProgressBar').style.width = `${progress}%`;
-        }
-
-        function switchDemoTab(tab) {
-            const tabFlashcardBtn = document.getElementById('tabFlashcardBtn');
-            const tabMathBtn = document.getElementById('tabMathBtn');
-            const demoFlashcard = document.getElementById('demoFlashcard');
-            const demoMath = document.getElementById('demoMath');
-
-            if (tab === 'flashcard') {
-                tabFlashcardBtn.className = 'px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-brand-600 text-white';
-                tabMathBtn.className = 'px-5 py-2.5 rounded-xl font-semibold text-sm transition-all glass-card text-slate-300 hover:text-white';
-                demoFlashcard.classList.remove('hidden');
-                demoMath.classList.add('hidden');
-            } else {
-                tabMathBtn.className = 'px-5 py-2.5 rounded-xl font-semibold text-sm transition-all bg-brand-600 text-white';
-                tabFlashcardBtn.className = 'px-5 py-2.5 rounded-xl font-semibold text-sm transition-all glass-card text-slate-300 hover:text-white';
-                demoMath.classList.remove('hidden');
-                demoFlashcard.classList.add('hidden');
-                solveMath();
-            }
-        }
-
-        // --- Form Handling ---
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            document.getElementById('orderForm').classList.add('hidden');
-            document.getElementById('formSuccessMessage').classList.remove('hidden');
-        }
-
-        // Initialize Calculator
-        calculateTotal();
-    </script>
+    function selectProduct(name, price) {
+      alert('Selected: ' + name + ' ($' + price + '). You can integrate this with your payment link or checkout flow.');
+    }
+  </script>
 </body>
 </html>
-```
