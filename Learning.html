@@ -1,0 +1,521 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graceflow Tech | Learning — Digital Resources & Structured Educational Systems</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        learn: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#2e1065',
+                            dark: '#0a0914',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0914;
+            color: #f3f4f6;
+        }
+        
+        .gradient-text-learn {
+            background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-card {
+            background: rgba(18, 16, 36, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(167, 139, 250, 0.12);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(139, 92, 246, 0.25);
+        }
+
+        .glow-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-violet-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Background Glows -->
+    <div class="glow-bg w-[500px] h-[500px] bg-violet-600/20 top-0 left-1/2 -translate-x-1/2"></div>
+    <div class="glow-bg w-[350px] h-[350px] bg-purple-600/15 top-[900px] right-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-violet-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 via-purple-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:scale-105 transition-transform">
+                    <!-- Sparkle Icon matching Category 02 -->
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-white leading-tight">Graceflow <span class="gradient-text-learn">Tech</span></span>
+                    <span class="text-[10px] tracking-widest uppercase font-semibold text-violet-400">02 / Learning Systems</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#catalog" class="hover:text-violet-400 transition-colors">Resource Catalog</a>
+                <a href="#interactive-preview" class="hover:text-violet-400 transition-colors">Module Preview</a>
+                <a href="#custom-lms" class="hover:text-violet-400 transition-colors">Custom LMS</a>
+                <a href="#request-resource" class="hover:text-violet-400 transition-colors">Request Resource</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#request-resource" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 transition-all duration-200 shadow-md shadow-violet-600/20 hover:shadow-violet-600/40 hover:-translate-y-0.5">
+                    Request Learning Tool
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-toggle" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-violet-950/50 border border-violet-800/50">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 border-b border-violet-900/40 px-6 py-6 space-y-4">
+            <a href="#catalog" class="block text-slate-300 hover:text-violet-400 py-1 font-medium">Resource Catalog</a>
+            <a href="#interactive-preview" class="block text-slate-300 hover:text-violet-400 py-1 font-medium">Module Preview</a>
+            <a href="#custom-lms" class="block text-slate-300 hover:text-violet-400 py-1 font-medium">Custom LMS</a>
+            <a href="#request-resource" class="block text-center w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600">
+                Request Learning Tool
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <!-- Category Badge matching 02 image -->
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-card border border-violet-500/30 text-violet-300 text-xs sm:text-sm font-semibold mb-8">
+                <span class="flex h-7 w-7 rounded-full bg-violet-600 flex items-center justify-center text-white text-xs font-black shadow-inner">
+                    02
+                </span>
+                <span>Category 02 — Structured Knowledge Systems</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
+                Learning Systems Made <br><span class="gradient-text-learn">Simple, Structured & Enjoyable</span>
+            </h1>
+            
+            <p class="mt-6 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
+                Engaging resources and digital products designed by <strong>Graceflow Tech</strong> to make skill acquisition, financial math, study tracking, and corporate training effortlessly clear and measurable.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:opacity-95 transition-all shadow-xl shadow-violet-600/25 hover:-translate-y-0.5">
+                    Explore Learning Resources
+                </a>
+                <a href="#interactive-preview" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-slate-300 glass-card hover:bg-violet-950/40 hover:text-white transition-all border border-violet-800/40">
+                    Try Interactive Module Demo
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-16 pt-10 border-t border-violet-900/30 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text-learn">Interactive</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Self-Paced Practice Modules</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text-learn">Curated</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Financial & Data Worksheets</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text-learn">Custom LMS</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Notion & AppSheet Portals</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text-learn">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Modular & Customizable</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Catalog Section -->
+    <section id="catalog" class="py-24 relative bg-slate-950/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-violet-400 mb-2">Digital Products & Modules</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Engaging Learning Systems</p>
+                <p class="text-slate-400 text-sm mt-3">Pre-designed learning frameworks, mathematical practice engines, and coaching portals engineered for rapid retention.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Product 1: Financial Math & Analytics -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-md bg-violet-500/20 text-violet-300 text-[11px] font-semibold uppercase tracking-wider">Module Suite</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Financial Mathematics & Cash Modeling</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Structured spreadsheet systems featuring automated formulas for compound interest, amortization schedule modeling, and annuity calculations.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-violet-400">✦</span> Dynamic Compound & Interest Simulators</li>
+                            <li class="flex items-center gap-2"><span class="text-violet-400">✦</span> Step-by-Step Formula Breakdown Sheets</li>
+                            <li class="flex items-center gap-2"><span class="text-violet-400">✦</span> Real-Time Sensitivity Analysis Tables</li>
+                        </ul>
+                    </div>
+                    <a href="#request-resource" onclick="selectLearningResource('Financial Math Module')" class="w-full text-center py-3 rounded-xl text-xs font-semibold text-white bg-violet-600/30 border border-violet-500/40 hover:bg-violet-600 transition-colors">Request This Module</a>
+                </div>
+
+                <!-- Product 2: Student & Revision Planner -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-[11px] font-semibold uppercase tracking-wider">Notion Template</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Spaced Repetition Study Hub</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            A Notion-based learning dashboard equipped with automated revision scheduling, flashcard databases, exam countdowns, and topic mastery ratings.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-indigo-400">✦</span> Automated Spaced-Repetition Timers</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-400">✦</span> Exam Weighting & Grade Trackers</li>
+                            <li class="flex items-center gap-2"><span class="text-indigo-400">✦</span> Active Recall Question Databases</li>
+                        </ul>
+                    </div>
+                    <a href="#request-resource" onclick="selectLearningResource('Spaced Repetition Notion Hub')" class="w-full text-center py-3 rounded-xl text-xs font-semibold text-white bg-indigo-600/30 border border-indigo-500/40 hover:bg-indigo-600 transition-colors">Request Study Hub</a>
+                </div>
+
+                <!-- Product 3: Custom LMS Coaching Portal -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 flex items-center justify-center text-fuchsia-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-md bg-fuchsia-500/20 text-fuchsia-300 text-[11px] font-semibold uppercase tracking-wider">Enterprise LMS</span>
+                        <h3 class="text-xl font-bold text-white mt-3 mb-2">Client Coaching & Onboarding Portal</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Tailored web interfaces for educators, course creators, and mentors to host structured learning tracks, video lessons, and assignment feedback loops.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><span class="text-fuchsia-400">✦</span> Structured Curriculum Modules & Quizzes</li>
+                            <li class="flex items-center gap-2"><span class="text-fuchsia-400">✦</span> Student Progress Analytics & Badges</li>
+                            <li class="flex items-center gap-2"><span class="text-fuchsia-400">✦</span> Secure Assignment Submissions</li>
+                        </ul>
+                    </div>
+                    <a href="#request-resource" onclick="selectLearningResource('Custom LMS Coaching Portal')" class="w-full text-center py-3 rounded-xl text-xs font-semibold text-white bg-fuchsia-600/30 border border-fuchsia-500/40 hover:bg-fuchsia-600 transition-colors">Build Custom LMS</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Module Practice & Skill Level Configurator -->
+    <section id="interactive-preview" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-violet-500/30 shadow-2xl relative">
+                
+                <div class="text-center mb-10">
+                    <span class="px-3.5 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-300 text-xs font-semibold uppercase tracking-wider">
+                        ✦ Interactive Practice Sandbox
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-white mt-3">Test a Live Learning Component</h2>
+                    <p class="text-slate-400 text-sm mt-2">Select a skill domain to preview how Graceflow Tech structures step-by-step interactive exercises.</p>
+                </div>
+
+                <!-- Domain Switcher Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                    <button onclick="switchDomain('finmath', this)" class="domain-btn px-5 py-2.5 rounded-xl text-xs font-bold border border-violet-500 bg-violet-600/30 text-white transition-all">
+                        Financial Math: Compound Interest
+                    </button>
+                    <button onclick="switchDomain('datamath', this)" class="domain-btn px-5 py-2.5 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900/60 text-slate-300 transition-all hover:border-slate-600">
+                        Data Science: Percentage Growth
+                    </button>
+                </div>
+
+                <!-- Interactive Exercise Container -->
+                <div id="exercise-box" class="bg-slate-950/80 border border-violet-900/40 rounded-2xl p-6 sm:p-8">
+                    
+                    <!-- Problem Statement -->
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                        <span id="ex-title" class="text-sm font-bold text-violet-300">Module 01: Annual Compound Growth</span>
+                        <span class="text-[11px] px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 font-mono">Formula: A = P(1 + r)^t</span>
+                    </div>
+
+                    <p id="ex-prompt" class="text-sm text-slate-300 leading-relaxed mb-6">
+                        Calculate the total future value of an initial deposit of <strong>$1,000</strong> invested at an annual interest rate of <strong>5%</strong> for <strong>2 years</strong>.
+                    </p>
+
+                    <div class="space-y-3 mb-6" id="quiz-options">
+                        <button onclick="checkAnswer(0, false)" class="quiz-opt w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 text-xs text-slate-300 hover:border-violet-500/50 hover:bg-violet-950/20 transition-all">
+                            A) $1,100.00
+                        </button>
+                        <button onclick="checkAnswer(1, true)" class="quiz-opt w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 text-xs text-slate-300 hover:border-violet-500/50 hover:bg-violet-950/20 transition-all">
+                            B) $1,102.50
+                        </button>
+                        <button onclick="checkAnswer(2, false)" class="quiz-opt w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 text-xs text-slate-300 hover:border-violet-500/50 hover:bg-violet-950/20 transition-all">
+                            C) $1,050.00
+                        </button>
+                    </div>
+
+                    <!-- Step-by-Step Breakdown Output -->
+                    <div id="exercise-feedback" class="hidden p-4 rounded-xl text-xs leading-relaxed border"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Request Form -->
+    <section id="request-resource" class="py-24 bg-slate-950/80 relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-violet-900/30">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-violet-400">Custom Development</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-1">Request a Custom Learning System</h2>
+                    <p class="text-slate-400 text-sm mt-2">Have a specific curriculum, financial workbook, or LMS setup in mind? Tell Graceflow Tech what you need built.</p>
+                </div>
+
+                <form id="learning-request-form" onsubmit="submitLearningForm(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Full Name *</label>
+                            <input type="text" id="learn-name" required placeholder="e.g. Marcus Vance" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email Address *</label>
+                            <input type="email" id="learn-email" required placeholder="marcus@academy.com" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Resource Category *</label>
+                            <select id="learn-type" required class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 focus:outline-none">
+                                <option value="Financial Math Module">Financial Math & Practice Worksheets</option>
+                                <option value="Spaced Repetition Notion Hub">Notion Spaced Repetition Study Planner</option>
+                                <option value="Custom LMS Coaching Portal">Custom Coaching & LMS Web Portal</option>
+                                <option value="Interactive Quiz Engine">Interactive Assessment & Quiz Engine</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Audience Level</label>
+                            <select id="learn-level" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 focus:outline-none">
+                                <option value="Students / Self-Learners">Students / Self-Learners</option>
+                                <option value="Coaches & Mentors">Coaches & Mentors</option>
+                                <option value="Corporate / Team Training">Corporate / Team Training</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Curriculum Objectives & Details *</label>
+                        <textarea id="learn-notes" rows="4" required placeholder="Outline the topics, formulas, or study workflow you want us to turn into an engaging system..." class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:opacity-95 transition-all shadow-lg shadow-violet-600/30">
+                        Submit Learning Resource Request
+                    </button>
+                </form>
+
+                <!-- Feedback Toast -->
+                <div id="form-feedback-learn" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center">
+                    ✦ Request received! The Graceflow Tech Learning team will contact you within 24 hours with a product blueprint.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-violet-600 to-indigo-600 flex items-center justify-center text-white">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>
+                </div>
+                <span class="text-lg font-bold text-white">Graceflow Tech <span class="text-xs text-violet-400 font-normal">| Learning</span></span>
+            </div>
+
+            <p class="text-xs text-slate-500">
+                &copy; <span id="current-year"></span> Graceflow Tech. Category 02 — Digital Learning Systems & Resources.
+            </p>
+
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <a href="#catalog" class="hover:text-violet-400 transition-colors">Catalog</a>
+                <a href="#interactive-preview" class="hover:text-violet-400 transition-colors">Practice Demo</a>
+                <a href="#request-resource" class="hover:text-violet-400 transition-colors">Request Tool</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Drawer Logic
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        mobileToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        });
+
+        // Pre-select resource in form
+        function selectLearningResource(resourceName) {
+            const select = document.getElementById('learn-type');
+            select.value = resourceName;
+        }
+
+        // Interactive Domain Switcher & Quiz Demo Logic
+        const domains = {
+            finmath: {
+                title: 'Module 01: Annual Compound Growth',
+                formula: 'Formula: A = P(1 + r)^t',
+                prompt: 'Calculate the total future value of an initial deposit of <strong>$1,000</strong> invested at an annual interest rate of <strong>5%</strong> for <strong>2 years</strong>.',
+                options: [
+                    { text: 'A) $1,100.00', correct: false },
+                    { text: 'B) $1,102.50', correct: true },
+                    { text: 'C) $1,050.00', correct: false }
+                ],
+                explanation: '<strong>Correct Solution:</strong><br>Year 1: $1,000 + ($1,000 × 0.05) = $1,050.00<br>Year 2: $1,050 + ($1,050 × 0.05) = <strong>$1,102.50</strong>.'
+            },
+            datamath: {
+                title: 'Module 02: Revenue Percentage Increase',
+                formula: 'Formula: % Increase = ((New - Old) / Old) × 100',
+                prompt: 'A SaaS product increases monthly recurring revenue (MRR) from <strong>$4,000</strong> to <strong>$5,000</strong>. What is the percentage growth?',
+                options: [
+                    { text: 'A) 20.0%', correct: false },
+                    { text: 'B) 25.0%', correct: true },
+                    { text: 'C) 30.0%', correct: false }
+                ],
+                explanation: '<strong>Correct Solution:</strong><br>Difference = $5,000 - $4,000 = $1,000.<br>Growth Rate = ($1,000 / $4,000) × 100 = <strong>25.0%</strong>.'
+            }
+        };
+
+        let currentDomain = 'finmath';
+
+        function switchDomain(domainKey, btnElement) {
+            currentDomain = domainKey;
+            
+            document.querySelectorAll('.domain-btn').forEach(btn => {
+                btn.classList.remove('border-violet-500', 'bg-violet-600/30', 'text-white');
+                btn.classList.add('border-slate-700', 'bg-slate-900/60', 'text-slate-300');
+            });
+            btnElement.classList.remove('border-slate-700', 'bg-slate-900/60', 'text-slate-300');
+            btnElement.classList.add('border-violet-500', 'bg-violet-600/30', 'text-white');
+
+            const data = domains[domainKey];
+            document.getElementById('ex-title').textContent = data.title;
+            document.getElementById('ex-prompt').innerHTML = data.prompt;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            data.options.forEach((opt, index) => {
+                const optBtn = document.createElement('button');
+                optBtn.className = 'quiz-opt w-full text-left p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 text-xs text-slate-300 hover:border-violet-500/50 hover:bg-violet-950/20 transition-all';
+                optBtn.textContent = opt.text;
+                optBtn.onclick = () => checkAnswer(index, opt.correct);
+                optionsContainer.appendChild(optBtn);
+            });
+
+            const feedback = document.getElementById('exercise-feedback');
+            feedback.classList.add('hidden');
+        }
+
+        function checkAnswer(selectedIndex, isCorrect) {
+            const feedback = document.getElementById('exercise-feedback');
+            feedback.classList.remove('hidden');
+
+            if (isCorrect) {
+                feedback.className = 'p-4 rounded-xl text-xs leading-relaxed border bg-emerald-500/10 border-emerald-500/30 text-emerald-300';
+                feedback.innerHTML = '✨ <strong>Correct!</strong> ' + domains[currentDomain].explanation;
+            } else {
+                feedback.className = 'p-4 rounded-xl text-xs leading-relaxed border bg-rose-500/10 border-rose-500/30 text-rose-300';
+                feedback.innerHTML = '❌ <strong>Not quite!</strong> Review the formula and try again or examine the solution below:<br>' + domains[currentDomain].explanation;
+            }
+        }
+
+        function submitLearningForm(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('form-feedback-learn');
+            feedback.classList.remove('hidden');
+            
+            document.getElementById('learning-request-form').reset();
+
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 7000);
+        }
+    </script>
+</body>
+</html>
+```
