@@ -1,0 +1,271 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graceflow Tech | Custom Digital Systems & Workflow Automation</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f3ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                            dark: '#090d16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.25);
+        }
+
+        .glow-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Background Glows -->
+    <div class="glow-bg w-[500px] h-[500px] bg-indigo-600/20 top-0 left-1/2 -translate-x-1/2"></div>
+    <div class="glow-bg w-[350px] h-[350px] bg-purple-600/15 top-[1000px] right-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-white">Graceflow <span class="gradient-text">Tech</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-indigo-400 transition-colors">Why Graceflow</a>
+                <a href="#process" class="hover:text-indigo-400 transition-colors">How It Works</a>
+                <a href="#estimator" class="hover:text-indigo-400 transition-colors">Cost Estimator</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#inquiry-form" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 transition-all duration-200 shadow-md shadow-indigo-600/20 hover:shadow-indigo-600/40 hover:-translate-y-0.5">
+                    Request a System
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-toggle" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800/50 border border-slate-700">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#services" class="block text-slate-300 hover:text-indigo-400 py-1 font-medium">Services</a>
+            <a href="#why-us" class="block text-slate-300 hover:text-indigo-400 py-1 font-medium">Why Graceflow</a>
+            <a href="#process" class="block text-slate-300 hover:text-indigo-400 py-1 font-medium">How It Works</a>
+            <a href="#estimator" class="block text-slate-300 hover:text-indigo-400 py-1 font-medium">Cost Estimator</a>
+            <a href="#inquiry-form" class="block text-center w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600">
+                Request a System
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-indigo-500/30 text-indigo-300 text-xs sm:text-sm font-medium mb-8">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                Empowering Businesses With Tailor-Made Workflows
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
+                Architecting Automated Digital Systems for <span class="gradient-text">Scalable Operations</span>
+            </h1>
+            
+            <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-3xl mx-auto font-normal leading-relaxed">
+                At <strong>Graceflow Tech</strong>, we design and deploy bespoke Notion hubs, AppSheet web & mobile apps, automated Zapier/Make pipelines, and dynamic financial dashboards tailored to your exact business logic.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#inquiry-form" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 transition-all shadow-xl shadow-indigo-600/25 hover:-translate-y-0.5">
+                    Start Your System Build
+                </a>
+                <a href="#estimator" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-slate-300 glass-card hover:bg-slate-800/80 hover:text-white transition-all border border-slate-700/60">
+                    Estimate Scope & Cost
+                </a>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="mt-16 pt-10 border-t border-slate-800/60 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text">15+ Hrs</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Saved per week per team</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Bespoke Architecture</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text">Zero-Code</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Easy client maintenance</div>
+                </div>
+                <div class="p-4 glass-card rounded-2xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white gradient-text">24/7</div>
+                    <div class="text-xs sm:text-sm text-slate-400 mt-1">Automated Operations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section id="services" class="py-24 relative bg-slate-950/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Capabilities & Engineering</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Bespoke Systems We Build for You</p>
+                <p class="text-slate-400 text-sm mt-3">We transform manual tasks and scattered data into integrated, self-sustaining digital engines.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Service 1: Notion Workspaces -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Relational Notion Workspaces</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Connected database hubs tailored for client onboarding portals, project management pipelines, internal SOP repositories, and content planning engines.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Interlinked Client & Project Databases
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Custom Views, Formulas & Progress Trackers
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Client Portal Access & Permission Setup
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#inquiry-form" onclick="selectServiceInForm('Notion Workspace')" class="inline-flex items-center text-sm font-semibold text-indigo-400 hover:text-indigo-300 gap-1">Build a Notion System &rarr;</a>
+                </div>
+
+                <!-- Service 2: Google AppSheet & No-Code Apps -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">AppSheet Mobile & Web Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Turn spreadsheet data into custom cross-platform applications for field reporting, inventory tracking, service booking, and team task management.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Offline Data Sync & Barcode Scanning
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Role-Based Access Control & User Management
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Automated PDF Report & Email Generation
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#inquiry-form" onclick="selectServiceInForm('AppSheet Application')" class="inline-flex items-center text-sm font-semibold text-emerald-400 hover:text-emerald-300 gap-1">Build an AppSheet App &rarr;</a>
+                </div>
+
+                <!-- Service 3: Zapier & Make Automations -->
+                <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Zapier & Make Automation Engines</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Connect your scattered software tools with custom webhook triggers and multi-step workflows. Automatically capture leads, update CRMs, and alert teams.
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-purple-400" fill="
+```
