@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraceFlow Tech | Smart Education & Learning Management Portals</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        gf: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                            dark: '#090d16',
+                            card: '#111827',
+                            border: '#1f2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gf-dark text-slate-200 font-sans antialiased selection:bg-gf-600 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-gf-dark/80 backdrop-blur-xl border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-gf-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-gf-600/30">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold text-white tracking-tight">GraceFlow <span class="text-gf-500">Edu</span></span>
+                        <span class="block text-[10px] text-slate-400 font-medium tracking-widest uppercase -mt-1">People • Processes • Possibilities</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-300">
+                    <a href="#macro-scope" class="hover:text-gf-500 transition">Core Modules</a>
+                    <a href="#micro-scope" class="hover:text-gf-500 transition">Learning Tools</a>
+                    <a href="#pricing" class="hover:text-gf-500 transition">Investment Plans</a>
+                </nav>
+                <div>
+                    <button onclick="openModal()" class="bg-gradient-to-r from-gf-600 to-indigo-600 hover:from-gf-700 hover:to-indigo-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shadow-lg shadow-gf-600/25">
+                        Request Proposal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 bg-gradient-to-b from-gf-dark via-slate-900 to-gf-dark overflow-hidden border-b border-slate-800">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(124,58,237,0.25),rgba(255,255,255,0))]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-flex items-center space-x-2 bg-gf-600/10 border border-gf-500/30 text-gf-500 font-semibold text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-book-open border-b border-gf-500 pb-0.5"></i> <span>Smart Educational & Learning Solutions</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight max-w-4xl mx-auto leading-tight">
+                Empower Classrooms, Students, & Schools with Smart Portals
+            </h1>
+            <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Streamline lesson distribution, diagnostic testing, parent-teacher grading, and student progress tracking with affordable cloud systems.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 1: MACRO SCOPE (Strategic Education Pillars) -->
+    <section id="macro-scope" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold text-gf-500 uppercase tracking-widest">Strategic Pillars</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Macro Scope: Core Academic Modules</h2>
+            <p class="text-slate-400 mt-3 max-w-xl mx-auto">Comprehensive educational platforms designed to digitize academic operations.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Macro Card 1 -->
+            <div class="bg-gf-card rounded-2xl p-6 border border-slate-800 hover:border-gf-500/50 shadow-xl transition group">
+                <div class="w-12 h-12 bg-gf-600/10 rounded-xl flex items-center justify-center text-gf-500 text-xl font-bold mb-5 group-hover:scale-110 transition-transform border border-gf-500/20">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Lesson & Resource Vault</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Centralized library for downloadable worksheets, curriculum guides, and video lessons.</p>
+                <div class="text-[11px] font-semibold text-gf-500 bg-gf-600/10 border border-gf-500/20 px-2.5 py-1 rounded-md inline-block">Module A</div>
+            </div>
+
+            <!-- Macro Card 2 -->
+            <div class="bg-gf-card rounded-2xl p-6 border border-slate-800 hover:border-blue-500/50 shadow-xl transition group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 text-xl font-bold mb-5 group-hover:scale-110 transition-transform border border-blue-500/20">
+                    <i class="fa-solid fa-chart-user"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Student & Parent Portal</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Real-time gradebooks, attendance monitoring, and digital report card access.</p>
+                <div class="text-[11px] font-semibold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md inline-block">Module B</div>
+            </div>
+
+            <!-- Macro Card 3 -->
+            <div class="bg-gf-card rounded-2xl p-6 border border-slate-800 hover:border-emerald-500/50 shadow-xl transition group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-xl font-bold mb-5 group-hover:scale-110 transition-transform border border-emerald-500/20">
+                    <i class="fa-solid fa-square-check"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Diagnostics & Assessment</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Automated online quiz forms, diagnostic testing, and competency tracking.</p>
+                <div class="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md inline-block">Module C</div>
+            </div>
+
+            <!-- Macro Card 4 -->
+            <div class="bg-gf-card rounded-2xl p-6 border border-slate-800 hover:border-amber-500/50 shadow-xl transition group">
+                <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 text-xl font-bold mb-5 group-hover:scale-110 transition-transform border border-amber-500/20">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Interactive Learning Tools</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">Flashcard systems, STEM problem solvers, and math intervention modules.</p>
+                <div class="text-[11px] font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md inline-block">Module D</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MICRO SCOPE (Granular Learning Tools) -->
+    <section id="micro-scope" class="py-20 bg-slate-900/50 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-gf-500 uppercase tracking-widest">Specific Classroom Tools</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Micro Scope: Specific Learning Features</h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">Practical web features tailored for teachers, students, and administrators.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Micro Feature 1 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-upload border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Homework Submission Portal</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Students upload assignments directly from their phone or computer with timestamp tracking.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 2 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-square-poll-vertical border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Automatic Diagnostic Scoring</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Quizzes and diagnostic tests scored instantly, highlighting learning gaps for teachers.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 3 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-calendar-days border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Interactive Class Timetable</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Dynamic schedule showing daily subjects, room assignments, and upcoming exam dates.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 4 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-bell border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Parent Absence Alerts</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Automated background emails or SMS notifying parents when a student is absent.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 5 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-credit-card border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Tuition Fee Tracker</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Simple payment logging system for parents to view installment balances and digital receipts.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 6 -->
+                <div class="bg-gf-card p-5 rounded-2xl border border-slate-800 flex space-x-4">
+                    <div class="text-gf-500 text-xl pt-1"><i class="fa-solid fa-chart-pie border border-gf-500/20 p-2.5 rounded-xl bg-gf-600/10"></i></div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Learning Gap Analytics</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">Visual dashboard showing class proficiency rates in key competencies like Algebra or Statistics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PRICING (MICRO VS. MACRO AFFORDABILITY TIERS) -->
+    <section id="pricing" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-gf-500 uppercase tracking-widest">Affordability Index</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Education System Investment Plans</h2>
+            <p class="text-slate-400 mt-3 max-w-xl mx-auto">Tailored for schools, tutorial centers (Micro) and multi-branch institutions (Macro).</p>
+
+            <!-- CURRENCY SWITCHER TABS -->
+            <div class="mt-8 inline-flex p-1.5 bg-slate-900 border border-slate-800 rounded-2xl space-x-1">
+                <button onclick="setCurrency('PHP')" id="tab-PHP" class="currency-tab px-5 py-2 rounded-xl font-bold text-xs transition shadow bg-gf-600 text-white">
+                    🇵🇭 PHP (₱)
+                </button>
+                <button onclick="setCurrency('USD')" id="tab-USD" class="currency-tab px-5 py-2 rounded-xl font-bold text-xs transition text-slate-400 hover:text-white">
+                    🇺🇸 USD ($)
+                </button>
+                <button onclick="setCurrency('EUR')" id="tab-EUR" class="currency-tab px-5 py-2 rounded-xl font-bold text-xs transition text-slate-400 hover:text-white">
+                    🇪🇺 EUR (€)
+                </button>
+            </div>
+        </div>
+
+        <!-- 1. MICRO TIER PRICING (Schools & Local Learning Centers) -->
+        <div class="mb-16">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full uppercase">Micro Pricing</span>
+                <h3 class="text-xl font-bold text-white">For Schools & Local Learning Centers</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Micro Plan 1 -->
+                <div class="bg-gf-card rounded-2xl border border-slate-800 p-8 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Classroom Resource Hub</h4>
+                        <p class="text-xs text-slate-400 mt-1">Lesson vault & announcements (1 - 2 weeks)</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white price-val" data-php="₱18,000 - ₱35,000" data-usd="$350 - $700" data-eur="€320 - €650">₱18,000 - ₱35,000</span>
+                            <span class="block text-xs text-slate-500 mt-1">One-time build fee • ₱0/mo cloud cost</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 border-t border-slate-800/80 pt-6">
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Digital Lesson & Worksheet Vault</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Interactive Class Schedule & Announcements</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Student & Staff Directory</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal()" class="mt-8 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition">
+                        Select Resource Hub
+                    </button>
+                </div>
+
+                <!-- Micro Plan 2 (Highlighted) -->
+                <div class="bg-gf-card rounded-2xl border-2 border-gf-600 p-8 flex flex-col justify-between shadow-2xl relative">
+                    <div class="absolute -top-3 left-6 bg-gf-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Most Popular
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Smart School Portal</h4>
+                        <p class="text-xs text-slate-400 mt-1">Grades, homework & auto-quizzes (2 - 3 weeks)</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white price-val" data-php="₱45,000 - ₱95,000" data-usd="$900 - $1,800" data-eur="€830 - €1,650">₱45,000 - ₱95,000</span>
+                            <span class="block text-xs text-slate-500 mt-1">One-time build fee • ₱0/mo cloud cost</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 border-t border-slate-800/80 pt-6">
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Everything in Resource Hub</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Parent & Student Grade Portal</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Digital Homework Submissions</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Automated Quiz & Diagnostic Reader</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal()" class="mt-8 w-full py-3 bg-gradient-to-r from-gf-600 to-indigo-600 hover:from-gf-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl transition shadow-lg shadow-gf-600/30">
+                        Select Smart School Portal
+                    </button>
+                </div>
+
+                <!-- Micro Plan 3 -->
+                <div class="bg-gf-card rounded-2xl border border-slate-800 p-8 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Secured Academy Hub</h4>
+                        <p class="text-xs text-slate-400 mt-1">Fee logging & learning analytics (3 - 5 weeks)</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white price-val" data-php="₱100,000 - ₱220,000" data-usd="$2,000 - $4,200" data-eur="€1,850 - €3,900">₱100,000 - ₱220,000</span>
+                            <span class="block text-xs text-slate-500 mt-1">One-time build fee • ₱0/mo cloud cost</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 border-t border-slate-800/80 pt-6">
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Everything in Smart School Portal</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Tuition Fee Payment Logger & Receipts</span></li>
+                            <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-gf-500"></i><span>Custom Learning Gap Visual Analytics</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal()" class="mt-8 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl transition">
+                        Select Academy Hub
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MACRO TIER PRICING (District Systems) -->
+        <div>
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="px-3 py-1 bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-bold rounded-full uppercase">Macro Pricing</span>
+                <h3 class="text-xl font-bold text-white">For Multi-Branch Schools & Educational Districts</h3>
+            </div>
+
+            <div class="bg-gf-card rounded-2xl border border-slate-800 p-8 flex flex-col md:flex-row items-center justify-between shadow-xl">
+                <div class="mb-6 md:mb-0 max-w-2xl">
+                    <h4 class="text-2xl font-bold text-white">District Enterprise LMS Platform</h4>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Full-stack institutional system with AI problem-solving integration, multi-campus student sync, district-wide learning analytics, and legacy school database integration (8 - 16 weeks).
+                    </p>
+                </div>
+                <div class="text-right w-full md:w-auto">
+                    <span class="text-3xl font-extrabold text-white price-val block" data-php="₱1,200,000 - ₱3,000,000+" data-usd="$22,000 - $55,000+" data-eur="€20,000 - €50,000+">₱1,200,000 - ₱3,000,000+</span>
+                    <button onclick="openModal()" class="mt-4 w-full md:w-auto px-6 py-3 bg-gradient-to-r from-gf-600 to-indigo-600 hover:from-gf-700 hover:to-indigo-700 text-white font-bold text-xs rounded-xl transition shadow-lg shadow-gf-600/30">
+                        Request Enterprise Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INQUIRY MODAL -->
+    <div id="proposalModal" class="fixed inset-0 z-50 bg-gf-dark/80 backdrop-blur-md flex items-center justify-center hidden p-4">
+        <div class="bg-gf-card border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-1">Request Edu Proposal</h3>
+            <p class="text-xs text-slate-400 mb-5">Connect with GraceFlow Tech to digitize your educational portal.</p>
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Full Name</label>
+                    <input type="text" required class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-gf-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-gf-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Selected Package</label>
+                    <select class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-gf-600 outline-none">
+                        <option>Micro: Classroom Resource Hub</option>
+                        <option>Micro: Smart School Portal</option>
+                        <option>Micro: Secured Academy Hub</option>
+                        <option>Macro: District Enterprise LMS</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-gf-600 to-indigo-600 hover:from-gf-700 hover:to-indigo-700 text-white font-bold text-sm rounded-xl transition shadow-lg shadow-gf-600/30">
+                    Send Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 py-10 bg-gf-dark text-center">
+        <p class="text-xs text-slate-500">© 2026 GraceFlow Tech. All rights reserved. • People • Processes • Possibilities</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        function setCurrency(currency) {
+            // Update active tab styles
+            document.querySelectorAll('.currency-tab').forEach(tab => {
+                tab.classList.remove('bg-gf-600', 'text-white', 'shadow');
+                tab.classList.add('text-slate-400');
+            });
+            const activeTab = document.getElementById('tab-' + currency);
+            activeTab.classList.add('bg-gf-600', 'text-white', 'shadow');
+            activeTab.classList.remove('text-slate-400');
+
+            // Update prices
+            document.querySelectorAll('.price-val').forEach(el => {
+                if (currency === 'PHP') el.textContent = el.getAttribute('data-php');
+                if (currency === 'USD') el.textContent = el.getAttribute('data-usd');
+                if (currency === 'EUR') el.textContent = el.getAttribute('data-eur');
+            });
+        }
+
+        function openModal() {
+            document.getElementById('proposalModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('proposalModal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your proposal request has been received by GraceFlow Tech.');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
