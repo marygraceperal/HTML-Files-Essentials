@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spreadsheet-Powered Web Apps | Scope & Pricing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        sheet: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sheet-600 to-emerald-700 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-table-cells"></i>
+                    </div>
+                    <span class="text-xl font-extrabold text-slate-900 tracking-tight">SheetApp <span class="text-sheet-600">Builder</span></span>
+                </div>
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#macro-scope" class="hover:text-sheet-600 transition">Macro Scope</a>
+                    <a href="#micro-scope" class="hover:text-sheet-600 transition">Micro Deliverables</a>
+                    <a href="#pricing" class="hover:text-sheet-600 transition">Pricing Plans</a>
+                </nav>
+                <div>
+                    <button onclick="openModal()" class="bg-sheet-600 hover:bg-sheet-700 text-white font-medium text-sm px-5 py-2.5 rounded-lg transition shadow-sm hover:shadow">
+                        Get Proposal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-16 bg-gradient-to-b from-white to-slate-100 overflow-hidden border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-block bg-sheet-50 border border-sheet-200 text-sheet-700 font-semibold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4">
+                Google Sheets & AppSheet Web Apps
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight">
+                Turn Google Sheets into Powerful Web Apps & Client Portals
+            </h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                Zero expensive database hosting fees. Easy for clients to manage, update, and maintain using spreadsheets they already know.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 1: MACRO SCOPE (Strategic Solution Pillars) -->
+    <section id="macro-scope" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-sheet-600 uppercase tracking-widest">Section 01</span>
+            <h2 class="text-3xl font-bold text-slate-900 mt-1">Macro Scope: Core Solutions</h2>
+            <p class="text-slate-600 mt-2 max-w-xl mx-auto">High-level application categories delivered using spreadsheets as the underlying database engine.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Macro Card 1 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 text-xl font-bold mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Internal Dashboards</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">Inventory trackers, lead CRMs, and expense logs updated instantly via Google Sheets.</p>
+                <div class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md inline-block">Category A</div>
+            </div>
+
+            <!-- Macro Card 2 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl font-bold mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Client-Facing Portals</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">Digital menus, property listings, order status portals, and interactive product catalogs.</p>
+                <div class="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md inline-block">Category B</div>
+            </div>
+
+            <!-- Macro Card 3 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-xl font-bold mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Workflow Automations</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">HR leave approval portals, IT ticketing forms, and automated PDF invoice generation.</p>
+                <div class="text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-md inline-block">Category C</div>
+            </div>
+
+            <!-- Macro Card 4 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 text-xl font-bold mb-5 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">AppSheet Mobile Apps</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">Standalone mobile interfaces with offline sync, photo uploads, and field worker tools.</p>
+                <div class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md inline-block">Category D</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MICRO SCOPE (Granular Technical Deliverables) -->
+    <section id="micro-scope" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-sheet-600 uppercase tracking-widest">Section 02</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">Micro Scope: Specific Deliverables</h2>
+                <p class="text-slate-600 mt-2 max-w-xl mx-auto">Technical components engineered into every spreadsheet solution.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Micro Feature 1 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-table"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Spreadsheet Schema Setup</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Clean relational database layout with dropdown validation and protection rules.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 2 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Google Apps Script Triggers</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Automated trigger scripts sending instant email receipts, PDFs, and notifications.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 3 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-plug"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Headless Sheets API Sync</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Real-time data fetching linking Google Sheets as a JSON endpoint to modern frontends.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 4 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Cloudflare Static Deployment</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Fast frontend site hosting on Cloudflare Pages or Vercel with zero database fees.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 5 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-filter"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Real-Time Search & Filtering</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Client-side instant search, multi-category tags, and dynamic record filtering.</p>
+                    </div>
+                </div>
+
+                <!-- Micro Feature 6 -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 flex space-x-4">
+                    <div class="text-sheet-600 text-xl pt-1"><i class="fa-solid fa-user-gear"></i></div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base">Admin Edit Walkthrough</h4>
+                        <p class="text-slate-600 text-xs mt-1 leading-relaxed">Client handoff video explaining how to add, edit, or delete live web app data from Google Drive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PRICING WITH CURRENCY TABS -->
+    <section id="pricing" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-sheet-600 uppercase tracking-widest">Section 03</span>
+            <h2 class="text-3xl font-bold text-slate-900 mt-1">Spreadsheet App Investment Plans</h2>
+            <p class="text-slate-600 mt-2 max-w-xl mx-auto">Select your preferred currency to view fixed implementation pricing.</p>
+
+            <!-- CURRENCY SWITCHER TABS -->
+            <div class="mt-8 inline-flex p-1.5 bg-slate-200 rounded-xl space-x-1">
+                <button onclick="setCurrency('PHP')" id="tab-PHP" class="currency-tab px-5 py-2 rounded-lg font-bold text-sm transition shadow-sm bg-white text-slate-900">
+                    🇵🇭 PHP (₱)
+                </button>
+                <button onclick="setCurrency('USD')" id="tab-USD" class="currency-tab px-5 py-2 rounded-lg font-bold text-sm transition text-slate-600 hover:text-slate-900">
+                    🇺🇸 USD ($)
+                </button>
+                <button onclick="setCurrency('EUR')" id="tab-EUR" class="currency-tab px-5 py-2 rounded-lg font-bold text-sm transition text-slate-600 hover:text-slate-900">
+                    🇪🇺 EUR (€)
+                </button>
+            </div>
+        </div>
+
+        <!-- PRICING CARDS GRID -->
+        <div class="grid md:grid-cols-3 gap-8 items-stretch">
+            
+            <!-- Tier 1: Starter -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between shadow-sm relative">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">Starter Form-to-Sheet</h3>
+                    <p class="text-xs text-slate-500 mt-1">Simple web forms & catalogs (3 - 7 days)</p>
+                    <div class="my-6">
+                        <span class="text-3xl font-extrabold text-slate-900 price-val" data-php="₱8,000 - ₱20,000" data-usd="$150 - $400" data-eur="€140 - €370">₱8,000 - ₱20,000</span>
+                        <span class="block text-xs text-slate-500 mt-1">One-time build cost</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-6">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>1 - 2 Structured Google Sheets</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Web Form / Live Public Catalog</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Instant Email Confirmation Script</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Free Cloudflare / Vercel Hosting</span></li>
+                    </ul>
+                </div>
+                <button onclick="openModal()" class="mt-8 w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm rounded-xl transition">
+                    Choose Starter
+                </button>
+            </div>
+
+            <!-- Tier 2: Professional (Highlighted) -->
+            <div class="bg-white rounded-2xl border-2 border-sheet-600 p-8 flex flex-col justify-between shadow-xl relative scale-105 z-10">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sheet-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Most Popular
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">SME No-Code App</h3>
+                    <p class="text-xs text-slate-500 mt-1">AppSheet or Softr Portal (1 - 2 weeks)</p>
+                    <div class="my-6">
+                        <span class="text-3xl font-extrabold text-slate-900 price-val" data-php="₱25,000 - ₱60,000" data-usd="$500 - $1,200" data-eur="€460 - €1,100">₱25,000 - ₱60,000</span>
+                        <span class="block text-xs text-slate-500 mt-1">One-time build cost</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-6">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Multi-Table Relational Spreadsheet</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>User Login & Role-Based Views</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Automated PDF Invoice Generation</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Mobile & Desktop Responsive App UI</span></li>
+                    </ul>
+                </div>
+                <button onclick="openModal()" class="mt-8 w-full py-3 bg-sheet-600 hover:bg-sheet-700 text-white font-bold text-sm rounded-xl transition shadow">
+                    Choose SME App
+                </button>
+            </div>
+
+            <!-- Tier 3: Enterprise -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between shadow-sm relative">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">Custom API Web App</h3>
+                    <p class="text-xs text-slate-500 mt-1">HTML/Tailwind + Sheets API (2 - 4 weeks)</p>
+                    <div class="my-6">
+                        <span class="text-3xl font-extrabold text-slate-900 price-val" data-php="₱70,000 - ₱150,000" data-usd="$1,500 - $3,000" data-eur="€1,400 - €2,800">₱70,000 - ₱150,000</span>
+                        <span class="block text-xs text-slate-500 mt-1">One-time build cost</span>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-6">
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Fully Custom Branded Web Design</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Google Sheets API / OpenSheet Integration</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>High-Performance Instant Search</span></li>
+                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-sheet-500 text-xs"></i><span>Hosted on Cloudflare with Zero Database Fees</span></li>
+                    </ul>
+                </div>
+                <button onclick="openModal()" class="mt-8 w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm rounded-xl transition">
+                    Choose Custom API
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INQUIRY MODAL -->
+    <div id="proposalModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Request Spreadsheet App Proposal</h3>
+            <p class="text-xs text-slate-500 mb-4">Fill out your contact details to receive a project quote.</p>
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-sheet-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-sheet-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Project Type</label>
+                    <select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-sheet-600 outline-none">
+                        <option>Starter Form-to-Sheet App</option>
+                        <option>SME No-Code AppSheet Portal</option>
+                        <option>Custom API Web App</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-sheet-600 hover:bg-sheet-700 text-white font-bold text-sm rounded-lg transition shadow">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        function setCurrency(currency) {
+            // Update active tab styles
+            document.querySelectorAll('.currency-tab').forEach(tab => {
+                tab.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                tab.classList.add('text-slate-600');
+            });
+            const activeTab = document.getElementById('tab-' + currency);
+            activeTab.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            activeTab.classList.remove('text-slate-600');
+
+            // Update prices
+            document.querySelectorAll('.price-val').forEach(el => {
+                if (currency === 'PHP') el.textContent = el.getAttribute('data-php');
+                if (currency === 'USD') el.textContent = el.getAttribute('data-usd');
+                if (currency === 'EUR') el.textContent = el.getAttribute('data-eur');
+            });
+        }
+
+        function openModal() {
+            document.getElementById('proposalModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('proposalModal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! Your proposal request has been received.');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
