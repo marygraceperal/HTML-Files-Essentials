@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GraceFlow Tech | Digital Systems & Web Applications</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config={
+ theme:{
+  extend:{
+   fontFamily:{sans:["Plus Jakarta Sans","sans-serif"]},
+   colors:{
+    gf:{
+     50:"#faf7ff",
+     100:"#f3edfb",
+     200:"#e4d7f4",
+     500:"#8054ad",
+     600:"#643995",
+     700:"#4b267e",
+     900:"#281447",
+     gold:"#d4a73e",
+     dark:"#281447",
+     card:"#ffffff",
+     border:"#e4d7f4"
+    }
+   }
+  }
+ }
+};
+</script>
+
+<style>
+body{background:#faf7ff;color:#34264b}
+.gradient{
+ background:linear-gradient(135deg,#281447,#4b267e,#643995)
+}
+.gold-text{color:#b18320}
+.gold-bg{background:#d4a73e}
+.product-card{
+ background:white;
+ border:1px solid #e4d7f4;
+ border-radius:20px;
+ transition:.25s;
+ box-shadow:0 8px 30px rgba(40,20,71,.06)
+}
+.product-card:hover{
+ transform:translateY(-4px);
+ border-color:#d4a73e;
+ box-shadow:0 14px 35px rgba(40,20,71,.12)
+}
+.section-label{
+ color:#8054ad;
+ text-transform:uppercase;
+ font-weight:800;
+ letter-spacing:2px;
+ font-size:12px
+}
+.feature-icon{
+ width:48px;height:48px;
+ border-radius:14px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:#f3edfb;
+ color:#4b267e;
+ font-size:20px
+}
+.price{
+ color:#4b267e;
+ font-weight:800;
+ font-size:clamp(23px,3vw,32px)
+}
+.btn-primary{
+ background:#4b267e;
+ color:white;
+ border-radius:12px;
+ padding:13px 20px;
+ font-weight:700;
+ transition:.2s
+}
+.btn-primary:hover{background:#281447}
+.btn-outline{
+ border:1px solid #d4a73e;
+ color:#4b267e;
+ border-radius:12px;
+ padding:13px 20px;
+ font-weight:700
+}
+.btn-outline:hover{background:#fff8e6}
+.badge{
+ display:inline-block;
+ padding:5px 12px;
+ background:#f3edfb;
+ color:#4b267e;
+ border-radius:30px;
+ font-size:11px;
+ font-weight:800
+}
+.check{color:#b18320}
+.table-wrap{overflow-x:auto}
+table{min-width:760px}
+th,td{padding:17px;text-align:left}
+th{background:#4b267e;color:white}
+td{border-bottom:1px solid #e4d7f4}
+tr:nth-child(even){background:#faf7ff}
+input,select,textarea{
+ width:100%;
+ border:1px solid #d8c9e8;
+ border-radius:10px;
+ padding:12px;
+ background:white;
+ color:#281447
+}
+input:focus,select:focus,textarea:focus{
+ outline:2px solid #8054ad
+}
+</style>
+</head>
+
+<body class="font-sans antialiased">
+
+<!-- NAVIGATION -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gf-200">
+<div class="max-w-7xl mx-auto px-5">
+<div class="flex justify-between items-center min-h-20 gap-4">
+
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 gradient rounded-xl flex items-center justify-center text-white text-xl">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div>
+<div class="font-extrabold text-xl text-gf-900">
+GraceFlow <span class="gold-text">Tech</span>
+</div>
+<div class="text-[10px] text-gray-500 uppercase tracking-widest">
+People • Processes • Possibilities
+</div>
+</div>
+</div>
+
+<nav class="hidden md:flex gap-7 text-sm font-semibold text-gf-700">
+<a href="#levels">Product Levels</a>
+<a href="#matrix">Platform Matrix</a>
+<a href="#pricing">Pricing</a>
+<a href="#payments">Payment Options</a>
+</nav>
+
+<a href="#inquiry" class="btn-primary text-xs">
+Request Proposal
+</a>
+
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="gradient text-white py-24 px-5 text-center">
+<div class="max-w-5xl mx-auto">
+
+<div class="inline-block border border-yellow-300/40 bg-white/10 rounded-full px-5 py-2 text-xs font-bold tracking-widest mb-7">
+<i class="fa-solid fa-cubes text-yellow-300"></i>
+ DIGITAL SOLUTIONS
+</div>
+
+<h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-7">
+From Simple Digital Tools to
+<span class="text-yellow-300">
+Enterprise Platforms
+</span>
+</h1>
+
+<p class="text-lg text-purple-100 max-w-3xl mx-auto">
+Explore flexible digital solutions for entrepreneurs,
+schools, organizations, and growing businesses.
+Choose a solution that matches your goals,
+operations, and budget.
+</p>
+
+<div class="mt-9 flex flex-wrap justify-center gap-4">
+<a href="#pricing" class="bg-gf-gold text-gf-900 px-7 py-3 rounded-xl font-bold">
+Explore Packages
+</a>
+<a href="#payments" class="border border-white px-7 py-3 rounded-xl font-bold">
+Payment Arrangements
+</a>
+</div>
+
+<p class="mt-7 text-xs text-purple-200">
+Illustrative product catalog • Proposed prices •
+Subject to feasibility and commercial approval
+</p>
+
+</div>
+</section>
+
+<!-- PRODUCT LEVELS -->
+<section id="levels" class="py-20 px-5">
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-14">
+<div class="section-label">Digital Product Spectrum</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-gf-900 mt-3">
+The Four Levels of Digital Solutions
+</h2>
+<p class="text-gray-600 mt-4">
+Start with simple tools and explore more advanced systems
+as your organization grows.
+</p>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-table"></i>
+</div>
+<span class="badge">LEVEL 1</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Form-to-Sheet Apps
+</h3>
+<p class="text-sm text-gray-600 mt-3">
+Digital catalogs, landing pages, online forms,
+and simple spreadsheet-based tracking tools.
+</p>
+</div>
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-mobile-screen"></i>
+</div>
+<span class="badge">LEVEL 2</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+No-Code Portals
+</h3>
+<p class="text-sm text-gray-600 mt-3">
+Inventory systems, resource directories,
+and internal workflow tools using approved
+third-party platforms.
+</p>
+</div>
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-code"></i>
+</div>
+<span class="badge">LEVEL 3</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Full-Stack Web Apps
+</h3>
+<p class="text-sm text-gray-600 mt-3">
+Custom software with databases, accounts,
+permissions, APIs, and business-specific workflows.
+</p>
+</div>
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-brain"></i>
+</div>
+<span class="badge">LEVEL 4</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Enterprise AI Systems
+</h3>
+<p class="text-sm text-gray-600 mt-3">
+Advanced platform concepts involving AI,
+multi-branch operations, and complex integrations.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PLATFORM MATRIX -->
+<section id="matrix" class="py-20 px-5 bg-gf-100">
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-12">
+<div class="section-label">Compare Solutions</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-gf-900 mt-3">
+Comprehensive Platform Matrix
+</h2>
+<p class="text-gray-600 mt-4">
+Understand the differences between digital solution levels.
+</p>
+</div>
+
+<div class="table-wrap bg-white rounded-2xl border border-gf-200 shadow-sm">
+<table class="w-full text-sm">
+<thead>
+<tr>
+<th>Product Level</th>
+<th>Possible Technologies</th>
+<th>Example Solutions</th>
+<th>Typical Scope</th>
+<th>Recurring Costs</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td class="font-bold text-gf-700">Level 1</td>
+<td>HTML, CSS, JavaScript, Google Sheets</td>
+<td>Catalogs, forms, landing pages</td>
+<td>Small, defined projects</td>
+<td>May qualify for free hosting tiers</td>
+</tr>
+
+<tr>
+<td class="font-bold text-gf-700">Level 2</td>
+<td>AppSheet, Glide, Softr</td>
+<td>Inventory, directories, workflow tracking</td>
+<td>Small team operations</td>
+<td>Third-party subscriptions may apply</td>
+</tr>
+
+<tr>
+<td class="font-bold text-gf-700">Level 3</td>
+<td>Custom frontend, backend, database, APIs</td>
+<td>Private business applications</td>
+<td>Custom requirements and security review</td>
+<td>Hosting and support quoted separately</td>
+</tr>
+
+<tr>
+<td class="font-bold text-gf-700">Level 4</td>
+<td>AI APIs, enterprise integrations</td>
+<td>AI document tools, multi-branch systems</td>
+<td>Enterprise discovery required</td>
+<td>Custom infrastructure and usage fees</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<p class="text-xs text-gray-500 mt-4">
+Technology selection, delivery schedule, and operating
+costs are determined during project assessment.
+</p>
+
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-20 px-5">
+<div class="max-w-7xl mx-auto">
+
+<div class="text-center mb-14">
+<div class="section-label">Transparent Starting Prices</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-gf-900 mt-3">
+Flexible Digital Solution Packages
+</h2>
+<p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+Illustrative Philippine peso prices for planning.
+Final quotations depend on approved requirements.
+</p>
+</div>
+
+<div class="flex items-center gap-3 mb-8">
+<span class="badge">SMALL BUSINESS</span>
+<h3 class="font-bold text-xl text-gf-900">
+For Entrepreneurs, Schools & Small Teams
+</h3>
+</div>
+
+<div class="grid md:grid-cols-3 gap-7 mb-16">
+
+<!-- LEVEL 1 -->
+<div class="product-card p-8 flex flex-col">
+<span class="badge self-start">LEVEL 1</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Business Starter Website
+</h3>
+<p class="text-sm text-gray-500 mt-2">
+One-page public business website
+</p>
+
+<div class="price my-6">₱3,999</div>
+<p class="text-xs text-gray-500">
+Proposed one-time project fee
+</p>
+
+<ul class="space-y-4 text-sm mt-7 mb-8 flex-1">
+<li><i class="fa-solid fa-check check mr-2"></i>One responsive webpage</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Up to four content sections</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Business branding</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Contact and social links</li>
+<li><i class="fa-solid fa-check check mr-2"></i>One minor revision round</li>
+</ul>
+
+<button onclick="selectProduct('Business Starter Website')" class="btn-outline w-full">
+Select Package
+</button>
+</div>
+
+<!-- LEVEL 1 DATA -->
+<div class="product-card p-8 flex flex-col relative border-2 border-gf-600">
+<div class="absolute -top-3 left-6 bg-gf-gold text-gf-900 px-4 py-1 rounded-full text-xs font-bold">
+Featured Option
+</div>
+
+<span class="badge self-start">LEVEL 1 DATA TOOL</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Digital Form & Tracker
+</h3>
+<p class="text-sm text-gray-500 mt-2">
+Simple information collection and tracking
+</p>
+
+<div class="price my-6">₱9,900+</div>
+<p class="text-xs text-gray-500">
+Proposed starting project fee
+</p>
+
+<ul class="space-y-4 text-sm mt-7 mb-8 flex-1">
+<li><i class="fa-solid fa-check check mr-2"></i>One digital form</li>
+<li><i class="fa-solid fa-check check mr-2"></i>One connected spreadsheet</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Basic field validation</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Simple tracking summary</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Basic handover instructions</li>
+</ul>
+
+<button onclick="selectProduct('Digital Form & Tracker')" class="btn-primary w-full">
+Select Package
+</button>
+</div>
+
+<!-- LEVEL 2 -->
+<div class="product-card p-8 flex flex-col">
+<span class="badge self-start">LEVEL 2</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Team Workflow Setup
+</h3>
+<p class="text-sm text-gray-500 mt-2">
+One defined operational workflow
+</p>
+
+<div class="price my-6">₱29,900+</div>
+<p class="text-xs text-gray-500">
+Proposed starting project fee
+</p>
+
+<ul class="space-y-4 text-sm mt-7 mb-8 flex-1">
+<li><i class="fa-solid fa-check check mr-2"></i>Workflow requirements mapping</li>
+<li><i class="fa-solid fa-check check mr-2"></i>One approved workflow</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Tracker or interface setup</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Basic reporting requirements</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Orientation and handover</li>
+</ul>
+
+<button onclick="selectProduct('Team Workflow Setup')" class="btn-outline w-full">
+Select Package
+</button>
+</div>
+
+</div>
+
+<div class="flex items-center gap-3 mb-8">
+<span class="badge">CUSTOM SYSTEMS</span>
+<h3 class="font-bold text-xl text-gf-900">
+For Growing Organizations & Enterprises
+</h3>
+</div>
+
+<div class="grid md:grid-cols-2 gap-7">
+
+<!-- LEVEL 3 -->
+<div class="product-card p-8 flex flex-col">
+<span class="badge self-start">LEVEL 3</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Custom Web Application
+</h3>
+<p class="text-sm text-gray-500 mt-2">
+Tailored software development concept
+</p>
+
+<div class="price my-6">From ₱180,000</div>
+<p class="text-xs text-gray-500">
+Illustrative starting budget; quotation required
+</p>
+
+<ul class="space-y-4 text-sm mt-7 mb-8 flex-1">
+<li><i class="fa-solid fa-check check mr-2"></i>Requirements discovery</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Custom interface and backend scope</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Database design requirements</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Authentication and permission planning</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Security and testing plan</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Deployment and handover scope</li>
+</ul>
+
+<button onclick="selectProduct('Custom Web Application')" class="btn-outline w-full">
+Request Custom Quote
+</button>
+</div>
+
+<!-- LEVEL 4 -->
+<div class="product-card p-8 flex flex-col">
+<span class="badge self-start">LEVEL 4</span>
+<h3 class="text-xl font-bold text-gf-900 mt-4">
+Enterprise AI Ecosystem
+</h3>
+<p class="text-sm text-gray-500 mt-2">
+Advanced enterprise solution concept
+</p>
+
+<div class="price my-6">Custom Quotation</div>
+<p class="text-xs text-gray-500">
+Discovery and technical assessment required
+</p>
+
+<ul class="space-y-4 text-sm mt-7 mb-8 flex-1">
+<li><i class="fa-solid fa-check check mr-2"></i>Multi-branch requirements</li>
+<li><i class="fa-solid fa-check check mr-2"></i>AI document processing assessment</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Enterprise integration planning</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Data protection requirements</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Infrastructure cost analysis</li>
+<li><i class="fa-solid fa-check check mr-2"></i>Phased implementation proposal</li>
+</ul>
+
+<button onclick="selectProduct('Enterprise AI Ecosystem')" class="btn-outline w-full">
+Request Enterprise Quote
+</button>
+</div>
+
+</div>
+
+<div class="mt-10 p-6 bg-gf-100 border-l-4 border-gf-gold rounded-xl text-sm text-gf-900">
+<strong>Important:</strong>
+These are proposed services and illustrative prices.
+They do not indicate that all software capabilities
+are already implemented or available for purchase.
+</div>
+
+</div>
+</section>
+
+<!-- PAYMENT OPTIONS -->
+<section id="payments" class="py-20 px-5 bg-gf-100">
+<div class="max-w-6xl mx-auto">
+
+<div class="text-center mb-12">
+<div class="section-label">Flexible Payment Arrangements</div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-gf-900 mt-3">
+Choose a Payment Schedule
+</h2>
+<p class="text-gray-600 mt-4">
+Payment terms are negotiated and documented
+before work begins.
+</p>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-wallet"></i>
+</div>
+<h3 class="font-bold text-xl text-gf-900">Two Payments</h3>
+<p class="text-sm mt-3">
+50% upon agreement and 50% upon final acceptance.
+</p>
+</div>
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-list-check"></i>
+</div>
+<h3 class="font-bold text-xl text-gf-900">Milestone Payments</h3>
+<p class="text-sm mt-3">
+40% upon agreement, 30% at an approved milestone,
+and 30% upon final acceptance.
+</p>
+</div>
+
+<div class="product-card p-7">
+<div class="feature-icon mb-5">
+<i class="fa-solid fa-handshake"></i>
+</div>
+<h3 class="font-bold text-xl text-gf-900">Negotiated Arrangement</h3>
+<p class="text-sm mt-3">
+Custom schedules may be discussed based on
+scope and agreed deliverables.
+</p>
+</div>
+
+</div>
+
+<div class="product-card p-8 mt-9 max-w-3xl mx-auto">
+<h3 class="text-xl font-bold text-gf-900 mb-5">
+Payment Calculator
+</h3>
+
+<label class="font-semibold text-sm" for="calcProduct">
+Select Package
+</label>
+<select id="calcProduct" class="mt-2 mb-5">
+<option value="3999">Starter Website — ₱3,999</option>
+<option value="9900">Digital Form & Tracker — ₱9,900</option>
+<option value="29900">Team Workflow — ₱29,900</option>
+<option value="180000">Custom Web App — ₱180,000 illustrative</option>
+</select>
+
+<label class="font-semibold text-sm" for="calcPlan">
+Payment Arrangement
+</label>
+<select id="calcPlan" class="mt-2 mb-5">
+<option value="50">50% / 50%</option>
+<option value="40">40% / 30% / 30%</option>
+</select>
+
+<button onclick="calculatePayments()" class="btn-primary w-full">
+Calculate Payment Breakdown
+</button>
+
+<div id="paymentResult" class="bg-gf-100 p-5 rounded-xl mt-6 text-sm" aria-live="polite"></div>
+
+<p class="text-xs text-gray-500 mt-5">
+This calculator is illustrative only.
+It does not process payments or create financing agreements.
+</p>
+</div>
+
+<div class="mt-9 p-6 bg-white border-l-4 border-gf-gold rounded-xl">
+<h3 class="font-bold text-gf-900">Monthly Maintenance</h3>
+<p class="text-sm text-gray-600 mt-2">
+Optional support, hosting management, updates,
+and ongoing services are quoted separately.
+Monthly installments are not the same as
+monthly maintenance fees.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- INQUIRY -->
+<section id="inquiry" class="py-20 px-5">
+<div class="max-w-3xl mx-auto">
+
+<div class="text-center mb-10">
+<div class="section-label">Project Inquiry</div>
+<h2 class="text-3xl font-extrabold text-gf-900 mt-3">
+Tell Us About Your Project
+</h2>
+<p class="text-gray-600 mt-4">
+Prepare a project inquiry for a future consultation.
+</p>
+</div>
+
+<div class="product-card p-8">
+
+<label class="font-semibold text-sm" for="customerName">
+Name or Organization
+</label>
+<input id="customerName" class="mt-2 mb-5" placeholder="Your name or organization">
+
+<label class="font-semibold text-sm" for="customerProduct">
+Interested Solution
+</label>
+<select id="customerProduct" class="mt-2 mb-5">
+<option>Business Starter Website</option>
+<option>Digital Form & Tracker</option>
+<option>Team Workflow Setup</option>
+<option>Custom Web Application</option>
+<option>Enterprise AI Ecosystem</option>
+</select>
+
+<label class="font-semibold text-sm" for="customerDetails">
+Project Requirements
+</label>
+<textarea id="customerDetails" rows="5" class="mt-2" placeholder="Describe what you need"></textarea>
+
+<button onclick="copyInquiry()" class="btn-primary w-full mt-6">
+Copy Inquiry Details
+</button>
+
+<p id="inquiryStatus" class="text-xs text-gray-500 mt-4" aria-live="polite">
+This form prepares text for copying.
+It does not send or store customer information.
+</p>
+
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="gradient text-white py-12 px-5 text-center">
+<h3 class="font-extrabold text-2xl">
+GraceFlow <span class="text-yellow-300">Tech</span>
+</h3>
+
+<p class="text-sm text-purple-100 mt-3">
+People • Processes • Possibilities
+</p>
+
+<p class="text-xs text-purple-200 mt-4">
+Systems • Learning • Automation • Grow
+</p>
+
+<p class="text-xs text-purple-200 mt-7">
+© 2026 GraceFlow Tech. All rights reserved.
+</p>
+</footer>
+
+<script>
+function peso(value){
+ return new Intl.NumberFormat("en-PH",{
+  style:"currency",
+  currency:"PHP"
+ }).format(value);
+}
+
+function calculatePayments(){
+ const total=Number(
+  document.getElementById("calcProduct").value
+ );
+ const plan=document.getElementById("calcPlan").value;
+ const result=document.getElementById("paymentResult");
+
+ let html="<strong>Total Project Fee: "+
+  peso(total)+"</strong><hr class='my-3 border-gf-200'>";
+
+ if(plan==="50"){
+  const first=Math.round(total*50)/100;
+  const second=total-first;
+  html+="<p>Initial Payment (50%): "+
+   peso(first)+"</p>";
+  html+="<p>Final Payment (50%): "+
+   peso(second)+"</p>";
+ }else{
+  const first=Math.round(total*40)/100;
+  const second=Math.round(total*30)/100;
+  const third=total-first-second;
+  html+="<p>Initial Payment (40%): "+
+   peso(first)+"</p>";
+  html+="<p>Second Milestone (30%): "+
+   peso(second)+"</p>";
+  html+="<p>Final Payment (30%): "+
+   peso(third)+"</p>";
+ }
+
+ result.innerHTML=html;
+}
+
+function selectProduct(product){
+ document.getElementById("customerProduct").value=product;
+ document.getElementById("inquiry").scrollIntoView({
+  behavior:"smooth"
+ });
+}
+
+async function copyInquiry(){
+ const name=document.getElementById("customerName").value.trim();
+ const product=document.getElementById("customerProduct").value;
+ const details=document.getElementById("customerDetails").value.trim();
+ const status=document.getElementById("inquiryStatus");
+
+ const message=
+  "GRACEFLOW TECH - PROJECT INQUIRY\n\n"+
+  "Name/Organization: "+(name||"Not provided")+"\n"+
+  "Interested Solution: "+product+"\n"+
+  "Requirements: "+(details||"Not provided");
+
+ try{
+  await navigator.clipboard.writeText(message);
+  status.textContent="Inquiry details copied. You can paste them into your preferred messaging app.";
+ }catch(error){
+  status.textContent="Copy is unavailable in this browser. Please select and copy the information manually.";
+ }
+}
+
+calculatePayments();
+</script>
+
+</body>
+</html>
