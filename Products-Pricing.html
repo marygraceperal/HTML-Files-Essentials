@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GraceFlow Tech | Digital Solutions</title>
+<style>
+:root{
+ --purple:#4b267e;
+ --deep:#281447;
+ --gold:#d4a73e;
+ --lavender:#f3edfb;
+ --text:#30283b;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--text);
+ background:#fbf9fe;
+ line-height:1.6;
+}
+header{
+ background:white;
+ border-bottom:1px solid #e6ddec;
+ padding:16px 5%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+}
+.logo{
+ font-size:23px;
+ font-weight:800;
+ color:var(--purple);
+}
+.logo span{color:#a77b20}
+nav a{
+ margin-left:12px;
+ color:var(--deep);
+ text-decoration:none;
+ font-size:14px;
+}
+.hero{
+ background:linear-gradient(135deg,var(--deep),var(--purple));
+ color:white;
+ text-align:center;
+ padding:75px 20px;
+}
+.hero h1{
+ font-size:clamp(30px,5vw,52px);
+ line-height:1.15;
+ max-width:850px;
+ margin:15px auto;
+}
+.hero p{
+ max-width:650px;
+ margin:12px auto;
+ color:#e8def4;
+}
+section{padding:55px 5%}
+.container{max-width:1150px;margin:auto}
+h2{color:var(--deep);font-size:30px}
+.eyebrow{
+ color:var(--purple);
+ font-size:12px;
+ letter-spacing:1.5px;
+ font-weight:bold;
+ text-transform:uppercase;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:22px;
+ margin-top:28px;
+}
+.card{
+ background:white;
+ border:1px solid #e4d9ed;
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:0 8px 25px #2814470a;
+}
+.card-content{padding:25px}
+.card h3{color:var(--deep);margin:8px 0}
+.price{
+ font-size:29px;
+ color:var(--purple);
+ font-weight:800;
+ margin:10px 0;
+}
+.tag{
+ display:inline-block;
+ color:var(--purple);
+ background:var(--lavender);
+ padding:5px 12px;
+ border-radius:20px;
+ font-size:12px;
+ font-weight:bold;
+}
+ul{padding-left:20px}
+li{margin-bottom:7px}
+.visual{
+ background:linear-gradient(135deg,#eee4fa,#fff8e9);
+ padding:24px;
+ min-height:220px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+.mock{
+ width:100%;
+ max-width:340px;
+ background:white;
+ border:1px solid #dfd3ed;
+ border-radius:12px;
+ overflow:hidden;
+ box-shadow:0 12px 24px #2814471a;
+}
+.mockbar{
+ background:var(--deep);
+ height:24px;
+ display:flex;
+ align-items:center;
+ padding:0 10px;
+ gap:5px;
+}
+.dot{
+ width:6px;
+ height:6px;
+ background:#d9b8f7;
+ border-radius:50%;
+}
+.mockbody{padding:15px}
+.line{
+ height:8px;
+ background:#e7dff0;
+ border-radius:5px;
+ margin-bottom:10px;
+}
+.short{width:45%}
+.medium{width:70%}
+.pill{
+ display:inline-block;
+ background:var(--gold);
+ height:16px;
+ width:65px;
+ border-radius:5px;
+}
+.tiles{display:flex;gap:8px;margin-top:12px}
+.tile{
+ background:#f1e9fa;
+ flex:1;
+ height:55px;
+ border-radius:8px;
+}
+.tile:nth-child(2){background:#f9edcb}
+.tile:nth-child(3){background:#e9e0f5}
+.alt{background:var(--lavender)}
+.note{
+ background:white;
+ border-left:4px solid var(--gold);
+ padding:18px;
+ border-radius:10px;
+ margin-top:22px;
+}
+.payment{
+ background:white;
+ padding:24px;
+ border-radius:16px;
+ border:1px solid #e4d9ed;
+ margin-top:22px;
+}
+select{
+ width:100%;
+ padding:12px;
+ border:1px solid #cfc0df;
+ border-radius:9px;
+ background:white;
+ font-size:15px;
+}
+.btn{
+ display:inline-block;
+ background:var(--purple);
+ color:white;
+ border:0;
+ padding:12px 20px;
+ border-radius:9px;
+ font-weight:bold;
+ cursor:pointer;
+ margin-top:15px;
+}
+.result{
+ margin-top:18px;
+ background:var(--lavender);
+ border-radius:10px;
+ padding:16px;
+}
+footer{
+ background:var(--deep);
+ color:white;
+ text-align:center;
+ padding:30px 20px;
+}
+.small{font-size:13px;color:#6b6274}
+@media(max-width:750px){
+ .grid{grid-template-columns:1fr}
+ section{padding:45px 18px}
+ header{justify-content:center}
+ nav a{margin:0 6px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">GraceFlow <span>Tech</span></div>
+ <nav>
+  <a href="#solutions">Solutions</a>
+  <a href="#payments">Payments</a>
+  <a href="#terms">Terms</a>
+ </nav>
+</header>
+
+<div class="hero">
+ <p>GRACEFLOW TECH • DIGITAL SOLUTIONS</p>
+ <h1>Smart Digital Solutions for Every Stage of Growth</h1>
+ <p>
+  From your first business website to organized
+  digital workflows and custom applications.
+ </p>
+ <p style="font-size:13px">
+  Proposal preview • Prices subject to approval
+ </p>
+</div>
+
+<section id="solutions">
+ <div class="container">
+  <div class="eyebrow">Our Proposed Packages</div>
+  <h2>Choose What Your Business Needs</h2>
+  <p>
+   Clear solutions, practical starting prices,
+   and room to grow.
+  </p>
+
+  <div class="grid">
+
+   <!-- PACKAGE 1 -->
+   <div class="card">
+    <div class="visual">
+     <div class="mock">
+      <div class="mockbar">
+       <span class="dot"></span>
+       <span class="dot"></span>
+       <span class="dot"></span>
+      </div>
+      <div class="mockbody">
+       <div class="line short"></div>
+       <div class="line medium"></div>
+       <div class="line"></div>
+       <span class="pill"></span>
+       <div class="tiles">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="card-content">
+     <span class="tag">Public Website</span>
+     <h3>Business Starter Website</h3>
+     <div class="price">₱3,999</div>
+     <p>Help customers discover your business online.</p>
+     <ul>
+      <li>One responsive webpage</li>
+      <li>Up to four content sections</li>
+      <li>Business colors and branding</li>
+      <li>Contact and social links</li>
+      <li>One minor revision round</li>
+      <li>Basic deployment and handover</li>
+     </ul>
+     <p class="small">One-time proposed build fee.</p>
+    </div>
+   </div>
+
+   <!-- PACKAGE 2 -->
+   <div class="card">
+    <div class="visual">
+     <div class="mock">
+      <div class="mockbar">
+       <span class="dot"></span>
+       <span class="dot"></span>
+       <span class="dot"></span>
+      </div>
+      <div class="mockbody">
+       <div class="line short"></div>
+       <div class="line"></div>
+       <div class="line medium"></div>
+       <div class="tiles">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+       </div>
+       <div class="line medium" style="margin-top:12px"></div>
+      </div>
+     </div>
+    </div>
+    <div class="card-content">
+     <span class="tag">Forms & Data</span>
+     <h3>Digital Form & Tracker</h3>
+     <div class="price">From ₱9,900</div>
+     <p>
+      Collect information and organize it
+      into a simple tracking workflow.
+     </p>
+     <ul>
+      <li>One digital form</li>
+      <li>One connected spreadsheet</li>
+      <li>Basic input validation</li>
+      <li>Simple tracking summary</li>
+      <li>One review round</li>
+      <li>Usage instructions</li>
+     </ul>
+     <p class="small">
+      Integrations require feasibility review.
+     </p>
+    </div>
+   </div>
+
+   <!-- PACKAGE 3 -->
+   <div class="card">
+    <div class="visual">
+     <div class="mock">
+      <div class="mockbar">
+       <span class="dot"></span>
+       <span class="dot"></span>
+       <span class="dot"></span>
+      </div>
+      <div class="mockbody">
+       <div class="line medium"></div>
+       <div class="tiles">
+        <div class="tile">
+        </div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+       </div>
+       <div class="line" style="margin-top:15px"></div>
+       <div class="line short"></div>
+      </div>
+     </div>
+    </div>
+    <div class="card-content">
+     <span class="tag">Team Operations</span>
+     <h3>Team Workflow Setup</h3>
+     <div class="price">From ₱29,900</div>
+     <p>
+      Organize one repeatable team process
+      with an agreed digital tool.
+     </p>
+     <ul>
+      <li>One defined workflow</li>
+      <li>Requirements and process mapping</li>
+      <li>Tracker or interface configuration</li>
+      <li>Basic reporting requirements</li>
+      <li>Handover and orientation</li>
+      <li>Platform costs assessed separately</li>
+     </ul>
+     <p class="small">
+      Not a custom secure portal.
+     </p>
+    </div>
+   </div>
+
+   <!-- PACKAGE 4 -->
+   <div class="card">
+    <div class="visual">
+     <div class="mock">
+      <div class="mockbar">
+       <span class="dot"></span>
+       <span class="dot"></span>
+       <span class="dot"></span>
+      </div>
+      <div class="mockbody">
+       <div class="line short"></div>
+       <div class="tiles">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+       </div>
+       <div class="line" style="margin-top:15px"></div>
+       <div class="line medium"></div>
+      </div>
+     </div>
+    </div>
+    <div class="card-content">
+     <span class="tag">Custom Development Concept</span>
+     <h3>Custom Web Application</h3>
+     <div class="price">From ₱180,000</div>
+     <p>
+      A custom software project designed
+      around approved business requirements.
+     </p>
+     <ul>
+      <li>Requirements and architecture planning</li>
+      <li>Custom frontend and backend scope</li>
+      <li>Database requirements</li>
+      <li>Authentication and authorization planning</li>
+      <li>Security and integration testing scope</li>
+      <li>Deployment and support planning</li>
+     </ul>
+     <p class="small">
+      Final quotation only after discovery.
+      Not a confirmed ready-to-sell product.
+     </p>
+    </div>
+   </div>
+
+  </div>
+
+  <div class="note">
+   <strong>Enterprise solutions:</strong>
+   Multi-branch platforms, complex integrations,
+   and AI-enabled systems require custom quotations
+   and separate technical approval.
+  </div>
+ </div>
+</section>
+
+<section id="payments" class="alt">
+ <div class="container">
+  <div class="eyebrow">Flexible Arrangements</div>
+  <h2>Payment Options</h2>
+  <p>
+   Illustrative arrangements that can be
+   discussed before a project begins.
+  </p>
+
+  <div class="grid">
+
+   <div class="card">
+    <div class="card-content">
+     <h3>50% / 50%</h3>
+     <p>Two milestone payments.</p>
+     <ul>
+      <li>50% upon approved agreement</li>
+      <li>50% upon final acceptance</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="card-content">
+     <h3>40% / 30% / 30%</h3>
+     <p>Three milestone payments.</p>
+     <ul>
+      <li>40% upon approved agreement</li>
+      <li>30% at agreed development milestone</li>
+      <li>30% upon final acceptance</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="card-content">
+     <h3>Negotiated Schedule</h3>
+     <p>
+      A custom payment schedule may be
+      agreed in writing based on scope,
+      deliverables, and project milestones.
+     </p>
+    </div>
+   </div>
+
+  </div>
+
+  <div class="payment">
+   <h3>Illustrative Payment Calculator</h3>
+
+   <label for="package">Choose package</label>
+   <select id="package">
+    <option value="3999">Starter Website — ₱3,999</option>
+    <option value="9900">Digital Form — ₱9,900</option>
+    <option value="29900">Team Workflow — ₱29,900</option>
+    <option value="180000">Custom App — ₱180,000 illustrative</option>
+   </select>
+
+   <p></p>
+
+   <label for="plan">Payment arrangement</label>
+   <select id="plan">
+    <option value="two">50% / 50%</option>
+    <option value="three">40% / 30% / 30%</option>
+   </select>
+
+   <button class="btn" onclick="calculate()">
+    Calculate Payments
+   </button>
+
+   <div class="result" id="result" aria-live="polite">
+    Choose a package and calculate the breakdown.
+   </div>
+
+   <p class="small">
+    This calculator does not collect payments.
+    Amounts are based on proposed starting prices.
+   </p>
+  </div>
+
+  <div class="note">
+   <strong>Monthly payments vs. maintenance:</strong>
+   Installments divide the agreed project fee.
+   Optional monthly maintenance is a separate
+   service and requires its own written agreement.
+  </div>
+ </div>
+</section>
+
+<section id="terms">
+ <div class="container">
+  <div class="eyebrow">Project Transparency</div>
+  <h2>What's Included and What's Separate?</h2>
+
+  <div class="grid">
+   <div class="card">
+    <div class="card-content">
+     <h3>Included in Agreed Scope</h3>
+     <ul>
+      <li>Approved project deliverables</li>
+      <li>Specified revision rounds</li>
+      <li>Agreed testing and review</li>
+      <li>Handover documentation</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="card-content">
+     <h3>Quoted Separately</h3>
+     <ul>
+      <li>Domain and paid hosting</li>
+      <li>Third-party subscriptions</li>
+      <li>Extra pages and features</li>
+      <li>Additional revisions</li>
+      <li>Monthly maintenance</li>
+      <li>Special security or compliance work</li>
+     </ul>
+    </div>
+   </div>
+  </div>
+
+  <div class="note">
+   All packages and prices are internal
+   planning proposals. Actual availability,
+   delivery timelines, security requirements,
+   and payment terms require approval
+   before commercial offering.
+  </div>
+ </div>
+</section>
+
+<footer>
+ <h3>GraceFlow Tech</h3>
+ <p>People • Processes • Possibilities</p>
+ <p>Systems • Learning • Automation • Grow</p>
+ <p style="font-size:12px">
+  © 2026 GraceFlow Tech.
+  Digital Solutions Proposal.
+ </p>
+</footer>
+
+<script>
+function peso(amount){
+ return new Intl.NumberFormat("en-PH",{
+  style:"currency",
+  currency:"PHP"
+ }).format(amount);
+}
+
+function calculate(){
+ const price=Number(
+  document.getElementById("package").value
+ );
+ const plan=document.getElementById("plan").value;
+ const result=document.getElementById("result");
+
+ if(plan==="two"){
+  const first=Math.round(price*0.5*100)/100;
+  const final=price-first;
+  result.innerHTML=
+   "<strong>Total: "+peso(price)+"</strong>"+
+   "<p>Initial payment: "+peso(first)+"</p>"+
+   "<p>Final payment: "+peso(final)+"</p>";
+ }else{
+  const first=Math.round(price*0.4*100)/100;
+  const second=Math.round(price*0.3*100)/100;
+  const final=price-first-second;
+  result.innerHTML=
+   "<strong>Total: "+peso(price)+"</strong>"+
+   "<p>Initial payment: "+peso(first)+"</p>"+
+   "<p>Second milestone: "+peso(second)+"</p>"+
+   "<p>Final payment: "+peso(final)+"</p>";
+ }
+}
+calculate();
+</script>
+
+</body>
+</html>
